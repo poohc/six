@@ -1,4 +1,4 @@
-package com.icon.six.main;
+package com.icon.six.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,4 +34,5 @@ public class MainController {
 		
 		return mav;
 	}
+	
 }

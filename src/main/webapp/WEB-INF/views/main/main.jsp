@@ -54,7 +54,7 @@
                     <input type="text" class="password_input" placeholder="비밀번호">
                     <button class="login_btn">로그인</button>
                     <a href="#" class="id_search">아이디/비밀번호찾기</a>
-                    <a href="#" class="join">회원가입</a>
+                    <a href="/member/memberNotice.do" class="join">회원가입</a>
                 </div>
                 <div class="rolling_movie">
                     <div class="rolling2">
