@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+    
+    <select id="chkExistMemberId" parameterType="String" resultType="Integer">
+		SELECT COUNT(*)
+		  FROM SIX_MEMBER               
+		 WHERE ID = #{id}
+    </select>
+    
+    <select id="chkExistMemberEmail" parameterType="String" resultType="Integer">
+		SELECT COUNT(*)
+		  FROM SIX_MEMBER               
+		 WHERE EMAIL = #{email}
+    </select>
+    
+ 	<insert id="insertMember" parameterType="java.util.HashMap">
+		INSERT INTO SIX_MEMBER(
+							   id,
+							   password,
+							   name,
+							   birthday,
+							   cellphone,
+							   nickname,
+							   email,
+							   gender,
+							   terms1_agree,
+							   terms2_agree,
+							   auth,
+							   create_date
+							  )
+					    VALUES(
+					     	   #{id},
+					     	   #{password},
+							   #{name},
+							   #{birthday},
+							   #{cellphone},
+							   #{nickname},
+							   #{email},
+							   #{gender},
+							   #{terms1_agree},
+							   #{terms2_agree},
+							   #{auth},
+							   now()
+					     	  ) 	 	    
+ 	</insert>
+     
+</mapper>
