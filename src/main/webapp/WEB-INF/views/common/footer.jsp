@@ -106,3 +106,140 @@
 			</div>
         </div>
 	</footer>
+<script>
+/**********************************************************************************/
+// 팝업창 닫기
+/**********************************************************************************/
+$(".top_banner").delay(200).slideDown();
+$("#close_top_notice").click(close_notice)
+function close_notice(){
+    $(".top_banner").slideUp();
+}
+
+/* * * * * * * * * * * * * * * * * * * * *
+메인비주얼 슬라이드
+* * * * * * * * * * * * * * * * * * * * */
+    var pic_l = $(".visual .pic li").length;
+    for(var i=0; i<pic_l; i++){
+        $(".visual .btn").append("<div><span>"+(i+1)+"</span></div>");
+    }
+    $(".visual .btn").append("<a class='stop'></a>");
+
+    var bi;
+    var ran = Math.floor(Math.random() * pic_l);
+    bi = ran;
+    $(".visual .pic li").eq(bi).addClass("ch");
+    $(".visual .btn div").eq(bi).addClass("ch");
+
+    $(".visual .btn div").click(function(){
+        if(!$(this).is(".ch")){
+            bi = $(this).index();
+            $(".visual .btn div").removeClass("ch");
+            $(this).addClass("ch");
+            $(".visual .pic li.ch").animate({"left":"-100%"}, 300).removeClass("ch");
+            $(".visual .pic li").eq(bi).css("left","100%").animate({"left":"0"}, 300).addClass("ch");
+        }
+    });
+    $(".visual .prev").click(function(){
+        bi--;
+        if(bi < 0){bi=pic_l-1;}
+        $(".visual .btn div").eq(bi).click();
+    });
+    $(".visual .next").click(function(){
+        bi++;
+        if(bi >= pic_l){bi=0;}
+        $(".visual .btn div").eq(bi).click();
+    });
+
+    var autoset;
+    function autoRun(){
+        autoset = setTimeout(function(){
+            $(".visual .next").click();
+            autoRun();
+        }, 3000);
+    }autoRun();
+    var stg = 0;
+    $(".visual .btn").on("click", ".stop", function(){
+        $(this).removeClass().addClass("gogo");
+        stg = 0;
+        clearTimeout(autoset);
+    });
+    $(".visual .btn").on("click", ".gogo", function(){
+        if(stg == 0){
+            $(this).removeClass().addClass("stop");
+            stg = 1;
+            $(".visual .next").click();
+            autoRun();
+        }
+    });
+    $(".visual .dir span").click(function(){
+        $(".visual .stop").click();
+    });
+    $(".visual .btn div span").click(function(){
+        $(".visual .stop").click();
+    });
+
+/* * * * * * * * * * * * * * * * * * * * *
+비주얼  슬라이드2
+* * * * * * * * * * * * * * * * * * * * */
+var pic_ls = $(".visuals .pic li").length;
+for(var i=0; i<pic_ls; i++){
+    $(".visuals .btn").append("<div><span>"+(i+1)+"</span></div>");
+}
+$(".visuals .btn").append("<a class='stop'></a>");
+
+var bis;
+var rans = Math.floor(Math.random() * pic_ls);
+bis = rans;
+$(".visuals .pic li").eq(bis).addClass("ch");
+$(".visuals .btn div").eq(bis).addClass("ch");
+
+$(".visuals .btn div").click(function(){
+    if(!$(this).is(".ch")){
+        bis = $(this).index();
+        $(".visuals .btn div").removeClass("ch");
+        $(this).addClass("ch");
+        $(".visuals .pic li.ch").animate({"left":"-100%"}, 300).removeClass("ch");
+        $(".visuals .pic li").eq(bis).css("left","100%").animate({"left":"0"}, 300).addClass("ch");
+    }
+});
+$(".visuals .prev").click(function(){
+    bis--;
+    if(bis < 0){bis=pic_ls-1;}
+    $(".visuals .btn div").eq(bis).click();
+});
+$(".visuals .next").click(function(){
+    bis++;
+    if(bis >= pic_ls){bis=0;}
+    $(".visuals .btn div").eq(bis).click();
+});
+
+var autosets;
+function autoRuns(){
+    autosets = setTimeout(function(){
+        $(".visuals .next").click();
+        autoRuns();
+    }, 3000);
+}autoRuns();
+
+var stgs = 0;
+$(".visuals .btn").on("click", ".stop", function(){
+    $(this).removeClass().addClass("gogo");
+    stgs = 0;
+    clearTimeout(autosets);
+});
+$(".visuals .btn").on("click", ".gogo", function(){
+    if(stgs == 0){
+        $(this).removeClass().addClass("stop");
+        stgs = 1;
+        $(".visuals .next").click();
+        autoRuns();
+    }
+});
+$(".visuals .dir span").click(function(){
+    $(".visuals .stop").click();
+});
+$(".visuals .btn div span").click(function(){
+    $(".visuals .stop").click();
+});
+</script>	

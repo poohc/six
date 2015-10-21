@@ -5,6 +5,17 @@
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#mainBtn').click(function(){
+		
+	});
+	
+	$('#loginBtn').click(function(){
+		
+	});
+});
+</script>
 </head>
 <body>
 <div class="wrapper main">
@@ -16,10 +27,10 @@
         <div class="container">
             <div class="combine type2">
                 <p class="title_type2">회원가입 03</p>
-                <img src="../../img/join_done.jpg" alt="" class="join_done">
+                <img src="/resources/img/join_done.jpg" alt="" class="join_done">
                 <div class="center_btn">
-                    <button class="btn_cancel">메인으로</button>
-                    <button class="btn_ok">로그인</button>
+                    <button class="btn_cancel" type="button" id="mainBtn">메인으로</button>
+                    <button class="btn_ok" type="button" id="loginBtn">로그인</button>
                 </div>
             </div>
             <!-- Left Side -->

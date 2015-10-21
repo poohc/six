@@ -6,7 +6,7 @@
 <head>
 <jsp:include page="../common/common.jsp" />
 <script type="text/javascript">
-$(document).ready(function() {
+$(document).ready(function(){
 	
 	var date = new Date();
 	

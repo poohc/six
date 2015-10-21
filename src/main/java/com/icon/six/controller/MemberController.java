@@ -78,9 +78,11 @@ public class MemberController extends DefaultController{
 				
 				birthDay = birthDay + month + day; 
 				
+				CipherUtil cipherUtil = CipherUtil.getInstance();
+				
 				Map<String, Object> paramMap = new HashMap<String, Object>();
 				paramMap.put("id", requestMap.get("memId"));
-				paramMap.put("password", CipherUtil.AES_Encode(requestMap.get("password")));
+				paramMap.put("password", cipherUtil.AES_Encode(requestMap.get("password")));
 				paramMap.put("name", requestMap.get("name"));
 				paramMap.put("birthday", birthDay);
 				paramMap.put("cellphone", requestMap.get("cellPhone1") + requestMap.get("cellPhone2") + requestMap.get("cellPhone3"));

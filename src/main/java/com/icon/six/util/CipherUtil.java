@@ -64,7 +64,7 @@ public class CipherUtil {
 	
 	public static void main(String[] args){
 			
-	     String id = "testid";
+	     String id = "1234";
 		 String custrnmNo = "111111";
 		 String custNm = "테스트";       
 		
