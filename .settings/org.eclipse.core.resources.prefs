@@ -1,6 +1,16 @@
 eclipse.preferences.version=1
 encoding//src/main/webapp/WEB-INF/properties/log4j.properties=UTF-8
+encoding//src/main/webapp/WEB-INF/views/academy/academy_istrategy.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/academy/academy_lcenter.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/academy/academy_main.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/academy/academy_nsubscribe.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/academy/academy_snote.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/common/academy_menu.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/common/footer.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/common/login_common.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/company/aboutCompany.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/info/info_freeRec.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/info/info_main.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/introduce/intro_six.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/introduce/notice_list.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/introduce/notice_view.jsp=UTF-8

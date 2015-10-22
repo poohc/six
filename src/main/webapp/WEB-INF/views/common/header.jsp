@@ -40,10 +40,10 @@
 								</li>
 								<li>
 									<ul>
-                                        <li><a href="">SIX 주식배움터</a></li>
-                                        <li><a href="">SIX 투자전략</a></li>
-                                        <li><a href="">SIX 탐방노트</a></li>
-                                        <li><a href="">필수구독자료</a></li>
+                                        <li><a href="/academy/academyLearningCenter.do">SIX 주식배움터</a></li>
+                                        <li><a href="/academy/academyInvestStrategy.do">SIX 투자전략</a></li>
+                                        <li><a href="/academy/academySearchNote.do">SIX 탐방노트</a></li>
+                                        <li><a href="/academy/academyNecessarySubscribe.do">필수구독자료</a></li>
 									</ul>
 								</li>
                                 <li>
@@ -93,7 +93,7 @@
 						</div>
 						<!-- 2뎁스 끝 -->
 					</li>
-					<li><a href="" class="btnPullDown">SIX 아카데미</a>
+					<li><a href="/academy/academyMain.do" class="btnPullDown">SIX 아카데미</a>
                         <!-- 2뎁스 시작 -->
                         <div class="navigation_s2 pullDown">
                             <span class="arrow_s2"></span>
@@ -106,10 +106,10 @@
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 주식배움터</a></li>
-                                        <li><a href="">SIX 투자전략</a></li>
-                                        <li><a href="">SIX 탐방노트</a></li>
-                                        <li><a href="">필수구독자료</a></li>
+                                        <li><a href="/academy/academyLearningCenter.do">SIX 주식배움터</a></li>
+                                        <li><a href="/academy/academyInvestStrategy.do">SIX 투자전략</a></li>
+                                        <li><a href="/academy/academySearchNote.do">SIX 탐방노트</a></li>
+                                        <li><a href="/academy/academyNecessarySubscribe.do">필수구독자료</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -172,10 +172,10 @@
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 주식배움터</a></li>
-                                        <li><a href="">SIX 투자전략</a></li>
-                                        <li><a href="">SIX 탐방노트</a></li>
-                                        <li><a href="">필수구독자료</a></li>
+                                        <li><a href="/academy/academyLearningCenter.do">SIX 주식배움터</a></li>
+                                        <li><a href="/academy/academyInvestStrategy.do">SIX 투자전략</a></li>
+                                        <li><a href="/academy/academySearchNote.do">SIX 탐방노트</a></li>
+                                        <li><a href="/academy/academyNecessarySubscribe.do">필수구독자료</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -238,10 +238,10 @@
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 주식배움터</a></li>
-                                        <li><a href="">SIX 투자전략</a></li>
-                                        <li><a href="">SIX 탐방노트</a></li>
-                                        <li><a href="">필수구독자료</a></li>
+                                        <li><a href="/academy/academyLearningCenter.do">SIX 주식배움터</a></li>
+                                        <li><a href="/academy/academyInvestStrategy.do">SIX 투자전략</a></li>
+                                        <li><a href="/academy/academySearchNote.do">SIX 탐방노트</a></li>
+                                        <li><a href="/academy/academyNecessarySubscribe.do">필수구독자료</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -304,10 +304,10 @@
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 주식배움터</a></li>
-                                        <li><a href="">SIX 투자전략</a></li>
-                                        <li><a href="">SIX 탐방노트</a></li>
-                                        <li><a href="">필수구독자료</a></li>
+                                        <li><a href="/academy/academyLearningCenter.do">SIX 주식배움터</a></li>
+                                        <li><a href="/academy/academyInvestStrategy.do">SIX 투자전략</a></li>
+                                        <li><a href="/academy/academySearchNote.do">SIX 탐방노트</a></li>
+                                        <li><a href="/academy/academyNecessarySubscribe.do">필수구독자료</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -370,10 +370,10 @@
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 주식배움터</a></li>
-                                        <li><a href="">SIX 투자전략</a></li>
-                                        <li><a href="">SIX 탐방노트</a></li>
-                                        <li><a href="">필수구독자료</a></li>
+                                        <li><a href="/academy/academyLearningCenter.do">SIX 주식배움터</a></li>
+                                        <li><a href="/academy/academyInvestStrategy.do">SIX 투자전략</a></li>
+                                        <li><a href="/academy/academySearchNote.do">SIX 탐방노트</a></li>
+                                        <li><a href="/academy/academyNecessarySubscribe.do">필수구독자료</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -436,10 +436,10 @@
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 주식배움터</a></li>
-                                        <li><a href="">SIX 투자전략</a></li>
-                                        <li><a href="">SIX 탐방노트</a></li>
-                                        <li><a href="">필수구독자료</a></li>
+                                        <li><a href="/academy/academyLearningCenter.do">SIX 주식배움터</a></li>
+                                        <li><a href="/academy/academyInvestStrategy.do">SIX 투자전략</a></li>
+                                        <li><a href="/academy/academySearchNote.do">SIX 탐방노트</a></li>
+                                        <li><a href="/academy/academyNecessarySubscribe.do">필수구독자료</a></li>
                                     </ul>
                                 </li>
                                 <li>
