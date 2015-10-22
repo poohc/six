@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,8 +24,10 @@ import com.icon.six.util.StringUtil;
 @RequestMapping("member")
 public class MemberController extends DefaultController{
 	
+	Logger logger = Logger.getLogger(this.getClass());
+	
 	@Resource
-	MemberService memberSerivce;
+	private MemberService memberService;
 	
 	@RequestMapping(value = "memberNotice.do")
 	public ModelAndView member_notice(HttpServletRequest request, HttpServletResponse response){
@@ -89,16 +92,16 @@ public class MemberController extends DefaultController{
 				paramMap.put("nickname", requestMap.get("nickName"));
 				paramMap.put("email", requestMap.get("email1")+"@"+requestMap.get("email2"));
 				paramMap.put("gender", requestMap.get("gender"));
-				paramMap.put("auth", CommonConstant.AUTH_MEMBER);
+				paramMap.put("authority", CommonConstant.AUTH_USER);
 				
-				int result = memberSerivce.insertMember(paramMap);
+				String result = memberService.insertMember(paramMap);
 				
-				if(result == 0){
+				if("fail".equals(result)){
 					// TODO: 에러 페이지 호출
-				} 
+				}				
 			}
 		} catch (Exception e) {
-
+			logger.debug("======회원 가입 컨트롤 오류 발생======");
 		}
 		
 		return mav;
@@ -119,7 +122,7 @@ public class MemberController extends DefaultController{
 		String result = "";
 		
 		if(!"".equals(memId)){
-			idCount = memberSerivce.chkExistMemberId(memId);
+			idCount = memberService.chkExistMemberId(memId);
 			
 			if(idCount == 0){
 				result = "T";
@@ -152,7 +155,7 @@ public class MemberController extends DefaultController{
 		String email = tempEmail1 + "@" + tempEmail2;
 		
 		if(!"".equals(email)){
-			idCount = memberSerivce.chkExistMemberEmail(email);
+			idCount = memberService.chkExistMemberEmail(email);
 			
 			if(idCount == 0){
 				result = "T";

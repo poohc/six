@@ -5,6 +5,22 @@
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#loginBtn').click(function(){
+			if($('#j_username').val() == ''){
+				alert('ID를 입력해주세요');
+				return false;
+			}
+			if($('#j_password').val() == ''){
+				alert('비밀번호를 입력해주세요');
+				return false;
+			}
+			
+			$('#loginForm').submit();			
+		});	
+	});
+</script>
 </head>
 <body>
 <div class="wrapper main">
@@ -49,13 +65,15 @@
                 </div>
             </div>
             <div class="visual_movie">
+            	<form id="loginForm" action="j_spring_security_check" method="post">
                 <div class="login_box">
-                    <input type="text" class="id_input" placeholder="아이디">
-                    <input type="text" class="password_input" placeholder="비밀번호">
+                    <input type="text" class="id_input" placeholder="아이디"  id="j_username" name="j_username">
+                    <input type="text" class="password_input" placeholder="비밀번호" id="j_password" name="j_password">
                     <button class="login_btn">로그인</button>
-                    <a href="#" class="id_search">아이디/비밀번호찾기</a>
+                    <a href="/login/login.do" class="id_search">아이디/비밀번호찾기</a>
                     <a href="/member/memberNotice.do" class="join">회원가입</a>
                 </div>
+                </form>
                 <div class="rolling_movie">
                     <div class="rolling2">
                         <div class="banner_list_box">

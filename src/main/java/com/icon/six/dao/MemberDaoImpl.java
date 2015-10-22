@@ -5,25 +5,35 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
-@Repository("memberDao")
+@Repository
 public class MemberDaoImpl extends SqlSessionDao implements MemberDao{
 
 	@Override
-	public List<String> getMemberInfo() {
-		// TODO Auto-generated method stub
-		return null;
+	public Map<String, Object> getMemberInfo() {
+		return (Map<String, Object>) selectOne("member.getMemberInfo");
 	}
+	
+	@Override
+	public List<String> getMemberAuth() {
+		return selectList("member.getMemberAuth");
+	}		
+	
 	@Override
 	public List<Map<String, Object>> getMemberList() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
 	public int insertMember(Map<String, Object> memberInfo) {
 		return (Integer) insert("member.insertMember", memberInfo);		
 	}
-
+	
+	@Override
+	public int insertAuthority(Map<String, Object> memberInfo) {
+		return (Integer) insert("member.insertAuthority", memberInfo);
+	}
+	
 	@Override
 	public int updateMember(Map<String, Object> memberInfo) {
 		return (Integer) update("member.updateMember", memberInfo);
@@ -43,5 +53,6 @@ public class MemberDaoImpl extends SqlSessionDao implements MemberDao{
 	@Override
 	public int chkExistMemberEmail(String email) {
 		return (Integer) selectOne("member.chkExistMemberEmail",email);
-	}		
+	}
+	
 }

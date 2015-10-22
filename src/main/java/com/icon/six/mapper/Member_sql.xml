@@ -2,6 +2,50 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
     
+    <resultMap id="memberInfo" type="java.util.HashMap">
+        <result javaType="java.lang.String" column="SEQ" property="seq"/>
+        <result javaType="java.lang.String" column="ID" property="id"/>
+        <result javaType="java.lang.String" column="PASSWORD" property="password"/>
+        <result javaType="java.lang.String" column="NAME" property="name"/>
+        <result javaType="java.lang.String" column="BIRTHDAY" property="birthday"/>
+        <result javaType="java.lang.String" column="CELLPHONE" property="cellPhone"/>
+        <result javaType="java.lang.String" column="NICKNAME" property="nickName"/>
+        <result javaType="java.lang.String" column="EMAIL" property="email"/>
+        <result javaType="java.lang.String" column="GENDER" property="gender"/>
+        <result javaType="java.lang.String" column="TERMS1" property="terms1"/>
+        <result javaType="java.lang.String" column="TERMS1_AGREE" property="terms1Agree"/>
+        <result javaType="java.lang.String" column="TERMS2" property="terms2"/>
+        <result javaType="java.lang.String" column="TERMS2_AGREE" property="terms2Agree"/>
+        <result javaType="java.lang.String" column="CREATE_DATE" property="createDate"/>
+        <result javaType="java.lang.String" column="UPDATE_DATE" property="updateDate"/>
+    </resultMap>
+    
+    <select id="getMemberInfo" parameterType="String" resultMap="memberInfo">
+        SELECT SEQ,
+               ID,
+			   PASSWORD,
+			   NAME,
+			   BIRTHDAY,
+			   CELLPHONE,
+			   NICKNAME,
+			   EMAIL,
+			   GENDER,
+			   TERMS1,
+			   TERMS1_AGREE,
+			   TERMS2,
+			   TERMS2_AGREE,
+			   CREATE_DATE,
+			   UPDATE_DATE
+          FROM SIX_MEMBER
+         WHERE ID = #{id}
+    </select>
+    
+    <select id="getMemberAuth" parameterType="String" resultType="String">
+        SELECT AUTHORITY
+          FROM SIX_AUTHORITY
+         WHERE ID = #{id}
+    </select>
+    
     <select id="chkExistMemberId" parameterType="String" resultType="Integer">
 		SELECT COUNT(*)
 		  FROM SIX_MEMBER               
@@ -16,18 +60,17 @@
     
  	<insert id="insertMember" parameterType="java.util.HashMap">
 		INSERT INTO SIX_MEMBER(
-							   id,
-							   password,
-							   name,
-							   birthday,
-							   cellphone,
-							   nickname,
-							   email,
-							   gender,
-							   terms1_agree,
-							   terms2_agree,
-							   auth,
-							   create_date
+							   ID,
+							   PASSWORD,
+							   NAME,
+							   BIRTHDAY,
+							   CELLPHONE,
+							   NICKNAME,
+							   EMAIL,
+							   GENDER,
+							   TERMS1_AGREE,
+							   TERMS2_AGREE,
+							   CREATE_DATE
 							  )
 					    VALUES(
 					     	   #{id},
@@ -40,9 +83,18 @@
 							   #{gender},
 							   #{terms1_agree},
 							   #{terms2_agree},
-							   #{auth},
 							   now()
 					     	  ) 	 	    
  	</insert>
-     
+ 	
+    <insert id="insertAuthority" parameterType="java.util.HashMap">
+		INSERT INTO SIX_AUTHORITY(
+							      ID,
+							      AUTHORITY
+							  	 )
+					       VALUES(
+						     	  #{id},
+						     	  #{authority}
+						     	 ) 	 	    
+ 	</insert> 
 </mapper>

@@ -5,22 +5,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("login")
 public class LoginController {
 	
-	public ModelAndView LoginView(HttpServletRequest request, HttpServletResponse response){
+	@RequestMapping(value="login.do")	
+	public ModelAndView login(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("login/login");		
+		return mav;
+	}	
+	
+	@RequestMapping(value="loginFail.do")	
+	public ModelAndView loginFail(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("login/login");		
+		mav.addObject("msg","잘못된 ID/암호 입니다. 다시 확인해 주세요");
 		return mav;
 	}
 	
-	@RequestMapping(value = "chkLogin.do", produces="text/plain;charset=UTF-8")
-	public @ResponseBody String chkLogin(HttpServletRequest request, HttpServletResponse response){
-		
-		return "";
-	}
 	
 }

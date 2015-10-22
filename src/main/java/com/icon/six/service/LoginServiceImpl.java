@@ -10,7 +10,7 @@ import com.icon.six.dao.LoginDao;
 public class LoginServiceImpl implements LoginService {
 	
 	@Resource
-	LoginDao loginDao;
+	private LoginDao loginDao;
 	
 	@Override
 	public int chkLoginId(String id) {

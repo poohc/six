@@ -2,7 +2,7 @@ package com.icon.six.dao;
 
 import org.springframework.stereotype.Repository;
 
-@Repository("loginDao")
+@Repository
 public class LoginDaoImpl extends SqlSessionDao implements LoginDao{
 	@Override
 	public int chkLoginId(String id) {
