@@ -13,31 +13,31 @@ public class AcademyController {
 	
 	@RequestMapping(value="academyMain.do")
 	public ModelAndView academyMain(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("/company/academy_main");
+		ModelAndView mav = new ModelAndView("/academy/academy_main");
 		return mav;
 	}
 	
 	@RequestMapping(value="academyLearningCenter.do")
 	public ModelAndView academyLearningCenter(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("/company/academy_lcenter");
+		ModelAndView mav = new ModelAndView("/academy/academy_lcenter");
 		return mav;
 	}
 	
 	@RequestMapping(value="academyInvestStrategy.do")
 	public ModelAndView academyInvestStrategy(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("/company/academy_istrategy");
+		ModelAndView mav = new ModelAndView("/academy/academy_istrategy");
 		return mav;
 	}
 	
 	@RequestMapping(value="academySearchNote.do")
 	public ModelAndView academySearchNote(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("/company/academy_snote");
+		ModelAndView mav = new ModelAndView("/academy/academy_snote");
 		return mav;
 	}
 	
 	@RequestMapping(value="academyNecessarySubscribe.do")
 	public ModelAndView academyNecessarySubscribe(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("/company/academy_nsubscribe");
+		ModelAndView mav = new ModelAndView("/academy/academy_nsubscribe");
 		return mav;
 	}
 	

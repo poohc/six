@@ -7,8 +7,6 @@ import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.icon.six.dao.MemberDao;
 
@@ -37,7 +35,6 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	@Transactional(propagation = Propagation.REQUIRED, rollbackFor={Exception.class})
 	public String insertMember(Map<String, Object> memberInfo) {
 		
 		String result = "";

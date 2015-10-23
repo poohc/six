@@ -34,8 +34,8 @@
 							<ul>
 								<li>
 									<ul>
-										<li><a href="intro.do">SIX 란?</a></li>
-										<li><a href="notice.do">공지사항</a></li>
+										<li><a href="/main/introSix.do">SIX 란?</a></li>
+										<li><a href="/main/introNotice.do">공지사항</a></li>
 									</ul>
 								</li>
 								<li>
@@ -46,47 +46,43 @@
                                         <li><a href="/academy/academyNecessarySubscribe.do">필수구독자료</a></li>
 									</ul>
 								</li>
-                                <li>
+								<li>
                                     <ul>
-                                        <li><a href="">일급무료종목추천</a></li>
-                                        <li><a href="">식스비기</a></li>
-                                        <li><a href="">테마정보</a></li>
-                                        <li><a href="">실시간 증시일정</a></li>
-                                        <li><a href="">증시브리핑</a></li>
-                                        <li><a href="">고수들의 인터뷰</a></li>
+                                        <li><a href="/info/infoFreeRec.do">일급무료종목추천</a></li>
+                                        <li><a href="/info/infoSecTech.do">식스비기</a></li>
+                                        <li><a href="/info/infoRealStock.do">실시간 증시일정</a></li>
+                                        <li><a href="/info/infoStockBriefing.do">증시브리핑</a></li>
+                                        <li><a href="/info/infoGInterview.do">고수들의 인터뷰</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 파트너</a></li>
-                                        <li><a href="">SIX 파트너 순위</a></li>
-                                        <li><a href="">SIX 파트너 신청</a></li>
+                                        <li><a href="/partner/partnerMain.do">SIX 파트너</a></li>
+                                        <li><a href="/partner/partnerJoin.do">SIX 파트너 신청</a></li>                                                                                
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">무료정보</a></li>
-                                        <li><a href="">무료종목</a></li>
-                                        <li><a href="">투자전략</a></li>
-                                        <li><a href="">시장분석</a></li>
-                                        <li><a href="">고급정보</a></li>
-                                        <li><a href="">유료종목</a></li>
-                                        <li><a href="">매매기법</a></li>
-                                        <li><a href="">고급사항</a></li>
+                                        <li><a href="/market/marketFree.do">무료종목</a></li>
+										<li><a href="/market/marketIstrategy.do">투자전략</a></li>
+										<li><a href="/market/marketAnalysis.do">시장분석</a></li>
+										<li><a href="/market/marketPay.do">유료종목</a></li>
+										<li><a href="/market/marketBargain.do">매매기법</a></li>
+										<li><a href="/market/marketAdv.do">고급사항</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">자유게시판</a></li>
-                                        <li><a href="">종목토론방</a></li>
-                                        <li><a href="">SIX 이용후기</a></li>
-                                        <li><a href="">특강 세미나 교육</a></li>
+                                        <li><a href="/community/communityFreeboard.do">자유게시판</a></li>
+                                        <li><a href="/community/communityDiscussion.do">종목토론방</a></li>
+                                        <li><a href="/community/communityReview.do">SIX 이용후기</a></li>
+                                        <li><a href="/community/communitySpeical.do">특강 세미나 교육</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">진행중 이벤트</a></li>
-                                        <li><a href="">종료 이벤트</a></li>
+                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">진행중 이벤트</a></li>
+                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">종료 이벤트</a></li>
                                     </ul>
                                 </li>
 							</ul>
@@ -100,8 +96,8 @@
                             <ul>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 란?</a></li>
-                                        <li><a href="">공지사항</a></li>
+                                        <li><a href="/main/introSix.do">SIX 란?</a></li>
+										<li><a href="/main/introNotice.do">공지사항</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -114,45 +110,41 @@
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">일급무료종목추천</a></li>
-                                        <li><a href="">식스비기</a></li>
-                                        <li><a href="">테마정보</a></li>
-                                        <li><a href="">실시간 증시일정</a></li>
-                                        <li><a href="">증시브리핑</a></li>
-                                        <li><a href="">고수들의 인터뷰</a></li>
+                                        <li><a href="/info/infoFreeRec.do">일급무료종목추천</a></li>
+                                        <li><a href="/info/infoSecTech.do">식스비기</a></li>
+                                        <li><a href="/info/infoRealStock.do">실시간 증시일정</a></li>
+                                        <li><a href="/info/infoStockBriefing.do">증시브리핑</a></li>
+                                        <li><a href="/info/infoGInterview.do">고수들의 인터뷰</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 파트너</a></li>
-                                        <li><a href="">SIX 파트너 순위</a></li>
-                                        <li><a href="">SIX 파트너 신청</a></li>
+                                        <li><a href="/partner/partnerMain.do">SIX 파트너</a></li>
+                                        <li><a href="/partner/partnerJoin.do">SIX 파트너 신청</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">무료정보</a></li>
-                                        <li><a href="">무료종목</a></li>
-                                        <li><a href="">투자전략</a></li>
-                                        <li><a href="">시장분석</a></li>
-                                        <li><a href="">고급정보</a></li>
-                                        <li><a href="">유료종목</a></li>
-                                        <li><a href="">매매기법</a></li>
-                                        <li><a href="">고급사항</a></li>
+                                        <li><a href="/market/marketFree.do">무료종목</a></li>
+										<li><a href="/market/marketIstrategy.do">투자전략</a></li>
+										<li><a href="/market/marketAnalysis.do">시장분석</a></li>
+										<li><a href="/market/marketPay.do">유료종목</a></li>
+										<li><a href="/market/marketBargain.do">매매기법</a></li>
+										<li><a href="/market/marketAdv.do">고급사항</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">자유게시판</a></li>
-                                        <li><a href="">종목토론방</a></li>
-                                        <li><a href="">SIX 이용후기</a></li>
-                                        <li><a href="">특강 세미나 교육</a></li>
+                                        <li><a href="/community/communityFreeboard.do">자유게시판</a></li>
+                                        <li><a href="/community/communityDiscussion.do">종목토론방</a></li>
+                                        <li><a href="/community/communityReview.do">SIX 이용후기</a></li>
+                                        <li><a href="/community/communitySpeical.do">특강 세미나 교육</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">진행중 이벤트</a></li>
-                                        <li><a href="">종료 이벤트</a></li>
+                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">진행중 이벤트</a></li>
+                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">종료 이벤트</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -166,8 +158,8 @@
                             <ul>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 란?</a></li>
-                                        <li><a href="">공지사항</a></li>
+                                        <li><a href="/main/introSix.do">SIX 란?</a></li>
+										<li><a href="/main/introNotice.do">공지사항</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -180,45 +172,41 @@
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">일급무료종목추천</a></li>
-                                        <li><a href="">식스비기</a></li>
-                                        <li><a href="">테마정보</a></li>
-                                        <li><a href="">실시간 증시일정</a></li>
-                                        <li><a href="">증시브리핑</a></li>
-                                        <li><a href="">고수들의 인터뷰</a></li>
+                                        <li><a href="/info/infoFreeRec.do">일급무료종목추천</a></li>
+                                        <li><a href="/info/infoSecTech.do">식스비기</a></li>
+                                        <li><a href="/info/infoRealStock.do">실시간 증시일정</a></li>
+                                        <li><a href="/info/infoStockBriefing.do">증시브리핑</a></li>
+                                        <li><a href="/info/infoGInterview.do">고수들의 인터뷰</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 파트너</a></li>
-                                        <li><a href="">SIX 파트너 순위</a></li>
-                                        <li><a href="">SIX 파트너 신청</a></li>
+                                        <li><a href="/partner/partnerMain.do">SIX 파트너</a></li>
+                                        <li><a href="/partner/partnerJoin.do">SIX 파트너 신청</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">무료정보</a></li>
-                                        <li><a href="">무료종목</a></li>
-                                        <li><a href="">투자전략</a></li>
-                                        <li><a href="">시장분석</a></li>
-                                        <li><a href="">고급정보</a></li>
-                                        <li><a href="">유료종목</a></li>
-                                        <li><a href="">매매기법</a></li>
-                                        <li><a href="">고급사항</a></li>
+                                        <li><a href="/market/marketFree.do">무료종목</a></li>
+										<li><a href="/market/marketIstrategy.do">투자전략</a></li>
+										<li><a href="/market/marketAnalysis.do">시장분석</a></li>
+										<li><a href="/market/marketPay.do">유료종목</a></li>
+										<li><a href="/market/marketBargain.do">매매기법</a></li>
+										<li><a href="/market/marketAdv.do">고급사항</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">자유게시판</a></li>
-                                        <li><a href="">종목토론방</a></li>
-                                        <li><a href="">SIX 이용후기</a></li>
-                                        <li><a href="">특강 세미나 교육</a></li>
+                                        <li><a href="/community/communityFreeboard.do">자유게시판</a></li>
+                                        <li><a href="/community/communityDiscussion.do">종목토론방</a></li>
+                                        <li><a href="/community/communityReview.do">SIX 이용후기</a></li>
+                                        <li><a href="/community/communitySpeical.do">특강 세미나 교육</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">진행중 이벤트</a></li>
-                                        <li><a href="">종료 이벤트</a></li>
+                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">진행중 이벤트</a></li>
+                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">종료 이벤트</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -232,8 +220,8 @@
                             <ul>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 란?</a></li>
-                                        <li><a href="">공지사항</a></li>
+                                        <li><a href="/main/introSix.do">SIX 란?</a></li>
+										<li><a href="/main/introNotice.do">공지사항</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -246,45 +234,41 @@
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">일급무료종목추천</a></li>
-                                        <li><a href="">식스비기</a></li>
-                                        <li><a href="">테마정보</a></li>
-                                        <li><a href="">실시간 증시일정</a></li>
-                                        <li><a href="">증시브리핑</a></li>
-                                        <li><a href="">고수들의 인터뷰</a></li>
+                                        <li><a href="/info/infoFreeRec.do">일급무료종목추천</a></li>
+                                        <li><a href="/info/infoSecTech.do">식스비기</a></li>
+                                        <li><a href="/info/infoRealStock.do">실시간 증시일정</a></li>
+                                        <li><a href="/info/infoStockBriefing.do">증시브리핑</a></li>
+                                        <li><a href="/info/infoGInterview.do">고수들의 인터뷰</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 파트너</a></li>
-                                        <li><a href="">SIX 파트너 순위</a></li>
-                                        <li><a href="">SIX 파트너 신청</a></li>
+                                        <li><a href="/partner/partnerMain.do">SIX 파트너</a></li>
+                                        <li><a href="/partner/partnerJoin.do">SIX 파트너 신청</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">무료정보</a></li>
-                                        <li><a href="">무료종목</a></li>
-                                        <li><a href="">투자전략</a></li>
-                                        <li><a href="">시장분석</a></li>
-                                        <li><a href="">고급정보</a></li>
-                                        <li><a href="">유료종목</a></li>
-                                        <li><a href="">매매기법</a></li>
-                                        <li><a href="">고급사항</a></li>
+                                        <li><a href="/market/marketFree.do">무료종목</a></li>
+										<li><a href="/market/marketIstrategy.do">투자전략</a></li>
+										<li><a href="/market/marketAnalysis.do">시장분석</a></li>
+										<li><a href="/market/marketPay.do">유료종목</a></li>
+										<li><a href="/market/marketBargain.do">매매기법</a></li>
+										<li><a href="/market/marketAdv.do">고급사항</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">자유게시판</a></li>
-                                        <li><a href="">종목토론방</a></li>
-                                        <li><a href="">SIX 이용후기</a></li>
-                                        <li><a href="">특강 세미나 교육</a></li>
+                                        <li><a href="/community/communityFreeboard.do">자유게시판</a></li>
+                                        <li><a href="/community/communityDiscussion.do">종목토론방</a></li>
+                                        <li><a href="/community/communityReview.do">SIX 이용후기</a></li>
+                                        <li><a href="/community/communitySpeical.do">특강 세미나 교육</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">진행중 이벤트</a></li>
-                                        <li><a href="">종료 이벤트</a></li>
+                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">진행중 이벤트</a></li>
+                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">종료 이벤트</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -298,8 +282,8 @@
                             <ul>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 란?</a></li>
-                                        <li><a href="">공지사항</a></li>
+                                        <li><a href="/main/introSix.do">SIX 란?</a></li>
+										<li><a href="/main/introNotice.do">공지사항</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -312,45 +296,41 @@
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">일급무료종목추천</a></li>
-                                        <li><a href="">식스비기</a></li>
-                                        <li><a href="">테마정보</a></li>
-                                        <li><a href="">실시간 증시일정</a></li>
-                                        <li><a href="">증시브리핑</a></li>
-                                        <li><a href="">고수들의 인터뷰</a></li>
+                                        <li><a href="/info/infoFreeRec.do">일급무료종목추천</a></li>
+                                        <li><a href="/info/infoSecTech.do">식스비기</a></li>
+                                        <li><a href="/info/infoRealStock.do">실시간 증시일정</a></li>
+                                        <li><a href="/info/infoStockBriefing.do">증시브리핑</a></li>
+                                        <li><a href="/info/infoGInterview.do">고수들의 인터뷰</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 파트너</a></li>
-                                        <li><a href="">SIX 파트너 순위</a></li>
-                                        <li><a href="">SIX 파트너 신청</a></li>
+                                        <li><a href="/partner/partnerMain.do">SIX 파트너</a></li>
+                                        <li><a href="/partner/partnerJoin.do">SIX 파트너 신청</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">무료정보</a></li>
-                                        <li><a href="">무료종목</a></li>
-                                        <li><a href="">투자전략</a></li>
-                                        <li><a href="">시장분석</a></li>
-                                        <li><a href="">고급정보</a></li>
-                                        <li><a href="">유료종목</a></li>
-                                        <li><a href="">매매기법</a></li>
-                                        <li><a href="">고급사항</a></li>
+                                    	<li><a href="/market/marketFree.do">무료종목</a></li>
+										<li><a href="/market/marketIstrategy.do">투자전략</a></li>
+										<li><a href="/market/marketAnalysis.do">시장분석</a></li>
+										<li><a href="/market/marketPay.do">유료종목</a></li>
+										<li><a href="/market/marketBargain.do">매매기법</a></li>
+										<li><a href="/market/marketAdv.do">고급사항</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">자유게시판</a></li>
-                                        <li><a href="">종목토론방</a></li>
-                                        <li><a href="">SIX 이용후기</a></li>
-                                        <li><a href="">특강 세미나 교육</a></li>
+                                        <li><a href="/community/communityFreeboard.do">자유게시판</a></li>
+                                        <li><a href="/community/communityDiscussion.do">종목토론방</a></li>
+                                        <li><a href="/community/communityReview.do">SIX 이용후기</a></li>
+                                        <li><a href="/community/communitySpeical.do">특강 세미나 교육</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">진행중 이벤트</a></li>
-                                        <li><a href="">종료 이벤트</a></li>
+                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">진행중 이벤트</a></li>
+                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">종료 이벤트</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -364,8 +344,8 @@
                             <ul>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 란?</a></li>
-                                        <li><a href="">공지사항</a></li>
+                                        <li><a href="/main/introSix.do">SIX 란?</a></li>
+										<li><a href="/main/introNotice.do">공지사항</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -378,45 +358,41 @@
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">일급무료종목추천</a></li>
-                                        <li><a href="">식스비기</a></li>
-                                        <li><a href="">테마정보</a></li>
-                                        <li><a href="">실시간 증시일정</a></li>
-                                        <li><a href="">증시브리핑</a></li>
-                                        <li><a href="">고수들의 인터뷰</a></li>
+                                        <li><a href="/info/infoFreeRec.do">일급무료종목추천</a></li>
+                                        <li><a href="/info/infoSecTech.do">식스비기</a></li>
+                                        <li><a href="/info/infoRealStock.do">실시간 증시일정</a></li>
+                                        <li><a href="/info/infoStockBriefing.do">증시브리핑</a></li>
+                                        <li><a href="/info/infoGInterview.do">고수들의 인터뷰</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 파트너</a></li>
-                                        <li><a href="">SIX 파트너 순위</a></li>
-                                        <li><a href="">SIX 파트너 신청</a></li>
+                                        <li><a href="/partner/partnerMain.do">SIX 파트너</a></li>
+                                        <li><a href="/partner/partnerJoin.do">SIX 파트너 신청</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">무료정보</a></li>
-                                        <li><a href="">무료종목</a></li>
-                                        <li><a href="">투자전략</a></li>
-                                        <li><a href="">시장분석</a></li>
-                                        <li><a href="">고급정보</a></li>
-                                        <li><a href="">유료종목</a></li>
-                                        <li><a href="">매매기법</a></li>
-                                        <li><a href="">고급사항</a></li>
+                                        <li><a href="/market/marketFree.do">무료종목</a></li>
+										<li><a href="/market/marketIstrategy.do">투자전략</a></li>
+										<li><a href="/market/marketAnalysis.do">시장분석</a></li>
+										<li><a href="/market/marketPay.do">유료종목</a></li>
+										<li><a href="/market/marketBargain.do">매매기법</a></li>
+										<li><a href="/market/marketAdv.do">고급사항</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">자유게시판</a></li>
-                                        <li><a href="">종목토론방</a></li>
-                                        <li><a href="">SIX 이용후기</a></li>
-                                        <li><a href="">특강 세미나 교육</a></li>
+                                        <li><a href="/community/communityFreeboard.do">자유게시판</a></li>
+                                        <li><a href="/community/communityDiscussion.do">종목토론방</a></li>
+                                        <li><a href="/community/communityReview.do">SIX 이용후기</a></li>
+                                        <li><a href="/community/communitySpeical.do">특강 세미나 교육</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">진행중 이벤트</a></li>
-                                        <li><a href="">종료 이벤트</a></li>
+                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">진행중 이벤트</a></li>
+                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">종료 이벤트</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -430,8 +406,8 @@
                             <ul>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 란?</a></li>
-                                        <li><a href="">공지사항</a></li>
+                                        <li><a href="/main/introSix.do">SIX 란?</a></li>
+										<li><a href="/main/introNotice.do">공지사항</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -444,45 +420,41 @@
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">일급무료종목추천</a></li>
-                                        <li><a href="">식스비기</a></li>
-                                        <li><a href="">테마정보</a></li>
-                                        <li><a href="">실시간 증시일정</a></li>
-                                        <li><a href="">증시브리핑</a></li>
-                                        <li><a href="">고수들의 인터뷰</a></li>
+                                        <li><a href="/info/infoFreeRec.do">일급무료종목추천</a></li>
+                                        <li><a href="/info/infoSecTech.do">식스비기</a></li>
+                                        <li><a href="/info/infoRealStock.do">실시간 증시일정</a></li>
+                                        <li><a href="/info/infoStockBriefing.do">증시브리핑</a></li>
+                                        <li><a href="/info/infoGInterview.do">고수들의 인터뷰</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">SIX 파트너</a></li>
-                                        <li><a href="">SIX 파트너 순위</a></li>
-                                        <li><a href="">SIX 파트너 신청</a></li>
+                                        <li><a href="/partner/partnerMain.do">SIX 파트너</a></li>
+                                        <li><a href="/partner/partnerJoin.do">SIX 파트너 신청</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">무료정보</a></li>
-                                        <li><a href="">무료종목</a></li>
-                                        <li><a href="">투자전략</a></li>
-                                        <li><a href="">시장분석</a></li>
-                                        <li><a href="">고급정보</a></li>
-                                        <li><a href="">유료종목</a></li>
-                                        <li><a href="">매매기법</a></li>
-                                        <li><a href="">고급사항</a></li>
+                                        <li><a href="/market/marketFree.do">무료종목</a></li>
+										<li><a href="/market/marketIstrategy.do">투자전략</a></li>
+										<li><a href="/market/marketAnalysis.do">시장분석</a></li>
+										<li><a href="/market/marketPay.do">유료종목</a></li>
+										<li><a href="/market/marketBargain.do">매매기법</a></li>
+										<li><a href="/market/marketAdv.do">고급사항</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">자유게시판</a></li>
-                                        <li><a href="">종목토론방</a></li>
-                                        <li><a href="">SIX 이용후기</a></li>
-                                        <li><a href="">특강 세미나 교육</a></li>
+                                        <li><a href="/community/communityFreeboard.do">자유게시판</a></li>
+                                        <li><a href="/community/communityDiscussion.do">종목토론방</a></li>
+                                        <li><a href="/community/communityReview.do">SIX 이용후기</a></li>
+                                        <li><a href="/community/communitySpeical.do">특강 세미나 교육</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <ul>
-                                        <li><a href="">진행중 이벤트</a></li>
-                                        <li><a href="">종료 이벤트</a></li>
+                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">진행중 이벤트</a></li>
+                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">종료 이벤트</a></li>
                                     </ul>
                                 </li>
                             </ul>

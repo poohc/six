@@ -1,5 +1,7 @@
 package com.icon.six.service;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -11,14 +13,9 @@ public class LoginServiceImpl implements LoginService {
 	
 	@Resource
 	private LoginDao loginDao;
-	
+
 	@Override
-	public int chkLoginId(String id) {
-		return loginDao.chkLoginId(id);
+	public Map<String, String> chkLoginIdPassword(String id) {
+		return loginDao.chkLoginIdPassword(id);
 	}
-	@Override
-	public String chkLoginPassword(String id) {
-		return loginDao.chkLoginPassword(id);
-	}
-	
 }

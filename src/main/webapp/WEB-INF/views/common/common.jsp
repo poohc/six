@@ -11,10 +11,13 @@
 <title>SIX</title>
 <link rel="stylesheet" type="text/css" href="/resources/css/main.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/common.css" />
+<link rel="stylesheet" href="/resources/daumEditor/css/editor.css" type="text/css" charset="utf-8"/>
 <script type="text/javascript" src="/resources/js/jquery-1_11_1_min.js"></script>
 <script type="text/javascript" src="/resources/js/html5.js"></script>
 <script type="text/javascript" src="/resources/js/common.js"></script>
 <script type="text/javascript" src="/resources/js/menuTab.js"></script>
 <script type="text/javascript" src="/resources/js/basic.js"></script>
+<script type="text/javascript" src="/resources/js/jquery.form.js"></script>
+<script type="text/javascript" src="/resources/daumEditor/js/editor_loader.js" charset="utf-8"></script>
 </head>
 </html>

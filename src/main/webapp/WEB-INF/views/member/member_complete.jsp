@@ -8,16 +8,19 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#mainBtn').click(function(){
-		
+		$('#memComForm').attr('action','/main/main.do');
+		$('#memComForm').submit();
 	});
 	
 	$('#loginBtn').click(function(){
-		
+		$('#memComForm').attr('action','/login/login.do');
+		$('#memComForm').submit();
 	});
 });
 </script>
 </head>
 <body>
+<form id="memComForm"></form>
 <div class="wrapper main">
 	<!-- header -->
 	<jsp:include page="../common/header.jsp" />

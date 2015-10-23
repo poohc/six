@@ -17,21 +17,21 @@
 				return false;
 			}
 			
-			$('#loginForm').submit();			
-		});
-		
-	});
-	
-	<c:if test="${msg != ''}">
-  		alert(${msg});
-	</c:if>
-	
+			$('#loginForm').attr('action','/login/loginProcess.do');
+			$('#loginForm').submit();
+			
+		});		
+	});	
 </script>
 </head>
 <body>
-
-<form id="loginForm" action="j_spring_security_check" method="post">
+<form id="loginForm" method="post">
 <div class="wrapper main">
+	<c:if test="${fn:length(msg) > 0}">
+		<script type="text/javascript">
+			alert('<c:out value="${msg}" />');
+		</script>
+	</c:if>
 	<!-- header -->
 	<jsp:include page="../common/header.jsp" />
 	<!-- header End -->
@@ -40,10 +40,10 @@
         <div class="container">
             <div class="combine type2">
                 <p class="title_type2">로그인</p>
-                <img src="../../img/login.jpg" alt="" class="login_img">
+                <img src="/resources/img/login.jpg" alt="" class="login_img">
                 <div class="login_box2">
                     <input type="text" class="input_type2" placeholder="아이디" id="j_username" name="j_username">
-                    <input type="text" class="input_type2" placeholder="비밀번호" id="j_password" name="j_password">
+                    <input type="password" class="input_type2" placeholder="비밀번호" id="j_password" name="j_password">
                     <button class="btn_type2" type="button" id="loginBtn">로그인</button>
                     <div class="id_pw">
                         <a href="#">아이디 /</a>

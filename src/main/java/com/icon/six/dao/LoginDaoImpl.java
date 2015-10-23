@@ -1,15 +1,15 @@
 package com.icon.six.dao;
 
+import java.util.Map;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class LoginDaoImpl extends SqlSessionDao implements LoginDao{
+
 	@Override
-	public int chkLoginId(String id) {
-		return (Integer) selectOne("login.chkLoginId",id);
+	public Map<String, String> chkLoginIdPassword(String id) {
+		return (Map<String, String>) selectOne("login.chkLoginIdPassword",id);
 	}
-	@Override
-	public String chkLoginPassword(String id) {
-		return (String) selectOne("login.chkLoginPassword",id);
-	}	
+		
 }

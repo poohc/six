@@ -21,10 +21,7 @@ $(document).ready(function(){
         <div class="container">
             <div class="wrap_left">
                 <jsp:include page="../common/login_common.jsp" />
-                <jsp:include page="../common/academy_menu.jsp" />
-                <div class="left_ad">
-                    <img src="/resources/img/ad.jpg" alt="">
-                </div>
+                <jsp:include page="../common/academy_menu.jsp" />                
                 <div class="youtube_channel">
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">

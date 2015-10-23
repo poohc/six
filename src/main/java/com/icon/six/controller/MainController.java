@@ -19,18 +19,26 @@ public class MainController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "intro.do")
-	public ModelAndView intro(HttpServletRequest request, HttpServletResponse response){
+	@RequestMapping(value = "introSix.do")
+	public ModelAndView introSix(HttpServletRequest request, HttpServletResponse response){
 		
 		ModelAndView mav = new ModelAndView("introduce/intro_six");
 		
 		return mav;
 	}
 	
-	@RequestMapping(value = "notice.do")
-	public ModelAndView notice(HttpServletRequest request, HttpServletResponse response){
+	@RequestMapping(value = "introNotice.do")
+	public ModelAndView introNotice(HttpServletRequest request, HttpServletResponse response){
 		
-		ModelAndView mav = new ModelAndView("introduce/notice_list");
+		ModelAndView mav = new ModelAndView("introduce/intro_notice");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "introNoticeWrite.do")
+	public ModelAndView introNoticeWrite(HttpServletRequest request, HttpServletResponse response){
+		
+		ModelAndView mav = new ModelAndView("introduce/intro_notice_write");
 		
 		return mav;
 	}
