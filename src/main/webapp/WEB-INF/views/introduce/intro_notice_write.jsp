@@ -139,11 +139,11 @@ function setForm(editor) {
                                 <col style="width:10%;">
                                 <col style="width:90%;">
                             </colgroup>
-                            <form name="tx_editor_form" id="tx_editor_form" method="post" accept-charset="utf-8">
+                            <form name="tx_editor_form" id="tx_editor_form" method="post" accept-charset="utf-8" action="/main/introNoticeWriteProcess.do">
                             <tbody>
                                 <tr>
                                     <th class="bb_line1">제목</td>
-                                    <td class="bb_line1"><input type="text"></td>
+                                    <td class="bb_line1"><input type="text" id="title" name="title"></td>
                                 </tr>
                                 <tr class="">
                                     <th>내용</td>

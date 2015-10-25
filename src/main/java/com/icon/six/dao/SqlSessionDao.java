@@ -38,5 +38,6 @@ public class SqlSessionDao {
     @SuppressWarnings("rawtypes")
     public List selectList(String queryId, Object params){
         return sqlSession.selectList(queryId,params);
-    }
+    }    
+    
 }

@@ -41,7 +41,9 @@ public class FileController {
 		                String defaultPath = request.getRealPath("/");
 		                //파일 기본경로 _ 상세경로
 		                String path = defaultPath + "upload" + File.separator;
-		                 
+		                
+		                System.out.println("path : " + path);
+		                
 		                File file = new File(path);
 		                 
 		                //디렉토리 존재하지 않을경우 디렉토리 생성

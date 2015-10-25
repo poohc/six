@@ -5,10 +5,8 @@
                         http://www.springframework.org/schema/jdbc  http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
     
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
-			<value>/WEB-INF/properties/six.properties</value>
-		</property>
-	</bean>
+		<property name="locations" value="/WEB-INF/properties/six.properties" />
+    </bean>
     
     <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
 		<property name="driverClassName" value="${jdbc.driverClass}" />
