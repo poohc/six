@@ -15,6 +15,11 @@ function pageMove(page){
 	$('#noticeForm').attr('action','/main/introNotice.do');
 	$('#noticeForm').submit();
 }
+function goView(url,seq){
+	$('#seq').val(seq);
+	$('#noticeForm').attr('action',url);
+	$('#noticeForm').submit();
+}
 </script>
 </head>
 <body>
@@ -45,6 +50,7 @@ function pageMove(page){
                 <img src="/resources/img/introduce1.jpg" alt="" class="top_mainimg">
                 <form method="post" id="noticeForm" name="noticeForm">
                 <input type="hidden" id="currentPage" name="currentPage">
+                <input type="hidden" id="seq" name="seq">
                 <div class="right_contents">
                     <p class="title_type1">공지사항</p>
                     <div class="table_top">
@@ -84,7 +90,7 @@ function pageMove(page){
 		                                <tr class="new">
 		                                    <td>${list.SEQ}</td>
 		                                    <td class="t_l">
-		                                    	<a href="#">
+		                                    	<a href="/main/introNoticeView.do" onclick="goView(this.href,'${list.SEQ}');">
 		                                    		<span class="notice_bul">공지</span>${list.TITLE}
 		                                    	</a>
 		                                    </td>

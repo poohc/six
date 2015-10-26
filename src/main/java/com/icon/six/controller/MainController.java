@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -63,6 +64,21 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "introNoticeView.do")
+	public ModelAndView introNoticeView(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		
+		ModelAndView mav = new ModelAndView("introduce/notice_view");
+		String seq = StringUtils.defaultIfEmpty(String.valueOf(requestMap.get("seq")), ""); 
+		
+		if(!"".equals(seq)){
+			Map<String, String> boardInfo = boardService.getIntroBoardInfo(seq);
+			mav.addObject("boardInfo",boardInfo);
+			
+		} else {
+			//TODO 에러처리
+		}
+		return mav;
+	}
 	@RequestMapping(value = "introNoticeWrite.do")
 	public ModelAndView introNoticeWrite(HttpServletRequest request, HttpServletResponse response){
 		

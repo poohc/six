@@ -9,13 +9,13 @@ import org.springframework.stereotype.Repository;
 public class MemberDaoImpl extends SqlSessionDao implements MemberDao{
 
 	@Override
-	public Map<String, Object> getMemberInfo() {
-		return (Map<String, Object>) selectOne("member.getMemberInfo");
+	public Map<String, Object> getMemberInfo(String id) {
+		return (Map<String, Object>) selectOne("member.getMemberInfo",id);
 	}
 	
 	@Override
-	public List<String> getMemberAuth() {
-		return selectList("member.getMemberAuth");
+	public List<String> getMemberAuth(String id) {
+		return selectList("member.getMemberAuth",id);
 	}		
 	
 	@Override

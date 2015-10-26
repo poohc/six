@@ -21,12 +21,27 @@
 		       UPDATE_DATE,
 		       HIT_COUNT		       
 		  FROM SIX_INTRO_BOARD
-		 WHERE 1=1 
+		 WHERE 1=1
 		   <if test="title != null">
 		   AND TITLE LIKE #{title}
 		   </if>
+		   <if test="start != null">
 		 LIMIT #{start},#{end}    
+		   </if>
     </select>    
+    
+    <select id="getIntroBoardInfo" parameterType="String" resultType="java.util.HashMap">
+        SELECT SEQ,
+		       TITLE,
+		       CONTENTS,
+		       CREATE_USER_ID,
+		       CREATE_DATE,
+		       UPDATE_USER_ID,
+		       UPDATE_DATE,
+		       HIT_COUNT		       
+		  FROM SIX_INTRO_BOARD
+		 WHERE SEQ = #{seq}
+    </select>
     
     <insert id="insertIntroBoard" parameterType="com.icon.six.vo.IntroBoardVo">
     	INSERT INTO SIX_INTRO_BOARD

@@ -19,13 +19,13 @@ public class MemberServiceImpl implements MemberService{
 	private MemberDao memberDao;
 	
 	@Override
-	public Map<String, Object> getMemberInfo() {
-		return memberDao.getMemberInfo();
+	public Map<String, Object> getMemberInfo(String id) {
+		return memberDao.getMemberInfo(id);
 	}
 	
 	@Override
-	public List<String> getMemberAuth() {
-		return memberDao.getMemberAuth();
+	public List<String> getMemberAuth(String id) {
+		return memberDao.getMemberAuth(id);
 	}
 	
 	@Override

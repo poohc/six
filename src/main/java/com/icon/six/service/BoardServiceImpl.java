@@ -47,8 +47,13 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
+	public Map<String, String> getIntroBoardInfo(String seq) {
+		return boardDao.getIntroBoardInfo(seq);
+	}
+	
+	@Override
 	public int insertIntroBoard(IntroBoardVo paramVo) {
 		return boardDao.insertIntroBoard(paramVo);
-	}
+	}	
 	
 }

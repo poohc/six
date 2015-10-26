@@ -31,7 +31,7 @@ public class LoginAuthenticate implements AuthenticationProvider{
 		
 		logger.debug("=사용자가 입력한 정보 : ID : " + userId + ", PW : " + userPw);
 		
-		Map<String, Object> memberInfo = memberService.getMemberInfo();
+		Map<String, Object> memberInfo = memberService.getMemberInfo(userId);
 		
 		CipherUtil cipher = CipherUtil.getInstance();
 		
@@ -41,7 +41,7 @@ public class LoginAuthenticate implements AuthenticationProvider{
 				if(userId.equals(memberInfo.get("id")) && userPw.equals(cipher.AES_Decode(memberInfo.get("password").toString()))){
 					logger.debug("정상 로그인");
 					
-					List<String> memberAuthList = memberService.getMemberAuth();
+					List<String> memberAuthList = memberService.getMemberAuth(userId);
 					
 					if(!memberAuthList.isEmpty()){
 						List<GrantedAuthority> roles = new ArrayList<GrantedAuthority>();

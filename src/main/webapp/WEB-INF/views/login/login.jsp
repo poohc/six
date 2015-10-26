@@ -18,7 +18,7 @@
 				return false;
 			}
 			
-			$('#loginForm').attr('action','/login/loginProcess.do');
+// 			$('#loginForm').attr('action','/login/loginProcess.do');
 			$('#loginForm').submit();
 			
 		});		
@@ -26,7 +26,7 @@
 </script>
 </head>
 <body>
-<form id="loginForm" method="post">
+<form id="loginForm" method="post" action="j_spring_security_check">
 <div class="wrapper main">
 	<c:if test="${fn:length(msg) > 0}">
 		<script type="text/javascript">

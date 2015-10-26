@@ -8,12 +8,12 @@ public interface MemberService {
 	 * 회원 정보 가져오기 
 	 * @return
 	 */
-	public Map<String, Object> getMemberInfo();
+	public Map<String, Object> getMemberInfo(String id);
 	/**
 	 * 회원 권한 가져오기 
 	 * @return
 	 */
-	public List<String> getMemberAuth();
+	public List<String> getMemberAuth(String id);
 	/**
 	 * 회원 리스트 가져오기
 	 * @return

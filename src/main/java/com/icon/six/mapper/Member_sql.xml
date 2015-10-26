@@ -18,6 +18,7 @@
         <result javaType="java.lang.String" column="TERMS2_AGREE" property="terms2Agree"/>
         <result javaType="java.lang.String" column="CREATE_DATE" property="createDate"/>
         <result javaType="java.lang.String" column="UPDATE_DATE" property="updateDate"/>
+        <result javaType="java.lang.String" column="ENABLED" property="enabled"/>
     </resultMap>
     
     <select id="getMemberInfo" parameterType="String" resultMap="memberInfo">
@@ -35,7 +36,8 @@
 			   TERMS2,
 			   TERMS2_AGREE,
 			   CREATE_DATE,
-			   UPDATE_DATE
+			   UPDATE_DATE,
+			   ENABLED
           FROM SIX_MEMBER
          WHERE ID = #{id}
     </select>
@@ -70,7 +72,8 @@
 							   GENDER,
 							   TERMS1_AGREE,
 							   TERMS2_AGREE,
-							   CREATE_DATE
+							   CREATE_DATE,
+							   ENABLED
 							  )
 					    VALUES(
 					     	   #{id},
@@ -83,7 +86,8 @@
 							   #{gender},
 							   #{terms1_agree},
 							   #{terms2_agree},
-							   now()
+							   now(),
+							   1
 					     	  ) 	 	    
  	</insert>
  	

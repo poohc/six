@@ -21,7 +21,14 @@ public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 	}
 
 	@Override
+	public Map<String, String> getIntroBoardInfo(String seq) {
+		return (Map<String, String>) selectOne("board.getIntroBoardInfo",seq);
+	}
+	
+	@Override
 	public int insertIntroBoard(IntroBoardVo paramVo) {
 		return (int) insert("board.insertIntroBoard", paramVo);
 	}
+
+	
 }

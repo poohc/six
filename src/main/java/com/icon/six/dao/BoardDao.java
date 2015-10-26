@@ -17,7 +17,13 @@ public interface BoardDao {
 	 * @param page
 	 * @return
 	 */
-	public List<Map<String, Object>> selectIntroBoardList(Map<String, Object> param);	
+	public List<Map<String, Object>> selectIntroBoardList(Map<String, Object> param);
+	/**
+	 * 공지사항 가져오기 
+	 * @param seq
+	 * @return
+	 */
+	public Map<String, String> getIntroBoardInfo(String seq); 
 	/**
 	 * 공지사항 게시판 글 쓰기
 	 * @param introBoardVo
