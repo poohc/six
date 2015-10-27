@@ -37,8 +37,7 @@ public class PagingUtil {
 		try {
 			totalCount = Integer.parseInt(String.valueOf(pageInfo.get("totalCount"))); 			
 			currentPage  = Integer.parseInt(String.valueOf(pageInfo.get("currentPage")));
-			totalCount = totalCount / pageCount;
-			if(totalCount == 0) totalCount = totalCount + 1;
+			totalCount = (totalCount / (pageCount+1))+1;			
 			
 			if((currentPage%pageCount) != 0){
 				if(currentPage<=pageCount){
