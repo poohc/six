@@ -2,22 +2,31 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#intro2').addClass("on");	
+	$('#intro2').addClass("on");
+	
+	$('#searchBtn').click(function(){
+		
+		$('#noticeForm').attr('action','/main/introNotice.do');
+		$('#noticeForm').submit();
+		
+	});
+	
 });
 function pageMove(page){
 	$('#currentPage').val(page);
 	$('#noticeForm').attr('action','/main/introNotice.do');
 	$('#noticeForm').submit();
 }
-function goView(url,seq){
-	$('#seq').val(seq);
-	$('#noticeForm').attr('action',url);
+function goView(seq){
+	$('#seq').val(seq);	
+	$('#noticeForm').attr('action','/main/introNoticeView.do');
 	$('#noticeForm').submit();
 }
 </script>
@@ -49,21 +58,22 @@ function goView(url,seq){
             <div class="wrap_right">
                 <img src="/resources/img/introduce1.jpg" alt="" class="top_mainimg">
                 <form method="post" id="noticeForm" name="noticeForm">
-                <input type="hidden" id="currentPage" name="currentPage">
-                <input type="hidden" id="seq" name="seq">
+                <input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
+                <input type="hidden" id="seq" name="seq">                
                 <div class="right_contents">
                     <p class="title_type1">공지사항</p>
                     <div class="table_top">
                         <p class="table_type1title">SIX의 공지사항</p>
                         <div class="table_rightarea">
-                            <select name="titleandcontent" id="titleandcontent" title="분류">
-                                <option value="제목">제목</option>
-                                <option value="제목">내용</option>
+                            <select name="searchOption" id="searchOption" title="분류">
+                                <option value="title">제목</option>
+                                <option value="contents">내용</option>
                             </select>
-                            <input type="text">
-                            <button>검색</button>
+                            <input type="text" id="searchText" name="searchText">
+                            <button type="button" id="searchBtn">검색</button>
                         </div>
                     </div>
+                 </form>
                     <div class="table_type1">
                         <table>
                             <caption>공지사항</caption>
@@ -90,7 +100,7 @@ function goView(url,seq){
 		                                <tr class="new">
 		                                    <td>${list.SEQ}</td>
 		                                    <td class="t_l">
-		                                    	<a href="/main/introNoticeView.do" onclick="goView(this.href,'${list.SEQ}');">
+		                                    	<a href="#" onclick="goView('${list.SEQ}');">
 		                                    		<span class="notice_bul">공지</span>${list.TITLE}
 		                                    	</a>
 		                                    </td>
@@ -112,17 +122,16 @@ function goView(url,seq){
                         </table>
                     </div>
                     <div class="table_bottom">
-                        <a href="#" class="go_list">목록으로</a>
+                        <security:authorize ifAnyGranted="ROLE_ADMIN">
                         <ul class="table_option">
-                            <li><a href="#">삭제</a></li>
-                            <li><a href="#">취소</a></li>
-                            <li><a href="#">수정</a></li>
                             <li><a href="/main/introNoticeWrite.do" onclick="this.href">글쓰기</a></li>
                         </ul>
-                    </div>                    
-                    <c:out value="${page}" escapeXml="false" />                                       
-                </div>
-                </form>
+                        </security:authorize>
+                    </div>
+                    <c:if test="${fn:length(list) > 0}">
+                    	<c:out value="${page}" escapeXml="false" />
+                    </c:if>                                                                              
+                </div>                
             </div>
             <!-- Left Side -->
             <jsp:include page="../common/left.jsp" />

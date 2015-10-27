@@ -23,4 +23,16 @@ public interface BoardService {
 	 * @return
 	 */
 	public int insertIntroBoard(IntroBoardVo paramVo);
+	/**
+	 * 공지사항 게시판 글 수정
+	 * @param paramVo
+	 * @return
+	 */
+	public int updateIntroBoard(IntroBoardVo paramVo);
+	/**
+	 * 공지사항 게시판 글 삭제
+	 * @param seq
+	 * @return
+	 */
+	public int deleteIntroBoard(String seq);
 }

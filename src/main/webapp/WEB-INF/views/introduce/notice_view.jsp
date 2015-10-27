@@ -7,13 +7,34 @@
 <head>
 <jsp:include page="../common/common.jsp" />
 <script type="text/javascript">
-
+$(document).ready(function(){
+	
+	$('#deleteBtn').click(function(){
+		if(confirm('정말 삭제하시겠습니까?')){
+			$('#frm').attr('action','/main/introNoticeDeleteProcess.do');
+			$('#frm').submit();	
+		}
+	});
+	
+	$('#listBtn').click(function(){
+		$('#frm').attr('action','/main/introNotice.do');
+		$('#frm').submit();
+	});
+	
+	
+	$('#updateBtn').click(function(){
+		$('#frm').attr('action','/main/introNoticeUpdate.do');
+		$('#frm').submit();
+	});
+	
+});
 </script>
-
 </head>
-
 <body>
 <div class="wrapper main">
+	<form method="post" id="frm" name="frm">
+		<input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}">
+	</form>
 	<!-- header -->
 	<jsp:include page="../common/header.jsp" />
 	<!-- header End -->
@@ -60,7 +81,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="right_bul tl_c">${boardInfo.CREATE_USER}</td>
+                                	<td class="right_bul tl_c"><img src="/resources/img/master.png" alt="six"></td>
                                     <td class="tl_c">조회수 ${boardInfo.HIT_COUNT}</td>
                                     <td></td>
                                     <td class="right_bul type2 tl_c">등록일</td>
@@ -75,7 +96,14 @@
                         </table>
                     </div>
                     <div class="table_bottom type2">
-                        <a href="#" class="go_list">목록으로</a>
+                        <a href="#" class="go_list" id="listBtn">목록으로</a>
+                        <security:authorize ifAnyGranted="ROLE_ADMIN">
+	                        <ul class="table_option">
+		                        <li><a href="#" id="deleteBtn">삭제</a></li>
+<!-- 		                        <li><a href="#" onclick="history.back()">취소</a></li> -->
+		                        <li><a href="#" id="updateBtn">수정</a></li>
+	                        </ul>
+                        </security:authorize>
                     </div>
                 </div>
             </div>

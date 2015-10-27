@@ -7,8 +7,11 @@
 		  FROM SIX_INTRO_BOARD
 		 WHERE 1=1
 		 <if test="title != null">
-		   AND TITLE LIKE #{title}
+		   AND TITLE LIKE CONCAT('%', #{title} , '%')		   
 		 </if> 
+		 <if test="contents != null">
+		   AND CONTENTS LIKE CONCAT('%', #{contents} , '%')
+		 </if>
     </select>    
     
     <select id="selectIntroBoard" parameterType="java.util.HashMap" resultType="java.util.HashMap">
@@ -22,12 +25,17 @@
 		       HIT_COUNT		       
 		  FROM SIX_INTRO_BOARD
 		 WHERE 1=1
-		   <if test="title != null">
-		   AND TITLE LIKE #{title}
+		   <if test="title != null">		       
+		   AND TITLE LIKE CONCAT('%', #{title} , '%')
 		   </if>
+		   <if test="contents != null">
+		   AND CONTENTS LIKE CONCAT('%', #{contents} , '%')
+		   </if>
+	  ORDER BY SEQ DESC
 		   <if test="start != null">
 		 LIMIT #{start},#{end}    
 		   </if>
+      		   
     </select>    
     
     <select id="getIntroBoardInfo" parameterType="String" resultType="java.util.HashMap">
@@ -49,14 +57,34 @@
 		    		   TITLE,
 				       CONTENTS,
 				       CREATE_USER_ID,
-				       CREATE_DATE
+				       CREATE_DATE,
+				       HIT_COUNT
 			    	)
 			 VALUES (
 				 	   #{title},
 				 	   #{contents},
 				 	   #{createUserId},
-				 	   now()			 		
+				 	   now(),
+				 	   0		 		
 			 		)      	
     </insert>
+    
+    <update id="updateIntroBoard" parameterType="com.icon.six.vo.IntroBoardVo">
+        UPDATE SIX_INTRO_BOARD
+         <set>
+	          <if test="title != null">TITLE=#{title},</if>
+	          <if test="contents != null">CONTENTS=#{contents},</if>
+	      	  <if test="hitCount != null">HIT_COUNT=HIT_COUNT+1,</if>
+	      	  UPDATE_USER_ID = #{updateUserId},
+		      UPDATE_DATE = now()
+	    </set>
+	    WHERE SEQ = #{seq}                   
+    </update>
+    
+    <delete id="deleteIntroBoard" parameterType="String">
+        DELETE 
+          FROM SIX_INTRO_BOARD
+         WHERE SEQ = #{seq}
+    </delete>
     
 </mapper>

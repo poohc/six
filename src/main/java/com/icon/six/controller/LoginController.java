@@ -46,6 +46,12 @@ public class LoginController {
 		
 		String url = request.getHeader("Referer");
 		
+		System.out.println(url.matches(".*loginFail.*"));
+		
+		if(url.matches(".*loginFail.*")){			
+			url = "/main/main.do";
+		}
+		
 		try {	
 			//세션 처리
 			System.out.println(SecurityContextHolder.getContext().getAuthentication());

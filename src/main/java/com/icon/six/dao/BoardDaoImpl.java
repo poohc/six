@@ -30,5 +30,15 @@ public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 		return (int) insert("board.insertIntroBoard", paramVo);
 	}
 
+	@Override
+	public int updateIntroBoard(IntroBoardVo paramVo) {
+		return (int) update("board.updateIntroBoard", paramVo);
+	}
+
+	@Override
+	public int deleteIntroBoard(String seq) {
+		return (int) delete("board.deleteIntroBoard", seq);
+	}
+
 	
 }

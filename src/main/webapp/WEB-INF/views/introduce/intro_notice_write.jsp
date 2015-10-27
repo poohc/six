@@ -67,6 +67,7 @@ $(document).ready(function(){
               
              //에디터내에 환경설정 적용하기
              new Editor(config);
+             Editor.modify({ "content": "<c:out value="${boardInfo.CONTENTS}" escapeXml="false" />" });
          }
      });
       
@@ -75,6 +76,15 @@ $(document).ready(function(){
          //다음에디터가 포함된 form submit
          Editor.save();
      })	
+     
+     $("#update_button").click(function(){
+         //다음에디터가 포함된 form submit
+         $('#tx_editor_form').attr('action','/main/introNoticeUpdateProcess.do');
+         Editor.save();
+     })	
+     
+     
+     
 });
 
 //Editor.save() 호출 한 다음에 validation 검증을 위한 함수 
@@ -140,16 +150,18 @@ function setForm(editor) {
                                 <col style="width:90%;">
                             </colgroup>
                             <form name="tx_editor_form" id="tx_editor_form" method="post" accept-charset="utf-8" action="/main/introNoticeWriteProcess.do">
+                            <input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}"> 
                             <tbody>
                                 <tr>
                                     <th class="bb_line1">제목</td>
-                                    <td class="bb_line1"><input type="text" id="title" name="title"></td>
+                                    <td class="bb_line1"><input type="text" id="title" name="title" value="${boardInfo.TITLE}"></td>
                                 </tr>
                                 <tr class="">
-                                    <th>내용</td>
+                                    <th>내용</td>                                    
                                     <td>
                                     	<div id="editor_frame"></div>
-                                    	<textarea name="daumeditor" id="daumeditor" rows="10" cols="100" style="width:766px; height:412px;display: none;"></textarea>
+                                    	<textarea name="daumeditor" id="daumeditor" rows="10" cols="100" style="width:766px; height:412px;display: none;">
+                                    	</textarea>
                                     </td>
                                 </tr>
                             </tbody>
@@ -158,12 +170,19 @@ function setForm(editor) {
                     </div>
                     <div class="table_bottom">
                         <a href="#" class="go_list">목록으로</a>
+                        <security:authorize ifAnyGranted="ROLE_ADMIN">
                         <ul class="table_option">
-                            <li><a href="#">삭제</a></li>
-                            <li><a href="#">취소</a></li>
-                            <li><a href="#">수정</a></li>
-                            <li><a href="#" id="save_button">글쓰기</a></li>
+                            <li><a href="#" onclick="history.back()">취소</a></li>
+                            <c:choose>
+                            <c:when test="${isUpdate eq 'true'}">
+                            	<li><a href="#" id="update_button">수정</a></li>
+                            </c:when>
+                            <c:otherwise>
+                            	<li><a href="#" id="save_button">글쓰기</a></li>
+                            </c:otherwise>
+                            </c:choose>
                         </ul>
+                        </security:authorize>
                     </div>
                 </div>
             </div>

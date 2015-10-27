@@ -54,6 +54,16 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public int insertIntroBoard(IntroBoardVo paramVo) {
 		return boardDao.insertIntroBoard(paramVo);
+	}
+
+	@Override
+	public int updateIntroBoard(IntroBoardVo paramVo) {
+		return boardDao.updateIntroBoard(paramVo);
+	}
+
+	@Override
+	public int deleteIntroBoard(String seq) {
+		return boardDao.deleteIntroBoard(seq);
 	}	
 	
 }

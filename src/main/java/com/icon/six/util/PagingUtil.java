@@ -37,7 +37,7 @@ public class PagingUtil {
 		try {
 			totalCount = Integer.parseInt(String.valueOf(pageInfo.get("totalCount"))); 			
 			currentPage  = Integer.parseInt(String.valueOf(pageInfo.get("currentPage")));
-			totalCount = totalCount / pageCount;			
+			totalCount = (totalCount / pageCount) + 1;
 			
 			if((currentPage%pageCount) != 0){
 				if(currentPage<=pageCount){
@@ -72,9 +72,11 @@ public class PagingUtil {
 			pageString.append("<a href=\"#\" class=\"prev1\" onclick=\"pageMove('"+prevPage+"')\"><img src=\"/resources/img/prev1.png\" alt=\"이전\"></a>");
 			pageString.append("<ul class=\"paging_list\">");
 			
-			System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", currentPage : " + currentPage);
+			System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", currentPage : " + currentPage + ", totalCount : " + totalCount);
 			
-			if(totalCount <= endPage){
+			if(totalCount == 0){
+				pageString.append("<li class=\"on\"><a href=\"#\" onclick=\"pageMove('1')\">1</a></li>");				
+			} else if(totalCount <= endPage){
 				for(int i=startPage;i<=totalCount;i++){
 					if(i == currentPage){
 						pageString.append("<li class=\"on\"><a href=\"#\" onclick=\"pageMove('"+i+"')\">"+i+"</a></li>");
