@@ -7,7 +7,7 @@
 <jsp:include page="../common/common.jsp" />
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#news2').addClass("on");	
+	$('#news1').addClass("on");	
 });
 </script>
 </head>
@@ -39,9 +39,9 @@ $(document).ready(function(){
             <div class="wrap_right">
                 <img src="/resources/img/introduce1.jpg" alt="" class="top_mainimg">
                 <div class="right_contents">
-                    <p class="title_type1">기타정보</p>
+                    <p class="title_type1">증권가정보</p>
                     <div class="table_top">
-                        <p class="table_type1title">기타정보</p>
+                        <p class="table_type1title">증권가정보</p>
                         <div class="table_rightarea">
                             <select name="titleandcontent" id="titleandcontent" title="분류">
                                 <option value="제목">제목</option>
@@ -53,7 +53,7 @@ $(document).ready(function(){
                     </div>
                     <div class="table_type1">
                         <table>
-                            <caption>기타정보</caption>
+                            <caption>증권가정보</caption>
                             <colgroup>
                                 <col style="width:7%;">
                                 <col style="width:62%;">
@@ -253,7 +253,7 @@ $(document).ready(function(){
         </div>
 	</div>
 	<!-- //container -->
-	<jsp:include page="../common/footer.jsp" />	
+	<jsp:include page="../common/footer.jsp" />
 </div>
 </body>
 </html>

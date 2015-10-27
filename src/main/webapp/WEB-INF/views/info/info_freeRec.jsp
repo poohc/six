@@ -172,7 +172,7 @@ $(document).ready(function(){
                     </div>
                 </div>
             </div>
-              <!-- Left Side -->
+            <!-- Left Side -->
             <jsp:include page="../common/left.jsp" />
             <!-- Left Side end -->
             

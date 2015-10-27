@@ -539,10 +539,12 @@
                     <a href="#" class="join">회원가입</a>
                 </div>
                 <div class="about_six">
-                    <p class="about_sixtitle">SIX 파트너스</p>
+                    <p class="about_sixtitle">SIX</p>
                     <ul class="about_sixlist">
-                        <li class="on"><a href="#">무료정보<span></span></a></li>
-                        <li><a href="#">유료정보<span></span></a></li>
+                        <li><a href="#">SIX란?<span></span></a></li>
+                        <li><a href="#">공지사항<span></span></a></li>
+                        <li><a href="#">결제방법<span></span></a></li>
+                        <li class="on"><a href="#">고객문의<span></span></a></li>
                     </ul>
                 </div>
                 <div class="left_ad">
@@ -562,62 +564,141 @@
                 </div>
             </div>
             <div class="wrap_right">
-                <img src="../../img/partner1.jpg" alt="" class="top_mainimg">
-                <img src="../../img/partner2.jpg" alt="" class="partner2_img">
-                <ul class="inform_list">
-                    <li>총 정보등록건수<span>100</span></li>
-                    <li>총 다운로드<span>100</span></li>
-                    <li>정보등록건수 순위<span>100</span></li>
-                    <li>다운로드 순위<span>100</span></li>
-                </ul>
-                <ul class="inform_list2">
-                    <li class="on"><a href="#tab1">무료종목</a></li>
-                    <li class=""><a href="#tab2">투자전략</a></li>
-                    <li class=""><a href="#tab3">시장분석</a></li>
-                </ul>
+                <img src="../../img/introduce1.jpg" alt="" class="top_mainimg">
                 <div class="right_contents">
-                    <div class="table_type1_view type2">
+                    <p class="title_type1">고객문의</p>
+                    <div class="table_top">
+                        <p class="table_type1title2"><span>SIX의 이용중 궁금하신 사항에 대하여 문의 주시기 바랍니다.</span></p>
+                    </div>
+                    <div class="table_type1_view type2 type3">
                         <table>
                             <caption>공지사항</caption>
                             <colgroup>
-                                <col style="width:15%;">
-                                <col style="width:35%;">
-                                <col style="width:15%;">
-                                <col style="width:35%;">
+                                <col style="width:12%;">
+                                <col style="width:12%;">
+                                <col style="width:52%;">
+                                <col style="width:12%;">
+                                <col style="width:12%;">
                             </colgroup>
+                            <thead>
+                                <tr>
+                                    <th colspan="5">증권전용 무료 인증서 발급을 어떻게 받아야 하나요?</th>
+                                </tr>
+                            </thead>
                             <tbody>
                                 <tr>
-                                    <th>제목</td>
-                                    <td>무료정보 제목입니다.</td>
-                                    <th>다운로드 수</th>
-                                    <td>25</td>
-                                </tr>
-                                <tr>
-                                    <th>작성자</td>
-                                    <td>홍길동</td>
-                                    <th>작성일</th>
-                                    <td>2015-09-24</td>
-                                </tr>
-                                <tr>
-                                    <th>첨부파일</td>
-                                    <td>abc.pdf</td>
-                                    <th>조회</th>
-                                    <td>341</td>
-                                </tr>
-                                <tr>
-                                    <th class="bb_line3">가격</td>
-                                    <td class="bb_line3">무료</td>
-                                    <th class="bb_line3">다운로드</th>
-                                    <td class="bb_line3"><a href="#"><img src="../../img/download_bul.png" alt=""></a></td>
+                                    <td class="right_bul tl_c">홍길동</td>
+                                    <td class="tl_c">조회수 132</td>
+                                    <td></td>
+                                    <td class="right_bul type2 tl_c">등록일</td>
+                                    <td class="tl_c">2015-09-24</td>
                                 </tr>
                                 <tr class="">
-                                    <td colspan="4" class="td_lh">주가 흐름을 분석했습니다. 무료로 다운받아 보세요.</td>
+                                    <td colspan="5" class="td_lh">증권전용 공인인증서 무료 발급 알고 싶습니다.</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="table_bottom type2">
+                    <div class="table_comment">
+                        <p class="comment_title1">댓글쓰기</p>
+                        <textarea class="com_text" name="" id="" cols="30" rows="10" placeholder="댓글을 달아주세요.  최대 100자까지 작성할 수 있습니다. 악플은 제재 및 삭제될 수 있습니다. "></textarea>
+                        <button class="com_btn">등록하기</button>
+                    </div>
+                    <div class="table_bottom">
                         <a href="#" class="go_list">목록으로</a>
+                        <ul class="table_option">
+                            <li><a href="#">삭제</a></li>
+                            <li><a href="#">취소</a></li>
+                            <li><a href="#">수정</a></li>
+                            <li class="on"><a href="#">글쓰기</a></li>
+                        </ul>
+                    </div>
+                    <ul class="com_list">
+                        <li>
+                            <div class="com_top">
+                                <ul class="com_top1">
+                                    <li>SIX 매니저</li>
+                                    <li>2015-09-20</li>
+                                </ul>
+                                <ul class="com_top2">
+                                    <li><a href="#">답글</a></li>
+                                    <li><a href="#">수정</a></li>
+                                    <li><a href="#">취소</a></li>
+                                    <li><a href="#">삭제</a></li>
+                                </ul>
+                            </div>
+                            <p class="comment_content">부산서 서울이 4시간 20분밖에 안걸렸어?자동차로? 빠르네.... 기차 무궁화호는 젤빠른게 4시간 50분인데.새마을은 4시간20분KTX도 고작 2시간 25분 </p>
+                        </li>
+                        <li class="type2">
+                            <div class="com_top">
+                                <ul class="com_top1">
+                                    <li>SIX 매니저</li>
+                                    <li>2015-09-20</li>
+                                </ul>
+                                <ul class="com_top2">
+                                    <li><a href="#">답글</a></li>
+                                    <li><a href="#">수정</a></li>
+                                    <li><a href="#">취소</a></li>
+                                    <li><a href="#">삭제</a></li>
+                                </ul>
+                            </div>
+                            <p class="comment_content">부산서 서울이 4시간 20분밖에 안걸렸어?자동차로? 빠르네.... 기차 무궁화호는 젤빠른게 4시간 50분인데.새마을은 4시간20분KTX도 고작 2시간 25분 </p>
+                        </li>
+                        <li class="type3">
+                            <div class="table_comment type2">
+                                <p class="comment_title1">댓글쓰기</p>
+                                <textarea class="com_text" name="" id="" cols="30" rows="10" placeholder="댓글을 달아주세요.  최대 100자까지 작성할 수 있습니다. 악플은 제재 및 삭제될 수 있습니다. "></textarea>
+                                <button class="com_btn">등록하기</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="com_top">
+                                <ul class="com_top1">
+                                    <li>SIX 매니저</li>
+                                    <li>2015-09-20</li>
+                                </ul>
+                                <ul class="com_top2">
+                                    <li><a href="#">답글</a></li>
+                                    <li><a href="#">수정</a></li>
+                                    <li><a href="#">취소</a></li>
+                                    <li><a href="#">삭제</a></li>
+                                </ul>
+                            </div>
+                            <p class="comment_content">부산서 서울이 4시간 20분밖에 안걸렸어?자동차로? 빠르네.... 기차 무궁화호는 젤빠른게 4시간 50분인데.새마을은 4시간20분KTX도 고작 2시간 25분 </p>
+                        </li>
+                        <li>
+                            <div class="com_top">
+                                <ul class="com_top1">
+                                    <li>SIX 매니저</li>
+                                    <li>2015-09-20</li>
+                                </ul>
+                                <ul class="com_top2">
+                                    <li><a href="#">답글</a></li>
+                                    <li><a href="#">수정</a></li>
+                                    <li><a href="#">취소</a></li>
+                                    <li><a href="#">삭제</a></li>
+                                </ul>
+                            </div>
+                            <p class="comment_content">부산서 서울이 4시간 20분밖에 안걸렸어?자동차로? 빠르네.... 기차 무궁화호는 젤빠른게 4시간 50분인데.새마을은 4시간20분KTX도 고작 2시간 25분 </p>
+                        </li>
+                    </ul>
+                    <div class="paging">
+                        <a href="#" class="prev2"><img src="../../img/prev2.png" alt="이전"></a>
+                        <a href="#" class="prev1"><img src="../../img/prev1.png" alt="이전"></a>
+                        <ul class="paging_list">
+                            <li class="on"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">6</a></li>
+                            <li><a href="#">7</a></li>
+                            <li><a href="#">8</a></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">10</a></li>
+                        </ul>
+                        <a href="#" class="next1"><img src="../../img/next1.png" alt="이전"></a>
+                        <a href="#" class="next2"><img src="../../img/next2.png" alt="이전"></a>
                     </div>
                 </div>
             </div>

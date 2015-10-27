@@ -15,6 +15,9 @@
                             <ul class="sitemap_list2">
                                 <li><a href="/main/introSix.do">SIX 란?</a></li>
 								<li><a href="/main/introNotice.do">공지사항</a></li>
+								<li><a href="/main/introHowToPay.do">결제방법</a></li>
+								<li><a href="/main/introQna.do">고객문의</a></li>
+								<li><a href="#" onclick="javascript:alert('메뉴 준비중입니다.')">1:1투자문의</a></li>
                             </ul>
                         </li>
                         <li>
@@ -55,6 +58,13 @@
                             </ul>
                         </li>
                         <li>
+                            <p class="sitemap_title">증권가소식</p>
+                            <ul class="sitemap_list2">
+                                <li><a href="/news/newsStock.do">증권가정보</a></li>
+                                <li><a href="/news/newsEtc.do">기타정보</a></li>
+                            </ul>
+                        </li>
+                        <li>
                             <p class="sitemap_title">커뮤니티</p>
                             <ul class="sitemap_list2">
                                 <li><a href="/community/communityFreeboard.do">자유게시판</a></li>
@@ -62,14 +72,7 @@
                                 <li><a href="/community/communityReview.do">SIX 이용후기</a></li>
                                 <li><a href="/community/communitySpeical.do">특강 세미나 교육</a></li>
                             </ul>
-                        </li>
-                        <li>
-                            <p class="sitemap_title">이벤트</p>
-                            <ul class="sitemap_list2">
-                                <li><a href="#">진행중 이벤트</a></li>
-                                <li><a href="#">종료 이벤트</a></li>
-                            </ul>
-                        </li>
+                        </li>                        
                     </ul>
                 </div>
             </div>
@@ -86,9 +89,9 @@
 			        <a href="#" class="foot_logo"><img src="/resources/img/foot_logo.png" alt="six"></a>
 			        <div class="footer_text">
 			            <ul class="foot_link">
-			                <li><a href="#">회사소개</a></li>
+			                <li><a href="/company/aboutCompany.do">회사소개</a></li>
 			                <li><a href="#">문의하기</a></li>
-			                <li><a href="#">SIX주식정보거래소</a></li>
+			                <li><a href="/main/main.do">SIX주식정보거래소</a></li>
 			            </ul>
 			            <div class="foot_text">
 			                <p class="foot_text1">000-000 서울특별시 구로구 독산동 현대 2222호    TEL  02.777.7777    FAX  02.777.7777     대표  박준상    아이엔티인베스트</p>

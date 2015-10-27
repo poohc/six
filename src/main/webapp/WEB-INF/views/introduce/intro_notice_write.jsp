@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -75,16 +76,13 @@ $(document).ready(function(){
      $("#save_button").click(function(){
          //다음에디터가 포함된 form submit
          Editor.save();
-     })	
+     });
      
      $("#update_button").click(function(){
          //다음에디터가 포함된 form submit
          $('#tx_editor_form').attr('action','/main/introNoticeUpdateProcess.do');
          Editor.save();
-     })	
-     
-     
-     
+     });
 });
 
 //Editor.save() 호출 한 다음에 validation 검증을 위한 함수 
@@ -169,7 +167,7 @@ function setForm(editor) {
                         </table>
                     </div>
                     <div class="table_bottom">
-                        <a href="#" class="go_list">목록으로</a>
+                        <a href="/main/introNotice.do" class="go_list">목록으로</a>
                         <security:authorize ifAnyGranted="ROLE_ADMIN">
                         <ul class="table_option">
                             <li><a href="#" onclick="history.back()">취소</a></li>

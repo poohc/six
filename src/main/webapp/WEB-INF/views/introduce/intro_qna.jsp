@@ -1,16 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
+</head>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#invest1').addClass("on");	
+	$('#intro4').addClass("on");	
 });
 </script>
-</head>
 <body>
 <div class="wrapper main">
 	<!-- header -->
@@ -21,7 +23,7 @@ $(document).ready(function(){
         <div class="container">
             <div class="wrap_left">
                 <jsp:include page="../common/login_common.jsp" />
-                <jsp:include page="../common/news_menu.jsp" />
+                <jsp:include page="../common/intro_menu.jsp" />
                 <div class="youtube_channel">
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
@@ -38,9 +40,9 @@ $(document).ready(function(){
             <div class="wrap_right">
                 <img src="/resources/img/introduce1.jpg" alt="" class="top_mainimg">
                 <div class="right_contents">
-                    <p class="title_type1">증권가정보</p>
+                    <p class="title_type1">고객문의</p>
                     <div class="table_top">
-                        <p class="table_type1title">증권가정보</p>
+                        <p class="table_type1title">SIX의 공지사항</p>
                         <div class="table_rightarea">
                             <select name="titleandcontent" id="titleandcontent" title="분류">
                                 <option value="제목">제목</option>
@@ -52,7 +54,7 @@ $(document).ready(function(){
                     </div>
                     <div class="table_type1">
                         <table>
-                            <caption>증권가정보</caption>
+                            <caption>공지사항</caption>
                             <colgroup>
                                 <col style="width:7%;">
                                 <col style="width:62%;">
@@ -248,7 +250,7 @@ $(document).ready(function(){
             
             <!-- Left Side -->
             <jsp:include page="../common/right.jsp" />
-            <!-- Left Side end -->   
+            <!-- Left Side end -->
         </div>
 	</div>
 	<!-- //container -->

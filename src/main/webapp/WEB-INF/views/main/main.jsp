@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -73,13 +74,27 @@
                 </div>
             </div>
             <div class="visual_movie">
-            	<form id="loginForm" method="post" action="j_spring_security_check">
+            	<form id="loginForm" method="post" action="j_spring_security_check.do">
             	<c:choose>
             		<c:when test="${not empty sessionScope.userInfo}">
-            			<div class="login_box">
-            				${sessionScope.userInfo.nickName} 님 환영합니다.
-            				<button type="button" id="logoutBtn">로그아웃</button>
-            			</div>
+            		<div class="login_box type2">
+	                    <p class="login_title">SIX
+	                    	<security:authorize ifAnyGranted="ROLE_ADMIN">
+	                    	<em>일반회원</em>
+	                    	</security:authorize> 
+	                    	<security:authorize ifAnyGranted="ROLE_USER">
+	                    	<em>일반회원</em>
+	                    	</security:authorize>
+	                    	<button type="button" id="logoutBtn">로그아웃</button>
+	                    </p>
+	                    <p class="login_title2"><em>${sessionScope.userInfo.nickName}</em> 회원님</p>
+	                    <p class="login_title3"><img src="/resources/img/diamond.png" alt=""><em>포인트</em><span>10,000 P</span></p>
+	                    <ul>
+	                        <li><a href="#">포인트신청</a></li>
+	                        <li><a href="#">구매내역</a></li>
+	                        <li><a href="#">회원정보</a></li>
+	                    </ul>
+	                </div>
             		</c:when>            		
             		<c:otherwise>
 		                <div class="login_box">
@@ -91,7 +106,7 @@
 		                </div>	                	
             		</c:otherwise>
             	</c:choose>
-            	</form>
+            	</form>            	
                 <div class="rolling_movie">
                     <div class="rolling2">
                         <div class="banner_list_box">
@@ -294,6 +309,10 @@
                 <p class="free_title">SIX 주식정보거래소의 정보제공자와 만나보세요. 무료정보도 많습니다.</p>
                 <a href="#" class="free_more">더보기 +</a>
             </div>
+            <div class="latest_popular">
+                <p class="latest_title">신용평가사 S&amp;P</p>
+                <p class="latest_title2">지난달 청년실업률이 올해 들어 최저치를 기록했다. 14일 통계청이 발표한 '9월 고용동향'에 따르면 지난달 15~29세 청년실업률은 7.9%로 올해 들어 가장 낮았다. 청년실업률은 지난 6월 10.2%로 정점을 찍은 이후 7월 9.4%→8월 8.0%→9월 7.9%로 조금씩 하락했다. 전체 실업률은 3.2%로 전년동월과 같은 수준이었다. 전체 취업자는 전년동월대비 34만 7000명 증가했다. </p>
+            </div>
             <ul class="look_ahead">
                 <li>
                     <p class="look_title"><span>무료</span>종목</p>
@@ -354,6 +373,32 @@
                         <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
                         <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
                     </ul>
+                </li>
+            </ul>
+            <ul class="another_link">
+                <li>
+                    <a href="#">
+                        <div class="linktitle_area">
+                            <p class="link_title">링크제목입니다</p>
+                            <p class="link_title2">게시물의 내용입니다. 게시물의 내용입니다. </p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="linktitle_area">
+                            <p class="link_title">링크제목입니다</p>
+                            <p class="link_title2">게시물의 내용입니다. 게시물의 내용입니다. </p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="linktitle_area">
+                            <p class="link_title">링크제목입니다</p>
+                            <p class="link_title2">게시물의 내용입니다. 게시물의 내용입니다. </p>
+                        </div>
+                    </a>
                 </li>
             </ul>
             <ul class="mainbanner_list">

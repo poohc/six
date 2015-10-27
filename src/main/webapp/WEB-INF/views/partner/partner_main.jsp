@@ -74,7 +74,7 @@ $(document).ready(function(){
                 <p class="title_type1 type2 type4">SIX 파트너스</p>
                 <ul class="name_card type2">
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -88,7 +88,7 @@ $(document).ready(function(){
                         <a href="#" class="watch_movie">동영상 보기</a>
                     </li>
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -102,7 +102,7 @@ $(document).ready(function(){
                         <a href="#" class="watch_movie">동영상 보기</a>
                     </li>
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -116,7 +116,7 @@ $(document).ready(function(){
                         <a href="#" class="watch_movie">동영상 보기</a>
                     </li>
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -130,7 +130,7 @@ $(document).ready(function(){
                         <a href="#" class="watch_movie">동영상 보기</a>
                     </li>
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -144,7 +144,7 @@ $(document).ready(function(){
                         <a href="#" class="watch_movie">동영상 보기</a>
                     </li>
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -158,7 +158,7 @@ $(document).ready(function(){
                         <a href="#" class="watch_movie">동영상 보기</a>
                     </li>
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -172,7 +172,7 @@ $(document).ready(function(){
                         <a href="#" class="watch_movie">동영상 보기</a>
                     </li>
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -186,7 +186,7 @@ $(document).ready(function(){
                         <a href="#" class="watch_movie">동영상 보기</a>
                     </li>
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -203,7 +203,7 @@ $(document).ready(function(){
                 <p class="title_type1 type2 type3">제도권</p>
                 <ul class="name_card type2">
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -217,7 +217,7 @@ $(document).ready(function(){
                         <a href="#" class="watch_movie">동영상 보기</a>
                     </li>
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -231,7 +231,7 @@ $(document).ready(function(){
                         <a href="#" class="watch_movie">동영상 보기</a>
                     </li>
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -245,7 +245,7 @@ $(document).ready(function(){
                         <a href="#" class="watch_movie">동영상 보기</a>
                     </li>
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -259,7 +259,7 @@ $(document).ready(function(){
                         <a href="#" class="watch_movie">동영상 보기</a>
                     </li>
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -273,7 +273,7 @@ $(document).ready(function(){
                         <a href="#" class="watch_movie">동영상 보기</a>
                     </li>
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -287,7 +287,7 @@ $(document).ready(function(){
                         <a href="#" class="watch_movie">동영상 보기</a>
                     </li>
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -301,7 +301,7 @@ $(document).ready(function(){
                         <a href="#" class="watch_movie">동영상 보기</a>
                     </li>
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>
@@ -315,7 +315,7 @@ $(document).ready(function(){
                         <a href="#" class="watch_movie">동영상 보기</a>
                     </li>
                     <li>
-                        <a href="#" class="name_block">
+                        <a href="/partner/partnerView.do" class="name_block">
                             <div class="name_top">
                                 <span class="name_title new">홍길동</span>
                                 <span class="name_title2">SIX하나대투</span>

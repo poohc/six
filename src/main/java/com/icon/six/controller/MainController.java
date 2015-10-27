@@ -220,4 +220,17 @@ public class MainController {
 		
 	}
 	
+	@RequestMapping(value = "introHowToPay.do")
+	public ModelAndView introHowToPay(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("introduce/intro_howTopay");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "introQna.do")
+	public ModelAndView introQna(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("introduce/intro_qna");
+		
+		return mav;
+	}
 }

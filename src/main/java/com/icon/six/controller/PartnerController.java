@@ -34,4 +34,10 @@ public class PartnerController {
 		ModelAndView mav = new ModelAndView("/partner/partner_payInfo");
 		return mav;
 	}
+	
+	@RequestMapping(value="partnerView.do")
+	public ModelAndView partnerView(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("/partner/partner_view");
+		return mav;
+	}
 }

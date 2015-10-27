@@ -10,7 +10,7 @@
     <p class="kospi_title">KOSPI</p>
     <p class="kospi_title2 type2">1,915.53 <span>7.09 (1.75%)</span></p>
 </div>
-<form id="loginForm" action="j_spring_security_check" method="post">
+<form id="loginForm" action="j_spring_security_check.do" method="post">
 	<c:choose>
 	<c:when test="${not empty sessionScope.userInfo}">
 		

@@ -11,6 +11,7 @@ $(document).ready(function(){
 });
 </script>
 </head>
+
 <body>
 <div class="wrapper main">
 	<!-- header -->
@@ -21,7 +22,7 @@ $(document).ready(function(){
         <div class="container">
             <div class="wrap_left">
                 <jsp:include page="../common/login_common.jsp" />
-                <jsp:include page="../common/intro_menu.jsp" />               
+                <jsp:include page="../common/intro_menu.jsp" />
                 <div class="left_comment">
                     <p class="left_comment_title">덧글</p>
                     <div class="comment_box">
@@ -59,14 +60,42 @@ $(document).ready(function(){
                     <img src="/resources/img/introduce2.jpg" alt="">
                 </div>
             </div>
-            <!-- Left Side -->
-            <jsp:include page="../common/left.jsp" />
-            <!-- Left Side end -->
-            
-            <!-- Left Side -->
-            <jsp:include page="../common/right.jsp" />
-            <!-- Left Side end -->   
+            <div class="left_side">
+                <ul class="left_banner1">
+                    <li><a href="#">SIX 아카데미</a></li>
+                    <li><a href="#">SIX 일급정보</a></li>
+                    <li><a href="#">정보거래소</a></li>
+                </ul>
+                <div class="left_banner2">
+                    <p class="rank_title">RANKING</p>
+                    <ul class="ranking_list">
+                        <li><a href="#"><img src="/resources/img/rank_img.png" alt=""></a></li>
+                        <li><a href="#"><img src="/resources/img/rank_img.png" alt=""></a></li>
+                        <li><a href="#"><img src="/resources/img/rank_img.png" alt=""></a></li>
+                    </ul>
+                </div>
+                <div class="dart">
+                    <input type="text" class="dart_search">
+                    <button class="dart_btn">검색</button>
+                </div>
+            </div>
+            <div class="right_side">
+                <ul class="right_banner1">
+                    <li><a href="#">정보열람<br>회원가입</a></li>
+                    <li><a href="#">SIX 파트너<br>신청</a></li>
+                </ul>
+                <a href="#" class="right_bn3"><img src="/resources/img/right_bn3.jpg" alt=""></a>
+                <a href="#" class="right_bn4"><img src="/resources/img/right_bn4.jpg" alt=""></a>
+            </div>
         </div>
+		<!-- Left Side -->
+        <jsp:include page="../common/left.jsp" />
+        <!-- Left Side end -->
+        
+        <!-- Left Side -->
+        <jsp:include page="../common/right.jsp" />
+        <!-- Left Side end -->
+
 	</div>
 	<!-- //container -->
 	<jsp:include page="../common/footer.jsp" />

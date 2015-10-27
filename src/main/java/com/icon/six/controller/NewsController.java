@@ -11,9 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("news")
 public class NewsController {
 	
-	@RequestMapping(value="newsInvest.do")
+	@RequestMapping(value="newsStock.do")
 	public ModelAndView newsInvest(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("/news/news_invest");
+		ModelAndView mav = new ModelAndView("/news/news_stock");
 		return mav;
 	}
 	

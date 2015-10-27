@@ -57,13 +57,13 @@ function goView(seq){
             </div>
             <div class="wrap_right">
                 <img src="/resources/img/introduce1.jpg" alt="" class="top_mainimg">
-                <form method="post" id="noticeForm" name="noticeForm">
-                <input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
-                <input type="hidden" id="seq" name="seq">                
                 <div class="right_contents">
                     <p class="title_type1">공지사항</p>
                     <div class="table_top">
                         <p class="table_type1title">SIX의 공지사항</p>
+                        <form method="post" id="noticeForm" name="noticeForm">
+                		<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
+                		<input type="hidden" id="seq" name="seq">                
                         <div class="table_rightarea">
                             <select name="searchOption" id="searchOption" title="분류">
                                 <option value="title">제목</option>
@@ -72,8 +72,8 @@ function goView(seq){
                             <input type="text" id="searchText" name="searchText">
                             <button type="button" id="searchBtn">검색</button>
                         </div>
+                        </form>
                     </div>
-                 </form>
                     <div class="table_type1">
                         <table>
                             <caption>공지사항</caption>
@@ -94,7 +94,7 @@ function goView(seq){
                                 </tr>
                             </thead>
                             <tbody>
-                            	<c:choose>
+                                <c:choose>
                             	<c:when test="${fn:length(list) > 0}">
                             		<c:forEach items="${list}" var="list">
 		                                <tr class="new">
@@ -130,8 +130,8 @@ function goView(seq){
                     </div>
                     <c:if test="${fn:length(list) > 0}">
                     	<c:out value="${page}" escapeXml="false" />
-                    </c:if>                                                                              
-                </div>                
+                    </c:if>  
+                </div>
             </div>
             <!-- Left Side -->
             <jsp:include page="../common/left.jsp" />
@@ -143,7 +143,7 @@ function goView(seq){
         </div>
 	</div>
 	<!-- //container -->
-	<jsp:include page="../common/footer.jsp" />
+	<jsp:include page="../common/footer.jsp" />	
 </div>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <div class="about_six">
     <p class="about_sixtitle">증권가소식</p>
     <ul class="about_sixlist">
-        <li id="news1"><a href="/news/newsInvest.do">증권가정보<span></span></a></li>
+        <li id="news1"><a href="/news/newsStock.do">증권가정보<span></span></a></li>
         <li id="news2"><a href="/news/newsEtc.do">기타정보<span></span></a></li>
     </ul>
 </div>

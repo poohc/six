@@ -18,16 +18,16 @@
         <div class="top_header">
             <div class="top_header2">
                 <ul class="top_header3">
-                    <li><a href="#">로그인</a></li>
-                    <li><a href="#">회원가입</a></li>
+                    <li><a href="/login/login.do">로그인</a></li>
+                    <li><a href="/member/memberJoin.do">회원가입</a></li>
                 </ul>
             </div>
         </div>
-        <div class="middle_header"><a href="#"><img src="/resources/img/logo.png" alt="six 주식정보거래소"></a></div>
+        <div class="middle_header"><a href="/main/main.do"><img src="/resources/img/logo.png" alt="six 주식정보거래소"></a></div>
 		<div id="menuwrap">
 			<div id="navigation_pc">
 				<ul id="navigation">
-					<li><a href="" class="btnPullDown">SIX 소개</a>
+					<li><a href="/main/introSix.do" class="btnPullDown">SIX 소개</a>
 						<!-- 2뎁스 시작 -->
 						<div class="navigation_s1 pullDown">
 							<span class="arrow_s1"></span>
@@ -36,6 +36,9 @@
 									<ul>
 										<li><a href="/main/introSix.do">SIX 란?</a></li>
 										<li><a href="/main/introNotice.do">공지사항</a></li>
+										<li><a href="/main/introHowToPay.do">결제방법</a></li>
+										<li><a href="/main/introQna.do">고객문의</a></li>
+										<li><a href="#" onclick="javascript:alert('메뉴 준비중입니다.')">1:1투자문의</a></li>
 									</ul>
 								</li>
 								<li>
@@ -68,7 +71,13 @@
 										<li><a href="/market/marketAnalysis.do">시장분석</a></li>
 										<li><a href="/market/marketPay.do">유료종목</a></li>
 										<li><a href="/market/marketBargain.do">매매기법</a></li>
-										<li><a href="/market/marketAdv.do">고급사항</a></li>
+										<li><a href="/market/marketAdv.do">고급시황</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul>
+                                        <li><a href="/news/newsStock.do">증권가정보</a></li>
+                                        <li><a href="/news/newsEtc.do">기타정보</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -78,13 +87,7 @@
                                         <li><a href="/community/communityReview.do">SIX 이용후기</a></li>
                                         <li><a href="/community/communitySpeical.do">특강 세미나 교육</a></li>
                                     </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">진행중 이벤트</a></li>
-                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">종료 이벤트</a></li>
-                                    </ul>
-                                </li>
+                                </li>                                
 							</ul>
 						</div>
 						<!-- 2뎁스 끝 -->
@@ -98,6 +101,9 @@
                                     <ul>
                                         <li><a href="/main/introSix.do">SIX 란?</a></li>
 										<li><a href="/main/introNotice.do">공지사항</a></li>
+										<li><a href="/main/introHowToPay.do">결제방법</a></li>
+										<li><a href="/main/introQna.do">고객문의</a></li>
+										<li><a href="#" onclick="javascript:alert('메뉴 준비중입니다.')">1:1투자문의</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -130,7 +136,13 @@
 										<li><a href="/market/marketAnalysis.do">시장분석</a></li>
 										<li><a href="/market/marketPay.do">유료종목</a></li>
 										<li><a href="/market/marketBargain.do">매매기법</a></li>
-										<li><a href="/market/marketAdv.do">고급사항</a></li>
+										<li><a href="/market/marketAdv.do">고급시황</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul>
+                                        <li><a href="/news/newsStock.do">증권가정보</a></li>
+                                        <li><a href="/news/newsEtc.do">기타정보</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -141,17 +153,11 @@
                                         <li><a href="/community/communitySpeical.do">특강 세미나 교육</a></li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">진행중 이벤트</a></li>
-                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">종료 이벤트</a></li>
-                                    </ul>
-                                </li>
                             </ul>
                         </div>
                         <!-- 2뎁스 끝 -->
                     </li>
-					<li><a href="" class="btnPullDown">SIX 일급정보</a>
+					<li><a href="/info/infoMain.do" class="btnPullDown">SIX 일급정보</a>
                         <!-- 2뎁스 시작 -->
                         <div class="navigation_s3 pullDown">
                             <span class="arrow_s3"></span>
@@ -160,6 +166,9 @@
                                     <ul>
                                         <li><a href="/main/introSix.do">SIX 란?</a></li>
 										<li><a href="/main/introNotice.do">공지사항</a></li>
+										<li><a href="/main/introHowToPay.do">결제방법</a></li>
+										<li><a href="/main/introQna.do">고객문의</a></li>
+										<li><a href="#" onclick="javascript:alert('메뉴 준비중입니다.')">1:1투자문의</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -192,7 +201,13 @@
 										<li><a href="/market/marketAnalysis.do">시장분석</a></li>
 										<li><a href="/market/marketPay.do">유료종목</a></li>
 										<li><a href="/market/marketBargain.do">매매기법</a></li>
-										<li><a href="/market/marketAdv.do">고급사항</a></li>
+										<li><a href="/market/marketAdv.do">고급시황</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul>
+                                        <li><a href="/news/newsStock.do">증권가정보</a></li>
+                                        <li><a href="/news/newsEtc.do">기타정보</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -203,17 +218,11 @@
                                         <li><a href="/community/communitySpeical.do">특강 세미나 교육</a></li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">진행중 이벤트</a></li>
-                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">종료 이벤트</a></li>
-                                    </ul>
-                                </li>
                             </ul>
                         </div>
                         <!-- 2뎁스 끝 -->
                     </li>
-					<li><a href="" class="btnPullDown">SIX 파트너</a>
+					<li><a href="/partner/partnerMain.do" class="btnPullDown">SIX 파트너</a>
                         <!-- 2뎁스 시작 -->
                         <div class="navigation_s4 pullDown">
                             <span class="arrow_s4"></span>
@@ -222,6 +231,9 @@
                                     <ul>
                                         <li><a href="/main/introSix.do">SIX 란?</a></li>
 										<li><a href="/main/introNotice.do">공지사항</a></li>
+										<li><a href="/main/introHowToPay.do">결제방법</a></li>
+										<li><a href="/main/introQna.do">고객문의</a></li>
+										<li><a href="#" onclick="javascript:alert('메뉴 준비중입니다.')">1:1투자문의</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -254,7 +266,13 @@
 										<li><a href="/market/marketAnalysis.do">시장분석</a></li>
 										<li><a href="/market/marketPay.do">유료종목</a></li>
 										<li><a href="/market/marketBargain.do">매매기법</a></li>
-										<li><a href="/market/marketAdv.do">고급사항</a></li>
+										<li><a href="/market/marketAdv.do">고급시황</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul>
+                                        <li><a href="/news/newsStock.do">증권가정보</a></li>
+                                        <li><a href="/news/newsEtc.do">기타정보</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -265,17 +283,11 @@
                                         <li><a href="/community/communitySpeical.do">특강 세미나 교육</a></li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">진행중 이벤트</a></li>
-                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">종료 이벤트</a></li>
-                                    </ul>
-                                </li>
                             </ul>
                         </div>
                         <!-- 2뎁스 끝 -->
                     </li>
-					<li><a href="" class="btnPullDown">정보거래소</a>
+					<li><a href="/market/marketMain.do" class="btnPullDown">정보거래소</a>
                         <!-- 2뎁스 시작 -->
                         <div class="navigation_s5 pullDown">
                             <span class="arrow_s5"></span>
@@ -284,6 +296,9 @@
                                     <ul>
                                         <li><a href="/main/introSix.do">SIX 란?</a></li>
 										<li><a href="/main/introNotice.do">공지사항</a></li>
+										<li><a href="/main/introHowToPay.do">결제방법</a></li>
+										<li><a href="/main/introQna.do">고객문의</a></li>
+										<li><a href="#" onclick="javascript:alert('메뉴 준비중입니다.')">1:1투자문의</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -316,7 +331,13 @@
 										<li><a href="/market/marketAnalysis.do">시장분석</a></li>
 										<li><a href="/market/marketPay.do">유료종목</a></li>
 										<li><a href="/market/marketBargain.do">매매기법</a></li>
-										<li><a href="/market/marketAdv.do">고급사항</a></li>
+										<li><a href="/market/marketAdv.do">고급시황</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul>
+                                        <li><a href="/news/newsStock.do">증권가정보</a></li>
+                                        <li><a href="/news/newsEtc.do">기타정보</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -327,17 +348,11 @@
                                         <li><a href="/community/communitySpeical.do">특강 세미나 교육</a></li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">진행중 이벤트</a></li>
-                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">종료 이벤트</a></li>
-                                    </ul>
-                                </li>
                             </ul>
                         </div>
                         <!-- 2뎁스 끝 -->
                     </li>
-                    <li><a href="" class="btnPullDown">커뮤니티</a>
+                    <li><a href="/news/newsStock.do" class="btnPullDown">증권가소식</a>
                         <!-- 2뎁스 시작 -->
                         <div class="navigation_s6 pullDown">
                             <span class="arrow_s6"></span>
@@ -346,6 +361,9 @@
                                     <ul>
                                         <li><a href="/main/introSix.do">SIX 란?</a></li>
 										<li><a href="/main/introNotice.do">공지사항</a></li>
+										<li><a href="/main/introHowToPay.do">결제방법</a></li>
+										<li><a href="/main/introQna.do">고객문의</a></li>
+										<li><a href="#" onclick="javascript:alert('메뉴 준비중입니다.')">1:1투자문의</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -378,7 +396,13 @@
 										<li><a href="/market/marketAnalysis.do">시장분석</a></li>
 										<li><a href="/market/marketPay.do">유료종목</a></li>
 										<li><a href="/market/marketBargain.do">매매기법</a></li>
-										<li><a href="/market/marketAdv.do">고급사항</a></li>
+										<li><a href="/market/marketAdv.do">고급시황</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul>
+                                        <li><a href="/news/newsStock.do">증권가정보</a></li>
+                                        <li><a href="/news/newsEtc.do">기타정보</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -389,17 +413,11 @@
                                         <li><a href="/community/communitySpeical.do">특강 세미나 교육</a></li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">진행중 이벤트</a></li>
-                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">종료 이벤트</a></li>
-                                    </ul>
-                                </li>
                             </ul>
                         </div>
                         <!-- 2뎁스 끝 -->
                     </li>
-                    <li><a href="" class="btnPullDown">이벤트</a>
+                    <li><a href="/community/communityFreeboard.do" class="btnPullDown">커뮤니티</a>
                         <!-- 2뎁스 시작 -->
                         <div class="navigation_s7 pullDown">
                             <span class="arrow_s7"></span>
@@ -408,6 +426,9 @@
                                     <ul>
                                         <li><a href="/main/introSix.do">SIX 란?</a></li>
 										<li><a href="/main/introNotice.do">공지사항</a></li>
+										<li><a href="/main/introHowToPay.do">결제방법</a></li>
+										<li><a href="/main/introQna.do">고객문의</a></li>
+										<li><a href="#" onclick="javascript:alert('메뉴 준비중입니다.')">1:1투자문의</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -440,7 +461,13 @@
 										<li><a href="/market/marketAnalysis.do">시장분석</a></li>
 										<li><a href="/market/marketPay.do">유료종목</a></li>
 										<li><a href="/market/marketBargain.do">매매기법</a></li>
-										<li><a href="/market/marketAdv.do">고급사항</a></li>
+										<li><a href="/market/marketAdv.do">고급시황</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul>
+                                        <li><a href="/news/newsStock.do">증권가정보</a></li>
+                                        <li><a href="/news/newsEtc.do">기타정보</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -449,12 +476,6 @@
                                         <li><a href="/community/communityDiscussion.do">종목토론방</a></li>
                                         <li><a href="/community/communityReview.do">SIX 이용후기</a></li>
                                         <li><a href="/community/communitySpeical.do">특강 세미나 교육</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <ul>
-                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">진행중 이벤트</a></li>
-                                        <li><a href="" onclick="javascript:alert('준비중인 메뉴입니다.')">종료 이벤트</a></li>
                                     </ul>
                                 </li>
                             </ul>

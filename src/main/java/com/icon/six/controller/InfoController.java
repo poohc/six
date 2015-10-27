@@ -11,6 +11,12 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("info")
 public class InfoController {
 	
+	@RequestMapping(value="infoMain.do")
+	public ModelAndView infoMain(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("/info/info_main");
+		return mav;
+	}
+	
 	@RequestMapping(value="infoFreeRec.do")
 	public ModelAndView infoFreeRec(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("/info/info_freeRec");

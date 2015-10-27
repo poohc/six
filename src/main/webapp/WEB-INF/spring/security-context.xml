@@ -15,7 +15,9 @@
 	      
 	    <form-login login-page="/login/login.do" 
 			        authentication-failure-url="/login/loginFail.do" 
-					default-target-url="/login/loginSuccess.do" />
+					default-target-url="/login/loginSuccess.do" 
+					login-processing-url="/j_spring_security_check.do"
+					/>
 			
 		<logout logout-success-url="/main/main.do" 
 		        invalidate-session="true"  />

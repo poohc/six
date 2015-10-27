@@ -16,7 +16,8 @@ a:hover, a:active,a:focus{color:#666;text-decoration:none;}
 
 
 .name_card{overflow: hidden;}
-.name_card li{float: left;width: 235px;height: 140px;margin-right: 13px;position: relative;margin-bottom: 33px;}
+.name_card li{float: left;width: 235px;height: 140px;margin-right: 13px;position: relative;margin-bottom: 33px;box-sizing:border-box;}
+.name_card li a:hover{border: 1px solid #df412d;border-top: 4px solid #df412d;}
 .name_card li:nth-child(4){margin-right: 0;}
 .name_card li:nth-child(8){margin-right: 0;}
 .name_card li:nth-child(12){margin-right: 0;}
@@ -25,14 +26,14 @@ a:hover, a:active,a:focus{color:#666;text-decoration:none;}
 .name_top:after{clear: both;display: block;content: '';}
 .name_title{font-size: 14px;color: #333333;font-weight: bold;font-family: 'Nanum Barun Gothic';}
 .name_title.new{position: relative;}
-.name_title.new:after{background: url('../img/new_btn.png') no-repeat;width: 12px;height: 12px;position: absolute;top:1px;right:-18px;content: '';display: block;}
+.name_title.new:after{background: url('/resources/img/new_btn.png') no-repeat;width: 12px;height: 12px;position: absolute;top:1px;right:-18px;content: '';display: block;}
 .name_title2{text-align: right;font-size: 12px;color: #df412d;font-size: 12px;font-weight: bold;float: right;font-family: 'Nanum Barun Gothic';}
 .name_bottom{background-color: #fff;padding: 12px 10px;box-sizing:border-box;clear: both;}
 .name_bottom > img{display: block;float: right;width: 70px;}
 .name_bottom > .name_text{float: left;width: 124px;height: 52px;margin-right: 10px;overflow: hidden;margin-bottom:0px;position: relative;padding-left: 8px;}
 .name_bottom > .name_text.type1{margin-top: 5px;}
 .name_bottom > .name_text:before{content: '*';display: block;position: absolute;left:0;top:2px;}
-.watch_movie{display: block;position: absolute;right: 10px;bottom: -7px;background: url('../img/btn_play.png') no-repeat 0 center; padding-left: 10px;}
+.watch_movie{display: block;position: absolute;right: 10px;bottom: -7px;background: url('/resources/img/btn_play.png') no-repeat 0 center; padding-left: 10px;}
 .free_area{margin-top: 20px;position: relative;margin-bottom: 20px;background-color: #333333;height: 29px;line-height: 29px;}
 .free_title{font-size: 14px;color: #fff;font-weight: bold;line-height: 29px;margin-left: 17px;font-family: 'Nanum Barun Gothic';}
 .free_more{display: block;position: absolute;top:1px;right: 9px;font-size: 12px;color: #fff;}
@@ -106,8 +107,8 @@ a:hover, a:active,a:focus{color:#666;text-decoration:none;}
 .visual .pic ul li span{text-align:center; display:block; padding:30px 0 0 0; font-size:18px; line-height:22px;}
 .visual .pic ul li span a{color:#fff;}
 .visual .btn{position:absolute;left:-315px;bottom:17px;width:100%;text-align:center;z-index:30;}
-.visual .btn div{display:inline-block;text-indent:-9999px;width:15px;height:14px;background:url('../img/dot.png') no-repeat;margin:0 2px;cursor:pointer;}
-.visual .btn div.ch{width:14px;height:14px;background:url('../img/dot_on.png') no-repeat;}
+.visual .btn div{display:inline-block;text-indent:-9999px;width:15px;height:14px;background:url('/resources/img/dot.png') no-repeat;margin:0 2px;cursor:pointer;}
+.visual .btn div.ch{width:14px;height:14px;background:url('/resources/img/dot_on.png') no-repeat;}
 .visual .btn div span{display:block;width:100%;height:100%;}
 .visual .btn a{margin:0 2px;cursor:pointer;display:inline-block;width:21px;height:20px;}
 .visual .btn *{vertical-align:middle;}
@@ -129,11 +130,22 @@ a:hover, a:active,a:focus{color:#666;text-decoration:none;}
 .visuals .pic ul li span{text-align:center; display:block; padding:30px 0 0 0; font-size:18px; line-height:22px;}
 .visuals .pic ul li span a{color:#fff;}
 .visuals .btn{position:absolute;left:6px;bottom:21px;width:100%;text-align:center;z-index:30;}
-.visuals .btn div{display:inline-block;text-indent:-9999px;width:15px;height:14px;background:url('../img/dot.png') no-repeat;margin:0 2px;cursor:pointer;}
-.visuals .btn div.ch{width:14px;height:14px;background:url('../img/dot_on.png') no-repeat;}
+.visuals .btn div{display:inline-block;text-indent:-9999px;width:15px;height:14px;background:url('/resources/img/dot.png') no-repeat;margin:0 2px;cursor:pointer;}
+.visuals .btn div.ch{width:14px;height:14px;background:url('/resources/img/dot_on.png') no-repeat;}
 .visuals .btn div span{display:block;width:100%;height:100%;}
 .visuals .btn a{margin:0 2px;cursor:pointer;display:inline-block;width:21px;height:20px;}
 .visuals .btn *{vertical-align:middle;}
 .visuals .dir{position:relative;}
 .visuals .dir div{cursor:pointer;width:23px;height:36px; position:absolute;}
 .visuals .dir span{display:block;text-indent:-9999px;width:100%;height:100%;}
+
+.latest_popular{margin-bottom: 10px;height: 136px;background: url('/resources/img/latest_popular.jpg') no-repeat;box-sizing:border-box;padding: 24px 35px 24px 290px;}
+.latest_title{font-size: 14px;color: #333333;margin-bottom: 15px;font-weight: bold;}
+.latest_title2{font-size: 12px;color: #333333;height: 53px;overflow: hidden;}
+.another_link{margin-bottom: 10px;}
+.another_link li{display: inline-block;width: 320px;height: 170px;margin-right: 6px;background: url('/resources/img/another_link.jpg') no-repeat;position: relative;}
+.another_link li:nth-child(3){margin-right: 0;}
+.another_link li a{display: block;height: 170px;}
+.another_link li a .linktitle_area{vertical-align: bottom;height: 60px;background-color: rgba(0,0,0,0.5);padding: 14px;box-sizing:border-box;position: absolute;left:0;bottom: 0;width: 100%;}
+.link_title{font-size: 12px;color: #fff;margin-bottom: 4px;font-weight: bold;}
+.link_title2{font-size: 11px;color: #fff;}
