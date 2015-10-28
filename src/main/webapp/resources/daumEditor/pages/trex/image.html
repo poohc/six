@@ -20,7 +20,7 @@
             beforeSubmit: function (data,form,option) {
                 //validation체크 
                 //막기위해서는 return false를 잡아주면됨
-                alert(data);
+//                 alert(data);
                 return true;
             },
             success: function(response,status){
@@ -37,6 +37,7 @@
         if (typeof(execAttach) == 'undefined') { //Virtual Function
             return;
         }
+        alert(response)
         var response_object = $.parseJSON( response );
         execAttach(response_object);
         closeWindow();

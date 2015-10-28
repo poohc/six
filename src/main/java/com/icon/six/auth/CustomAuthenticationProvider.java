@@ -50,7 +50,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 						}
 						
 						result = new UsernamePasswordAuthenticationToken(userId, userPw, roles);
-						result.setDetails(new CustomUserDetails(userId, userPw, String.valueOf(userInfo.get("email")), String.valueOf(userInfo.get("nickName")), roles));
+						result.setDetails(new CustomUserDetails(userId, userPw, String.valueOf(userInfo.get("email")), String.valueOf(userInfo.get("nickName")), String.valueOf(userInfo.get("name")), roles));
 						
 					} else {
 						System.out.println("권한 데이터 없음");
