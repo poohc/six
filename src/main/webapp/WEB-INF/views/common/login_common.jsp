@@ -1,7 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>   
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$('#logoutBtn').click(function(){
+			$('#loginForm').attr('action','/login/logout.do');
+			$('#loginForm').submit();			
+		});
+		
+	});
+</script> 
 <div class="kospi">
     <p class="kospi_title">KOSPI</p>
     <p class="kospi_title2">1,915.53 <span>7.09 (1.75%)</span></p>
@@ -11,9 +22,30 @@
     <p class="kospi_title2 type2">1,915.53 <span>7.09 (1.75%)</span></p>
 </div>
 <form id="loginForm" action="j_spring_security_check.do" method="post">
+	<security:authorize access="hasRole('ROLE_USER')" var="isUser" />
+	<security:authorize access="hasRole('ROLE_ADMIN')" var="isAdmin" />
 	<c:choose>
 	<c:when test="${not empty sessionScope.userInfo}">
-		
+		<div class="login_box type2">
+			<p class="login_title">SIX
+				<c:choose>
+					<c:when test="${isAdmin}">
+						<em>관리자</em>
+					</c:when>            				
+					<c:when test="${isUser}">
+						<em>일반회원</em>
+					</c:when>	                    	
+	        	</c:choose>
+	        	<button type="button" id="logoutBtn">로그아웃</button>
+	        </p>
+	        <p class="login_title2"><em>${sessionScope.userInfo.name}</em> 회원님</p>
+	        <p class="login_title3"><img src="/resources/img/diamond.png" alt=""><em>포인트</em><span>10,000 P</span></p>
+	        <ul>
+	            <li><a href="#">포인트신청</a></li>
+	            <li><a href="#">구매내역</a></li>
+	            <li><a href="#">회원정보</a></li>
+	        </ul>
+	    </div>
 	</c:when>
 	<c:otherwise>
 		<div class="login_box">

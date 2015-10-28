@@ -10,6 +10,7 @@ public class IntroBoardVo {
 	private String updateUserId;
 	private String updateDate;
 	private String hitCount;
+	private String isNotice;
 	
 	public String getSeq() {
 		return seq;
@@ -58,6 +59,11 @@ public class IntroBoardVo {
 	}
 	public void setHitCount(String hitCount) {
 		this.hitCount = hitCount;
-	}		
-	
+	}
+	public String getIsNotice() {
+		return isNotice;
+	}
+	public void setIsNotice(String isNotice) {
+		this.isNotice = isNotice;
+	}			
 }

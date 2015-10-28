@@ -18,5 +18,6 @@
 <script type="text/javascript" src="/resources/js/basic.js"></script>
 <script type="text/javascript" src="/resources/js/jquery.form.js"></script>
 <script type="text/javascript" src="/resources/daumEditor/js/editor_loader.js" charset="utf-8"></script>
+<script type="text/javascript" src="/resources/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
 </head>
 </html>

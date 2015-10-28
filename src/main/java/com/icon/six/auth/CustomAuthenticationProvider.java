@@ -28,7 +28,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 		String userPw = (String)authentication.getCredentials();
 		UsernamePasswordAuthenticationToken result = null;
 		
-		System.out.println("userId : " + userId + ", userPw : " + userPw);
+//		System.out.println("userId : " + userId + ", userPw : " + userPw);
 		
 		try {
 			Map<String, Object> userInfo = memberService.getMemberInfo(userId);	

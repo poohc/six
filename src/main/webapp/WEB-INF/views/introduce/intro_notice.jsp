@@ -101,7 +101,10 @@ function goView(seq){
 		                                    <td>${list.SEQ}</td>
 		                                    <td class="t_l">
 		                                    	<a href="#" onclick="goView('${list.SEQ}');">
-		                                    		<span class="notice_bul">공지</span>${list.TITLE}
+		                                    		<c:if test="${list.IS_NOTICE eq 'T'}">
+		                                    		<span class="notice_bul">공지</span>
+		                                    		</c:if>
+		                                    		${list.TITLE}
 		                                    	</a>
 		                                    </td>
 		                                    <td><img src="/resources/img/master.png" alt="six"></td>

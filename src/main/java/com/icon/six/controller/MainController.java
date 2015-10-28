@@ -127,8 +127,10 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "introNoticeWriteProcess.do")
-	public void introNoticeWriteProcess(@RequestParam Map<String, String> requestMap, HttpServletResponse response){
+	public void introNoticeWriteProcess(@RequestParam Map<String, String> requestMap, HttpServletRequest request, HttpServletResponse response){
 		try {
+			
+			System.out.println("requestMap : " + requestMap);
 			
 			if("NotNull".equals(StringUtil.nullCheckMap((HashMap<String, String>) requestMap))){
 				
@@ -137,8 +139,14 @@ public class MainController {
 				IntroBoardVo paramVo = new IntroBoardVo();
 				
 				paramVo.setTitle(requestMap.get("title"));
-				paramVo.setContents(requestMap.get("daumeditor"));
+				paramVo.setContents(requestMap.get("smarteditor"));
 				paramVo.setCreateUserId(SecurityContextHolder.getContext().getAuthentication().getName());
+				
+				if("notice".equals(requestMap.get("chkNotice"))){
+					paramVo.setIsNotice("T");
+				} else if("normal".equals(requestMap.get("chkNotice"))){
+					paramVo.setIsNotice("F");
+				}
 				
 				result = boardService.insertIntroBoard(paramVo);
 				
@@ -161,9 +169,6 @@ public class MainController {
 	public void introNoticeUpdateProcess(@RequestParam Map<String, String> requestMap, HttpServletResponse response){
 		
 		try{
-			
-			System.out.println("requestMap : " + requestMap);
-			
 			if("NotNull".equals(StringUtil.nullCheckMap((HashMap<String, String>) requestMap))){
 				
 				int result = 0;

@@ -22,7 +22,8 @@
 		       CREATE_DATE,
 		       UPDATE_USER_ID,
 		       UPDATE_DATE,
-		       HIT_COUNT		       
+		       HIT_COUNT,
+		       IS_NOTICE		       
 		  FROM SIX_INTRO_BOARD
 		 WHERE 1=1
 		   <if test="title != null">		       
@@ -46,7 +47,8 @@
 		       CREATE_DATE,
 		       UPDATE_USER_ID,
 		       UPDATE_DATE,
-		       HIT_COUNT		       
+		       HIT_COUNT,
+		       IS_NOTICE		       
 		  FROM SIX_INTRO_BOARD
 		 WHERE SEQ = #{seq}
     </select>
@@ -58,14 +60,16 @@
 				       CONTENTS,
 				       CREATE_USER_ID,
 				       CREATE_DATE,
-				       HIT_COUNT
+				       HIT_COUNT,
+				       IS_NOTICE
 			    	)
 			 VALUES (
 				 	   #{title},
 				 	   #{contents},
 				 	   #{createUserId},
 				 	   now(),
-				 	   0		 		
+				 	   0,
+				 	   #{isNotice}		 		
 			 		)      	
     </insert>
     
@@ -75,6 +79,7 @@
 	          <if test="title != null">TITLE=#{title},</if>
 	          <if test="contents != null">CONTENTS=#{contents},</if>
 	      	  <if test="hitCount != null">HIT_COUNT=HIT_COUNT+1,</if>
+	      	  <if test="isNotice != null">IS_NOTICE=#{isNotice},</if>
 	      	  UPDATE_USER_ID = #{updateUserId},
 		      UPDATE_DATE = now()
 	    </set>

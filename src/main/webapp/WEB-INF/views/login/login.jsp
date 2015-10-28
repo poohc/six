@@ -26,7 +26,7 @@
 </script>
 </head>
 <body>
-<form id="loginForm" method="post" action="j_spring_security_check">
+<form id="loginForm" method="post" action="j_spring_security_check.do">
 <div class="wrapper main">
 	<c:if test="${fn:length(msg) > 0}">
 		<script type="text/javascript">

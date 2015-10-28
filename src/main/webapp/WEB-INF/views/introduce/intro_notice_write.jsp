@@ -9,100 +9,39 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#intro2').addClass("on");
-	
-	 $.ajax({
-         url : "/resources/daumEditor/daumEditor.html",
-         success : function(data){
-             $("#editor_frame").html(data);
-             // 에디터UI load
-             var config = {
-                 /* 런타임 시 리소스들을 로딩할 때 필요한 부분으로, 경로가 변경되면 이 부분 수정이 필요. ex) http://xxx.xxx.com */
-                 txHost: '', 
-                 /* 런타임 시 리소스들을 로딩할 때 필요한 부분으로, 경로가 변경되면 이 부분 수정이 필요. ex) /xxx/xxx/ */
-                 txPath: '', 
-                 /* 수정필요없음. */
-                 txService: 'sample', 
-                 /* 수정필요없음. 프로젝트가 여러개일 경우만 수정한다. */
-                 txProject: 'sample',
-                 /* 대부분의 경우에 빈문자열 */
-                 initializedId: "", 
-                 /* 에디터를 둘러싸고 있는 레이어 이름(에디터 컨테이너) */
-                 wrapper: "tx_trex_container",
-                 /* 등록하기 위한 Form 이름 */
-                 form: "tx_editor_form", 
-                 /*에디터에 사용되는 이미지 디렉터리, 필요에 따라 수정한다. */
-                 txIconPath: "/resouces/daumEditor/images/icon/editor/", 
-                 /*본문에 사용되는 이미지 디렉터리, 서비스에서 사용할 때는 완성된 컨텐츠로 배포되기 위해 절대경로로 수정한다. */
-                 txDecoPath: "/resouces/daumEditor/images/deco/contents/", 
-                 canvas: {
-                     styles: {
-                         /* 기본 글자색 */
-                         color: "#123456", 
-                         /* 기본 글자체 */
-                         fontFamily: "굴림", 
-                         /* 기본 글자크기 */
-                         fontSize: "10pt", 
-                         /*기본 배경색 */
-                         backgroundColor: "#fff", 
-                         /*기본 줄간격 */
-                         lineHeight: "1.5", 
-                         /* 위지윅 영역의 여백 */
-                         padding: "8px"
-                     },
-                     showGuideArea: false
-                 },
-                 events: {
-                     preventUnload: false
-                 },
-                 sidebar: {
-                     attachbox: {
-                         show: true,
-                         confirmForDeleteAll: true
-                     }
-                 },
-                 size: {
-                     /* 지정된 본문영역의 넓이가 있을 경우에 설정 */
-                     contentWidth: 700 
-                 }
-             };
-              
-             //에디터내에 환경설정 적용하기
-             new Editor(config);
-             Editor.modify({ "content": "<c:out value="${boardInfo.CONTENTS}" escapeXml="false" />" });
-         }
-     });
-      
-     //form submit 버튼 클릭
-     $("#save_button").click(function(){
-         //다음에디터가 포함된 form submit
-         Editor.save();
-     });
+	 
+	var editor_object = [];
+    
+    nhn.husky.EZCreator.createInIFrame({
+        oAppRef: editor_object,
+        elPlaceHolder: "smarteditor",
+        sSkinURI: "/resources/smarteditor/SmartEditor2Skin.html", 
+        htParams : {
+            // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+            bUseToolbar : true,             
+            // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+            bUseVerticalResizer : false,     
+            // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+            bUseModeChanger : true, 
+        }
+    });
      
-     $("#update_button").click(function(){
-         //다음에디터가 포함된 form submit
-         $('#tx_editor_form').attr('action','/main/introNoticeUpdateProcess.do');
-         Editor.save();
-     });
+    //전송버튼 클릭이벤트
+    $("#saveBtn").click(function(){
+        //id가 smarteditor인 textarea에 에디터에서 대입
+        editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
+        // 이부분에 에디터 validation 검증
+         
+        //폼 submit
+        $("#frm").submit();
+    })
+	     
+    $("#updateBtn").click(function(){
+        //다음에디터가 포함된 form submit
+        $('#frm').attr('action','/main/introNoticeUpdateProcess.do');
+        $('#frm').submit();
+    });
 });
-
-//Editor.save() 호출 한 다음에 validation 검증을 위한 함수 
-//validation 체크해줄 입력폼들을 이 함수에 추가 지정해줍니다.
-function validForm(editor) {
-    var validator = new Trex.Validator();
-    var content = editor.getContent();
-    if (!validator.exists(content)) {
-        alert('내용을 입력하세요');
-        return false;
-    }
-    return true;
-}
-  
-//validForm 함수까지 true값을 받으면 이어서 form submit을 시켜주는  setForm함수
-function setForm(editor) {
-    var content = editor.getContent();
-    $("#daumeditor").val(content);
-    return true;
-}
 
 </script>
 </head>
@@ -147,18 +86,25 @@ function setForm(editor) {
                                 <col style="width:10%;">
                                 <col style="width:90%;">
                             </colgroup>
-                            <form name="tx_editor_form" id="tx_editor_form" method="post" accept-charset="utf-8" action="/main/introNoticeWriteProcess.do">
+                            <form name="frm" id="frm" method="post" accept-charset="utf-8" action="/main/introNoticeWriteProcess.do">
                             <input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}"> 
                             <tbody>
                                 <tr>
                                     <th class="bb_line1">제목</td>
-                                    <td class="bb_line1"><input type="text" id="title" name="title" value="${boardInfo.TITLE}"></td>
+                                    <td class="bb_line1"><input type="text" id="title" name="title" value="${boardInfo.TITLE}"></td>                                    
+                                </tr>                                
+                                <tr>
+                                	<td>&nbsp;</td>                              	
+                                	<td>
+                                	<input type="radio" name="chkNotice" value="notice" checked="checked" style="width: 10px;height: 10px;">공지
+                                	<input type="radio" name="chkNotice" value="normal" style="width: 10px;height: 10px;">일반
+                                	</td>
                                 </tr>
                                 <tr class="">
                                     <th>내용</td>                                    
                                     <td>
-                                    	<div id="editor_frame"></div>
-                                    	<textarea name="daumeditor" id="daumeditor" rows="10" cols="100" style="width:766px; height:412px;display: none;">
+                                    	<textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:100%; height:412px;">
+                                    	${boardInfo.CONTENTS}
                                     	</textarea>
                                     </td>
                                 </tr>
@@ -173,10 +119,10 @@ function setForm(editor) {
                             <li><a href="#" onclick="history.back()">취소</a></li>
                             <c:choose>
                             <c:when test="${isUpdate eq 'true'}">
-                            	<li><a href="#" id="update_button">수정</a></li>
+                            	<li><a href="#" id="updateBtn">수정</a></li>
                             </c:when>
                             <c:otherwise>
-                            	<li><a href="#" id="save_button">글쓰기</a></li>
+                            	<li><a href="#" id="saveBtn">글쓰기</a></li>
                             </c:otherwise>
                             </c:choose>
                         </ul>
