@@ -2,7 +2,7 @@ package com.icon.six.service;
 
 import java.util.Map;
 
-import com.icon.six.vo.IntroBoardVo;
+import com.icon.six.vo.BoardVo;
 
 public interface BoardService {
 	/**
@@ -16,23 +16,23 @@ public interface BoardService {
 	 * @param seq
 	 * @return
 	 */
-	public Map<String, String> getIntroBoardInfo(String seq);
+	public Map<String, String> getIntroBoardInfo(Map<String, String> param);
 	/**
 	 * 공지사항 게시판 글 쓰기
-	 * @param introBoardVo
+	 * @param boardVo
 	 * @return
 	 */
-	public int insertIntroBoard(IntroBoardVo paramVo);
+	public int insertIntroBoard(BoardVo paramVo);
 	/**
 	 * 공지사항 게시판 글 수정
 	 * @param paramVo
 	 * @return
 	 */
-	public int updateIntroBoard(IntroBoardVo paramVo);
+	public int updateIntroBoard(BoardVo paramVo);
 	/**
 	 * 공지사항 게시판 글 삭제
 	 * @param seq
 	 * @return
 	 */
-	public int deleteIntroBoard(String seq);
+	public int deleteIntroBoard(Map<String, String> param);
 }

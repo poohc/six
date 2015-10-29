@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
-import com.icon.six.vo.IntroBoardVo;
+import com.icon.six.vo.BoardVo;
 
 @Repository
 public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
@@ -21,23 +21,23 @@ public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 	}
 
 	@Override
-	public Map<String, String> getIntroBoardInfo(String seq) {
-		return (Map<String, String>) selectOne("board.getIntroBoardInfo",seq);
+	public Map<String, String> getIntroBoardInfo(Map<String, String> param) {
+		return (Map<String, String>) selectOne("board.getIntroBoardInfo", param);
 	}
 	
 	@Override
-	public int insertIntroBoard(IntroBoardVo paramVo) {
+	public int insertIntroBoard(BoardVo paramVo) {
 		return (int) insert("board.insertIntroBoard", paramVo);
 	}
 
 	@Override
-	public int updateIntroBoard(IntroBoardVo paramVo) {
+	public int updateIntroBoard(BoardVo paramVo) {
 		return (int) update("board.updateIntroBoard", paramVo);
 	}
 
 	@Override
-	public int deleteIntroBoard(String seq) {
-		return (int) delete("board.deleteIntroBoard", seq);
+	public int deleteIntroBoard(Map<String, String> param) {
+		return (int) delete("board.deleteIntroBoard", param);
 	}
 
 	

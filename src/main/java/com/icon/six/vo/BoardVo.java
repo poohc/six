@@ -1,6 +1,6 @@
 package com.icon.six.vo;
 
-public class IntroBoardVo {
+public class BoardVo {
 	
 	private String seq;
 	private String title;
@@ -11,6 +11,10 @@ public class IntroBoardVo {
 	private String updateDate;
 	private String hitCount;
 	private String isNotice;
+	private String ref;
+	private String indent;
+	private String step;
+	private String boardName;
 	
 	public String getSeq() {
 		return seq;
@@ -65,5 +69,29 @@ public class IntroBoardVo {
 	}
 	public void setIsNotice(String isNotice) {
 		this.isNotice = isNotice;
-	}			
+	}
+	public String getRef() {
+		return ref;
+	}
+	public void setRef(String ref) {
+		this.ref = ref;
+	}
+	public String getIndent() {
+		return indent;
+	}
+	public void setIndent(String indent) {
+		this.indent = indent;
+	}
+	public String getStep() {
+		return step;
+	}
+	public void setStep(String step) {
+		this.step = step;
+	}
+	public String getBoardName() {
+		return boardName;
+	}
+	public void setBoardName(String boardName) {
+		this.boardName = boardName;
+	}				
 }

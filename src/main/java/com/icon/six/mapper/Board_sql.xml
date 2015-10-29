@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
     
-    <select id="selectIntroBoardCount" resultType="Integer">
+    <select id="selectIntroBoardCount" parameterType="java.util.HashMap" resultType="Integer">
 		SELECT COUNT(*)		       
-		  FROM SIX_INTRO_BOARD
+		  FROM ${boardName}
 		 WHERE 1=1
 		 <if test="title != null">
 		   AND TITLE LIKE CONCAT('%', #{title} , '%')		   
@@ -24,7 +24,7 @@
 		       UPDATE_DATE,
 		       HIT_COUNT,
 		       IS_NOTICE		       
-		  FROM SIX_INTRO_BOARD
+		  FROM ${boardName}
 		 WHERE 1=1
 		   <if test="title != null">		       
 		   AND TITLE LIKE CONCAT('%', #{title} , '%')
@@ -39,7 +39,7 @@
       		   
     </select>    
     
-    <select id="getIntroBoardInfo" parameterType="String" resultType="java.util.HashMap">
+    <select id="getIntroBoardInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
         SELECT SEQ,
 		       TITLE,
 		       CONTENTS,
@@ -48,20 +48,32 @@
 		       UPDATE_USER_ID,
 		       UPDATE_DATE,
 		       HIT_COUNT,
-		       IS_NOTICE		       
-		  FROM SIX_INTRO_BOARD
+		       IS_NOTICE,
+		       REF,
+		       INDENT,
+		       STEP		       
+		  FROM ${boardName}
 		 WHERE SEQ = #{seq}
     </select>
     
-    <insert id="insertIntroBoard" parameterType="com.icon.six.vo.IntroBoardVo">
-    	INSERT INTO SIX_INTRO_BOARD
+    <insert id="insertIntroBoard" parameterType="com.icon.six.vo.BoardVo">
+    	INSERT INTO ${boardName}
 			    	(
 		    		   TITLE,
 				       CONTENTS,
 				       CREATE_USER_ID,
 				       CREATE_DATE,
 				       HIT_COUNT,
-				       IS_NOTICE
+				       <if test="ref != null">
+				           REF,
+				       </if>
+				       <if test="indent != null">
+				           INDENT
+				       </if>
+				       <if test="step != null">
+				           STEP
+				       </if>
+				       IS_NOTICE				       
 			    	)
 			 VALUES (
 				 	   #{title},
@@ -69,12 +81,21 @@
 				 	   #{createUserId},
 				 	   now(),
 				 	   0,
+				 	   <if test="ref != null">
+				           #{ref},
+				       </if>
+				       <if test="indent != null">
+				           #{indent}
+				       </if>
+				       <if test="step != null">
+				           #{step}
+				       </if>
 				 	   #{isNotice}		 		
 			 		)      	
     </insert>
     
-    <update id="updateIntroBoard" parameterType="com.icon.six.vo.IntroBoardVo">
-        UPDATE SIX_INTRO_BOARD
+    <update id="updateIntroBoard" parameterType="com.icon.six.vo.BoardVo">
+        UPDATE ${boardName}
          <set>
 	          <if test="title != null">TITLE=#{title},</if>
 	          <if test="contents != null">CONTENTS=#{contents},</if>
@@ -86,9 +107,9 @@
 	    WHERE SEQ = #{seq}                   
     </update>
     
-    <delete id="deleteIntroBoard" parameterType="String">
+    <delete id="deleteIntroBoard" parameterType="java.util.HashMap">
         DELETE 
-          FROM SIX_INTRO_BOARD
+          FROM ${boardName}
          WHERE SEQ = #{seq}
     </delete>
     

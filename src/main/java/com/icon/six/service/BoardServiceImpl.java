@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.icon.six.dao.BoardDao;
 import com.icon.six.util.PagingUtil;
-import com.icon.six.vo.IntroBoardVo;
+import com.icon.six.vo.BoardVo;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService{
@@ -47,23 +47,23 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public Map<String, String> getIntroBoardInfo(String seq) {
-		return boardDao.getIntroBoardInfo(seq);
+	public Map<String, String> getIntroBoardInfo(Map<String, String> param) {
+		return boardDao.getIntroBoardInfo(param);
 	}
 	
 	@Override
-	public int insertIntroBoard(IntroBoardVo paramVo) {
+	public int insertIntroBoard(BoardVo paramVo) {
 		return boardDao.insertIntroBoard(paramVo);
 	}
 
 	@Override
-	public int updateIntroBoard(IntroBoardVo paramVo) {
+	public int updateIntroBoard(BoardVo paramVo) {
 		return boardDao.updateIntroBoard(paramVo);
 	}
 
 	@Override
-	public int deleteIntroBoard(String seq) {
-		return boardDao.deleteIntroBoard(seq);
+	public int deleteIntroBoard(Map<String, String> param) {
+		return boardDao.deleteIntroBoard(param);
 	}	
 	
 }

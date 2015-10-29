@@ -30,7 +30,6 @@ public class FileController {
 	@Value("${file.upload.path}")
 	private String fileUploadPath;
 	
-	
 	@RequestMapping(value="imgFileUpload.do")
 	public void imgFileUpload(HttpServletRequest request, HttpServletResponse response){
 		
@@ -74,7 +73,7 @@ public class FileController {
 	        // 정보 출력
 	        sFileInfo += "&bNewLine=true";
 	        // img 태그의 title 속성을 원본파일명으로 적용시켜주기 위함
-	        sFileInfo += "&sFileName="+ fileName;;
+	        sFileInfo += "&sFileName="+ fileName;
 	        sFileInfo += "&sFileURL="+imageUploadPath+realFileNm;
 	        PrintWriter print = response.getWriter();
 	        print.print(sFileInfo);

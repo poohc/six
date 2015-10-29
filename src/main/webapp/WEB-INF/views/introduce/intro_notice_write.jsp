@@ -28,6 +28,21 @@ $(document).ready(function(){
      
     //전송버튼 클릭이벤트
     $("#saveBtn").click(function(){
+    	
+    	if($('#title').val() == ''){
+    		alert('제목을 입력해 주세요');
+    		return false;
+    	}
+    	if($('#title').val() == '' && $('#title').val().length < 3){
+    		alert('제목을 3글자 이상 입력해주세요');
+    		return false;
+    	}
+    	
+    	if($('#smarteditor').val() == ''){
+    		alert('내용을 입력해주세요');
+    		return false;
+    	}
+    	
         //id가 smarteditor인 textarea에 에디터에서 대입
         editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
         // 이부분에 에디터 validation 검증

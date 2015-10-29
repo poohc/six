@@ -15,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.icon.six.constant.CommonConstant;
 import com.icon.six.service.BoardService;
 import com.icon.six.util.StringUtil;
-import com.icon.six.vo.IntroBoardVo;
+import com.icon.six.vo.BoardVo;
 
 @Controller
 @RequestMapping("main")
@@ -61,7 +62,7 @@ public class MainController {
 						requestMap.put("contents", requestMap.get("searchText"));
 					}
 				}
-				
+				requestMap.put("boardName", CommonConstant.INTRO_BOARD);
 				Map<String, Object> boardInfo = boardService.selectIntroBoardList(requestMap);
 				mav.addObject("list",boardInfo.get("list"));
 				
@@ -84,13 +85,18 @@ public class MainController {
 		String seq = StringUtils.defaultIfEmpty(requestMap.get("seq"), ""); 
 		
 		if(!"".equals(seq)){
-			IntroBoardVo paramVo = new IntroBoardVo();
+			BoardVo paramVo = new BoardVo();
 			paramVo.setHitCount("1");
 			paramVo.setSeq(seq);
 			paramVo.setUpdateUserId(SecurityContextHolder.getContext().getAuthentication().getName());
+			paramVo.setBoardName(CommonConstant.INTRO_BOARD);
 			boardService.updateIntroBoard(paramVo);
 			
-			Map<String, String> boardInfo = boardService.getIntroBoardInfo(seq);
+			Map<String, String> paramMap = new HashMap<String, String>();
+			paramMap.put("boardName", CommonConstant.INTRO_BOARD);
+			paramMap.put("seq",seq);
+					
+			Map<String, String> boardInfo = boardService.getIntroBoardInfo(paramMap);
 			mav.addObject("boardInfo",boardInfo);
 			
 		} else {
@@ -117,7 +123,12 @@ public class MainController {
 		System.out.println("requetsMap : " + requestMap);
 		
 		if(!"".equals(seq)){
-			Map<String, String> boardInfo = boardService.getIntroBoardInfo(seq);
+			
+			Map<String, String> paramMap = new HashMap<String, String>();
+			paramMap.put("boardName", CommonConstant.INTRO_BOARD);
+			paramMap.put("seq",seq);
+			
+			Map<String, String> boardInfo = boardService.getIntroBoardInfo(paramMap);
 			mav.addObject("boardInfo",boardInfo);
 			mav.addObject("isUpdate","true");
 		} else {
@@ -136,11 +147,12 @@ public class MainController {
 				
 				int result = 0;
 				
-				IntroBoardVo paramVo = new IntroBoardVo();
+				BoardVo paramVo = new BoardVo();
 				
 				paramVo.setTitle(requestMap.get("title"));
 				paramVo.setContents(requestMap.get("smarteditor"));
 				paramVo.setCreateUserId(SecurityContextHolder.getContext().getAuthentication().getName());
+				paramVo.setBoardName(CommonConstant.INTRO_BOARD);
 				
 				if("notice".equals(requestMap.get("chkNotice"))){
 					paramVo.setIsNotice("T");
@@ -173,20 +185,20 @@ public class MainController {
 				
 				int result = 0;
 				
-				IntroBoardVo paramVo = new IntroBoardVo();
+				BoardVo paramVo = new BoardVo();
 				
 				paramVo.setSeq(requestMap.get("seq"));
 				
 				if(!"".equals(StringUtils.defaultIfEmpty(requestMap.get("title"), ""))){
 					paramVo.setTitle(requestMap.get("title"));
 				}
-				if(!"".equals(StringUtils.defaultIfEmpty(requestMap.get("daumeditor"), ""))){
-					paramVo.setContents(requestMap.get("daumeditor"));
+				if(!"".equals(StringUtils.defaultIfEmpty(requestMap.get("smarteditor"), ""))){
+					paramVo.setContents(requestMap.get("smarteditor"));
 				}
 				if(!"".equals(StringUtils.defaultIfEmpty(requestMap.get("hitCount"), ""))){
 					paramVo.setHitCount(requestMap.get("hitCount"));
 				}
-				
+				paramVo.setBoardName(CommonConstant.INTRO_BOARD);
 				paramVo.setUpdateUserId(SecurityContextHolder.getContext().getAuthentication().getName());
 				result = boardService.updateIntroBoard(paramVo);
 				
@@ -213,7 +225,11 @@ public class MainController {
 			
 			if(!"".equals(seq)){
 				
-				boardService.deleteIntroBoard(seq);
+				Map<String, String> paramMap = new HashMap<String, String>();
+				paramMap.put("boardName", CommonConstant.INTRO_BOARD);
+				paramMap.put("seq",seq);
+				
+				boardService.deleteIntroBoard(paramMap);
 				
 			} else {
 				// TODO: 에러 페이지 처리
@@ -233,9 +249,34 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "introQna.do")
-	public ModelAndView introQna(HttpServletRequest request, HttpServletResponse response){
+	public ModelAndView introQna(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("introduce/intro_qna");
+		System.out.println("requestMap : " + requestMap);
 		
+		try {
+				if(requestMap.get("currentPage")==null){
+					requestMap.put("currentPage", "1");
+				}
+				
+				if(requestMap.get("searchText")!=null){
+					if("title".equals(requestMap.get("searchOption"))){
+						requestMap.put("title", requestMap.get("searchText"));
+					} else if("contents".equals(requestMap.get("searchOption"))){
+						requestMap.put("contents", requestMap.get("searchText"));
+					}
+				}
+				requestMap.put("boardName", CommonConstant.CUSTQNA_BOARD);
+				Map<String, Object> boardInfo = boardService.selectIntroBoardList(requestMap);
+				mav.addObject("list",boardInfo.get("list"));
+				
+				System.out.println(boardInfo.get("page"));
+				mav.addObject("page",boardInfo.get("page"));
+				mav.addObject("currentPage",requestMap.get("currentPage"));
+				
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("공지사항 불러오기 에러");			
+		}
 		return mav;
 	}
 }
