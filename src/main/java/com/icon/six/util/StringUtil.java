@@ -22,4 +22,8 @@ public class StringUtil {
 		return result;
 	}
 	
+	public static String removeTag(String html) throws Exception {
+	    return html.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+	}
+	
 }

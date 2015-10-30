@@ -1,5 +1,6 @@
 package com.icon.six.controller;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -9,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.UUID;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,6 +21,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.mortennobel.imagescaling.ResampleOp;
 
 @Controller
 @RequestMapping("file")
@@ -35,8 +39,9 @@ public class FileController {
 		
 		try {
 			String fileName = StringUtils.defaultIfEmpty(request.getHeader("file-name"), "");
-			
+			String index = StringUtils.defaultIfEmpty(request.getHeader("file-Index"), "");
 			String sFileInfo = "";
+			BufferedImage oriImage = null;
 			 //파일 확장자
 	        String filename_ext = fileName.substring(fileName.lastIndexOf(".")+1);
 	        //확장자를소문자로 변경
@@ -46,7 +51,7 @@ public class FileController {
 	        //파일 기본경로 _ 상세경로
 //	        String filePath = dftFilePath + "resource" + File.separator + "photo_upload" + File.separator;
 	        String filePath = dftFilePath + imageUploadPath;
-	        System.out.println("filePath : " + filePath);
+	        System.out.println("index : " + index + ", filePath : " + filePath);
 	        File file = new File(filePath);
 	        if(!file.exists()) {
 	           file.mkdirs();
@@ -58,23 +63,37 @@ public class FileController {
 	        String rlFileNm = filePath + realFileNm;
 	        ///////////////// 서버에 파일쓰기 ///////////////// 
 	        InputStream is = request.getInputStream();
-	        OutputStream os=new FileOutputStream(rlFileNm);
-	        int numRead;
-	        byte b[] = new byte[Integer.parseInt(request.getHeader("file-size"))];
-	        while((numRead = is.read(b,0,b.length)) != -1){
-	           os.write(b,0,numRead);
+	        oriImage = ImageIO.read(is);
+	        
+//	        OutputStream os=new FileOutputStream(rlFileNm);
+//	        int numRead;
+//	        byte b[] = new byte[Integer.parseInt(request.getHeader("file-size"))];
+//	        while((numRead = is.read(b,0,b.length)) != -1){
+//	           os.write(b,0,numRead);
+//	        }
+//	        if(is != null) {
+//		       is.close();
+//		    }
+//	        os.flush();
+//	        os.close();
+	        ImageIO.write(oriImage, filename_ext, new File(rlFileNm));
+	        
+	        if("0".equals(index)){
+	        	String thumbFileNm = "";
+	        	thumbFileNm = rlFileNm.substring(0,rlFileNm.length()-filename_ext.length()) + "thumb." + filename_ext;
+	        	File thumbFile = new File(thumbFileNm);
+	        	is = request.getInputStream();
+	        	ResampleOp resampleOp = new ResampleOp(68,50);
+	        	BufferedImage rescaledImage = resampleOp.filter(oriImage, null);
+	        	ImageIO.write(rescaledImage, filename_ext, thumbFile);
+	        	sFileInfo += "&thumbFile="+thumbFileNm;
 	        }
-	        if(is != null) {
-	           is.close();
-	        }
-	        os.flush();
-	        os.close();
 	        ///////////////// 서버에 파일쓰기 /////////////////
 	        // 정보 출력
 	        sFileInfo += "&bNewLine=true";
 	        // img 태그의 title 속성을 원본파일명으로 적용시켜주기 위함
 	        sFileInfo += "&sFileName="+ fileName;
-	        sFileInfo += "&sFileURL="+imageUploadPath+realFileNm;
+	        sFileInfo += "&sFileURL="+imageUploadPath+realFileNm;	        
 	        PrintWriter print = response.getWriter();
 	        print.print(sFileInfo);
 	        print.flush();

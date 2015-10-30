@@ -343,7 +343,7 @@
     		try{
 	    		if(!!tempFile){
 	    			//Ajax통신하는 부분. 파일과 업로더할 url을 전달한다.
-	    			callAjaxForHTML5(tempFile,sUploadURL);
+	    			callAjaxForHTML5(tempFile,sUploadURL,j);
 	    			k += 1;
 	    		}
 	    	}catch(e){}
@@ -351,7 +351,7 @@
     	}
 	}
     
-    function callAjaxForHTML5 (tempFile, sUploadURL){
+    function callAjaxForHTML5 (tempFile, sUploadURL, index){
     	var oAjax = jindo.$Ajax(sUploadURL, {
 			type: 'xhr',
 			method : "post",
@@ -374,10 +374,12 @@
 		oAjax.header("file-name",encodeURIComponent(tempFile.name));
 		oAjax.header("file-size",tempFile.size);
 		oAjax.header("file-Type",tempFile.type);
+		oAjax.header("file-Index",index);
 		oAjax.request(tempFile);
     }
     
     function makeArrayFromString(sResString){
+    	
     	var	aTemp = [],
     		aSubTemp = [],
     		htTemp = {}

@@ -23,6 +23,15 @@ public class AcademyController {
 		return mav;
 	}
 	
+	@RequestMapping(value="academyLearningCenterWrite.do")
+	public ModelAndView academyLearningCenterWrite(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("/academy/academy_lcenter_write");
+		
+		
+		
+		return mav;
+	}
+	
 	@RequestMapping(value="academyInvestStrategy.do")
 	public ModelAndView academyInvestStrategy(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("/academy/academy_istrategy");
