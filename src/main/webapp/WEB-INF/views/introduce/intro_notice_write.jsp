@@ -6,58 +6,11 @@
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
+<script type="text/javascript" src="/resources/js/boardCommon.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#intro2').addClass("on");
-	 
-	var editor_object = [];
-    
-    nhn.husky.EZCreator.createInIFrame({
-        oAppRef: editor_object,
-        elPlaceHolder: "smarteditor",
-        sSkinURI: "/resources/smarteditor/SmartEditor2Skin.html", 
-        htParams : {
-            // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-            bUseToolbar : true,             
-            // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-            bUseVerticalResizer : false,     
-            // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-            bUseModeChanger : true, 
-        }
-    });
-     
-    //전송버튼 클릭이벤트
-    $("#saveBtn").click(function(){
-    	
-    	if($('#title').val() == ''){
-    		alert('제목을 입력해 주세요');
-    		return false;
-    	}
-    	if($('#title').val() == '' && $('#title').val().length < 3){
-    		alert('제목을 3글자 이상 입력해주세요');
-    		return false;
-    	}
-    	
-    	if($('#smarteditor').val() == ''){
-    		alert('내용을 입력해주세요');
-    		return false;
-    	}
-    	
-        //id가 smarteditor인 textarea에 에디터에서 대입
-        editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
-        // 이부분에 에디터 validation 검증
-         
-        //폼 submit
-        $("#frm").submit();
-    })
-	     
-    $("#updateBtn").click(function(){
-        //다음에디터가 포함된 form submit
-        $('#frm').attr('action','/main/introNoticeUpdateProcess.do');
-        $('#frm').submit();
-    });
+	$('#intro2').addClass("on");	 
 });
-
 </script>
 </head>
 <body>
@@ -101,7 +54,9 @@ $(document).ready(function(){
                                 <col style="width:10%;">
                                 <col style="width:90%;">
                             </colgroup>
-                            <form name="frm" id="frm" method="post" accept-charset="utf-8" action="/main/introNoticeWriteProcess.do">
+                            <form name="frm" id="frm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                            <input type="hidden" id="insertAction" name="insertAction" value="${insertAction}">
+                            <input type="hidden" id="updateAction" name="updateAction" value="${updateAction}">
                             <input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}"> 
                             <tbody>
                                 <tr>

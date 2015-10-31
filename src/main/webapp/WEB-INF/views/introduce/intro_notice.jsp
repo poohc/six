@@ -7,28 +7,12 @@
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
+<script type="text/javascript" src="/resources/js/boardCommon.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#intro2').addClass("on");
-	
-	$('#searchBtn').click(function(){
-		
-		$('#noticeForm').attr('action','/main/introNotice.do');
-		$('#noticeForm').submit();
-		
-	});
-	
+	$('#intro2').addClass("on");	
 });
-function pageMove(page){
-	$('#currentPage').val(page);
-	$('#noticeForm').attr('action','/main/introNotice.do');
-	$('#noticeForm').submit();
-}
-function goView(seq){
-	$('#seq').val(seq);	
-	$('#noticeForm').attr('action','/main/introNoticeView.do');
-	$('#noticeForm').submit();
-}
+
 </script>
 </head>
 <body>
@@ -61,7 +45,9 @@ function goView(seq){
                     <p class="title_type1">공지사항</p>
                     <div class="table_top">
                         <p class="table_type1title">SIX의 공지사항</p>
-                        <form method="post" id="noticeForm" name="noticeForm">
+                        <form method="post" id="frm" name="frm">
+                        <input type="hidden" id="listPage" name="listPage" value="${listPage}">
+                        <input type="hidden" id="viewPage" name="viewPage" value="${viewPage}">
                 		<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
                 		<input type="hidden" id="seq" name="seq">                
                         <div class="table_rightarea">

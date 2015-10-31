@@ -63,12 +63,14 @@ public class MainController {
 					}
 				}
 				requestMap.put("boardName", CommonConstant.INTRO_BOARD);
-				Map<String, Object> boardInfo = boardService.selectIntroBoardList(requestMap);
+				Map<String, Object> boardInfo = boardService.selectBoardList(requestMap);
 				mav.addObject("list",boardInfo.get("list"));
 				
 				System.out.println(boardInfo.get("page"));
 				mav.addObject("page",boardInfo.get("page"));
 				mav.addObject("currentPage",requestMap.get("currentPage"));
+				mav.addObject("viewPage","/main/introNoticeView.do");
+				mav.addObject("listPage","/main/introNotice.do");
 				
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -90,13 +92,13 @@ public class MainController {
 			paramVo.setSeq(seq);
 			paramVo.setUpdateUserId(SecurityContextHolder.getContext().getAuthentication().getName());
 			paramVo.setBoardName(CommonConstant.INTRO_BOARD);
-			boardService.updateIntroBoard(paramVo);
+			boardService.updateBoard(paramVo);
 			
 			Map<String, String> paramMap = new HashMap<String, String>();
 			paramMap.put("boardName", CommonConstant.INTRO_BOARD);
 			paramMap.put("seq",seq);
 					
-			Map<String, String> boardInfo = boardService.getIntroBoardInfo(paramMap);
+			Map<String, String> boardInfo = boardService.getBoardInfo(paramMap);
 			mav.addObject("boardInfo",boardInfo);
 			
 		} else {
@@ -109,7 +111,7 @@ public class MainController {
 	public ModelAndView introNoticeWrite(HttpServletRequest request, HttpServletResponse response){
 		
 		ModelAndView mav = new ModelAndView("introduce/intro_notice_write");
-		
+		mav.addObject("insertAction","/main/introNoticeWriteProcess.do");
 		return mav;
 	}
 	
@@ -128,9 +130,10 @@ public class MainController {
 			paramMap.put("boardName", CommonConstant.INTRO_BOARD);
 			paramMap.put("seq",seq);
 			
-			Map<String, String> boardInfo = boardService.getIntroBoardInfo(paramMap);
+			Map<String, String> boardInfo = boardService.getBoardInfo(paramMap);
 			mav.addObject("boardInfo",boardInfo);
 			mav.addObject("isUpdate","true");
+			mav.addObject("updateAction","/main/introNoticeUpdateProcess.do");
 		} else {
 			//TODO 에러처리
 		}
@@ -160,7 +163,7 @@ public class MainController {
 					paramVo.setIsNotice("F");
 				}
 				
-				result = boardService.insertIntroBoard(paramVo);
+				result = boardService.insertBoard(paramVo);
 				
 				if(result == 0){
 					// 에러 페이지 처리
@@ -200,7 +203,7 @@ public class MainController {
 				}
 				paramVo.setBoardName(CommonConstant.INTRO_BOARD);
 				paramVo.setUpdateUserId(SecurityContextHolder.getContext().getAuthentication().getName());
-				result = boardService.updateIntroBoard(paramVo);
+				result = boardService.updateBoard(paramVo);
 				
 				if(result == 0){
 					// 에러 페이지 처리
@@ -229,7 +232,7 @@ public class MainController {
 				paramMap.put("boardName", CommonConstant.INTRO_BOARD);
 				paramMap.put("seq",seq);
 				
-				boardService.deleteIntroBoard(paramMap);
+				boardService.deleteBoard(paramMap);
 				
 			} else {
 				// TODO: 에러 페이지 처리
@@ -266,7 +269,7 @@ public class MainController {
 					}
 				}
 				requestMap.put("boardName", CommonConstant.CUSTQNA_BOARD);
-				Map<String, Object> boardInfo = boardService.selectIntroBoardList(requestMap);
+				Map<String, Object> boardInfo = boardService.selectBoardList(requestMap);
 				mav.addObject("list",boardInfo.get("list"));
 				
 				System.out.println(boardInfo.get("page"));

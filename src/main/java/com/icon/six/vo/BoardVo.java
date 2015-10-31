@@ -15,6 +15,8 @@ public class BoardVo {
 	private String indent;
 	private String step;
 	private String boardName;
+	private String file;
+	private String thumbImage;
 	
 	public String getSeq() {
 		return seq;
@@ -93,5 +95,18 @@ public class BoardVo {
 	}
 	public void setBoardName(String boardName) {
 		this.boardName = boardName;
-	}				
+	}
+	public String getFile() {
+		return file;
+	}
+	public void setFile(String file) {
+		this.file = file;
+	}
+	public String getThumbImage() {
+		return thumbImage;
+	}
+	public void setThumbImage(String thumbImage) {
+		this.thumbImage = thumbImage;
+	}		
+	
 }

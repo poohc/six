@@ -11,4 +11,7 @@ public class CommonConstant {
 	public static final String INTRO_BOARD = "SIX_INTRO_BOARD";
 	/*유저 QNA 게시판*/
 	public static final String CUSTQNA_BOARD = "SIX_CUSTQNA_BOARD";
+	/*SIX 주식배움터 게시판*/
+	public static final String LEARNCENTER_BOARD = "SIX_LEARNCENTER_BOARD";
+	
 }

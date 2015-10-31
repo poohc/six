@@ -8,6 +8,7 @@
 <head>
 <jsp:include page="../common/common.jsp" />
 </head>
+<script type="text/javascript" src="/resources/js/boardCommon.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#academy1').addClass("on");	
@@ -46,6 +47,10 @@ $(document).ready(function(){
                     <div class="table_top">
                         <p class="table_type1title2"><span>SIX의 이용중 궁금하신 사항에 대하여 문의 주시기 바랍니다.</span></p>
                     </div>
+                    <form name="frm" id="frm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                    <input type="hidden" id="insertAction" name="insertAction" value="${insertAction}">
+                    <input type="hidden" id="updateAction" name="updateAction" value="${updateAction}">
+                    <input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}"> 
                     <div class="table_type1_write">
                         <table>
                             <caption>SIX 주식배움터</caption>
@@ -56,23 +61,54 @@ $(document).ready(function(){
                             <tbody>
                                 <tr>
                                     <th class="bb_line1">제목</td>
-                                    <td class="bb_line1"><input type="text"></td>
+                                    <td class="bb_line1"><input type="text" id="title" name="title" value="${boardInfo.TITLE}"></td>
+                                </tr>
+                                <tr>
+                                	<c:choose>
+                                	<c:when test="${isUpdate eq 'true'}">
+                                		<td>
+                                			<c:forEach items="${fileList}" var="fileList" varStatus="loop">
+                                				${fileList}                                			
+                                			</c:forEach>
+                                		</td>
+                                		<td>
+	                                		파일 업로드 <input id="file" name="file" type="file" multiple>
+	                                	</td>
+                                	</c:when>
+                                	<c:otherwise>
+	                                	<td colspan="2">
+	                                		파일 업로드 <input id="file" name="file" type="file" multiple>
+	                                	</td>
+                                	</c:otherwise>
+                                	</c:choose>                                	
                                 </tr>
                                 <tr class="">
                                     <th>내용</td>
-                                    <td><textarea name="" id="" cols="30" rows="10" class="contents_write"></textarea></td>
+                                    <td>
+                                    	<textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:100%; height:412px;">
+                                    	${boardInfo.CONTENTS}
+                                    	</textarea>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                    </form>
                     <div class="table_bottom">
-                        <a href="#" class="go_list">목록으로</a>
+                        <a href="/academy/academyLearningCenter.do" class="go_list">목록으로</a>
+                        <security:authorize ifAnyGranted="ROLE_ADMIN">
                         <ul class="table_option">
-                            <li><a href="#">삭제</a></li>
-                            <li><a href="#">취소</a></li>
-                            <li><a href="#">수정</a></li>
-                            <li class="on"><a href="#">글쓰기</a></li>
+                            <li><a href="#" onclick="history.back()">취소</a></li>
+                            <c:choose>
+                            <c:when test="${isUpdate eq 'true'}">
+                            	<li><a href="#" id="updateBtn">수정</a></li>
+                            </c:when>
+                            <c:otherwise>
+                            	<li><a href="#" id="saveBtn">글쓰기</a></li>
+                            </c:otherwise>
+                            </c:choose>
                         </ul>
+                        </security:authorize>
                     </div>
                 </div>
             </div>

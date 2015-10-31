@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
     
-    <select id="selectIntroBoardCount" parameterType="java.util.HashMap" resultType="Integer">
+    <select id="selectBoardCount" parameterType="java.util.HashMap" resultType="Integer">
 		SELECT COUNT(*)		       
 		  FROM ${boardName}
 		 WHERE 1=1
@@ -14,7 +14,7 @@
 		 </if>
     </select>    
     
-    <select id="selectIntroBoard" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    <select id="selectBoardList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 		SELECT SEQ,
 		       TITLE,
 		       CONTENTS,
@@ -23,7 +23,9 @@
 		       UPDATE_USER_ID,
 		       UPDATE_DATE,
 		       HIT_COUNT,
-		       IS_NOTICE		       
+		       IS_NOTICE,
+		       FILE,
+		       THUMB_IMAGE 
 		  FROM ${boardName}
 		 WHERE 1=1
 		   <if test="title != null">		       
@@ -39,7 +41,7 @@
       		   
     </select>    
     
-    <select id="getIntroBoardInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    <select id="getBoardInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
         SELECT SEQ,
 		       TITLE,
 		       CONTENTS,
@@ -51,12 +53,14 @@
 		       IS_NOTICE,
 		       REF,
 		       INDENT,
-		       STEP		       
+		       STEP,
+		       FILE,
+		       THUMB_IMAGE		       
 		  FROM ${boardName}
 		 WHERE SEQ = #{seq}
     </select>
     
-    <insert id="insertIntroBoard" parameterType="com.icon.six.vo.BoardVo">
+    <insert id="insertBoard" parameterType="com.icon.six.vo.BoardVo">
     	INSERT INTO ${boardName}
 			    	(
 		    		   TITLE,
@@ -68,10 +72,16 @@
 				           REF,
 				       </if>
 				       <if test="indent != null">
-				           INDENT
+				           INDENT,
 				       </if>
 				       <if test="step != null">
-				           STEP
+				           STEP,
+				       </if>
+				       <if test="file != null">
+				           FILE,
+				       </if>
+				       <if test="thumbImage != null">
+				           THUMB_IMAGE,
 				       </if>
 				       IS_NOTICE				       
 			    	)
@@ -85,29 +95,40 @@
 				           #{ref},
 				       </if>
 				       <if test="indent != null">
-				           #{indent}
+				           #{indent},
 				       </if>
 				       <if test="step != null">
-				           #{step}
+				           #{step},
+				       </if>
+				       <if test="file != null">
+				           #{file},
+				       </if>
+				       <if test="thumbImage != null">
+				           #{thumbImage},
 				       </if>
 				 	   #{isNotice}		 		
 			 		)      	
     </insert>
     
-    <update id="updateIntroBoard" parameterType="com.icon.six.vo.BoardVo">
+    <update id="updateBoard" parameterType="com.icon.six.vo.BoardVo">
         UPDATE ${boardName}
          <set>
 	          <if test="title != null">TITLE=#{title},</if>
 	          <if test="contents != null">CONTENTS=#{contents},</if>
 	      	  <if test="hitCount != null">HIT_COUNT=HIT_COUNT+1,</if>
 	      	  <if test="isNotice != null">IS_NOTICE=#{isNotice},</if>
+	      	  <if test="ref != null">REF=#{ref},</if>
+	      	  <if test="indent != null">INDENT=#{indent},</if>
+	      	  <if test="step != null">STEP=#{step},</if>
+	      	  <if test="file != null">FILE=#{file},</if>
+	      	  <if test="thumbImage != null">THUMB_IMAGE=#{thumbImage},</if>
 	      	  UPDATE_USER_ID = #{updateUserId},
 		      UPDATE_DATE = now()
 	    </set>
 	    WHERE SEQ = #{seq}                   
     </update>
     
-    <delete id="deleteIntroBoard" parameterType="java.util.HashMap">
+    <delete id="deleteBoard" parameterType="java.util.HashMap">
         DELETE 
           FROM ${boardName}
          WHERE SEQ = #{seq}

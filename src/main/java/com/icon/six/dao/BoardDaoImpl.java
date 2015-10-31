@@ -11,33 +11,33 @@ import com.icon.six.vo.BoardVo;
 public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 	
 	@Override
-	public int selectIntroBoardCount(Map<String, Object> param) {
-		return (int) selectOne("board.selectIntroBoardCount", param);
+	public int selectBoardCount(Map<String, Object> param) {
+		return (int) selectOne("board.selectBoardCount", param);
 	}
 	
 	@Override
-	public List<Map<String, Object>> selectIntroBoardList(Map<String, Object> param) {
-		return (List<Map<String, Object>>) selectList("board.selectIntroBoard", param);
+	public List<Map<String, Object>> selectBoardList(Map<String, Object> param) {
+		return (List<Map<String, Object>>) selectList("board.selectBoardList", param);
 	}
 
 	@Override
-	public Map<String, String> getIntroBoardInfo(Map<String, String> param) {
-		return (Map<String, String>) selectOne("board.getIntroBoardInfo", param);
+	public Map<String, String> getBoardInfo(Map<String, String> param) {
+		return (Map<String, String>) selectOne("board.getBoardInfo", param);
 	}
 	
 	@Override
-	public int insertIntroBoard(BoardVo paramVo) {
-		return (int) insert("board.insertIntroBoard", paramVo);
+	public int insertBoard(BoardVo paramVo) {
+		return (int) insert("board.insertBoard", paramVo);
 	}
 
 	@Override
-	public int updateIntroBoard(BoardVo paramVo) {
-		return (int) update("board.updateIntroBoard", paramVo);
+	public int updateBoard(BoardVo paramVo) {
+		return (int) update("board.updateBoard", paramVo);
 	}
 
 	@Override
-	public int deleteIntroBoard(Map<String, String> param) {
-		return (int) delete("board.deleteIntroBoard", param);
+	public int deleteBoard(Map<String, String> param) {
+		return (int) delete("board.deleteBoard", param);
 	}
 
 	
