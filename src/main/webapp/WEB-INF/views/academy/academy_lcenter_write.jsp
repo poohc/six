@@ -50,7 +50,7 @@ $(document).ready(function(){
                     <form name="frm" id="frm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
                     <input type="hidden" id="insertAction" name="insertAction" value="${insertAction}">
                     <input type="hidden" id="updateAction" name="updateAction" value="${updateAction}">
-                    <input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}"> 
+                    <input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}">
                     <div class="table_type1_write">
                         <table>
                             <caption>SIX 주식배움터</caption>
@@ -67,8 +67,8 @@ $(document).ready(function(){
                                 	<c:choose>
                                 	<c:when test="${isUpdate eq 'true'}">
                                 		<td>
-                                			<c:forEach items="${fileList}" var="fileList" varStatus="loop">
-                                				${fileList}                                			
+                                			<c:forEach items="${fileList}" var="fileList">
+                                				${fileList.file}<img alt="파일삭제" src="/resources/img/close.jpg" onclick="fileDelete('${fileList.rFile}');">
                                 			</c:forEach>
                                 		</td>
                                 		<td>

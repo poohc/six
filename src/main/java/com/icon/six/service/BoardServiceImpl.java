@@ -29,6 +29,7 @@ public class BoardServiceImpl implements BoardService{
 		
 		try {
 				totalCount = boardDao.selectBoardCount(param);
+				
 				param.put("totalCount", totalCount);
 				
 				Map<String, Object> pageInfo = PagingUtil.setPageView(param);

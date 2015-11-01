@@ -43,13 +43,13 @@ $(document).ready(function(){
     })
 	     
     $("#updateBtn").click(function(){
-        $('#frm').attr('action',$('#updateAction').val());
+    	$('#frm').attr('action',$('#updateAction').val());
         $('#frm').submit();
     });
     
     $('#searchBtn').click(function(){
 		$('#frm').attr('action',$('#listPage').val());
-		$('##frm').submit();
+		$('#frm').submit();
 	});
     
 });
@@ -62,5 +62,11 @@ function pageMove(page){
 function goView(seq){
 	$('#seq').val(seq);	
 	$('#frm').attr('action',$('#viewPage').val());
+	$('#frm').submit();
+}
+
+function fileDownLoad(fileName){
+	$('#frm').attr('action','/file/fileDownLoad.do');
+	$('#fileName').val(fileName);
 	$('#frm').submit();
 }

@@ -6,6 +6,9 @@
 		SELECT COUNT(*)		       
 		  FROM ${boardName}
 		 WHERE 1=1
+		 <if test="ref != null">
+		   AND REF = #{ref}
+		 </if>
 		 <if test="title != null">
 		   AND TITLE LIKE CONCAT('%', #{title} , '%')		   
 		 </if> 
@@ -28,6 +31,9 @@
 		       THUMB_IMAGE 
 		  FROM ${boardName}
 		 WHERE 1=1
+		   <if test="ref != null">
+		   AND REF = #{ref}
+		   </if>
 		   <if test="title != null">		       
 		   AND TITLE LIKE CONCAT('%', #{title} , '%')
 		   </if>
@@ -63,7 +69,9 @@
     <insert id="insertBoard" parameterType="com.icon.six.vo.BoardVo">
     	INSERT INTO ${boardName}
 			    	(
+			    	   <if test="title != null">
 		    		   TITLE,
+		    		   </if>
 				       CONTENTS,
 				       CREATE_USER_ID,
 				       CREATE_DATE,
@@ -83,10 +91,12 @@
 				       <if test="thumbImage != null">
 				           THUMB_IMAGE,
 				       </if>
-				       IS_NOTICE				       
+				       IS_NOTICE
 			    	)
 			 VALUES (
+			 		   <if test="title != null">	
 				 	   #{title},
+				 	   </if>
 				 	   #{contents},
 				 	   #{createUserId},
 				 	   now(),
@@ -106,7 +116,7 @@
 				       <if test="thumbImage != null">
 				           #{thumbImage},
 				       </if>
-				 	   #{isNotice}		 		
+				       #{isNotice}
 			 		)      	
     </insert>
     

@@ -8,7 +8,7 @@
 <head>
 <jsp:include page="../common/common.jsp" />
 </head>
-<script type="text/javascript" src="/resources/js/boardCommon.js"></script>
+<script type="text/javascript" src="/resources/js/boardCommon2.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#academy1').addClass("on");	
@@ -80,17 +80,31 @@ $(document).ready(function(){
                                     <td class="right_bul type2 tl_c">등록일</td>
                                     <td class="tl_c">${boardInfo.CREATE_DATE}</td>
                                 </tr>
+                                <tr>
+                                	<td colspan="5">
+                                	<c:forEach items="${fileList}" var="fileList">
+                                	<a href="#" onclick="fileDownLoad('${fileList.rFile}')">${fileList.file}</a>
+                                	</c:forEach>
+                                	</td>
+                                </tr>
                                 <tr class="">
                                     <td colspan="5" class="td_lh">${boardInfo.CONTENTS}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                    <form name="frm" id="frm" method="post" accept-charset="utf-8">
+                	<input type="hidden" id="replyAction" name="replyAction" value="${replyAction}">
+                	<input type="hidden" id="updateAction" name="updateAction" value="${updateAction}">
+                	<input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}">
+                	<input type="hidden" id="indent" name="indent" value="${boardInfo.INDENT}">
+                	<input type="hidden" id="step" name="step" value="${boardInfo.STEP}">
                     <div class="table_comment type3">
                         <p class="comment_title1">댓글쓰기</p>
-                        <textarea class="com_text" name="" id="" cols="30" rows="10" placeholder="댓글을 달아주세요.  최대 100자까지 작성할 수 있습니다. 악플은 제재 및 삭제될 수 있습니다. "></textarea>
-                        <button class="com_btn">등록하기</button>
+                        <textarea class="com_text" name="replyText" id="replyText" cols="30" rows="10" placeholder="댓글을 달아주세요.  최대 100자까지 작성할 수 있습니다. 악플은 제재 및 삭제될 수 있습니다. "></textarea>
+                        <button class="com_btn" id="replyBtn">등록하기</button>
                     </div>                    
+                    </form>
                     <div class="table_bottom">
                         <a href="#" class="go_list" id="listBtn">목록으로</a>
                         <security:authorize ifAnyGranted="ROLE_ADMIN">
@@ -101,92 +115,47 @@ $(document).ready(function(){
                         </security:authorize>
                     </div>
                     <ul class="com_list">
-                        <li>
+                    	<form name="repFrm" id="repFrm" method="post" accept-charset="utf-8">
+                        <c:forEach items="${list}" var="list" varStatus="loop">
+                        <li id="reply_${loop.index}">
                             <div class="com_top">
                                 <ul class="com_top1">
-                                    <li>SIX 매니저</li>
-                                    <li>2015-09-20</li>
+                                    <li>${list.CREATE_USER_ID}</li>
+                                    <li>${list.CREATE_DATE}</li>
                                 </ul>
                                 <ul class="com_top2">
-                                    <li><a href="#">답글</a></li>
-                                    <li><a href="#">수정</a></li>
-                                    <li><a href="#">취소</a></li>
-                                    <li><a href="#">삭제</a></li>
+                                    <li><a href="javascript:rReply('${loop.index}')">답글</a></li>
+                                    <li><a href="javascript:dReply('${loop.index}')">취소</a></li>
+                                    <c:if test="${sessionScope.userInfo.name eq list.CREATE_USER_ID}">
+                                    	<li><a href="#">수정</a></li>
+                                    	<li><a href="#">삭제</a></li>
+                                    </c:if>
                                 </ul>
                             </div>
-                            <p class="comment_content">부산서 서울이 4시간 20분밖에 안걸렸어?자동차로? 빠르네.... 기차 무궁화호는 젤빠른게 4시간 50분인데.새마을은 4시간20분KTX도 고작 2시간 25분 </p>
+                            <p class="comment_content">${list.CONTENTS}</p>
                         </li>
-                        <li class="type2">
-                            <div class="com_top">
-                                <ul class="com_top1">
-                                    <li>SIX 매니저</li>
-                                    <li>2015-09-20</li>
-                                </ul>
-                                <ul class="com_top2">
-                                    <li><a href="#">답글</a></li>
-                                    <li><a href="#">수정</a></li>
-                                    <li><a href="#">취소</a></li>
-                                    <li><a href="#">삭제</a></li>
-                                </ul>
-                            </div>
-                            <p class="comment_content">부산서 서울이 4시간 20분밖에 안걸렸어?자동차로? 빠르네.... 기차 무궁화호는 젤빠른게 4시간 50분인데.새마을은 4시간20분KTX도 고작 2시간 25분 </p>
-                        </li>
-                        <li class="type3">
-                            <div class="table_comment type2">
-                                <p class="comment_title1">댓글쓰기</p>
-                                <textarea class="com_text" name="" id="" cols="30" rows="10" placeholder="댓글을 달아주세요.  최대 100자까지 작성할 수 있습니다. 악플은 제재 및 삭제될 수 있습니다. "></textarea>
-                                <button class="com_btn">등록하기</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="com_top">
-                                <ul class="com_top1">
-                                    <li>SIX 매니저</li>
-                                    <li>2015-09-20</li>
-                                </ul>
-                                <ul class="com_top2">
-                                    <li><a href="#">답글</a></li>
-                                    <li><a href="#">수정</a></li>
-                                    <li><a href="#">취소</a></li>
-                                    <li><a href="#">삭제</a></li>
-                                </ul>
-                            </div>
-                            <p class="comment_content">부산서 서울이 4시간 20분밖에 안걸렸어?자동차로? 빠르네.... 기차 무궁화호는 젤빠른게 4시간 50분인데.새마을은 4시간20분KTX도 고작 2시간 25분 </p>
-                        </li>
-                        <li>
-                            <div class="com_top">
-                                <ul class="com_top1">
-                                    <li>SIX 매니저</li>
-                                    <li>2015-09-20</li>
-                                </ul>
-                                <ul class="com_top2">
-                                    <li><a href="#">답글</a></li>
-                                    <li><a href="#">수정</a></li>
-                                    <li><a href="#">취소</a></li>
-                                    <li><a href="#">삭제</a></li>
-                                </ul>
-                            </div>
-                            <p class="comment_content">부산서 서울이 4시간 20분밖에 안걸렸어?자동차로? 빠르네.... 기차 무궁화호는 젤빠른게 4시간 50분인데.새마을은 4시간20분KTX도 고작 2시간 25분 </p>
-                        </li>
+<!--                         <li class="type2"> -->
+<!--                             <div class="com_top"> -->
+<!--                                 <ul class="com_top1"> -->
+<!--                                     <li>SIX 매니저</li> -->
+<!--                                     <li>2015-09-20</li> -->
+<!--                                 </ul> -->
+<!--                                 <ul class="com_top2"> -->
+<!--                                     <li><a href="#">답글</a></li> -->
+<!--                                     <li><a href="#">수정</a></li> -->
+<!--                                     <li><a href="#">취소</a></li> -->
+<!--                                     <li><a href="#">삭제</a></li> -->
+<!--                                 </ul> -->
+<!--                             </div> -->
+<!--                             <p class="comment_content">부산서 서울이 4시간 20분밖에 안걸렸어?자동차로? 빠르네.... 기차 무궁화호는 젤빠른게 4시간 50분인데.새마을은 4시간20분KTX도 고작 2시간 25분 </p> -->
+<!--                         </li> -->
+						</c:forEach>		
+						</form>			
+                       
                     </ul>
-                    <div class="paging">
-                        <a href="#" class="prev2"><img src="/resources/img/prev2.png" alt="이전"></a>
-                        <a href="#" class="prev1"><img src="/resources/img/prev1.png" alt="이전"></a>
-                        <ul class="paging_list">
-                            <li class="on"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">7</a></li>
-                            <li><a href="#">8</a></li>
-                            <li><a href="#">9</a></li>
-                            <li><a href="#">10</a></li>
-                        </ul>
-                        <a href="#" class="next1"><img src="/resources/img/next1.png" alt="이전"></a>
-                        <a href="#" class="next2"><img src="/resources/img/next2.png" alt="이전"></a>
-                    </div>
+                    <c:if test="${fn:length(list) > 0}">
+                    	<c:out value="${page}" escapeXml="false" />
+                    </c:if>
                 </div>
             </div>
             <!-- Left Side -->

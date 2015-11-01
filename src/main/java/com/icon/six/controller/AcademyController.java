@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -62,11 +61,9 @@ public class AcademyController {
 						requestMap.put("contents", requestMap.get("searchText"));
 					}
 				}
-				
+				requestMap.put("ref","0");
 				requestMap.put("boardName", CommonConstant.LEARNCENTER_BOARD);
 				Map<String, Object> boardInfo = boardService.selectBoardList(requestMap);
-				
-				List<Map<String, Object>> boardInfoList = (List<Map<String, Object>>) boardInfo.get("list"); 
 								
 				mav.addObject("list",boardInfo.get("list"));
 				mav.addObject("page",boardInfo.get("page"));
@@ -100,7 +97,45 @@ public class AcademyController {
 			paramMap.put("seq",seq);
 					
 			Map<String, String> boardInfo = boardService.getBoardInfo(paramMap);
+			
+			String file = boardInfo.get("FILE");
+			String[] fileArray = file.split(",");
+			List<Map<String, String>> fileList = new ArrayList<Map<String, String>>();
+			
+			if(fileArray.length == 1){
+				Map<String, String> fileMap = new HashMap<String, String>();
+				fileMap.put("rFile", file);
+				file = file.substring(file.indexOf("__"), file.length()).replace("__", "");
+				fileMap.put("file", file);
+				fileList.add(fileMap);
+			} else {
+				for(String fileName : fileArray){
+					Map<String, String> fileMap = new HashMap<String, String>();
+					fileMap.put("rFile", fileName);
+					fileName = fileName.substring(fileName.indexOf("__"), fileName.length()).replace("__", "");
+					fileMap.put("file", fileName);	
+					fileList.add(fileMap);
+				}
+			}
+			
+			//댓글 리스트 가져오기
+			String currentPage = StringUtils.defaultIfEmpty(requestMap.get("currentPage"), "1");
+			Map<String, Object> param = new HashMap<String, Object>();
+			param.put("boardName", CommonConstant.LEARNCENTER_BOARD);
+			param.put("ref", seq);
+			param.put("currentPage", currentPage);
+			
+			Map<String, Object> boardInfoMap = boardService.selectBoardList(param);
+			
+			if(boardInfoMap != null){
+				mav.addObject("list",boardInfoMap.get("list"));
+				mav.addObject("page",boardInfoMap.get("page"));
+			}
+			
+			mav.addObject("fileList",fileList);
 			mav.addObject("boardInfo",boardInfo);
+			mav.addObject("updateAction","/academy/academyLearningCenterUpdate.do");
+			mav.addObject("replyAction","/academy/academyLearningCenterReply.do");
 			
 		} else {
 			//TODO 에러처리
@@ -134,14 +169,27 @@ public class AcademyController {
 				
 				String file = boardInfo.get("FILE");
 				String[] fileArray = file.split(",");
-				List<String> fileList = new ArrayList<String>();
+				List<Map<String, String>> fileList = new ArrayList<Map<String, String>>();
 				
-				for(String fileName : fileArray){
-					fileList.add(fileName);
+				if(fileArray.length == 1){
+					Map<String, String> fileMap = new HashMap<String, String>();
+					fileMap.put("rFile", file);
+					file = file.substring(file.indexOf("__"), file.length()).replace("__", "");
+					fileMap.put("file", file);
+					fileList.add(fileMap);
+				} else {
+					for(String fileName : fileArray){
+						Map<String, String> fileMap = new HashMap<String, String>();
+						fileMap.put("rFile", fileName);
+						fileName = fileName.substring(fileName.indexOf("__"), fileName.length()).replace("__", "");
+						fileMap.put("file", fileName);	
+						fileList.add(fileMap);
+					}
 				}
-				
+								
 				mav.addObject("boardInfo",boardInfo);
 				mav.addObject("fileList",fileList);
+				mav.addObject("file",file);
 				mav.addObject("isUpdate","true");
 				mav.addObject("updateAction","/academy/academyLearningCenterUpdateProcess.do");
 			} else {
@@ -166,10 +214,11 @@ public class AcademyController {
 				BoardVo paramVo = new BoardVo();
 				
 				//파일 업로드 처리(다중 파일 업로드)
-				String filePath = request.getSession().getServletContext().getRealPath("/") + fileUploadPath;
+				String filePath = request.getSession().getServletContext().getRealPath("/") + fileUploadPath.replace("/", File.separator);
 				String dbFileName = ""; 
 				
 				int fileCount = 0;
+				String fileNm = "";
 				
 				List<MultipartFile> multiPartFileList = request.getFiles("file");
 				
@@ -185,21 +234,21 @@ public class AcademyController {
 						
 						SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
 				        String today= formatter.format(new java.util.Date());
-				        String fileNm = filePath + today+UUID.randomUUID().toString() + multiPartFile.getOriginalFilename();
+				        fileNm = today+ "__" +multiPartFile.getOriginalFilename();
 				        
 			        	if(fileCount == 0){
 				        	dbFileName += fileNm;
 				        } else {
 				        	dbFileName += "," + fileNm;
 				        }
-						multiPartFile.transferTo(new File(fileNm));
+						multiPartFile.transferTo(new File(filePath + fileNm));
 				        
 					}						
 					fileCount++;					
 				}
 				
 				if(!"".equals(dbFileName)){
-					paramVo.setFile(dbFileName);
+					paramVo.setFile(fileNm);
 				}
 				
 				//썸네일 파일 경로 처리
@@ -245,10 +294,11 @@ public class AcademyController {
 				BoardVo paramVo = new BoardVo();
 				
 				//파일 업로드 처리(다중 파일 업로드)
-				String filePath = request.getSession().getServletContext().getRealPath("/") + fileUploadPath;
+				String filePath = request.getSession().getServletContext().getRealPath("/") + fileUploadPath.replace("/", File.separator);
 				String dbFileName = ""; 
 				
 				int fileCount = 0;
+				String fileNm = "";
 				
 				List<MultipartFile> multiPartFileList = request.getFiles("file");
 				
@@ -264,21 +314,24 @@ public class AcademyController {
 						
 						SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
 				        String today= formatter.format(new java.util.Date());
-				        String fileNm = filePath + today+UUID.randomUUID().toString() + multiPartFile.getOriginalFilename();
+				        fileNm = today + "__" + multiPartFile.getOriginalFilename();
 				        
 			        	if(fileCount == 0){
 				        	dbFileName += fileNm;
 				        } else {
 				        	dbFileName += "," + fileNm;
 				        }
-						multiPartFile.transferTo(new File(fileNm));
+						multiPartFile.transferTo(new File(filePath + fileNm));
 				        
 					}						
 					fileCount++;					
 				}
 				
+				//파일 삭제 처리
+				String fileDeleteName = StringUtils.defaultIfEmpty(requestMap.get("fileDeleteName"), "");  
+				
 				if(!"".equals(dbFileName)){
-					paramVo.setFile(dbFileName);
+					paramVo.setFile(fileNm);
 				}
 				
 				//썸네일 파일 경로 처리
@@ -320,6 +373,44 @@ public class AcademyController {
 			// TODO 에러 페이지 처리
 			
 		}	
+	}
+	
+	@RequestMapping(value = "academyLearningCenterReply.do")
+	public ModelAndView academyLearningCenterReply(HttpServletRequest request, HttpServletResponse response){
+		
+		ModelAndView mav = new ModelAndView("/main/commonPage");
+		
+		try {
+			String replyText = StringUtils.defaultIfEmpty(request.getParameter("replyText"), ""); 
+			String seq = StringUtils.defaultIfEmpty(request.getParameter("seq"), "");
+			String indent = StringUtils.defaultIfEmpty(request.getParameter("indent"), "");
+			String step = StringUtils.defaultIfEmpty(request.getParameter("step"), "");
+			
+			if(!"".equals(seq) && !"".equals(replyText)){
+				
+				BoardVo paramVo = new BoardVo();
+				paramVo.setBoardName(CommonConstant.LEARNCENTER_BOARD);
+				paramVo.setContents(replyText);
+				paramVo.setRef(seq);
+				if(!"".equals(indent)){
+					paramVo.setIndent(String.valueOf((Integer.parseInt(indent) + 1)));
+				}
+				paramVo.setStep(String.valueOf((Integer.parseInt(step) + 1)));
+				paramVo.setCreateUserId(SecurityContextHolder.getContext().getAuthentication().getName());
+				
+				boardService.insertBoard(paramVo);
+				
+				mav.addObject("page","/academy/academyLearningCenterView.do");
+				mav.addObject("seq",seq);				
+			}
+			
+		} catch (Exception e) {
+			// TODO: 에러처리
+			
+		}
+		
+		return mav;
+		
 	}
 	
 	@RequestMapping(value="academyInvestStrategy.do")
