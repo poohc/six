@@ -115,40 +115,33 @@ $(document).ready(function(){
                         </security:authorize>
                     </div>
                     <ul class="com_list">
-                    	<form name="repFrm" id="repFrm" method="post" accept-charset="utf-8">
-                        <c:forEach items="${list}" var="list" varStatus="loop">
+                    	<c:forEach items="${list}" var="list" varStatus="loop">
+                    	${list.INDENT}
+                    	<c:choose>
+                        <c:when test="${list.INDENT > 0}">
+                        <c:set var="paddingLeft" value="${list.INDENT * 17}" />
+                        <li id="reply_${loop.index}" style="padding-left: ${paddingLeft}px;">
+                        </c:when>
+                        <c:otherwise>
                         <li id="reply_${loop.index}">
+                        </c:otherwise>
+                        </c:choose>
                             <div class="com_top">
                                 <ul class="com_top1">
                                     <li>${list.CREATE_USER_ID}</li>
                                     <li>${list.CREATE_DATE}</li>
-                                </ul>
+                                </ul>                                
                                 <ul class="com_top2">
-                                    <li><a href="javascript:rReply('${loop.index}')">답글</a></li>
-                                    <li><a href="javascript:dReply('${loop.index}')">취소</a></li>
+                                	<li><a href="javascript:rReply('${loop.index}','${list.SEQ}','${list.INDENT}')">답글</a></li>
+                                    <li id="cancelLi" style="visibility: hidden;"><a href="javascript:dReply('${loop.index}')">취소</a></li>
                                     <c:if test="${sessionScope.userInfo.name eq list.CREATE_USER_ID}">
                                     	<li><a href="#">수정</a></li>
                                     	<li><a href="#">삭제</a></li>
                                     </c:if>
                                 </ul>
-                            </div>
+                            </div>                            
                             <p class="comment_content">${list.CONTENTS}</p>
                         </li>
-<!--                         <li class="type2"> -->
-<!--                             <div class="com_top"> -->
-<!--                                 <ul class="com_top1"> -->
-<!--                                     <li>SIX 매니저</li> -->
-<!--                                     <li>2015-09-20</li> -->
-<!--                                 </ul> -->
-<!--                                 <ul class="com_top2"> -->
-<!--                                     <li><a href="#">답글</a></li> -->
-<!--                                     <li><a href="#">수정</a></li> -->
-<!--                                     <li><a href="#">취소</a></li> -->
-<!--                                     <li><a href="#">삭제</a></li> -->
-<!--                                 </ul> -->
-<!--                             </div> -->
-<!--                             <p class="comment_content">부산서 서울이 4시간 20분밖에 안걸렸어?자동차로? 빠르네.... 기차 무궁화호는 젤빠른게 4시간 50분인데.새마을은 4시간20분KTX도 고작 2시간 25분 </p> -->
-<!--                         </li> -->
 						</c:forEach>		
 						</form>			
                        

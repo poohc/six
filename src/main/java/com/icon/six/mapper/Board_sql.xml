@@ -28,7 +28,10 @@
 		       HIT_COUNT,
 		       IS_NOTICE,
 		       FILE,
-		       THUMB_IMAGE 
+		       THUMB_IMAGE,
+		       REF,
+		       INDENT,
+		       STEP
 		  FROM ${boardName}
 		 WHERE 1=1
 		   <if test="ref != null">
@@ -43,9 +46,61 @@
 	  ORDER BY SEQ DESC
 		   <if test="start != null">
 		 LIMIT #{start},#{end}    
-		   </if>
-      		   
+		   </if>      		   
     </select>    
+    
+    <select id="selectBoardHirachyCount" parameterType="java.util.HashMap" resultType="Integer">
+     
+         SELECT COUNT(*)
+		   FROM (
+		 SELECT *
+		   FROM ${boardName}
+		  WHERE REF = 43
+		UNION ALL
+		(SELECT *
+		   FROM ${boardName}
+		  WHERE REF IN 
+		(SELECT SEQ
+		   FROM ${boardName}
+		  WHERE REF = #{ref}))
+		        ) A	
+        
+    </select>
+     
+    
+    <select id="selectBoardHirachyList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT  SEQ,
+		        CONTENTS,
+		        CREATE_USER_ID,
+		        CREATE_DATE,
+		        UPDATE_USER_ID,
+		        UPDATE_DATE,
+		        REF,
+		        INDENT,
+		        STEP
+		   FROM ${boardName}
+		  WHERE REF = 43
+		UNION ALL
+		(SELECT SEQ,
+		        CONTENTS,
+		        CREATE_USER_ID,
+		        CREATE_DATE,
+		        UPDATE_USER_ID,
+		        UPDATE_DATE,
+		        REF,
+		        INDENT,
+		        STEP
+		   FROM ${boardName}
+		  WHERE REF IN 
+		(SELECT SEQ
+		   FROM ${boardName}
+		  WHERE REF = #{ref}))
+	   ORDER BY STEP ASC
+	      <if test="start != null">
+		  LIMIT #{start},#{end}    
+		  </if> 
+    </select>
+    
     
     <select id="getBoardInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
         SELECT SEQ,
@@ -63,7 +118,13 @@
 		       FILE,
 		       THUMB_IMAGE		       
 		  FROM ${boardName}
-		 WHERE SEQ = #{seq}
+		 WHERE 1=1
+		   <if test="seq != null">
+		   AND SEQ = #{seq}
+		   </if>
+		   <if test="ref != null">
+		   AND REF = #{ref}
+		   </if>
     </select>
     
     <insert id="insertBoard" parameterType="com.icon.six.vo.BoardVo">

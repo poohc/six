@@ -31,8 +31,14 @@ public interface BoardService {
 	public int updateBoard(BoardVo paramVo);
 	/**
 	 * 게시판 글 삭제
-	 * @param seq
+	 * @param param
 	 * @return
 	 */
 	public int deleteBoard(Map<String, String> param);
+	/**
+	 * 댓글 게시판 가져오기 
+	 * @param param
+	 * @return
+	 */
+	public Map<String, Object> selectBoardHirachyList(Map<String, Object> param);
 }

@@ -4,8 +4,8 @@ public class AA {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String a = "20151101031137__SIX sitemap.pdf";
-		System.out.println(a.substring(a.indexOf("__"),a.length()).replace("__", ""));
+		String a = "";
+		System.out.println(a.split(",").length);
 	}
 
 }

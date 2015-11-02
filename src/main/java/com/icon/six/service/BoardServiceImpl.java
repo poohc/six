@@ -90,6 +90,34 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public int deleteBoard(Map<String, String> param) {
 		return boardDao.deleteBoard(param);
+	}
+
+	@Override
+	public Map<String, Object> selectBoardHirachyList(Map<String, Object> param) {
+		int totalCount = 0;
+		Map<String, Object> resultMap = null;
+		
+		try {
+				totalCount = boardDao.selectBoardHirachyCount(param);
+				
+				param.put("totalCount", totalCount);
+				
+				Map<String, Object> pageInfo = PagingUtil.setPageView(param);
+				
+				param.put("start", pageInfo.get("start"));
+				param.put("end", pageInfo.get("end"));
+				
+				List<Map<String, Object>> boardInfoList = boardDao.selectBoardHirachyList(param);
+				
+				resultMap = new HashMap<>();
+				resultMap.put("list", boardInfoList);
+				resultMap.put("page", pageInfo.get("page"));
+				
+		} catch (Exception e) {
+			System.out.println("게시판 가져오기 오류");
+		}
+		
+		return resultMap;		
 	}	
 	
 }

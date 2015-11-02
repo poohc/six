@@ -98,8 +98,9 @@ public class AcademyController {
 					
 			Map<String, String> boardInfo = boardService.getBoardInfo(paramMap);
 			
-			String file = boardInfo.get("FILE");
+			String file = StringUtils.defaultIfEmpty(boardInfo.get("FILE"), "");
 			String[] fileArray = file.split(",");
+			
 			List<Map<String, String>> fileList = new ArrayList<Map<String, String>>();
 			
 			if(fileArray.length == 1){
@@ -125,7 +126,7 @@ public class AcademyController {
 			param.put("ref", seq);
 			param.put("currentPage", currentPage);
 			
-			Map<String, Object> boardInfoMap = boardService.selectBoardList(param);
+			Map<String, Object> boardInfoMap = boardService.selectBoardHirachyList(param);
 			
 			if(boardInfoMap != null){
 				mav.addObject("list",boardInfoMap.get("list"));
@@ -167,7 +168,7 @@ public class AcademyController {
 				
 				Map<String, String> boardInfo = boardService.getBoardInfo(paramMap);
 				
-				String file = boardInfo.get("FILE");
+				String file = StringUtils.defaultIfEmpty(boardInfo.get("FILE"), "");
 				String[] fileArray = file.split(",");
 				List<Map<String, String>> fileList = new ArrayList<Map<String, String>>();
 				
@@ -382,18 +383,29 @@ public class AcademyController {
 		
 		try {
 			String replyText = StringUtils.defaultIfEmpty(request.getParameter("replyText"), ""); 
+			//원본 글 SEQ
 			String seq = StringUtils.defaultIfEmpty(request.getParameter("seq"), "");
+			//댓글 SEQ
+			String rSeq = StringUtils.defaultIfEmpty(request.getParameter("rSeq"), "");
 			String indent = StringUtils.defaultIfEmpty(request.getParameter("indent"), "");
-			String step = StringUtils.defaultIfEmpty(request.getParameter("step"), "");
+			String step = StringUtils.defaultIfEmpty(request.getParameter("step"), "0");
+			String isReply = StringUtils.defaultIfEmpty(request.getParameter("isReply"), "");
 			
 			if(!"".equals(seq) && !"".equals(replyText)){
 				
 				BoardVo paramVo = new BoardVo();
 				paramVo.setBoardName(CommonConstant.LEARNCENTER_BOARD);
 				paramVo.setContents(replyText);
-				paramVo.setRef(seq);
+				if(!"".equals(isReply)){
+					paramVo.setRef(rSeq);
+				} else {
+					paramVo.setRef(seq);
+				}
+				
 				if(!"".equals(indent)){
 					paramVo.setIndent(String.valueOf((Integer.parseInt(indent) + 1)));
+				} else {
+					paramVo.setIndent("1");
 				}
 				paramVo.setStep(String.valueOf((Integer.parseInt(step) + 1)));
 				paramVo.setCreateUserId(SecurityContextHolder.getContext().getAuthentication().getName());

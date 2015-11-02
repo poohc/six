@@ -19,6 +19,18 @@ public interface BoardDao {
 	 */
 	public List<Map<String, Object>> selectBoardList(Map<String, Object> param);
 	/**
+	 * 답변 게시글 총 개수 가져오기
+	 * @param param
+	 * @return
+	 */
+	public int selectBoardHirachyCount(Map<String, Object> param);
+	/**
+	 * 답변 게시글 가져오기
+	 * @param param
+	 * @return
+	 */
+	public List<Map<String, Object>> selectBoardHirachyList(Map<String, Object> param);
+	/**
 	 * 가져오기 
 	 * @param seq
 	 * @return

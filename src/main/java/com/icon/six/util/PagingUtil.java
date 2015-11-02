@@ -68,8 +68,8 @@ public class PagingUtil {
 			}
 			
 			pageString.append("<div class=\"paging\">");
-			pageString.append("<a href=\"#\" class=\"prev2\" onclick=\"pageMove('1')\"><img src=\"/resources/img/prev2.png\" alt=\"처음\"></a>");
-			pageString.append("<a href=\"#\" class=\"prev1\" onclick=\"pageMove('"+prevPage+"')\"><img src=\"/resources/img/prev1.png\" alt=\"이전\"></a>");
+			pageString.append("<a href=\"#\" class=\"prev2\" onclick=\"pageMove('1')\"><img src=\"/resources/img/prev2.png\" alt=\"泥섏쓬\"></a>");
+			pageString.append("<a href=\"#\" class=\"prev1\" onclick=\"pageMove('"+prevPage+"')\"><img src=\"/resources/img/prev1.png\" alt=\"�씠�쟾\"></a>");
 			pageString.append("<ul class=\"paging_list\">");
 			
 			System.out.println("startPage : " + startPage + ", endPage : " + endPage + ", currentPage : " + currentPage + ", totalCount : " + totalCount);
@@ -95,8 +95,8 @@ public class PagingUtil {
 			}
 			
 			pageString.append("</ul>");
-			pageString.append("<a href=\"#\" class=\"next1\" onclick=\"pageMove('"+nextPage+"')\"><img src=\"/resources/img/next1.png\" alt=\"이전\"></a>");
-			pageString.append("<a href=\"#\" class=\"next2\" onclick=\"pageMove('"+totalCount+"')\"><img src=\"/resources/img/next2.png\" alt=\"끝\"></a>");
+			pageString.append("<a href=\"#\" class=\"next1\" onclick=\"pageMove('"+nextPage+"')\"><img src=\"/resources/img/next1.png\" alt=\"�씠�쟾\"></a>");
+			pageString.append("<a href=\"#\" class=\"next2\" onclick=\"pageMove('"+totalCount+"')\"><img src=\"/resources/img/next2.png\" alt=\"�걹\"></a>");
 			pageString.append("</div>");			
 			
 			resultMap = new HashMap<>();
@@ -111,8 +111,8 @@ public class PagingUtil {
 			resultMap.put("end", pageCount);
 			
 		}  catch (Exception e) {
-			// TODO: 에러 페이지 설정
-			logger.debug("페이지 생성 시 파일 불러오기 오류");
+			// TODO: 에러처리
+			logger.debug("페이징 오류");
 		}
 				
 		return resultMap;
