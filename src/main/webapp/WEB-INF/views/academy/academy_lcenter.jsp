@@ -45,8 +45,7 @@ $(document).ready(function(){
                 	<input type="hidden" id="listPage" name="listPage" value="${listPage}">
                     <input type="hidden" id="viewPage" name="viewPage" value="${viewPage}">
                		<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
-               		<input type="hidden" id="seq" name="seq">           
-               		</form>     
+               		<input type="hidden" id="seq" name="seq">
                     <p class="title_type1">SIX 주식 배움터</p>
                     <div class="table_top">
                         <p class="table_type1title2"><span>데이터를 이용한 투자 기법을 제공해 드립니다.</span></p>
@@ -59,6 +58,7 @@ $(document).ready(function(){
                             <button>검색</button>
                         </div>
                     </div>
+                    </form>
                     <div class="table_type1">
                         <table>
                             <caption>공지사항</caption>
@@ -87,7 +87,7 @@ $(document).ready(function(){
 		                                    <td class="t_l">
 		                                    	<a href="#" onclick="goView('${list.SEQ}');" class="plus_img">
 		                                    	<c:choose>
-			                                    	<c:when test="${list.THUMB_IMAGE != ''}">
+			                                    	<c:when test="${fn:length(list.THUMB_IMAGE) > 0}">
 			                                    		<c:out value="${list.THUMB_IMAGE}" escapeXml="false" />
 			                                    	</c:when>
 			                                    	<c:otherwise>

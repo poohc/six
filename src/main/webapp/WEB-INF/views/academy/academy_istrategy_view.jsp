@@ -11,7 +11,7 @@
 <script type="text/javascript" src="/resources/js/boardCommon2.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#academy1').addClass("on");	
+	$('#academy2').addClass("on");	
 });
 </script>
 </head>
@@ -43,19 +43,17 @@ $(document).ready(function(){
             <div class="wrap_right">
                 <img src="/resources/img/introduce1.jpg" alt="" class="top_mainimg">
                 <div class="right_contents">
-                    <p class="title_type1">SIX 주식배움터</p>
+                    <p class="title_type1">SIX 투자전략</p>
                     <div class="table_top">
                         <p class="table_type1title2"><span>데이터를 이용한 투자 기법을 제공해 드립니다.</span></p>
-                        <!-- 
-                        <div class="table_rightarea">
-                            <select name="titleandcontent" id="titleandcontent" title="분류">
-                                <option value="제목">제목</option>
-                                <option value="제목">내용</option>
-                            </select>
-                            <input type="text">
-                            <button>검색</button>
-                        </div>
-                         -->
+<!--                         <div class="table_rightarea"> -->
+<!--                             <select name="titleandcontent" id="titleandcontent" title="분류"> -->
+<!--                                 <option value="제목">제목</option> -->
+<!--                                 <option value="제목">내용</option> -->
+<!--                             </select> -->
+<!--                             <input type="text"> -->
+<!--                             <button>검색</button> -->
+<!--                         </div> -->
                     </div>
                     <div class="table_type1_view type2">
                         <table>
@@ -120,7 +118,7 @@ $(document).ready(function(){
                         </security:authorize>
                     </div>
                     <ul class="com_list">
-                    	<c:forEach items="${list}" var="list" varStatus="loop">
+                        <c:forEach items="${list}" var="list" varStatus="loop">
                     	<c:choose>
                         <c:when test="${list.INDENT > 0}">
                         <c:set var="paddingLeft" value="${list.INDENT * 17}" />

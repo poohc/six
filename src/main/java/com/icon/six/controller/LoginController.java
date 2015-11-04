@@ -35,7 +35,7 @@ public class LoginController {
 	@RequestMapping(value="logout.do")	
 	public void logout(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException{
 		System.out.println("전 페이지 : " + request.getHeader("Referer"));
-		String url = request.getHeader("Referer");
+		String url = "/main/main.do";
 		session.invalidate();
 		response.sendRedirect(url);
 	}
@@ -44,7 +44,7 @@ public class LoginController {
 	public void loginSuccess(HttpServletRequest request, HttpServletResponse response, HttpSession session){
 		System.out.println("전 페이지 : " + request.getHeader("Referer"));
 		
-		String url = request.getHeader("Referer");
+		String url = "/main/main.do";
 		
 		System.out.println(url.matches(".*loginFail.*"));
 		

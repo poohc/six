@@ -20,16 +20,6 @@ public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 		return (List<Map<String, Object>>) selectList("board.selectBoardList", param);
 	}
 	@Override
-	public int selectBoardHirachyCount(Map<String, Object> param){
-		return (int) selectOne("board.selectBoardHirachyCount", param);
-	}
-	
-	@Override
-	public List<Map<String, Object>> selectBoardHirachyList(Map<String, Object> param){
-		return (List<Map<String, Object>>) selectList("board.selectBoardHirachyList", param);
-	}
-	
-	@Override
 	public Map<String, String> getBoardInfo(Map<String, String> param) {
 		return (Map<String, String>) selectOne("board.getBoardInfo", param);
 	}
@@ -43,11 +33,40 @@ public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 	public int updateBoard(BoardVo paramVo) {
 		return (int) update("board.updateBoard", paramVo);
 	}
-
+	
+	@Override
+	public int updateBoardAddReply(Map<String, Object> param) {
+		return (int) update("board.updateBoardAddReply", param);
+	}
+	
+	@Override
+	public int updateBoardDelReply(Map<String, Object> param) {
+		return (int) update("board.updateBoardDelReply", param);
+	}
+	
 	@Override
 	public int deleteBoard(Map<String, String> param) {
 		return (int) delete("board.deleteBoard", param);
 	}
 
+	@Override
+	public List<String> selectBoardReplySeq(Map<String, Object> param) {
+		return selectList("board.selectBoardReplySeq",param);
+	}
+
+	@Override
+	public int selectBoardReplyCount(Map<String, Object> param) {
+		return (int) selectOne("board.selectBoardReplyCount",param);
+	}
+
+	@Override
+	public List<Map<String, Object>> selectBoardReplyList(Map<String, Object> param) {
+		return selectList("board.selectBoardReplyList",param);
+	}
+
+	@Override
+	public int deleteBoardReply(Map<String, Object> param) {
+		return (int) delete("board.deleteBoardReply", param);
+	}
 	
 }

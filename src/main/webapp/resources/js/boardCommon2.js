@@ -15,7 +15,7 @@ $(document).ready(function(){
     		alert('댓글을 입력해주세요');
     		return false;
     	}    	
-		$('#frm').attr('action',$('#replyAction').val());
+		$('#frm').attr('action',$('#replyAddAction').val());
 		$('#frm').submit();
 	});
     
@@ -26,7 +26,16 @@ $(document).on("click","#rReplyBtn",function(){
 		alert('댓글을 입력해주세요');
 		return false;
 	}    	
-	$('#repFrm').attr('action',$('#replyAction').val());
+	$('#repFrm').attr('action',$('#replyAddAction').val());
+	$('#repFrm').submit();
+});
+
+$(document).on("click","#rUpdateBtn",function(){
+	if($('#repFrm').find('[name=replyText]').val() == '' || $('#repFrm').find('[name=replyText]').val().length == 0){
+		alert('댓글을 입력해주세요');
+		return false;
+	}    	
+	$('#repFrm').attr('action',$('#replyUpdAction').val());
 	$('#repFrm').submit();
 });
 
@@ -47,13 +56,14 @@ function fileDownLoad(fileName){
 	$('#frm').submit();
 }
 
-function rReply(index,seq,indent){
+function rReply(index,seq,indent,step){
 	var replyTextArea = '';
 	replyTextArea += '<form name="repFrm" id="repFrm" method="post" accept-charset="utf-8">';
 	replyTextArea += '<input type="hidden" id="seq" name="seq" value="'+$('#seq').val()+'">';
 	replyTextArea += '<input type="hidden" id="isReply" name="isReply" value="true">';
 	replyTextArea += '<input type="hidden" id="rSeq" name="rSeq" value="'+seq+'">';
-	replyTextArea += '<input type="hidden" id="indent" name="indent" value="'+indent+'">';	
+	replyTextArea += '<input type="hidden" id="indent" name="indent" value="'+indent+'">';
+	replyTextArea += '<input type="hidden" id="step" name="step" value="'+step+'">';
 	replyTextArea += '<li class="type3" id="replyLi_'+index+'">';
 	replyTextArea += '<div class="table_comment type2">';
 	replyTextArea += '<p class="comment_title1">댓글쓰기</p>';
@@ -61,17 +71,56 @@ function rReply(index,seq,indent){
 	replyTextArea += '<button class="com_btn" id="rReplyBtn">등록하기</button>';
 	replyTextArea += '</div>';
 	replyTextArea += '</li>';
+	replyTextArea += '</form>';
 	
 	if(!$('#replyLi_'+index+'').length){
-		$('#cancelLi').css('visibility','visible');
+		$('#cancelLi_'+index+'').css('visibility','visible');
 		$('#reply_' + index).append(replyTextArea);
 	} 
 }
 
-function dReply(index){
+function cReply(index,contents){
 	if($('#replyLi_'+index+'').length){
-		$('#cancelLi').css('visibility','hidden');
+		$('#cancelLi_'+index+'').css('visibility','hidden');
 		$('#replyLi_' + index).remove();
+		$('#contents_' + index).append(contents);
 	}
 	
 }
+
+function rUpdate(index,seq,contents){
+	
+	var replyTextArea = '';
+	replyTextArea += '<form name="repFrm" id="repFrm" method="post" accept-charset="utf-8">';
+	replyTextArea += '<input type="hidden" id="seq" name="seq" value="'+$('#seq').val()+'">';
+	replyTextArea += '<input type="hidden" id="rSeq" name="rSeq" value="'+seq+'">';
+	replyTextArea += '<li class="type3" id="replyLi_'+index+'">';
+	replyTextArea += '<div class="table_comment type2">';
+	replyTextArea += '<p class="comment_title1">댓글수정</p>';
+	replyTextArea += '<textarea class="com_text" name="replyText" id="replyText" cols="30" rows="10">'+contents+'</textarea>';
+	replyTextArea += '<button class="com_btn" id="rUpdateBtn">수정하기</button>';
+	replyTextArea += '</div>';
+	replyTextArea += '</li>';
+	replyTextArea += '</form>';
+	
+	if(!$('#replyLi_'+index+'').length){
+		$('#contents_' + index).text('');
+		$('#updateLi_'+index+'').css('visibility','hidden');
+		$('#contents_' + index).append(replyTextArea);
+	}
+	
+}
+
+function rDelete(seq,step){
+	
+	if(confirm('정말 댓글을 삭제하시겠습니까?(관련 댓글이 모두 삭제됩니다.)')){		
+		$('#rSeq').val(seq);
+		$('#step').val(step);
+		$('#frm').attr('action',$('#replyDelAction').val());
+		$('#frm').submit();
+	} else {
+		return false;
+	}
+	
+}
+

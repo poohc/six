@@ -19,18 +19,6 @@ public interface BoardDao {
 	 */
 	public List<Map<String, Object>> selectBoardList(Map<String, Object> param);
 	/**
-	 * 답변 게시글 총 개수 가져오기
-	 * @param param
-	 * @return
-	 */
-	public int selectBoardHirachyCount(Map<String, Object> param);
-	/**
-	 * 답변 게시글 가져오기
-	 * @param param
-	 * @return
-	 */
-	public List<Map<String, Object>> selectBoardHirachyList(Map<String, Object> param);
-	/**
 	 * 가져오기 
 	 * @param seq
 	 * @return
@@ -49,9 +37,45 @@ public interface BoardDao {
 	 */
 	public int updateBoard(BoardVo paramVo);
 	/**
+	 * 댓글 게시글 수정
+	 * @param paramVo
+	 * @return
+	 */
+	public int updateBoardAddReply(Map<String, Object> param);
+	/**
+	 * 댓글 게시글 삭제시 수정
+	 * @param seq
+	 * @return
+	 */
+	public int updateBoardDelReply(Map<String, Object> param);
+	/**
 	 * 게시판 글 삭제
 	 * @param seq
 	 * @return
 	 */
-	public int deleteBoard(Map<String, String> param);
+	public int deleteBoard(Map<String, String> param);	
+	/**
+	 * 댓글 게시글 SEQ 모두 가져오기
+	 * @param param
+	 * @return
+	 */
+	public List<String> selectBoardReplySeq(Map<String, Object> param); 
+	/**
+	 * 댓글 게시판 리스트 총 개수 가져오기
+	 * @param page
+	 * @return
+	 */
+	public int selectBoardReplyCount(Map<String, Object> param);
+	/**
+	 * 댓글 게시판 리스트 가져오기
+	 * @param page
+	 * @return
+	 */
+	public List<Map<String, Object>> selectBoardReplyList(Map<String, Object> param);
+	/**
+	 * 게시판 댓글 삭제
+	 * @param seq
+	 * @return
+	 */
+	public int deleteBoardReply(Map<String, Object> param);
 }

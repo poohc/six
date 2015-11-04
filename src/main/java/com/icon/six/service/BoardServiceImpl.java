@@ -22,6 +22,11 @@ public class BoardServiceImpl implements BoardService{
 	private BoardDao boardDao;
 	
 	@Override
+	public int selectBoardReplyCount(Map<String, Object> param) {
+		return boardDao.selectBoardReplyCount(param);
+	}
+	
+	@Override
 	public Map<String, Object> selectBoardList(Map<String, Object> param) {
 		
 		int totalCount = 0;
@@ -88,17 +93,27 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
+	public int updateBoardAddReply(Map<String, Object> param) {
+		return boardDao.updateBoardAddReply(param);
+	}
+
+	@Override
+	public int updateBoardDelReply(Map<String, Object> param) {
+		return boardDao.updateBoardDelReply(param);
+	}
+	
+	@Override
 	public int deleteBoard(Map<String, String> param) {
 		return boardDao.deleteBoard(param);
 	}
 
 	@Override
-	public Map<String, Object> selectBoardHirachyList(Map<String, Object> param) {
+	public Map<String, Object> selectBoardReplyList(Map<String, Object> param) {
 		int totalCount = 0;
 		Map<String, Object> resultMap = null;
 		
 		try {
-				totalCount = boardDao.selectBoardHirachyCount(param);
+				totalCount = boardDao.selectBoardReplyCount(param);
 				
 				param.put("totalCount", totalCount);
 				
@@ -107,7 +122,7 @@ public class BoardServiceImpl implements BoardService{
 				param.put("start", pageInfo.get("start"));
 				param.put("end", pageInfo.get("end"));
 				
-				List<Map<String, Object>> boardInfoList = boardDao.selectBoardHirachyList(param);
+				List<Map<String, Object>> boardInfoList = boardDao.selectBoardReplyList(param);
 				
 				resultMap = new HashMap<>();
 				resultMap.put("list", boardInfoList);
@@ -118,6 +133,15 @@ public class BoardServiceImpl implements BoardService{
 		}
 		
 		return resultMap;		
-	}	
-	
+	}
+
+	@Override
+	public List<String> selectBoardReplySeq(Map<String, Object> param) {
+		return boardDao.selectBoardReplySeq(param);
+	}
+
+	@Override
+	public int deleteBoardReply(Map<String, Object> param) {
+		return boardDao.deleteBoardReply(param);
+	}
 }

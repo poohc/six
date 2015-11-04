@@ -49,59 +49,6 @@
 		   </if>      		   
     </select>    
     
-    <select id="selectBoardHirachyCount" parameterType="java.util.HashMap" resultType="Integer">
-     
-         SELECT COUNT(*)
-		   FROM (
-		 SELECT *
-		   FROM ${boardName}
-		  WHERE REF = 43
-		UNION ALL
-		(SELECT *
-		   FROM ${boardName}
-		  WHERE REF IN 
-		(SELECT SEQ
-		   FROM ${boardName}
-		  WHERE REF = #{ref}))
-		        ) A	
-        
-    </select>
-     
-    
-    <select id="selectBoardHirachyList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-        SELECT  SEQ,
-		        CONTENTS,
-		        CREATE_USER_ID,
-		        CREATE_DATE,
-		        UPDATE_USER_ID,
-		        UPDATE_DATE,
-		        REF,
-		        INDENT,
-		        STEP
-		   FROM ${boardName}
-		  WHERE REF = 43
-		UNION ALL
-		(SELECT SEQ,
-		        CONTENTS,
-		        CREATE_USER_ID,
-		        CREATE_DATE,
-		        UPDATE_USER_ID,
-		        UPDATE_DATE,
-		        REF,
-		        INDENT,
-		        STEP
-		   FROM ${boardName}
-		  WHERE REF IN 
-		(SELECT SEQ
-		   FROM ${boardName}
-		  WHERE REF = #{ref}))
-	   ORDER BY STEP ASC
-	      <if test="start != null">
-		  LIMIT #{start},#{end}    
-		  </if> 
-    </select>
-    
-    
     <select id="getBoardInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
         SELECT SEQ,
 		       TITLE,
@@ -129,7 +76,10 @@
     
     <insert id="insertBoard" parameterType="com.icon.six.vo.BoardVo">
     	INSERT INTO ${boardName}
-			    	(
+			    	(  	
+			    	   <if test="ref == null">
+			    	   NO,
+			    	   </if>
 			    	   <if test="title != null">
 		    		   TITLE,
 		    		   </if>
@@ -138,7 +88,7 @@
 				       CREATE_DATE,
 				       HIT_COUNT,
 				       <if test="ref != null">
-				           REF,
+				           REF,				           
 				       </if>
 				       <if test="indent != null">
 				           INDENT,
@@ -155,6 +105,9 @@
 				       IS_NOTICE
 			    	)
 			 VALUES (
+			 		   <if test="ref == null">
+			    	   (SELECT IFNULL(MAX(NO),0) + 1 FROM ${boardName} A),
+			    	   </if>
 			 		   <if test="title != null">	
 				 	   #{title},
 				 	   </if>
@@ -199,10 +152,91 @@
 	    WHERE SEQ = #{seq}                   
     </update>
     
+    <update id="updateBoardAddReply" parameterType="java.util.HashMap">
+ 	 	UPDATE ${boardName} A, (SELECT SEQ
+    	                          FROM ${boardName}
+    	                         WHERE SEQ IN 
+    	                         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+					                   #{item}
+					  	  	     </foreach>
+					  	  	    ) B                        
+           SET A.STEP = A.STEP + 1 
+         WHERE A.SEQ IN (B.SEQ)
+           AND STEP >= #{step}  
+    </update>
+    
+    <update id="updateBoardDelReply" parameterType="java.util.HashMap">
+    	UPDATE ${boardName} A, (SELECT SEQ
+    	                          FROM ${boardName}
+    	                         WHERE SEQ IN 
+    	                         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+					                   #{item}
+					  	  	     </foreach>
+					  	  	    ) B                        
+           SET A.STEP = A.STEP - #{cnt} 
+         WHERE A.REF IN (B.SEQ)
+           AND STEP >= #{step}
+    </update>
+    
     <delete id="deleteBoard" parameterType="java.util.HashMap">
         DELETE 
           FROM ${boardName}
-         WHERE SEQ = #{seq}
+         WHERE SEQ = #{seq} 
     </delete>
+    
+    <delete id="deleteBoardReply" parameterType="java.util.HashMap">
+        DELETE 
+          FROM ${boardName}
+         WHERE SEQ IN
+         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+		       #{item}
+		 </foreach>
+    </delete>
+    
+    <select id="selectBoardReplySeq" parameterType="java.util.HashMap" resultType="String">
+    	SELECT SEQ
+    	  FROM ${boardName}
+    	 WHERE REF IN 
+      <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+         	   #{item}
+  	  </foreach>
+    </select>
+    
+    <select id="selectBoardReplyCount" parameterType="java.util.HashMap" resultType="Integer">
+    	SELECT COUNT(*)
+		  FROM ${boardName}
+		 WHERE 1=1
+		   AND REF IN
+		   <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+           #{item}
+  	 	   </foreach>  	 
+    </select>
+    
+    <select id="selectBoardReplyList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    	SELECT SEQ,
+		       TITLE,
+		       CONTENTS,
+		       CREATE_USER_ID,
+		       CREATE_DATE,
+		       UPDATE_USER_ID,
+		       UPDATE_DATE,
+		       HIT_COUNT,
+		       IS_NOTICE,
+		       FILE,
+		       THUMB_IMAGE,
+		       REF,
+		       INDENT,
+		       STEP
+		  FROM ${boardName}
+		 WHERE 1=1
+		   AND REF IN
+		   <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+           #{item}
+  	 	   </foreach>
+  	  ORDER BY STEP ASC
+	       <if test="start != null">
+		   LIMIT #{start},#{end}    
+		   </if> 
+    </select>
     
 </mapper>

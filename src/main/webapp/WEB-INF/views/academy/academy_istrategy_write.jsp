@@ -11,7 +11,7 @@
 <script type="text/javascript" src="/resources/js/boardCommon.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#academy1').addClass("on");	
+	$('#academy2').addClass("on");	
 });
 </script>
 </head>
@@ -43,7 +43,7 @@ $(document).ready(function(){
             <div class="wrap_right">
                 <img src="/resources/img/introduce1.jpg" alt="" class="top_mainimg">
                 <div class="right_contents">
-                    <p class="title_type1">SIX 주식배움터</p>
+                    <p class="title_type1">SIX 투자전략</p>
                     <div class="table_top">
                         <p class="table_type1title2"><span>SIX의 이용중 궁금하신 사항에 대하여 문의 주시기 바랍니다.</span></p>
                     </div>
@@ -93,9 +93,8 @@ $(document).ready(function(){
                             </tbody>
                         </table>
                     </div>
-                    </form>
                     <div class="table_bottom">
-                        <a href="/academy/academyLearningCenter.do" class="go_list">목록으로</a>
+                        <a href="/academy/academyInvestStrategy.do" class="go_list">목록으로</a>
                         <security:authorize ifAnyGranted="ROLE_ADMIN">
                         <ul class="table_option">
                             <li><a href="#" onclick="history.back()">취소</a></li>
