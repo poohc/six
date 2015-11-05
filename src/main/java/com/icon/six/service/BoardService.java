@@ -11,13 +11,61 @@ public interface BoardService {
 	 * @param page
 	 * @return
 	 */
-	public Map<String, Object> selectBoardList(Map<String, Object> param);	
+	public Map<String, Object> selectBoardList(Map<String, Object> param);
 	/**
-	 * 가져오기 
+	 * 게시글 상세보기 정보 가져오기
+	 * @param param
+	 * @return
+	 */
+	public Map<String, Object> selectBoardViewInfo(Map<String, Object> param);
+	/**
+	 * 게시글 업데이트 정보 가져오기
+	 * @param param
+	 * @return
+	 */
+	public Map<String, Object> selectBoardUpdateInfo(Map<String, Object> param);
+	/**
+	 * 게시판 글 쓰기 처리 
+	 * @param param
+	 * @return
+	 */
+	public int insertBoardProcess(Map<String, Object> param);
+	/**
+	 * 게시판 글 업데이트 처리
+	 * @param param
+	 * @return
+	 */
+	public int updateBoardProcess(Map<String, Object> param);
+	/**
+	 * 게시판 글 삭제 처리
+	 * @param param
+	 * @return
+	 */
+	public int deleteBoardProcess(Map<String, Object> param);
+	/**
+	 * 댓글 달기 INSERT 처리 
+	 * @param param
+	 * @return
+	 */
+	public Map<String, Object> insertReplyProcess(Map<String, Object> param); 
+	/**
+	 * 댓글 달기 삭제 처리 
+	 * @param param
+	 * @return
+	 */
+	public Map<String, Object> deleteReplyProcess(Map<String, Object> param); 
+	/**
+	 * 댓글 달기 업데이트 처리
+	 * @param param
+	 * @return
+	 */
+	public Map<String, Object> updateReplyProcess(Map<String, Object> param);
+	/**
+	 * 게시글 가져오기 
 	 * @param seq
 	 * @return
 	 */
-	public Map<String, String> getBoardInfo(Map<String, String> param);	
+	public Map<String, Object> getBoardInfo(Map<String, Object> param);	
 	/**
 	 * 게시판 글 쓰기
 	 * @param boardVo
@@ -47,7 +95,7 @@ public interface BoardService {
 	 * @param param
 	 * @return
 	 */
-	public int deleteBoard(Map<String, String> param);
+	public int deleteBoard(Map<String, Object> param);
 	/**
 	 * 댓글 게시글 SEQ 모두 가져오기
 	 * @param param

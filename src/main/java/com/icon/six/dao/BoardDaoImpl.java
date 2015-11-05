@@ -20,8 +20,8 @@ public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 		return (List<Map<String, Object>>) selectList("board.selectBoardList", param);
 	}
 	@Override
-	public Map<String, String> getBoardInfo(Map<String, String> param) {
-		return (Map<String, String>) selectOne("board.getBoardInfo", param);
+	public Map<String, Object> getBoardInfo(Map<String, Object> param) {
+		return (Map<String, Object>) selectOne("board.getBoardInfo", param);
 	}
 	
 	@Override
@@ -45,7 +45,7 @@ public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 	}
 	
 	@Override
-	public int deleteBoard(Map<String, String> param) {
+	public int deleteBoard(Map<String, Object> param) {
 		return (int) delete("board.deleteBoard", param);
 	}
 

@@ -18,7 +18,8 @@ public class FileDownLoad extends AbstractView{
 			throws Exception {
 		
 		String fileName = null;
-        File file = (File) map.get("fileName");
+        
+		File file = (File) map.get("fileName");
  
         res.setContentType("application/download;");
         int length = (int) file.length();

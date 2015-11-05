@@ -97,6 +97,7 @@ $(document).ready(function(){
                 	<input type="hidden" id="replyUpdAction" name="replyUpdAction" value="${replyUpdAction}">
                 	<input type="hidden" id="replyDelAction" name="replyDelAction" value="${replyDelAction}">
                 	<input type="hidden" id="updateAction" name="updateAction" value="${updateAction}">
+                	<input type="hidden" id="deleteAction" name="deleteAction" value="${deleteAction}">
                 	<input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}">
                 	<input type="hidden" id="rSeq" name="rSeq">
                 	<input type="hidden" id="indent" name="indent" value="${boardInfo.INDENT}">

@@ -94,11 +94,11 @@ public class MainController {
 			paramVo.setBoardName(CommonConstant.INTRO_BOARD);
 			boardService.updateBoard(paramVo);
 			
-			Map<String, String> paramMap = new HashMap<String, String>();
+			Map<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("boardName", CommonConstant.INTRO_BOARD);
 			paramMap.put("seq",seq);
 					
-			Map<String, String> boardInfo = boardService.getBoardInfo(paramMap);
+			Map<String, Object> boardInfo = boardService.getBoardInfo(paramMap);
 			mav.addObject("boardInfo",boardInfo);
 			
 		} else {
@@ -126,11 +126,11 @@ public class MainController {
 		
 		if(!"".equals(seq)){
 			
-			Map<String, String> paramMap = new HashMap<String, String>();
+			Map<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("boardName", CommonConstant.INTRO_BOARD);
 			paramMap.put("seq",seq);
 			
-			Map<String, String> boardInfo = boardService.getBoardInfo(paramMap);
+			Map<String, Object> boardInfo = boardService.getBoardInfo(paramMap);
 			mav.addObject("boardInfo",boardInfo);
 			mav.addObject("isUpdate","true");
 			mav.addObject("updateAction","/main/introNoticeUpdateProcess.do");
@@ -228,7 +228,7 @@ public class MainController {
 			
 			if(!"".equals(seq)){
 				
-				Map<String, String> paramMap = new HashMap<String, String>();
+				Map<String, Object> paramMap = new HashMap<String, Object>();
 				paramMap.put("boardName", CommonConstant.INTRO_BOARD);
 				paramMap.put("seq",seq);
 				

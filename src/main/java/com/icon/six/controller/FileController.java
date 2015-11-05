@@ -107,6 +107,8 @@ public class FileController {
 		String dftFilePath = request.getSession().getServletContext().getRealPath("/");
 		fileUploadPath = fileUploadPath.replace("/", File.separator); 
 		
+		System.out.println("dftFilePath : " + dftFilePath);
+		
 		if(!"".equals(fileName)){
 			
 			mav.addObject("fileName", new File(dftFilePath + fileUploadPath + fileName));

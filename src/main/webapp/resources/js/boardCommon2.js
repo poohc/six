@@ -120,7 +120,15 @@ function rDelete(seq,step){
 		$('#frm').submit();
 	} else {
 		return false;
-	}
+	}	
 	
 }
 
+function deleteBoard(){
+	if(confirm('정말 글을 삭제하시겠습니까?(관련 댓글이 모두 삭제됩니다.)')){
+		$('#frm').attr('action',$('#deleteAction').val());
+		$('#frm').submit();
+	} else {
+		return false;
+	}
+}

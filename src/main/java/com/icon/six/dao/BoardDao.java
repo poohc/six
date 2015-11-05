@@ -23,7 +23,7 @@ public interface BoardDao {
 	 * @param seq
 	 * @return
 	 */
-	public Map<String, String> getBoardInfo(Map<String, String> param); 
+	public Map<String, Object> getBoardInfo(Map<String, Object> param); 
 	/**
 	 * 게시판 글 쓰기
 	 * @param boardVo
@@ -53,7 +53,7 @@ public interface BoardDao {
 	 * @param seq
 	 * @return
 	 */
-	public int deleteBoard(Map<String, String> param);	
+	public int deleteBoard(Map<String, Object> param);	
 	/**
 	 * 댓글 게시글 SEQ 모두 가져오기
 	 * @param param
