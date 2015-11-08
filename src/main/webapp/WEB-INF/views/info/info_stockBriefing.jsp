@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
+<script type="text/javascript" src="/resources/js/boardCommon_nonEditor.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#info4').addClass("on");	
@@ -39,18 +42,25 @@ $(document).ready(function(){
             <div class="wrap_right">
                 <img src="/resources/img/academy1.jpg" alt="" class="top_mainimg">
                 <div class="right_contents">
+                	<form method="post" id="frm" name="frm">
+                	<input type="hidden" id="listPage" name="listPage" value="${listPage}">
+                	<input type="hidden" id="viewPage" name="viewPage" value="${viewPage}">
+                	<input type="hidden" id="writePage" name="writePage" value="${writePage}">
+               		<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
+               		<input type="hidden" id="seq" name="seq">
                     <p class="title_type1">증시브리핑</p>
                     <div class="table_top">
                         <p class="table_type1title2"><span>데이터를 이용한 투자 기법을 제공해 드립니다.</span></p>
                         <div class="table_rightarea">
-                            <select name="titleandcontent" id="titleandcontent" title="분류">
-                                <option value="제목">제목</option>
-                                <option value="제목">내용</option>
+                            <select name="searchOption" id="searchOption" title="분류">
+                                <option value="title">제목</option>
+                                <option value="contents">내용</option>
                             </select>
-                            <input type="text">
-                            <button>검색</button>
+                            <input type="text" id="searchText" name="searchText">
+                            <button type="button" id="searchBtn">검색</button>
                         </div>
                     </div>
+                    </form>
                     <div class="table_type1">
                         <table>
                             <caption>공지사항</caption>
@@ -71,106 +81,54 @@ $(document).ready(function(){
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="">
-                                    <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="/resources/img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
-                                    <td>앨리스</td>
-                                    <td>2015-09-20</td>
-                                    <td>3125</td>
-                                </tr>
-                                <tr class="">
-                                    <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="/resources/img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
-                                    <td>앨리스</td>
-                                    <td>2015-09-20</td>
-                                    <td>3125</td>
-                                </tr>
-                                <tr class="">
-                                    <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="/resources/img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
-                                    <td>앨리스</td>
-                                    <td>2015-09-20</td>
-                                    <td>3125</td>
-                                </tr>
-                                <tr class="">
-                                    <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="/resources/img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
-                                    <td>앨리스</td>
-                                    <td>2015-09-20</td>
-                                    <td>3125</td>
-                                </tr>
-                                <tr class="">
-                                    <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="/resources/img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
-                                    <td>앨리스</td>
-                                    <td>2015-09-20</td>
-                                    <td>3125</td>
-                                </tr>
-                                <tr class="">
-                                    <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="/resources/img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
-                                    <td>앨리스</td>
-                                    <td>2015-09-20</td>
-                                    <td>3125</td>
-                                </tr>
-                                <tr class="">
-                                    <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="/resources/img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
-                                    <td>앨리스</td>
-                                    <td>2015-09-20</td>
-                                    <td>3125</td>
-                                </tr>
-                                <tr class="">
-                                    <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="/resources/img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
-                                    <td>앨리스</td>
-                                    <td>2015-09-20</td>
-                                    <td>3125</td>
-                                </tr>
-                                <tr class="">
-                                    <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="/resources/img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
-                                    <td>앨리스</td>
-                                    <td>2015-09-20</td>
-                                    <td>3125</td>
-                                </tr>
-                                <tr class="">
-                                    <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="/resources/img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
-                                    <td>앨리스</td>
-                                    <td>2015-09-20</td>
-                                    <td>3125</td>
-                                </tr>
+                                <c:choose>
+                            	<c:when test="${fn:length(list) > 0}">
+                            		<c:forEach items="${list}" var="list">
+		                                <tr class="new">
+		                                    <td>${list.NO}</td>
+		                                    <td class="t_l">
+		                                    	<a href="#" onclick="goView('${list.SEQ}');" class="plus_img">
+		                                    	<c:choose>
+			                                    	<c:when test="${fn:length(list.THUMB_IMAGE) > 0}">
+			                                    		<c:out value="${list.THUMB_IMAGE}" escapeXml="false" />
+			                                    	</c:when>
+			                                    	<c:otherwise>
+			                                    		<img src="/resources/img/academy_bul.jpg" alt="SIX 주식배움터 기본 이미지">	
+			                                    	</c:otherwise>
+		                                    	</c:choose>
+		                                    	<div class="acatitle_area">
+                                    				<p class="academy_title">${list.TITLE}</p>
+                                    				<p class="academy_title2">${list.PARSE_CONTENTS}</p>
+                                    			</div>
+		                                    	</a>
+		                                    </td>
+		                                    <td>${list.CREATE_USER}</td>
+		                                    <td>${list.CREATE_DATE}</td>
+		                                    <td>${list.HIT_COUNT}</td>
+		                                </tr>
+	                                </c:forEach>
+                            	</c:when>
+                            	<c:otherwise>
+                            		<tr>
+                            			<td colspan="5">
+                            				공지사항이 없습니다.
+                            			</td>
+                            		</tr>
+                            	</c:otherwise>                            	
+                                </c:choose>
                             </tbody>
                         </table>
                     </div>
                     <div class="table_bottom">
-                        <a href="#" class="go_list">목록으로</a>
+                        <security:authorize ifAnyGranted="ROLE_ADMIN">
                         <ul class="table_option">
-                            <li><a href="#">삭제</a></li>
-                            <li><a href="#">취소</a></li>
-                            <li><a href="#">수정</a></li>
-                            <li class="on"><a href="#">글쓰기</a></li>
+                            <li><a href="javascript:goWrite()">글쓰기</a></li>
                         </ul>
+                        </security:authorize>
                     </div>
-                    <div class="paging">
-                        <a href="#" class="prev2"><img src="/resources/img/prev2.png" alt="이전"></a>
-                        <a href="#" class="prev1"><img src="/resources/img/prev1.png" alt="이전"></a>
-                        <ul class="paging_list">
-                            <li class="on"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">7</a></li>
-                            <li><a href="#">8</a></li>
-                            <li><a href="#">9</a></li>
-                            <li><a href="#">10</a></li>
-                        </ul>
-                        <a href="#" class="next1"><img src="/resources/img/next1.png" alt="이전"></a>
-                        <a href="#" class="next2"><img src="/resources/img/next2.png" alt="이전"></a>
-                    </div>
+                    <c:if test="${fn:length(list) > 0}">
+                    	<c:out value="${page}" escapeXml="false" />
+                    </c:if>
                 </div>
             </div>
             <!-- Left Side -->

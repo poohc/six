@@ -2,7 +2,7 @@ $(document).ready(function(){
 	 
 	var editor_object = [];
     
-    nhn.husky.EZCreator.createInIFrame({
+	nhn.husky.EZCreator.createInIFrame({
         oAppRef: editor_object,
         elPlaceHolder: "smarteditor",
         sSkinURI: "/resources/smarteditor/SmartEditor2Skin.html", 
@@ -15,7 +15,7 @@ $(document).ready(function(){
             bUseModeChanger : true, 
         }
     });
-     
+	 
     //전송버튼 클릭이벤트
     $("#saveBtn").click(function(){
     	
@@ -59,9 +59,15 @@ function pageMove(page){
 	$('#frm').attr('action',$('#listPage').val());
 	$('#frm').submit();
 }
+
 function goView(seq){
 	$('#seq').val(seq);	
 	$('#frm').attr('action',$('#viewPage').val());
+	$('#frm').submit();
+}
+
+function goList(){
+	$('#frm').attr('action',$('#listPage').val());
 	$('#frm').submit();
 }
 

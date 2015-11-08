@@ -74,6 +74,7 @@ public class BoardServiceImpl implements BoardService{
 				for(int i=0;i<boardInfoList.size();i++){
 					Map<String, Object> addParsedMap = new HashMap<String, Object>();
 					
+					addParsedMap.put("NO", boardInfoList.get(i).get("NO"));
 					addParsedMap.put("SEQ", boardInfoList.get(i).get("SEQ"));
 					addParsedMap.put("TITLE", boardInfoList.get(i).get("TITLE"));
 					addParsedMap.put("CONTENTS", boardInfoList.get(i).get("CONTENTS"));
@@ -115,7 +116,7 @@ public class BoardServiceImpl implements BoardService{
 		paramVo.setHitCount("1");
 		paramVo.setSeq(String.valueOf(param.get("seq")));
 		paramVo.setUpdateUserId(SecurityContextHolder.getContext().getAuthentication().getName());
-		paramVo.setBoardName(CommonConstant.LEARNCENTER_BOARD);
+		paramVo.setBoardName(String.valueOf(param.get("boardName")));
 		boardDao.updateBoard(paramVo);
 		
 		//게시글 정보 가져오기
@@ -291,7 +292,7 @@ public class BoardServiceImpl implements BoardService{
 			paramVo.setTitle(String.valueOf(param.get("title")));
 			paramVo.setContents(String.valueOf(param.get("smarteditor")));
 			paramVo.setCreateUserId(SecurityContextHolder.getContext().getAuthentication().getName());
-			paramVo.setBoardName(CommonConstant.LEARNCENTER_BOARD);
+			paramVo.setBoardName(String.valueOf(param.get("boardName")));
 			
 			result = boardDao.insertBoard(paramVo);
 		} catch (Exception e) {
@@ -368,7 +369,7 @@ public class BoardServiceImpl implements BoardService{
 				paramVo.setHitCount(String.valueOf(param.get("hitCount")));
 			}
 			
-			paramVo.setBoardName(CommonConstant.LEARNCENTER_BOARD);
+			paramVo.setBoardName(String.valueOf(param.get("boardName")));
 			paramVo.setUpdateUserId(SecurityContextHolder.getContext().getAuthentication().getName());
 			result = boardDao.updateBoard(paramVo);
 			
@@ -404,18 +405,22 @@ public class BoardServiceImpl implements BoardService{
 			refList.add(seq);
 			param.put("list", refList);
 			List<String> seqList = getReplyList(param,new ArrayList<String>());
-			seqList.add(seq);
+			seqList.remove(seq);
 			param.put("list", seqList);
 			
-			//댓글 삭제			
-			result_delReply = boardDao.deleteBoardReply(param);
+			if(seqList.size()!=0){
+				//댓글 삭제			
+				result_delReply = boardDao.deleteBoardReply(param);
+			} else {
+				result_delReply = 1;
+			}
 			
 			Map<String, Object> boardInfo = boardDao.getBoardInfo(param);
 			
 			//첨부 파일 삭제			
-			if(boardInfo.get("file")!=null){
+			if(boardInfo !=null && boardInfo.get("FILE")!=null){
 				
-				String tempFile = String.valueOf(boardInfo.get("file"));
+				String tempFile = String.valueOf(boardInfo.get("FILE"));
 				String path = String.valueOf(param.get("path"));
 				
 				//단일 파일이 아닐 경우 
@@ -441,8 +446,11 @@ public class BoardServiceImpl implements BoardService{
 			
 		}
 		
+		if(result_delReply == 1 && result_del == 1){
+			result = 1;
+		}
 		
-		return 0;
+		return result;
 	}
 	
 	@Override
@@ -500,7 +508,7 @@ public class BoardServiceImpl implements BoardService{
 		if(!"".equals(seq) && !"".equals(replyText)){
 			
 			BoardVo paramVo = new BoardVo();
-			paramVo.setBoardName(CommonConstant.LEARNCENTER_BOARD);
+			paramVo.setBoardName(String.valueOf(param.get("boardName")));
 			paramVo.setContents(replyText);
 			//댓글의 댓글일 경우
 			if(!"".equals(isReply)){

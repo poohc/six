@@ -7,8 +7,7 @@
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
-</head>
-<script type="text/javascript" src="/resources/js/boardCommon.js"></script>
+<script type="text/javascript" src="/resources/js/boardCommon_Editor.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#academy2').addClass("on");	
@@ -50,6 +49,7 @@ $(document).ready(function(){
                     <form name="frm" id="frm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
                     <input type="hidden" id="insertAction" name="insertAction" value="${insertAction}">
                     <input type="hidden" id="updateAction" name="updateAction" value="${updateAction}">
+                    <input type="hidden" id="listPage" name="listPage" value="${listPage}">
                     <input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}">
                     <div class="table_type1_write">
                         <table>
@@ -94,7 +94,7 @@ $(document).ready(function(){
                         </table>
                     </div>
                     <div class="table_bottom">
-                        <a href="/academy/academyInvestStrategy.do" class="go_list">목록으로</a>
+                        <a href="javascript:goList()" class="go_list">목록으로</a>
                         <security:authorize ifAnyGranted="ROLE_ADMIN">
                         <ul class="table_option">
                             <li><a href="#" onclick="history.back()">취소</a></li>

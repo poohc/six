@@ -10,7 +10,7 @@
 <script type="text/javascript" src="/resources/js/boardCommon_nonEditor.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#academy2').addClass("on");	
+	$('#intro4').addClass("on");	 
 });
 </script>
 </head>
@@ -25,7 +25,7 @@ $(document).ready(function(){
         <div class="container">
             <div class="wrap_left">
                 <jsp:include page="../common/login_common.jsp" />
-                <jsp:include page="../common/academy_menu.jsp" />
+                <jsp:include page="../common/intro_menu.jsp" />
                 <div class="youtube_channel">
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
@@ -42,19 +42,11 @@ $(document).ready(function(){
             <div class="wrap_right">
                 <img src="/resources/img/introduce1.jpg" alt="" class="top_mainimg">
                 <div class="right_contents">
-                    <p class="title_type1">SIX 투자전략</p>
+                    <p class="title_type1">고객문의</p>
                     <div class="table_top">
-                        <p class="table_type1title2"><span>데이터를 이용한 투자 기법을 제공해 드립니다.</span></p>
-<!--                         <div class="table_rightarea"> -->
-<!--                             <select name="titleandcontent" id="titleandcontent" title="분류"> -->
-<!--                                 <option value="제목">제목</option> -->
-<!--                                 <option value="제목">내용</option> -->
-<!--                             </select> -->
-<!--                             <input type="text"> -->
-<!--                             <button>검색</button> -->
-<!--                         </div> -->
+                        <p class="table_type1title2"><span>SIX의 이용중 궁금하신 사항에 대하여 문의 주시기 바랍니다.</span></p>
                     </div>
-                    <div class="table_type1_view type2">
+                    <div class="table_type1_view type2 type3">
                         <table>
                             <caption>공지사항</caption>
                             <colgroup>
@@ -71,7 +63,7 @@ $(document).ready(function(){
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="right_bul tl_c">${boardInfo.CREATE_USER_ID}</td>
+                                	<td class="right_bul tl_c"><img src="/resources/img/master.png" alt="six"></td>
                                     <td class="tl_c">조회수 ${boardInfo.HIT_COUNT}</td>
                                     <td></td>
                                     <td class="right_bul type2 tl_c">등록일</td>
@@ -80,12 +72,14 @@ $(document).ready(function(){
                                 <tr>
                                 	<td colspan="5">
                                 	<c:forEach items="${fileList}" var="fileList">
-                                	<a href="#" onclick="fileDownLoad('${fileList.rFile}')">${fileList.file}</a>
+                                		<a href="javascript:fileDownLoad('${fileList.rFile}')">${fileList.file}</a>
                                 	</c:forEach>
                                 	</td>
                                 </tr>
                                 <tr class="">
-                                    <td colspan="5" class="td_lh">${boardInfo.CONTENTS}</td>
+                                    <td colspan="5" class="td_lh">
+                                    ${boardInfo.CONTENTS}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -119,7 +113,7 @@ $(document).ready(function(){
                         </security:authorize>
                     </div>
                     <ul class="com_list">
-                        <c:forEach items="${list}" var="list" varStatus="loop">
+                    	<c:forEach items="${list}" var="list" varStatus="loop">
                     	<c:choose>
                         <c:when test="${list.INDENT > 0}">
                         <c:set var="paddingLeft" value="${list.INDENT * 17}" />

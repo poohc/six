@@ -7,8 +7,7 @@
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
-</head>
-<script type="text/javascript" src="/resources/js/boardCommon2.js"></script>
+<script type="text/javascript" src="/resources/js/boardCommon_nonEditor.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#academy1').addClass("on");	
@@ -83,7 +82,7 @@ $(document).ready(function(){
                                 <tr>
                                 	<td colspan="5">
                                 	<c:forEach items="${fileList}" var="fileList">
-                                	<a href="#" onclick="fileDownLoad('${fileList.rFile}')">${fileList.file}</a>
+                                		<a href="javascript:fileDownLoad('${fileList.rFile}')">${fileList.file}</a>
                                 	</c:forEach>
                                 	</td>
                                 </tr>
@@ -94,11 +93,13 @@ $(document).ready(function(){
                         </table>
                     </div>
                     <form name="frm" id="frm" method="post" accept-charset="utf-8">
+                    <input type="hidden" id="fileName" name="fileName">
                     <input type="hidden" id="listPage" name="listPage" value="${listPage}">
-                	<input type="hidden" id="replyAddAction" name="replyAddAction" value="${replyAddAction}">
+                    <input type="hidden" id="replyAddAction" name="replyAddAction" value="${replyAddAction}">
                 	<input type="hidden" id="replyUpdAction" name="replyUpdAction" value="${replyUpdAction}">
                 	<input type="hidden" id="replyDelAction" name="replyDelAction" value="${replyDelAction}">
                 	<input type="hidden" id="updateAction" name="updateAction" value="${updateAction}">
+                	<input type="hidden" id="deleteAction" name="deleteAction" value="${deleteAction}">
                 	<input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}">
                 	<input type="hidden" id="rSeq" name="rSeq">
                 	<input type="hidden" id="indent" name="indent" value="${boardInfo.INDENT}">
@@ -111,11 +112,11 @@ $(document).ready(function(){
                     </div>                    
                     </form>
                     <div class="table_bottom">
-                        <a href="#" class="go_list" id="listBtn">목록으로</a>
+                        <a href="javascript:goList()" class="go_list">목록으로</a>
                         <security:authorize ifAnyGranted="ROLE_ADMIN">
 	                        <ul class="table_option">
-		                        <li><a href="#" id="deleteBtn">삭제</a></li>
-		                        <li><a href="#" id="updateBtn">수정</a></li>
+		                        <li><a href="javascript:deleteBoard()" id="deleteBtn">삭제</a></li>
+		                        <li><a href="javascript:updateBoard()" id="updateBtn">수정</a></li>
 	                        </ul>
                         </security:authorize>
                     </div>

@@ -1,10 +1,5 @@
 $(document).ready(function(){
-	 
-	$("#updateBtn").click(function(){
-    	$('#frm').attr('action',$('#updateAction').val());
-        $('#frm').submit();
-    });
-    
+	
     $('#searchBtn').click(function(){
 		$('#frm').attr('action',$('#listPage').val());
 		$('#frm').submit();
@@ -122,6 +117,21 @@ function rDelete(seq,step){
 		return false;
 	}	
 	
+}
+
+function goList(){
+	$('#frm').attr('action',$('#listPage').val());
+	$('#frm').submit();
+}
+
+function goWrite(){
+	$('#frm').attr('action',$('#writePage').val());
+	$('#frm').submit();
+}
+
+function updateBoard(){
+	$('#frm').attr('action',$('#updateAction').val());
+    $('#frm').submit();
 }
 
 function deleteBoard(){

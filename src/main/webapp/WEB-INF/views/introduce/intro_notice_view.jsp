@@ -7,35 +7,15 @@
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
+<script type="text/javascript" src="/resources/js/boardCommon_nonEditor.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	
-	$('#deleteBtn').click(function(){
-		if(confirm('정말 삭제하시겠습니까?')){
-			$('#frm').attr('action','/main/introNoticeDeleteProcess.do');
-			$('#frm').submit();	
-		}
-	});
-	
-	$('#listBtn').click(function(){
-		$('#frm').attr('action','/main/introNotice.do');
-		$('#frm').submit();
-	});
-	
-	
-	$('#updateBtn').click(function(){
-		$('#frm').attr('action','/main/introNoticeUpdate.do');
-		$('#frm').submit();
-	});
-	
+	$('#intro2').addClass("on");	 
 });
 </script>
 </head>
 <body>
 <div class="wrapper main">
-	<form method="post" id="frm" name="frm">
-		<input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}">
-	</form>
 	<!-- header -->
 	<jsp:include page="../common/header.jsp" />
 	<!-- header End -->
@@ -88,6 +68,13 @@ $(document).ready(function(){
                                     <td class="right_bul type2 tl_c">등록일</td>
                                     <td class="tl_c">${boardInfo.CREATE_DATE}</td>
                                 </tr>
+                                <tr>
+                                	<td colspan="5">
+                                	<c:forEach items="${fileList}" var="fileList">
+                                		<a href="javascript:fileDownLoad('${fileList.rFile}')">${fileList.file}</a>
+                                	</c:forEach>
+                                	</td>
+                                </tr>
                                 <tr class="">
                                     <td colspan="5" class="td_lh">
                                     ${boardInfo.CONTENTS}
@@ -96,13 +83,20 @@ $(document).ready(function(){
                             </tbody>
                         </table>
                     </div>
+                    <form name="frm" id="frm" method="post" accept-charset="utf-8">
+                    <input type="hidden" id="fileName" name="fileName">
+                    <input type="hidden" id="listPage" name="listPage" value="${listPage}">
+                    <input type="hidden" id="updateAction" name="updateAction" value="${updateAction}">
+                	<input type="hidden" id="deleteAction" name="deleteAction" value="${deleteAction}">
+                	<input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}">
+                	<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
+                	</form>
                     <div class="table_bottom type2">
-                        <a href="#" class="go_list" id="listBtn">목록으로</a>
+                    	<a href="javascript:goList()" class="go_list">목록으로</a>
                         <security:authorize ifAnyGranted="ROLE_ADMIN">
 	                        <ul class="table_option">
-		                        <li><a href="#" id="deleteBtn">삭제</a></li>
-<!-- 		                        <li><a href="#" onclick="history.back()">취소</a></li> -->
-		                        <li><a href="#" id="updateBtn">수정</a></li>
+		                        <li><a href="javascript:deleteBoard()" id="deleteBtn">삭제</a></li>
+		                        <li><a href="javascript:updateBoard()" id="updateBtn">수정</a></li>
 	                        </ul>
                         </security:authorize>
                     </div>

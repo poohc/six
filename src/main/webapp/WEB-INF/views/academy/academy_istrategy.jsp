@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
+<script type="text/javascript" src="/resources/js/boardCommon_nonEditor.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#academy2').addClass("on");	
@@ -39,20 +42,21 @@ $(document).ready(function(){
                 <img src="/resources/img/academy1.jpg" alt="" class="top_mainimg">
                 <div class="right_contents">
                 	<form method="post" id="frm" name="frm">
-                	<input type="hidden" id="listPage" name="listPage" value="${listPage}">
+                	<input type="hidden" id="listPage" name="listPage" value="${listPage}">                	
                     <input type="hidden" id="viewPage" name="viewPage" value="${viewPage}">
+                    <input type="hidden" id="writePage" name="writePage" value="${writePage}">
                		<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
                		<input type="hidden" id="seq" name="seq">           
                		<p class="title_type1">SIX 투자전략</p>
                     <div class="table_top">
                         <p class="table_type1title2"><span>데이터를 이용한 투자 기법을 제공해 드립니다.</span></p>
                         <div class="table_rightarea">
-                            <select name="titleandcontent" id="titleandcontent" title="분류">
-                                <option value="제목">제목</option>
-                                <option value="제목">내용</option>
+                            <select name="searchOption" id="searchOption" title="분류">
+                                <option value="title">제목</option>
+                                <option value="contents">내용</option>
                             </select>
-                            <input type="text">
-                            <button>검색</button>
+                            <input type="text" id="searchText" name="searchText">
+                            <button type="button" id="searchBtn">검색</button>
                         </div>
                     </div>
                     </form>
@@ -80,7 +84,7 @@ $(document).ready(function(){
                             	<c:when test="${fn:length(list) > 0}">
                             		<c:forEach items="${list}" var="list">
 		                                <tr class="new">
-		                                    <td>${list.SEQ}</td>
+		                                    <td>${list.NO}</td>
 		                                    <td class="t_l">
 		                                    	<a href="#" onclick="goView('${list.SEQ}');" class="plus_img">
 		                                    	<c:choose>
@@ -117,7 +121,7 @@ $(document).ready(function(){
                     <div class="table_bottom">
                         <security:authorize ifAnyGranted="ROLE_ADMIN">
                         <ul class="table_option">
-                            <li><a href="/academy/academyLearningCenterWrite.do" onclick="this.href">글쓰기</a></li>
+                            <li><a href="javascript:goWrite()">글쓰기</a></li>
                         </ul>
                         </security:authorize>
                     </div>

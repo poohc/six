@@ -19,6 +19,7 @@
     
     <select id="selectBoardList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 		SELECT SEQ,
+		       NO,
 		       TITLE,
 		       CONTENTS,
 		       CREATE_USER_ID,
@@ -43,7 +44,7 @@
 		   <if test="contents != null">
 		   AND CONTENTS LIKE CONCAT('%', #{contents} , '%')
 		   </if>
-	  ORDER BY SEQ DESC
+	  ORDER BY NO DESC
 		   <if test="start != null">
 		 LIMIT #{start},#{end}    
 		   </if>      		   
