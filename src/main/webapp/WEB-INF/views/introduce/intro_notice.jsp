@@ -12,7 +12,6 @@
 $(document).ready(function(){
 	$('#intro2').addClass("on");	
 });
-
 </script>
 </head>
 <body>

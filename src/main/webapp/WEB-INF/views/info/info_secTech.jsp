@@ -85,7 +85,7 @@ $(document).ready(function(){
 		                                <tr class="new">
 		                                    <td>${list.NO}</td>
 		                                    <td class="t_l">
-		                                    	<a href="#" onclick="goView('${list.SEQ}');" class="plus_img">
+		                                    	<a href="javascript:goView('${list.SEQ}')" class="plus_img">
 		                                    	<c:choose>
 			                                    	<c:when test="${fn:length(list.THUMB_IMAGE) > 0}">
 			                                    		<c:out value="${list.THUMB_IMAGE}" escapeXml="false" />

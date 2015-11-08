@@ -41,4 +41,16 @@ public class CommonConstant {
 	public static final String MARKETBARGAIN_BOARD = "SIX_MARKETBARGAIN_BOARD";
 	/*SIX 고급시황 게시판*/
 	public static final String MARKETADV_BOARD = "SIX_MARKETADV_BOARD";
+	/*SIX 증권가정보 게시판*/
+	public static final String NEWSSTOCK_BOARD = "SIX_NEWSSTOCK_BOARD";
+	/*SIX 기타정보 게시판*/
+	public static final String NEWSETC_BOARD = "SIX_NEWSETC_BOARD";
+	/*SIX 자유게시판 게시판*/
+	public static final String COMMFREEBOARD_BOARD = "SIX_COMMFREEBOARD_BOARD";
+	/*SIX 종목토론방 게시판*/
+	public static final String COMMDISCUSSION_BOARD = "SIX_COMMDISCUSSION_BOARD";
+	/*SIX 이용후기 게시판*/
+	public static final String COMMREVIEW_BOARD = "SIX_COMMREVIEW_BOARD";
+	/*SIX 특강세미나 게시판*/
+	public static final String COMMSPEICAL_BOARD = "SIX_COMMSPEICAL_BOARD";
 }

@@ -10,7 +10,7 @@
 <script type="text/javascript" src="/resources/js/boardCommon_Editor.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#info5').addClass("on");	
+	$('#community4').addClass("on");	
 });
 </script>
 </head>
@@ -25,7 +25,7 @@ $(document).ready(function(){
         <div class="container">
             <div class="wrap_left">
                 <jsp:include page="../common/login_common.jsp" />
-                <jsp:include page="../common/info_menu.jsp" />
+                <jsp:include page="../common/community_menu.jsp" />
                 <div class="youtube_channel">
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
@@ -40,15 +40,24 @@ $(document).ready(function(){
                 </div>
             </div>
             <div class="wrap_right">
-                <img src="/resources/img/introduce1.jpg" alt="" class="top_mainimg">
-                <div class="right_contents">
-                    <p class="title_type1">고수들의인터뷰</p>
+                <img src="/resources/img/trade1.jpg" alt="" class="top_mainimg">
+                <div class="right_contents type2">
+                    <p class="title_type1">특강세미나교육</p>
+                    <ul class="navi_map">
+                        <li><a href="#">커뮤니티 &gt;</a></li>
+                        <li><a href="#">특강세미나교육</a></li>
+                    </ul>
                     <div class="table_top">
-                        <p class="table_type1title2"><span>SIX의 이용중 궁금하신 사항에 대하여 문의 주시기 바랍니다.</span></p>
+                        <p class="table_type1title2"><span>무료종목도 좋은 정보를 제공합니다.</span></p>
                     </div>
+                    <form name="frm" id="frm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                    <input type="hidden" id="insertAction" name="insertAction" value="${insertAction}">
+                    <input type="hidden" id="updateAction" name="updateAction" value="${updateAction}">
+                    <input type="hidden" id="listPage" name="listPage" value="${listPage}">
+                    <input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}">
                     <div class="table_type1_write">
                         <table>
-                            <caption>고수들의인터뷰</caption>
+                            <caption>특강세미나교육</caption>
                             <colgroup>
                                 <col style="width:10%;">
                                 <col style="width:90%;">
@@ -88,6 +97,7 @@ $(document).ready(function(){
                             </tbody>
                         </table>
                     </div>
+                    </form>
                     <div class="table_bottom">
                         <a href="javascript:goList()" class="go_list">목록으로</a>
                         <security:authorize ifAnyGranted="ROLE_ADMIN">

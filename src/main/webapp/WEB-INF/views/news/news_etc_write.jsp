@@ -10,7 +10,7 @@
 <script type="text/javascript" src="/resources/js/boardCommon_Editor.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#info5').addClass("on");	
+	$('#news2').addClass("on");	 
 });
 </script>
 </head>
@@ -25,7 +25,7 @@ $(document).ready(function(){
         <div class="container">
             <div class="wrap_left">
                 <jsp:include page="../common/login_common.jsp" />
-                <jsp:include page="../common/info_menu.jsp" />
+                <jsp:include page="../common/news_menu.jsp" />
                 <div class="youtube_channel">
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
@@ -40,45 +40,41 @@ $(document).ready(function(){
                 </div>
             </div>
             <div class="wrap_right">
-                <img src="/resources/img/introduce1.jpg" alt="" class="top_mainimg">
-                <div class="right_contents">
-                    <p class="title_type1">고수들의인터뷰</p>
+                <img src="/resources/img/trade1.jpg" alt="" class="top_mainimg">
+                <div class="right_contents type2">
+                    <p class="title_type1">기타정보</p>
+                    <ul class="navi_map">
+                        <li><a href="#">증권가소식 &gt;</a></li>
+                        <li><a href="#">기타정보</a></li>
+                    </ul>
                     <div class="table_top">
-                        <p class="table_type1title2"><span>SIX의 이용중 궁금하신 사항에 대하여 문의 주시기 바랍니다.</span></p>
                     </div>
                     <div class="table_type1_write">
                         <table>
-                            <caption>고수들의인터뷰</caption>
+                            <caption>기타정보</caption>
                             <colgroup>
                                 <col style="width:10%;">
                                 <col style="width:90%;">
                             </colgroup>
+                            <form name="frm" id="frm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                            <input type="hidden" id="insertAction" name="insertAction" value="${insertAction}">
+                            <input type="hidden" id="updateAction" name="updateAction" value="${updateAction}">
+                            <input type="hidden" id="listPage" name="listPage" value="${listPage}">
+                            <input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}"> 
                             <tbody>
                                 <tr>
                                     <th class="bb_line1">제목</td>
-                                    <td class="bb_line1"><input type="text" id="title" name="title" value="${boardInfo.TITLE}"></td>
-                                </tr>
+                                    <td class="bb_line1"><input type="text" id="title" name="title" value="${boardInfo.TITLE}"></td>                                    
+                                </tr>                                
                                 <tr>
-                                	<c:choose>
-                                	<c:when test="${isUpdate eq 'true'}">
-                                		<td>
-                                			<c:forEach items="${fileList}" var="fileList">
-                                				${fileList.file}
-                                			</c:forEach>
-                                		</td>
-                                		<td>
-	                                		파일 업로드 <input id="file" name="file" type="file" multiple>
-	                                	</td>
-                                	</c:when>
-                                	<c:otherwise>
-	                                	<td colspan="2">
-	                                		파일 업로드 <input id="file" name="file" type="file" multiple>
-	                                	</td>
-                                	</c:otherwise>
-                                	</c:choose>                                	
+                                	<td>&nbsp;</td>                              	
+                                	<td>
+                                	<input type="radio" name="chkNotice" value="notice" checked="checked" style="width: 10px;height: 10px;">공지
+                                	<input type="radio" name="chkNotice" value="normal" style="width: 10px;height: 10px;">일반
+                                	</td>
                                 </tr>
                                 <tr class="">
-                                    <th>내용</td>
+                                    <th>내용</td>                                    
                                     <td>
                                     	<textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:100%; height:412px;">
                                     	${boardInfo.CONTENTS}
@@ -86,6 +82,7 @@ $(document).ready(function(){
                                     </td>
                                 </tr>
                             </tbody>
+                            </form>
                         </table>
                     </div>
                     <div class="table_bottom">

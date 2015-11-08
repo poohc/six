@@ -10,7 +10,7 @@
 <script type="text/javascript" src="/resources/js/boardCommon_nonEditor.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#info4').addClass("on");	
+	$('#community2').addClass("on");	
 });
 </script>
 </head>
@@ -25,7 +25,7 @@ $(document).ready(function(){
         <div class="container">
             <div class="wrap_left">
                 <jsp:include page="../common/login_common.jsp" />
-                <jsp:include page="../common/info_menu.jsp" />
+                <jsp:include page="../common/community_menu.jsp" />
                 <div class="youtube_channel">
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
@@ -42,21 +42,13 @@ $(document).ready(function(){
             <div class="wrap_right">
                 <img src="/resources/img/introduce1.jpg" alt="" class="top_mainimg">
                 <div class="right_contents">
-                    <p class="title_type1">증시브리핑</p>
+                    <p class="title_type1">종목토론방</p>
                     <div class="table_top">
-                        <p class="table_type1title2"><span>데이터를 이용한 투자 기법을 제공해 드립니다.</span></p>
-<!--                         <div class="table_rightarea"> -->
-<!--                             <select name="titleandcontent" id="titleandcontent" title="분류"> -->
-<!--                                 <option value="제목">제목</option> -->
-<!--                                 <option value="제목">내용</option> -->
-<!--                             </select> -->
-<!--                             <input type="text"> -->
-<!--                             <button>검색</button> -->
-<!--                         </div> -->
+                        <p class="table_type1title">종목토론방</p>
                     </div>
-                    <div class="table_type1_view type2">
+                    <div class="table_type1_view type2 type4">
                         <table>
-                            <caption>공지사항</caption>
+                            <caption>종목토론방</caption>
                             <colgroup>
                                 <col style="width:12%;">
                                 <col style="width:12%;">

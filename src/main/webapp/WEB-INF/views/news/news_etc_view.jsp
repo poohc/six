@@ -7,10 +7,10 @@
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
-<script type="text/javascript" src="/resources/js/boardCommon_Editor.js"></script>
+<script type="text/javascript" src="/resources/js/boardCommon_nonEditor.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#info5').addClass("on");	
+	$('#news2').addClass("on");	 
 });
 </script>
 </head>
@@ -25,7 +25,7 @@ $(document).ready(function(){
         <div class="container">
             <div class="wrap_left">
                 <jsp:include page="../common/login_common.jsp" />
-                <jsp:include page="../common/info_menu.jsp" />
+                <jsp:include page="../common/news_menu.jsp" />
                 <div class="youtube_channel">
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
@@ -42,66 +42,63 @@ $(document).ready(function(){
             <div class="wrap_right">
                 <img src="/resources/img/introduce1.jpg" alt="" class="top_mainimg">
                 <div class="right_contents">
-                    <p class="title_type1">고수들의인터뷰</p>
+                    <p class="title_type1">기타정보</p>
                     <div class="table_top">
-                        <p class="table_type1title2"><span>SIX의 이용중 궁금하신 사항에 대하여 문의 주시기 바랍니다.</span></p>
+                        <p class="table_type1title">기타정보</p>
                     </div>
-                    <div class="table_type1_write">
+                    <div class="table_type1_view type2 type4">
                         <table>
-                            <caption>고수들의인터뷰</caption>
+                            <caption>기타정보</caption>
                             <colgroup>
-                                <col style="width:10%;">
-                                <col style="width:90%;">
+                                <col style="width:12%;">
+                                <col style="width:12%;">
+                                <col style="width:52%;">
+                                <col style="width:12%;">
+                                <col style="width:12%;">
                             </colgroup>
+                            <thead>
+                                <tr>
+                                    <th colspan="5">${boardInfo.TITLE}</th>
+                                </tr>
+                            </thead>
                             <tbody>
                                 <tr>
-                                    <th class="bb_line1">제목</td>
-                                    <td class="bb_line1"><input type="text" id="title" name="title" value="${boardInfo.TITLE}"></td>
+                                	<td class="right_bul tl_c"><img src="/resources/img/master.png" alt="six"></td>
+                                    <td class="tl_c">조회수 ${boardInfo.HIT_COUNT}</td>
+                                    <td></td>
+                                    <td class="right_bul type2 tl_c">등록일</td>
+                                    <td class="tl_c">${boardInfo.CREATE_DATE}</td>
                                 </tr>
                                 <tr>
-                                	<c:choose>
-                                	<c:when test="${isUpdate eq 'true'}">
-                                		<td>
-                                			<c:forEach items="${fileList}" var="fileList">
-                                				${fileList.file}
-                                			</c:forEach>
-                                		</td>
-                                		<td>
-	                                		파일 업로드 <input id="file" name="file" type="file" multiple>
-	                                	</td>
-                                	</c:when>
-                                	<c:otherwise>
-	                                	<td colspan="2">
-	                                		파일 업로드 <input id="file" name="file" type="file" multiple>
-	                                	</td>
-                                	</c:otherwise>
-                                	</c:choose>                                	
+                                	<td colspan="5">
+                                	<c:forEach items="${fileList}" var="fileList">
+                                		<a href="javascript:fileDownLoad('${fileList.rFile}')">${fileList.file}</a>
+                                	</c:forEach>
+                                	</td>
                                 </tr>
                                 <tr class="">
-                                    <th>내용</td>
-                                    <td>
-                                    	<textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:100%; height:412px;">
-                                    	${boardInfo.CONTENTS}
-                                    	</textarea>
+                                    <td colspan="5" class="td_lh">
+                                    ${boardInfo.CONTENTS}
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="table_bottom">
-                        <a href="javascript:goList()" class="go_list">목록으로</a>
+                    <form name="frm" id="frm" method="post" accept-charset="utf-8">
+                    <input type="hidden" id="fileName" name="fileName">
+                    <input type="hidden" id="listPage" name="listPage" value="${listPage}">
+                    <input type="hidden" id="updateAction" name="updateAction" value="${updateAction}">
+                	<input type="hidden" id="deleteAction" name="deleteAction" value="${deleteAction}">
+                	<input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}">
+                	<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
+                	</form>
+                    <div class="table_bottom type2">
+                    	<a href="javascript:goList()" class="go_list">목록으로</a>
                         <security:authorize ifAnyGranted="ROLE_ADMIN">
-                        <ul class="table_option">
-                            <li><a href="#" onclick="history.back()">취소</a></li>
-                            <c:choose>
-                            <c:when test="${isUpdate eq 'true'}">
-                            	<li><a href="#" id="updateBtn">수정</a></li>
-                            </c:when>
-                            <c:otherwise>
-                            	<li><a href="#" id="saveBtn">글쓰기</a></li>
-                            </c:otherwise>
-                            </c:choose>
-                        </ul>
+	                        <ul class="table_option">
+		                        <li><a href="javascript:deleteBoard()" id="deleteBtn">삭제</a></li>
+		                        <li><a href="javascript:updateBoard()" id="updateBtn">수정</a></li>
+	                        </ul>
                         </security:authorize>
                     </div>
                 </div>
