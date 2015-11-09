@@ -80,7 +80,7 @@ $(document).ready(function(){
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:choose>
+                            	<c:choose>
                             	<c:when test="${fn:length(list) > 0}">
                             		<c:forEach items="${list}" var="list">
 		                                <tr class="new">

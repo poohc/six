@@ -33,6 +33,8 @@ public class MainController {
 		
 		ModelAndView mav = new ModelAndView("main/main");
 		
+		mav.addObject("boardList",boardService.selectMainBoardList());
+		
 		return mav;
 	}
 	
@@ -498,6 +500,12 @@ public class MainController {
 			
 		}
 		
+		return mav;
+	}
+	
+	@RequestMapping(value = "freeAdvice.do")
+	public ModelAndView freeAdvice(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("introduce/intro_free_advice");
 		return mav;
 	}
 	

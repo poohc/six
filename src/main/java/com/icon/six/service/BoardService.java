@@ -13,6 +13,18 @@ public interface BoardService {
 	 */
 	public Map<String, Object> selectBoardList(Map<String, Object> param);
 	/**
+	 * 정보거래소 게시판 리스트 가져오기
+	 * @param param
+	 * @return
+	 */
+	public Map<String, Object> selectMarketBoardList(Map<String, Object> param);
+	/**
+	 * 메인 게시판 리스트 가져오기
+	 * @param page
+	 * @return
+	 */
+	public Map<String, Object> selectMainBoardList();
+	/**
 	 * 게시글 상세보기 정보 가져오기
 	 * @param param
 	 * @return

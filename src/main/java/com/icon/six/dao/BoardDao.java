@@ -19,6 +19,12 @@ public interface BoardDao {
 	 */
 	public List<Map<String, Object>> selectBoardList(Map<String, Object> param);
 	/**
+	 * 정보거래소 게시판 리스트 가져오기
+	 * @param page
+	 * @return
+	 */
+	public List<Map<String, Object>> selectMarketBoardList(Map<String, Object> param);
+	/**
 	 * 가져오기 
 	 * @param seq
 	 * @return

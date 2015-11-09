@@ -86,6 +86,7 @@ public class FileController {
 	        ///////////////// 서버에 파일쓰기 /////////////////
 	        // 정보 출력
 	        sFileInfo += "&bNewLine=true";
+	        sFileInfo += "&nWidth=" + oriImage.getWidth();
 	        // img 태그의 title 속성을 원본파일명으로 적용시켜주기 위함
 	        sFileInfo += "&sFileName="+ fileName;
 	        sFileInfo += "&sFileURL="+imageUploadPath+realFileNm;	        

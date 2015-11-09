@@ -17,7 +17,7 @@ a:hover, a:active,a:focus{color:#666;text-decoration:none;}
 
 .name_card{overflow: hidden;}
 .name_card li{float: left;width: 235px;height: 140px;margin-right: 13px;position: relative;margin-bottom: 33px;box-sizing:border-box;}
-.name_card li a:hover{border: 1px solid #df412d;border-top: 4px solid #df412d;}
+.name_card li .name_block:hover{border: 1px solid #df412d;border-top: 4px solid #df412d;}
 .name_card li:nth-child(4){margin-right: 0;}
 .name_card li:nth-child(8){margin-right: 0;}
 .name_card li:nth-child(12){margin-right: 0;}

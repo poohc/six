@@ -80,7 +80,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img.png" alt="">
+                                <img src="/resources/img/profile1.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -94,7 +94,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img2.png" alt="">
+                                <img src="/resources/img/profile2.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -108,7 +108,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img.png" alt="">
+                                <img src="/resources/img/profile3.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -122,7 +122,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img2.png" alt="">
+                                <img src="/resources/img/profile4.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -136,7 +136,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img.png" alt="">
+                                <img src="/resources/img/profile1.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -150,7 +150,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img2.png" alt="">
+                                <img src="/resources/img/profile2.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -164,7 +164,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img.png" alt="">
+                                <img src="/resources/img/profile3.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -178,7 +178,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img2.png" alt="">
+                                <img src="/resources/img/profile4.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -192,7 +192,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img.png" alt="">
+                                <img src="/resources/img/profile1.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -209,7 +209,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img.png" alt="">
+                                <img src="/resources/img/profile2.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -223,7 +223,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img2.png" alt="">
+                                <img src="/resources/img/profile3.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -237,7 +237,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img.png" alt="">
+                                <img src="/resources/img/profile4.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -251,7 +251,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img2.png" alt="">
+                                <img src="/resources/img/profile1.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -265,7 +265,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img.png" alt="">
+                                <img src="/resources/img/profile2.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -279,7 +279,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img2.png" alt="">
+                                <img src="/resources/img/profile3.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -293,7 +293,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img.png" alt="">
+                                <img src="/resources/img/profile4.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -307,7 +307,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img2.png" alt="">
+                                <img src="/resources/img/profile1.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
@@ -321,7 +321,7 @@ $(document).ready(function(){
                                 <span class="name_title2">SIX하나대투</span>
                             </div>
                             <div class="name_bottom">
-                                <img src="/resources/img/name_img.png" alt="">
+                                <img src="/resources/img/profile2.png" alt="">
                                 <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>

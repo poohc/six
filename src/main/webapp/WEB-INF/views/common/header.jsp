@@ -23,7 +23,21 @@
                 </ul>
             </div>
         </div>
-        <div class="middle_header"><a href="/main/main.do"><img src="/resources/img/logo.png" alt="six 주식정보거래소"></a></div>
+        <div class="middle_header">
+            <div class="middle_header2">
+                <a href="/main/main.do"><img src="/resources/img/logo.png" alt="six 주식정보거래소"></a>
+                <div class="realtime">
+                    <p class="realtime1"><img src="/resources/img/pang.png" alt=""> <span>실시간 증시일정</span></p>
+                    <div id="newsticker2" class="newsticker">
+                    	<ul>
+                   			<li>1 오늘은 선물옵션 만기일입니다.</li>
+                   			<li>2 오늘은 선물옵션 만기일입니다.</li>
+                   			<li>3 오늘은 선물옵션 만기일입니다.</li>
+                    	</ul>
+                	</div>
+           		 </div>
+           	</div>
+        </div>
 		<div id="menuwrap">
 			<div id="navigation_pc">
 				<ul id="navigation">
@@ -38,7 +52,7 @@
 										<li><a href="/main/introNotice.do">공지사항</a></li>
 										<li><a href="/main/introHowToPay.do">결제방법</a></li>
 										<li><a href="/main/introQna.do">고객문의</a></li>
-										<li><a href="#" onclick="javascript:alert('메뉴 준비중입니다.')">1:1투자문의</a></li>
+										<li><a href="/main/freeAdvice.do">무료상담신청</a></li>
 									</ul>
 								</li>
 								<li>
@@ -103,7 +117,7 @@
 										<li><a href="/main/introNotice.do">공지사항</a></li>
 										<li><a href="/main/introHowToPay.do">결제방법</a></li>
 										<li><a href="/main/introQna.do">고객문의</a></li>
-										<li><a href="#" onclick="javascript:alert('메뉴 준비중입니다.')">1:1투자문의</a></li>
+										<li><a href="/main/freeAdvice.do">무료상담신청</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -168,7 +182,7 @@
 										<li><a href="/main/introNotice.do">공지사항</a></li>
 										<li><a href="/main/introHowToPay.do">결제방법</a></li>
 										<li><a href="/main/introQna.do">고객문의</a></li>
-										<li><a href="#" onclick="javascript:alert('메뉴 준비중입니다.')">1:1투자문의</a></li>
+										<li><a href="/main/freeAdvice.do">무료상담신청</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -233,7 +247,7 @@
 										<li><a href="/main/introNotice.do">공지사항</a></li>
 										<li><a href="/main/introHowToPay.do">결제방법</a></li>
 										<li><a href="/main/introQna.do">고객문의</a></li>
-										<li><a href="#" onclick="javascript:alert('메뉴 준비중입니다.')">1:1투자문의</a></li>
+										<li><a href="/main/freeAdvice.do">무료상담신청</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -298,7 +312,7 @@
 										<li><a href="/main/introNotice.do">공지사항</a></li>
 										<li><a href="/main/introHowToPay.do">결제방법</a></li>
 										<li><a href="/main/introQna.do">고객문의</a></li>
-										<li><a href="#" onclick="javascript:alert('메뉴 준비중입니다.')">1:1투자문의</a></li>
+										<li><a href="/main/freeAdvice.do">무료상담신청</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -363,7 +377,7 @@
 										<li><a href="/main/introNotice.do">공지사항</a></li>
 										<li><a href="/main/introHowToPay.do">결제방법</a></li>
 										<li><a href="/main/introQna.do">고객문의</a></li>
-										<li><a href="#" onclick="javascript:alert('메뉴 준비중입니다.')">1:1투자문의</a></li>
+										<li><a href="/main/freeAdvice.do">무료상담신청</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -428,7 +442,7 @@
 										<li><a href="/main/introNotice.do">공지사항</a></li>
 										<li><a href="/main/introHowToPay.do">결제방법</a></li>
 										<li><a href="/main/introQna.do">고객문의</a></li>
-										<li><a href="#" onclick="javascript:alert('메뉴 준비중입니다.')">1:1투자문의</a></li>
+										<li><a href="/main/freeAdvice.do">무료상담신청</a></li>
                                     </ul>
                                 </li>
                                 <li>

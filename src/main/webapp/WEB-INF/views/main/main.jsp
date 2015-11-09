@@ -57,10 +57,10 @@
                                         <a href="#"><img src="/resources/img/rolling1.jpg" alt="건강지킴이"></a>
                                     </li>
                                     <li>
-                                        <a href="#"><img src="/resources/img/rolling1.jpg" alt="건강지킴이"></a>
+                                        <a href="#"><img src="/resources/img/rolling1_1.jpg" alt="건강지킴이"></a>
                                     </li>
                                     <li>
-                                        <a href="#"><img src="/resources/img/rolling1.jpg" alt="건강지킴이"></a>
+                                        <a href="#"><img src="/resources/img/rolling1_2.jpg" alt="건강지킴이"></a>
                                     </li>
                                 </ul>
                             </div>
@@ -147,12 +147,42 @@
                             <span class="name_title2">SIX하나대투</span>
                         </div>
                         <div class="name_bottom">
-                            <img src="/resources/img/name_img.png" alt="">
+                            <img src="/resources/img/profile1.png" alt="">
                             <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">동영상 보기</a>
+                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
+                </li>
+                
+                <li>
+                    <a href="#" class="name_block">
+                        <div class="name_top">
+                            <span class="name_title new">홍길동</span>
+                            <span class="name_title2">SIX하나대투</span>
+                        </div>
+                        <div class="name_bottom">
+                            <img src="/resources/img/profile2.png" alt="">
+                            <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
+                            <p class="name_text">우리투자증권 투자상담사</p>
+                        </div>
+                    </a>
+                   <a href="#" class="watch_movie">파트너 페이지 이동</a>
+                </li>
+                
+                <li>
+                    <a href="#" class="name_block">
+                        <div class="name_top">
+                            <span class="name_title new">홍길동</span>
+                            <span class="name_title2">SIX하나대투</span>
+                        </div>
+                        <div class="name_bottom">
+                            <img src="/resources/img/profile3.png" alt="">
+                            <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
+                            <p class="name_text">우리투자증권 투자상담사</p>
+                        </div>
+                    </a>
+                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 <li>
                     <a href="#" class="name_block">
@@ -161,12 +191,12 @@
                             <span class="name_title2">SIX하나대투</span>
                         </div>
                         <div class="name_bottom">
-                            <img src="/resources/img/name_img2.png" alt="">
+                            <img src="/resources/img/profile4.png" alt="">
                             <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">동영상 보기</a>
+                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 <li>
                     <a href="#" class="name_block">
@@ -175,12 +205,12 @@
                             <span class="name_title2">SIX하나대투</span>
                         </div>
                         <div class="name_bottom">
-                            <img src="/resources/img/name_img.png" alt="">
+                            <img src="/resources/img/profile1.png" alt="">
                             <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">동영상 보기</a>
+                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 <li>
                     <a href="#" class="name_block">
@@ -189,12 +219,27 @@
                             <span class="name_title2">SIX하나대투</span>
                         </div>
                         <div class="name_bottom">
-                            <img src="/resources/img/name_img2.png" alt="">
+                            <img src="/resources/img/profile2.png" alt="">
                             <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">동영상 보기</a>
+                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
+                </li>
+                
+                <li>
+                    <a href="#" class="name_block">
+                        <div class="name_top">
+                            <span class="name_title new">홍길동</span>
+                            <span class="name_title2">SIX하나대투</span>
+                        </div>
+                        <div class="name_bottom">
+                            <img src="/resources/img/profile3.png" alt="">
+                            <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
+                            <p class="name_text">우리투자증권 투자상담사</p>
+                        </div>
+                    </a>
+                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 <li>
                     <a href="#" class="name_block">
@@ -203,12 +248,12 @@
                             <span class="name_title2">SIX하나대투</span>
                         </div>
                         <div class="name_bottom">
-                            <img src="/resources/img/name_img.png" alt="">
+                            <img src="/resources/img/profile4.png" alt="">
                             <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">동영상 보기</a>
+                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 <li>
                     <a href="#" class="name_block">
@@ -217,12 +262,12 @@
                             <span class="name_title2">SIX하나대투</span>
                         </div>
                         <div class="name_bottom">
-                            <img src="/resources/img/name_img2.png" alt="">
+                            <img src="/resources/img/profile1.png" alt="">
                             <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">동영상 보기</a>
+                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 <li>
                     <a href="#" class="name_block">
@@ -231,12 +276,27 @@
                             <span class="name_title2">SIX하나대투</span>
                         </div>
                         <div class="name_bottom">
-                            <img src="/resources/img/name_img.png" alt="">
+                            <img src="/resources/img/profile2.png" alt="">
                             <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">동영상 보기</a>
+                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
+                </li>
+                
+                <li>
+                    <a href="#" class="name_block">
+                        <div class="name_top">
+                            <span class="name_title new">홍길동</span>
+                            <span class="name_title2">SIX하나대투</span>
+                        </div>
+                        <div class="name_bottom">
+                            <img src="/resources/img/profile3.png" alt="">
+                            <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
+                            <p class="name_text">우리투자증권 투자상담사</p>
+                        </div>
+                    </a>
+                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 <li>
                     <a href="#" class="name_block">
@@ -245,68 +305,12 @@
                             <span class="name_title2">SIX하나대투</span>
                         </div>
                         <div class="name_bottom">
-                            <img src="/resources/img/name_img2.png" alt="">
+                            <img src="/resources/img/profile4.png" alt="">
                             <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">동영상 보기</a>
-                </li>
-                <li>
-                    <a href="#" class="name_block">
-                        <div class="name_top">
-                            <span class="name_title new">홍길동</span>
-                            <span class="name_title2">SIX하나대투</span>
-                        </div>
-                        <div class="name_bottom">
-                            <img src="/resources/img/name_img.png" alt="">
-                            <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
-                            <p class="name_text">우리투자증권 투자상담사</p>
-                        </div>
-                    </a>
-                    <a href="#" class="watch_movie">동영상 보기</a>
-                </li>
-                <li>
-                    <a href="#" class="name_block">
-                        <div class="name_top">
-                            <span class="name_title new">홍길동</span>
-                            <span class="name_title2">SIX하나대투</span>
-                        </div>
-                        <div class="name_bottom">
-                            <img src="/resources/img/name_img2.png" alt="">
-                            <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
-                            <p class="name_text">우리투자증권 투자상담사</p>
-                        </div>
-                    </a>
-                    <a href="#" class="watch_movie">동영상 보기</a>
-                </li>
-                <li>
-                    <a href="#" class="name_block">
-                        <div class="name_top">
-                            <span class="name_title new">홍길동</span>
-                            <span class="name_title2">SIX하나대투</span>
-                        </div>
-                        <div class="name_bottom">
-                            <img src="/resources/img/name_img.png" alt="">
-                            <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
-                            <p class="name_text">우리투자증권 투자상담사</p>
-                        </div>
-                    </a>
-                    <a href="#" class="watch_movie">동영상 보기</a>
-                </li>
-                <li>
-                    <a href="#" class="name_block">
-                        <div class="name_top">
-                            <span class="name_title new">홍길동</span>
-                            <span class="name_title2">SIX하나대투</span>
-                        </div>
-                        <div class="name_bottom">
-                            <img src="/resources/img/name_img2.png" alt="">
-                            <p class="name_text type1">증권가의정보를 확실하게 드립니다.</p>
-                            <p class="name_text">우리투자증권 투자상담사</p>
-                        </div>
-                    </a>
-                    <a href="#" class="watch_movie">동영상 보기</a>
+                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
                 </li>
             </ul>
             <div class="free_area">
@@ -322,60 +326,114 @@
                     <p class="look_title"><span>무료</span>종목</p>
                     <a href="#" class="look_more">더보기 +</a>
                     <ul class="look_list">
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
+                    	<c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_MARKETFREE_BOARD) > 0}">
+                          		<c:forEach items="${list}" var="list">
+                                	<li><a href="#">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>
+                                </c:forEach>
+                          	</c:when>
+                          	<c:otherwise>
+                          		<li>게시글이 없습니다.</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          	</c:otherwise>                            	
+                        </c:choose>
                     </ul>
                 </li>
                 <li>
                     <p class="look_title"><span>투자</span>종목</p>
                     <a href="#" class="look_more">더보기 +</a>
                     <ul class="look_list">
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
+                        <c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_MARKETISTRATEGY_BOARD) > 0}">
+                          		<c:forEach items="${list}" var="list">
+                                	<li><a href="#">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>
+                                </c:forEach>
+                          	</c:when>
+                          	<c:otherwise>
+                          		<li>게시글이 없습니다.</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          	</c:otherwise>                            	
+                        </c:choose>
                     </ul>
                 </li>
                 <li>
                     <p class="look_title"><span>시장</span>종목</p>
                     <a href="#" class="look_more">더보기 +</a>
                     <ul class="look_list">
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
+                        <c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_MARKETANALYSIS_BOARD) > 0}">
+                          		<c:forEach items="${list}" var="list">
+                                	<li><a href="#">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>
+                                </c:forEach>
+                          	</c:when>
+                          	<c:otherwise>
+                          		<li>게시글이 없습니다.</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          	</c:otherwise>                            	
+                        </c:choose>
                     </ul>
                 </li>
                 <li>
                     <p class="look_title"><span>유료</span>종목</p>
                     <a href="#" class="look_more">더보기 +</a>
                     <ul class="look_list">
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
+                        <c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_MARKETPAY_BOARD) > 0}">
+                          		<c:forEach items="${list}" var="list">
+                                	<li><a href="#">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>
+                                </c:forEach>
+                          	</c:when>
+                          	<c:otherwise>
+                          		<li>게시글이 없습니다.</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          	</c:otherwise>                            	
+                        </c:choose>
                     </ul>
                 </li>
                 <li>
                     <p class="look_title"><span>매매</span>종목</p>
                     <a href="#" class="look_more">더보기 +</a>
                     <ul class="look_list">
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
+                        <c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_MARKETBARGAIN_BOARD) > 0}">
+                          		<c:forEach items="${list}" var="list">
+                                	<li><a href="#">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>
+                                </c:forEach>
+                          	</c:when>
+                          	<c:otherwise>
+                          		<li>게시글이 없습니다.</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          	</c:otherwise>                            	
+                        </c:choose>
                     </ul>
                 </li>
                 <li>
                     <p class="look_title"><span>고급</span>종목</p>
                     <a href="#" class="look_more">더보기 +</a>
                     <ul class="look_list">
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
+                        <c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_MARKETADV_BOARD) > 0}">
+                          		<c:forEach items="${list}" var="list">
+                                <li><a href="#">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>
+                               </c:forEach>
+                          	</c:when>
+                          	<c:otherwise>
+                          		<li>게시글이 없습니다.</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          	</c:otherwise>                            	
+                        </c:choose>
                     </ul>
                 </li>
             </ul>
@@ -414,6 +472,29 @@
                 <li>
                     <p class="look_title"><span>SIX</span>주식 배움터</p>
                     <a href="#" class="look_more2"><img src="/resources/img/view_more2.png" alt="더보기"></a>
+                    
+                    <c:choose>
+                    	<c:when test="${fn:length(boardList.SIX_LEARNCENTER_BOARD) > 0}">
+                      		<c:forEach items="${list}" var="list" varstatus="loop">
+                      			
+                      			<img src="/resources/img/ahead2.gif" alt="">
+		                        <a href="#" class="ahead_text">
+		                            <p class="aheadtext_title">각종 정보의 게시글의 제목을 보여줍니다.</p>
+		                            <p class="aheadtext_title2">각종정보에 대한 내용의 영역입니다.내용이 채워지는 영역입니다..</p>
+		                            <p class="aheadtext_title3">2015.09.03</p>
+		                        </a>
+                            	<li><a href="#">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>
+                            </c:forEach>
+                      	</c:when>
+                      	<c:otherwise>
+                      		<li>게시글이 없습니다.</li>
+                      		<li>&nbsp;</li>
+                      		<li>&nbsp;</li>
+                      		<li>&nbsp;</li>
+                      	</c:otherwise>                            	
+                    </c:choose>
+                    
+                    
                     <div class="ahead_top">
                         <img src="/resources/img/ahead2.gif" alt="">
                         <a href="#" class="ahead_text">

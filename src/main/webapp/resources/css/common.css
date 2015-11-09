@@ -148,6 +148,7 @@ table, th, td { border: 0px; border-spacing: 0; border-style: none; }
 .rolling2{float: left;width: 496px;height: 162px;}
 .movie{float: right;width: 249px;height: 162px;}
 .movie a{display: block;}
+.name_card li .name_block:hover{border: 1px solid #df412d;border-top: 4px solid #df412d;}
 
 
 
@@ -532,12 +533,12 @@ table, th, td { border: 0px; border-spacing: 0; border-style: none; }
 .name_title.new{position: relative;}
 .name_title.new:after{background: url('/resources/img/new_btn.png') no-repeat;width: 12px;height: 12px;position: absolute;top:1px;right:-18px;content: '';display: block;}
 .name_title2{text-align: right;font-size: 12px;color: #df412d;font-size: 12px;font-weight: bold;float: right;font-family: 'Nanum Barun Gothic';}
-.name_bottom{background-color: #fff;padding: 12px 10px;box-sizing:border-box;clear: both;}
-.name_bottom > img{display: block;float: right;width: 70px;}
-.name_bottom > .name_text{float: left;width: 124px;height: 52px;margin-right: 10px;overflow: hidden;margin-bottom:0px;position: relative;padding-left: 8px;}
+.name_bottom{background-color: #fff;padding: 0px;box-sizing:border-box;clear: both;}
+.name_bottom > img{display: block;float: left;width: 98px;height: 128px;}
+.name_bottom > .name_text{float: right;width: 114px;height: 52px;margin-right: 5px;overflow: hidden;margin-bottom:0px;position: relative;padding-left: 8px;}
 .name_bottom > .name_text.type1{margin-top: 5px;}
 .name_bottom > .name_text:before{content: '*';display: block;position: absolute;left:0;top:2px;}
-.watch_movie{display: block;position: absolute;right: 10px;bottom: -7px;background: url('/resources/img/btn_play.png') no-repeat 0 center; padding-left: 10px;}
+.watch_movie{display: block;position: absolute;right: 10px;bottom: -18px;background: url('/resources/img/btn_play.png') no-repeat 0 center; padding-left: 10px;}
 .free_area{margin-top: 20px;position: relative;margin-bottom: 10px;background-color: #333333;height: 29px;line-height: 29px;}
 .free_title{font-size: 14px;color: #fff;font-weight: bold;line-height: 29px;margin-left: 17px;font-family: 'Nanum Barun Gothic';}
 .free_more{display: block;position: absolute;top:1px;right: 9px;font-size: 12px;color: #fff;}
@@ -700,3 +701,29 @@ table, th, td { border: 0px; border-spacing: 0; border-style: none; }
 .point_ul li{font-size: 12px;color: #666666;margin-bottom: 4px;position: relative;padding-left: 10px;}
 .point_ul li:before{width: 3px;height: 3px;content: '';display: block;position: absolute;left:0;top:7px;background-color: #888888;border-radius: 50%;}
 .point_ul li span{color: #df3d29;}
+
+/* 무료상담신청 및 추가수정사항 css리스트 15/10/31 */
+.text_type3{font-size: 11px;color: #333;margin: 35px 0 12px;}
+.text_type3.type2{margin: 0;}
+.text_type3 span{color: #df3d29;}
+.advice_box{background-color: #f0f0f0;padding: 22px;font-size: 11px;color: #666;line-height: 15px;margin-bottom: 7px;}
+.red_btn{color: #fff;font-size: 14px;width: 76px;height: 28px;line-height: 28px;text-align: center;display: block;margin:28px auto 50px;cursor: pointer;background-color: #df3d29;border: none;}
+.advice_list {margin-bottom: 50px;border-top: 1px solid #535353;}
+.advice_list li{overflow: hidden;padding: 13px 23px;border-bottom: 1px solid #e0e0e0;}
+.advice_list li:last-child{border-bottom: 1px solid #929292;}
+.advice_list li .advice_title{float: left;width: 28px;margin-right: 18px;font-family: 'Nanum Barun Ghthic';font-size: 48px;color: #333333;line-height: 48px;}
+.advice_list li .advice_select{float: right;width: 588px;}
+.advice_list li .advice_select input{color: #888888;margin-left: 7px;}
+.advice_list li .advice_select input.ml_0{margin-left: 0;}
+.question_title{font-size: 14px;font-family: 'Nanum Barun Gothic';color: #333;margin-bottom: 7px;}
+.question_title span{color: #df3d29;margin-bottom: 7px;}
+.table_type1 table  td  a{overflow: hidden;white-space: nowrap;-ms-text-overflow: ellipsis;text-overflow: ellipsis;width:430px;display: block;}
+.paging{margin-bottom: 45px;text-align: center;width:auto!important;margin-top: 0!important;margin-left: 0!important;margin-right: 0!important;}
+
+.pullDown ul li{padding: 0 3px;}
+#header #navigation .pullDown > ul > li:nth-child(2){padding: 0  2px;}
+#header #navigation .pullDown > ul > li:nth-child(3){padding: 0  0  0  9px;}
+#header #navigation .pullDown > ul > li:nth-child(4){padding: 0  16px;}
+#header #navigation .pullDown > ul > li:nth-child(5){padding: 0  54px 0  37px;}
+#header #navigation .pullDown > ul > li:nth-child(6){padding: 0  3px  0  11px;}
+#header #navigation .pullDown > ul > li:nth-child(7){padding: 0 0px 0  47px;}
