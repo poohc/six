@@ -46,6 +46,7 @@ $(document).ready(function(){
                 	<input type="hidden" id="viewPage" name="viewPage" value="${viewPage}">
                 	<input type="hidden" id="writePage" name="writePage" value="${writePage}">
                		<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
+               		<input type="hidden" id="seq" name="seq">
                     <p class="title_type1">SIX비기</p>
                     <div class="table_top">
                         <p class="table_type1title2"><span>데이터를 이용한 투자 기법을 제공해 드립니다.</span></p>

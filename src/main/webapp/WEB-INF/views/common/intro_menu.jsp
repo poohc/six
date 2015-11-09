@@ -11,5 +11,5 @@
     </ul>
 </div>
 <div class="left_ad">
-    <img src="/resources/img/ad.jpg" alt="">
+    <img src="/resources/img/side_banner.png" alt="SIX왼쪽배너">
 </div>

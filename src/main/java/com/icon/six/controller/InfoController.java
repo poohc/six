@@ -30,13 +30,13 @@ public class InfoController {
 	
 	@RequestMapping(value="infoMain.do")
 	public ModelAndView infoMain(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("/info/info_main");
+		ModelAndView mav = new ModelAndView("info/info_main");
 		return mav;
 	}
 	
 	@RequestMapping(value="infoFreeRec.do")
 	public ModelAndView infoFreeRec(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("/info/info_freeRec");
+		ModelAndView mav = new ModelAndView("info/info_freeRec");
 		
 		logger.debug("requestMap : " + requestMap);
 		
@@ -299,7 +299,7 @@ public class InfoController {
 	
 	@RequestMapping(value="infoSecTech.do")
 	public ModelAndView infoSecTech(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("/info/info_secTech");
+		ModelAndView mav = new ModelAndView("info/info_secTech");
 		
 		logger.debug("requestMap : " + requestMap);
 		
@@ -562,7 +562,7 @@ public class InfoController {
 	
 	@RequestMapping(value="infoRealStock.do")
 	public ModelAndView infoRealStock(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("/info/info_realStock");
+		ModelAndView mav = new ModelAndView("info/info_realStock");
 		
 		logger.debug("requestMap : " + requestMap);
 		
@@ -825,7 +825,7 @@ public class InfoController {
 	
 	@RequestMapping(value="infoStockBriefing.do")
 	public ModelAndView infoStockBriefing(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("/info/info_stockBriefing");
+		ModelAndView mav = new ModelAndView("info/info_stockBriefing");
 		
 		logger.debug("requestMap : " + requestMap);
 		
@@ -1088,7 +1088,7 @@ public class InfoController {
 	
 	@RequestMapping(value="infoGInterview.do")
 	public ModelAndView infoGInterview(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("/info/info_gInterview");
+		ModelAndView mav = new ModelAndView("info/info_gInterview");
 		
 		logger.debug("requestMap : " + requestMap);
 		

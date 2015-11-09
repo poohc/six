@@ -46,6 +46,11 @@ $(document).ready(function(){
                     <div class="table_top">
                         <p class="table_type1title2"><span>SIX의 이용중 궁금하신 사항에 대하여 문의 주시기 바랍니다.</span></p>
                     </div>
+                    <form name="frm" id="frm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                    <input type="hidden" id="insertAction" name="insertAction" value="${insertAction}">
+                    <input type="hidden" id="updateAction" name="updateAction" value="${updateAction}">
+                    <input type="hidden" id="listPage" name="listPage" value="${listPage}">
+                    <input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}">
                     <div class="table_type1_write">
                         <table>
                             <caption>증시브리핑</caption>
@@ -88,6 +93,7 @@ $(document).ready(function(){
                             </tbody>
                         </table>
                     </div>
+                    </form>
                     <div class="table_bottom">
                         <a href="javascript:goList()" class="go_list">목록으로</a>
                         <security:authorize ifAnyGranted="ROLE_ADMIN">

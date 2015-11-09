@@ -26,7 +26,7 @@
                     </ul>
                 </div>
                 <div class="left_ad">
-                    <img src="/resources/img/ad.jpg" alt="">
+                    <img src="/resources/img/side_banner.png" alt="SIX왼쪽배너">
                 </div>
                 <div class="youtube_channel">
                     <a class="youtube_title">채널<span>+ 더보기</span></a>

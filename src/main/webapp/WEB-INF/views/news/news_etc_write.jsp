@@ -66,13 +66,6 @@ $(document).ready(function(){
                                     <th class="bb_line1">제목</td>
                                     <td class="bb_line1"><input type="text" id="title" name="title" value="${boardInfo.TITLE}"></td>                                    
                                 </tr>                                
-                                <tr>
-                                	<td>&nbsp;</td>                              	
-                                	<td>
-                                	<input type="radio" name="chkNotice" value="notice" checked="checked" style="width: 10px;height: 10px;">공지
-                                	<input type="radio" name="chkNotice" value="normal" style="width: 10px;height: 10px;">일반
-                                	</td>
-                                </tr>
                                 <tr class="">
                                     <th>내용</td>                                    
                                     <td>
