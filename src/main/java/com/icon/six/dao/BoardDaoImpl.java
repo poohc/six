@@ -74,5 +74,15 @@ public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 	public int deleteBoardReply(Map<String, Object> param) {
 		return (int) delete("board.deleteBoardReply", param);
 	}
+
+	@Override
+	public int insertScheduleStock(Map<String, Object> param) {
+		return (int) insert("board.insertScheduleStock",param);
+	}
+
+	@Override
+	public Map<String, Object> selectScheduleStock() {
+		return (Map<String, Object>) selectOne("board.selectScheduleStock");
+	}
 	
 }

@@ -83,11 +83,11 @@
             <div class="top_area">
                 <div class="kospi">
                     <p class="kospi_title">KOSPI</p>
-                    <p class="kospi_title2">1,915.53 <span>7.09 (1.75%)</span></p>
-                    <p class="kospi_title">KOSPI</p>
-                    <p class="kospi_title2 type2">1,915.53 <span>7.09 (1.75%)</span></p>
-                    <p class="kospi_title">KOSPI</p>
-                    <p class="kospi_title2 type2">1,915.53 <span>7.09 (1.75%)</span></p>
+                    <p class="kospi_title2">${stockInfo.KOSPI} <span>${stockInfo.KOSPI_UPDOWN_VAL} (${stockInfo.KOSPI_UPDOWN_PER})</span></p>
+                    <p class="kospi_title">KOSPI200</p>
+                    <p class="kospi_title2 type2">${stockInfo.KOSPI200} <span>${stockInfo.KOSPI200_UPDOWN_VAL} (${stockInfo.KOSPI200_UPDOWN_PER})</span></p>
+                    <p class="kospi_title">KOSDAQ</p>
+                    <p class="kospi_title2 type2">${stockInfo.KOSDAQ} <span>${stockInfo.KOSDAQ_UPDOWN_VAL} (${stockInfo.KOSDAQ_UPDOWN_PER})</span></p>
                 </div>
                 <div class="rolling">
                     <div class="banner_list_box">

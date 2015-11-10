@@ -84,4 +84,15 @@ public interface BoardDao {
 	 * @return
 	 */
 	public int deleteBoardReply(Map<String, Object> param);
+	/**
+	 * 증시 정보 넣기
+	 * @param param
+	 * @return
+	 */
+	public int insertScheduleStock(Map<String, Object> param);
+	/**
+	 * 증시 정보 가져오기
+	 * @return
+	 */
+	public Map<String, Object> selectScheduleStock();
 }

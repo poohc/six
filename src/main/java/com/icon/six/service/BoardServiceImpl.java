@@ -825,5 +825,15 @@ public class BoardServiceImpl implements BoardService{
         return getReplyList(param,recursiveList);
 		
 	}
+
+	@Override
+	public int insertScheduleStock(Map<String, Object> param) {
+		return boardDao.insertScheduleStock(param);
+	}
+
+	@Override
+	public Map<String, Object> selectScheduleStock() {
+		return boardDao.selectScheduleStock();
+	}
 	
 }

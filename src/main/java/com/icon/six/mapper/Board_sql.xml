@@ -281,4 +281,48 @@
 		   </if> 
     </select>
     
+    <insert id="insertScheduleStock" parameterType="java.util.HashMap">
+        INSERT INTO SIX_SCHEDULE_STOCK(
+         						       KOSPI,
+                                       KOSPI_UPDOWN_VAL,
+                                       KOSPI_UPDOWN_PER,
+                                       KOSPI200,
+                                       KOSPI200_UPDOWN_VAL,
+                                       KOSPI200_UPDOWN_PER,
+                                       KOSDAQ,
+                                       KOSDAQ_UPDOWN_VAL,
+                                       KOSDAQ_UPDOWN_PER,
+                                       CREATE_DATE
+                                      )
+                               VALUES (
+                               		   #{kospi},
+                               		   #{kospiUpdownVal},
+                               		   #{kospiUpdownPer},
+                               		   #{kospi200},
+                               		   #{kospi200UpdownVal},
+                               		   #{kospi200UpdownPer},
+                               		   #{kosdaq},
+                               		   #{kosdaqUpdownVal},
+                               		   #{kosdaqUpdownPer},
+                               		   now()
+                               		  )
+        
+    </insert>
+    
+    <select id="selectScheduleStock" resultType="java.util.HashMap">
+          SELECT SEQ,
+		         KOSPI,
+		         KOSPI_UPDOWN_VAL,
+		         KOSPI_UPDOWN_PER,
+		         KOSPI200,
+		         KOSPI200_UPDOWN_VAL,
+		         KOSPI200_UPDOWN_PER,
+				 KOSDAQ,
+		         KOSDAQ_UPDOWN_VAL,
+		         KOSDAQ_UPDOWN_PER
+		    FROM SIX_SCHEDULE_STOCK
+		ORDER BY SEQ DESC
+		   LIMIT 0,1
+    </select>
+    
 </mapper>

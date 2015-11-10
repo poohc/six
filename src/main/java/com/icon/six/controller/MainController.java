@@ -33,6 +33,7 @@ public class MainController {
 		
 		ModelAndView mav = new ModelAndView("main/main");
 		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		mav.addObject("boardList",boardService.selectMainBoardList());
 		
 		return mav;

@@ -6,6 +6,7 @@
 	   xmlns:tx="http://www.springframework.org/schema/tx"
 	   xmlns:context="http://www.springframework.org/schema/context"
 	   xmlns:util="http://www.springframework.org/schema/util"
+	   xmlns:task="http://www.springframework.org/schema/task"
 	   xsi:schemaLocation="	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	   						http://www.springframework.org/schema/mvc 
 		     				http://www.springframework.org/schema/mvc/spring-mvc.xsd
@@ -13,7 +14,9 @@
 		     				http://www.springframework.org/schema/util/spring-util-3.2.xsd
 						   	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 						   	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
-						    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+						    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+						    http://www.springframework.org/schema/task 
+							http://www.springframework.org/schema/task/spring-task.xsd">
 	
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 	    <property name="messageConverters">
@@ -45,9 +48,17 @@
 	</bean>
 	
 	<bean id="downloadView" class="com.icon.six.util.FileDownLoad" />
+	<bean id="StockScheduler" class="com.icon.six.scheduler.StockScheduler" />
+	
 	<bean id="viewResolver"  class="org.springframework.web.servlet.view.BeanNameViewResolver" >
 		<property name="order" value="0" />
 	</bean>
+	
+	<task:scheduler id="stockScheduler" pool-size="2"/>
+	
+	<task:scheduled-tasks scheduler="stockScheduler">
+		<task:scheduled ref="StockScheduler" method="insertStockInfo" cron="30 * * * * *" />    
+	</task:scheduled-tasks>
 	
 	<mvc:annotation-driven />
 	<tx:annotation-driven proxy-target-class="true"/>	
