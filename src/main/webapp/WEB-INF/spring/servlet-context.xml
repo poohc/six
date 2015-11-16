@@ -57,7 +57,7 @@
 	<task:scheduler id="stockScheduler" pool-size="2"/>
 	
 	<task:scheduled-tasks scheduler="stockScheduler">
-		<task:scheduled ref="StockScheduler" method="insertStockInfo" cron="30 * * * * *" />    
+		<task:scheduled ref="StockScheduler" method="insertStockInfo" cron="0 30 * * * ?" />    
 	</task:scheduled-tasks>
 	
 	<mvc:annotation-driven />

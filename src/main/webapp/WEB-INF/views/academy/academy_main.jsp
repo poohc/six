@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -46,34 +48,70 @@
                 <ul class="academy_mainlist">
                     <li>
                         <p class="academy_title2">기초는 이렇게 쌓아야 합니다.</p>
-                        <ul class="list_contract">
-                            <li><a href="#">SIX 주식배움터의 최근글의 제목입니다.</a></li>
-                            <li><a href="#">SIX 주식배움터의 최근글의 제목입니다.</a></li>
-                            <li><a href="#">SIX 주식배움터의 최근글의 제목입니다.</a></li>
+                        <ul class="list_contract">                        	
+                        	<c:choose>
+	                          	<c:when test="${fn:length(boardList.SIX_LEARNCENTER_BOARD) > 0}">
+	                          		<c:forEach items="${boardList.SIX_LEARNCENTER_BOARD}" var="list" end="2">
+	                                	<li><a href="javascript:goBoardView('SIX_LEARNCENTER_BOARD','${list.SEQ}')">${list.TITLE}</a></li>
+	                                </c:forEach>	                                
+	                          	</c:when>
+	                          	<c:otherwise>
+	                          		<li>게시글이 없습니다.</li>
+	                          		<li>&nbsp;</li>
+	                          		<li>&nbsp;</li>
+	                          	</c:otherwise>                            	
+	                        </c:choose>
                         </ul>
                     </li>
                     <li>
                         <p class="academy_title2 type2">SIX가 직접 발품을 팔아 기업 탐방을 다녀옵니다.</p>
                         <ul class="list_contract type2">
-                            <li><a href="#">SIX 주식배움터의 최근글의 제목입니다.</a></li>
-                            <li><a href="#">SIX 주식배움터의 최근글의 제목입니다.</a></li>
-                            <li><a href="#">SIX 주식배움터의 최근글의 제목입니다.</a></li>
+                        	<c:choose>
+	                          	<c:when test="${fn:length(boardList.SIX_SNOTE_BOARD) > 0}">
+	                          		<c:forEach items="${boardList.SIX_SNOTE_BOARD}" var="list" end="2">
+	                                	<li><a href="javascript:goBoardView('SIX_SNOTE_BOARD','${list.SEQ}')">${list.TITLE}</a></li>
+	                                </c:forEach>
+	                          	</c:when>
+	                          	<c:otherwise>
+	                          		<li>게시글이 없습니다.</li>
+	                          		<li>&nbsp;</li>
+	                          		<li>&nbsp;</li>
+	                          	</c:otherwise>                            	
+	                        </c:choose>                            
                         </ul>
                     </li>
                     <li>
                         <p class="academy_title2 type2">시장상황에 맞춘 현재의 투자 전략을 제시합니다.</p>
                         <ul class="list_contract type2">
-                            <li><a href="#">SIX 주식배움터의 최근글의 제목입니다.</a></li>
-                            <li><a href="#">SIX 주식배움터의 최근글의 제목입니다.</a></li>
-                            <li><a href="#">SIX 주식배움터의 최근글의 제목입니다.</a></li>
+                            <c:choose>
+	                          	<c:when test="${fn:length(boardList.SIX_LEARNSTRATEGY_BOARD) > 0}">
+	                          		<c:forEach items="${boardList.SIX_LEARNSTRATEGY_BOARD}" var="list" end="2">
+	                                	<li><a href="javascript:goBoardView('SIX_LEARNSTRATEGY_BOARD','${list.SEQ}')">${list.TITLE}</a></li>
+	                                </c:forEach>
+	                          	</c:when>
+	                          	<c:otherwise>
+	                          		<li>게시글이 없습니다.</li>
+	                          		<li>&nbsp;</li>
+	                          		<li>&nbsp;</li>
+	                          	</c:otherwise>                            	
+	                        </c:choose>
                         </ul>
                     </li>
                     <li>
                         <p class="academy_title2 type2">경제 및 금융관련 자료를 한 번에 모아두었습니다.</p>
                         <ul class="list_contract type2">
-                            <li><a href="#">SIX 주식배움터의 최근글의 제목입니다.</a></li>
-                            <li><a href="#">SIX 주식배움터의 최근글의 제목입니다.</a></li>
-                            <li><a href="#">SIX 주식배움터의 최근글의 제목입니다.</a></li>
+                            <c:choose>
+	                          	<c:when test="${fn:length(boardList.SIX_NSUBSCRIBE_BOARD) > 0}">
+	                          		<c:forEach items="${boardList.SIX_NSUBSCRIBE_BOARD}" var="list" end="2">
+	                                	<li><a href="javascript:goBoardView('SIX_NSUBSCRIBE_BOARD','${list.SEQ}')">${list.TITLE}</a></li>
+	                                </c:forEach>
+	                          	</c:when>
+	                          	<c:otherwise>
+	                          		<li>게시글이 없습니다.</li>
+	                          		<li>&nbsp;</li>
+	                          		<li>&nbsp;</li>
+	                          	</c:otherwise>                            	
+	                        </c:choose>
                         </ul>
                     </li>
                 </ul>

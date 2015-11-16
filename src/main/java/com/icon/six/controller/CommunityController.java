@@ -802,7 +802,7 @@ public class CommunityController {
 		return mav;
 	}
 	
-	@RequestMapping(value="community_speical.do")
+	@RequestMapping(value="communitySpeical.do")
 	public ModelAndView community_speical(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("community/community_speical");
 		
@@ -826,7 +826,7 @@ public class CommunityController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "community_speicalView.do")
+	@RequestMapping(value = "communitySpeicalView.do")
 	public ModelAndView community_speicalView(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
 		
 		ModelAndView mav = new ModelAndView("community/community_speical_view");
@@ -854,7 +854,7 @@ public class CommunityController {
 		return mav;
 	}
 	
-	@RequestMapping(value="community_speicalWrite.do")
+	@RequestMapping(value="communitySpeicalWrite.do")
 	public ModelAndView community_speicalWrite(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("community/community_speical_write");
 		mav.addObject("listPage","/community/community_speical.do");
@@ -862,7 +862,7 @@ public class CommunityController {
 		return mav;
 	}
 	
-	@RequestMapping(value="community_speicalUpdate.do")
+	@RequestMapping(value="communitySpeicalUpdate.do")
 	public ModelAndView community_speicalUpdate(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("community/community_speical_write");
 		logger.debug("requetsMap : " + requestMap);
@@ -887,7 +887,7 @@ public class CommunityController {
 		return mav;
 	}	
 	
-	@RequestMapping(value="community_speicalWriteProcess.do")
+	@RequestMapping(value="communitySpeicalWriteProcess.do")
 	public void community_speicalWriteProcess(@RequestParam Map<String, Object> requestMap, MultipartHttpServletRequest request, HttpServletResponse response){
 		
 		logger.debug("requestMap : " + requestMap);
@@ -917,7 +917,7 @@ public class CommunityController {
 		}
 	}
 	
-	@RequestMapping(value="community_speicalUpdateProcess.do")
+	@RequestMapping(value="communitySpeicalUpdateProcess.do")
 	public void community_speicalUpdateProcess(@RequestParam Map<String, Object> requestMap, MultipartHttpServletRequest request, HttpServletResponse response){
 		
 		int result = 0;
@@ -949,7 +949,7 @@ public class CommunityController {
 		}	
 	}
 	
-	@RequestMapping(value="community_speicalDeleteProcess.do")
+	@RequestMapping(value="communitySpeicalDeleteProcess.do")
 	public void community_speicalDeleteProcess(@RequestParam Map<String, Object> requestMap, HttpServletRequest request, HttpServletResponse response){
 		
 		int result = 0;
@@ -981,7 +981,7 @@ public class CommunityController {
 		}	
 	}
 	
-	@RequestMapping(value = "community_speicalReplyAdd.do")
+	@RequestMapping(value = "communitySpeicalReplyAdd.do")
 	public ModelAndView community_speicalReplyAdd(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
 		
 		ModelAndView mav = new ModelAndView("main/commonPage");
@@ -1008,7 +1008,7 @@ public class CommunityController {
 		
 	}
 	
-	@RequestMapping(value = "community_speicalReplyDel.do")
+	@RequestMapping(value = "communitySpeicalReplyDel.do")
 	public ModelAndView community_speicalReplyDel(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
 		
 		ModelAndView mav = new ModelAndView("main/commonPage");
@@ -1035,7 +1035,7 @@ public class CommunityController {
 		
 	}
 	
-	@RequestMapping(value = "community_speicalReplyUpdate.do")
+	@RequestMapping(value = "communitySpeicalReplyUpdate.do")
 	public ModelAndView community_speicalReplyUpdate(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("main/commonPage");
 		

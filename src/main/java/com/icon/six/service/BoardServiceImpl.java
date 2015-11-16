@@ -174,15 +174,7 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	@Override
-	public Map<String, Object> selectMainBoardList() {
-		
-		//메인 화면 게시판 게시물 가져오기
-		String[] boardNameArray = {CommonConstant.MARKETFREE_BOARD,CommonConstant.MARKETISTRATEGY_BOARD,
-				 			       CommonConstant.MARKETANALYSIS_BOARD,CommonConstant.MARKETPAY_BOARD,
-				 			       CommonConstant.MARKETBARGAIN_BOARD,CommonConstant.MARKETADV_BOARD,
-				 			       CommonConstant.LEARNCENTER_BOARD,CommonConstant.LEARNSTRATEGY_BOARD,
-				 			       CommonConstant.SNOTE_BOARD,CommonConstant.INFOSECTECH_BOARD,
-				 			       CommonConstant.INFOSTOCKBRIEFING_BOARD,CommonConstant.INFOGINTERVIEW_BOARD};
+	public Map<String, Object> selectMainBoardList(String[] boardNameArray) {
 		
 		Map<String, Object> param = new HashMap<String, Object>();
 		
@@ -195,8 +187,41 @@ public class BoardServiceImpl implements BoardService{
 			List<Map<String, Object>> boardList = new ArrayList<Map<String, Object>>();
 			param.put("boardName", boardName);
 			boardList = boardDao.selectBoardList(param);
+			List<Map<String, Object>> addParsedBoardInfoList = new ArrayList<Map<String, Object>>();
 			
-			resultMap.put(boardName, boardList);
+			for(int i=0;i<boardList.size();i++){
+				Map<String, Object> addParsedMap = new HashMap<String, Object>();
+				
+				addParsedMap.put("NO", boardList.get(i).get("NO"));
+				addParsedMap.put("SEQ", boardList.get(i).get("SEQ"));
+				addParsedMap.put("TITLE", boardList.get(i).get("TITLE"));
+				addParsedMap.put("CONTENTS", boardList.get(i).get("CONTENTS"));
+				
+				Document doc = Jsoup.parse(String.valueOf(boardList.get(i).get("CONTENTS")));
+				String thumbImg = String.valueOf(boardList.get(i).get("THUMB_IMAGE"));
+				
+				if(!"null".equals(thumbImg)){
+					thumbImg = thumbImg.substring(0, thumbImg.indexOf("width"));
+					thumbImg += ">"; 
+				} else {
+					thumbImg = null;
+				}
+				
+				addParsedMap.put("PARSE_CONTENTS",  doc.text());
+				addParsedMap.put("CREATE_USER_ID", boardList.get(i).get("CREATE_USER_ID"));
+				addParsedMap.put("CREATE_DATE", boardList.get(i).get("CREATE_DATE"));
+				addParsedMap.put("UPDATE_USER_ID", boardList.get(i).get("UPDATE_USER_ID"));
+				addParsedMap.put("UPDATE_DATE", boardList.get(i).get("UPDATE_DATE"));
+				addParsedMap.put("HIT_COUNT", boardList.get(i).get("HIT_COUNT"));
+				addParsedMap.put("IS_NOTICE", boardList.get(i).get("IS_NOTICE"));
+				addParsedMap.put("FILE", boardList.get(i).get("FILE"));
+				addParsedMap.put("THUMB_IMAGE", thumbImg);
+				addParsedMap.put("PARTNER_NAME", boardList.get(i).get("PARTNER_NAME"));
+				addParsedMap.put("TYPE_NAME", boardList.get(i).get("TYPE_NAME"));
+				addParsedMap.put("PRICE", boardList.get(i).get("PRICE"));
+				addParsedBoardInfoList.add(addParsedMap);
+			}
+			resultMap.put(boardName, addParsedBoardInfoList);
 		}
 		
 		return resultMap;

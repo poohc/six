@@ -6,6 +6,7 @@
 		SELECT COUNT(*)		       
 		  FROM ${boardName}
 		 WHERE 1=1
+		   AND NO > 0 
 		 <if test="ref != null">
 		   AND REF = #{ref}
 		 </if>
@@ -35,6 +36,7 @@
 		       STEP
 		  FROM ${boardName}
 		 WHERE 1=1
+		   AND NO > 0
 		   <if test="ref != null">
 		   AND REF = #{ref}
 		   </if>

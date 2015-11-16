@@ -23,7 +23,7 @@ public interface BoardService {
 	 * @param page
 	 * @return
 	 */
-	public Map<String, Object> selectMainBoardList();
+	public Map<String, Object> selectMainBoardList(String[] boardNameArray);
 	/**
 	 * 게시글 상세보기 정보 가져오기
 	 * @param param

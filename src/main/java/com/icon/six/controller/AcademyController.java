@@ -31,6 +31,13 @@ public class AcademyController {
 	@RequestMapping(value="academyMain.do")
 	public ModelAndView academyMain(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("academy/academy_main");
+		
+		//메인 화면 게시판 게시물 가져오기
+		String[] boardNameArray = {CommonConstant.LEARNCENTER_BOARD,CommonConstant.LEARNSTRATEGY_BOARD,
+							       CommonConstant.SNOTE_BOARD,CommonConstant.NSUBSCRIBE_BOARD};
+		
+		mav.addObject("boardList",boardService.selectMainBoardList(boardNameArray));
+		
 		return mav;
 	}
 	

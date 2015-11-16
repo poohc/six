@@ -33,8 +33,16 @@ public class MainController {
 		
 		ModelAndView mav = new ModelAndView("main/main");
 		
+		//메인 화면 게시판 게시물 가져오기
+		String[] boardNameArray = {CommonConstant.MARKETFREE_BOARD,CommonConstant.MARKETISTRATEGY_BOARD,
+				 			       CommonConstant.MARKETANALYSIS_BOARD,CommonConstant.MARKETPAY_BOARD,
+				 			       CommonConstant.MARKETBARGAIN_BOARD,CommonConstant.MARKETADV_BOARD,
+				 			       CommonConstant.LEARNCENTER_BOARD,CommonConstant.LEARNSTRATEGY_BOARD,
+				 			       CommonConstant.SNOTE_BOARD,CommonConstant.INFOSECTECH_BOARD,
+				 			       CommonConstant.INFOSTOCKBRIEFING_BOARD,CommonConstant.INFOGINTERVIEW_BOARD};
+		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("boardList",boardService.selectMainBoardList());
+		mav.addObject("boardList",boardService.selectMainBoardList(boardNameArray));
 		
 		return mav;
 	}
