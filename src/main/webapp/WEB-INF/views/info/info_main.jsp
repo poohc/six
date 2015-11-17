@@ -1,12 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
+<script type="text/javascript" src="/resources/js/boardMain.js"></script>
 </head>
 <body>
+<form id="mainForm"  name="mainForm" method="post">
+<input type="hidden" id="seq" name="seq">
+</form>
 <div class="wrapper main">
 	<!-- header -->
 	<jsp:include page="../common/header.jsp" />	
@@ -90,111 +96,345 @@
                 <ul class="look_ahead2 type2">
                     <li>
                         <p class="look_title"><span>일급</span> 무료종목 추천</p>
-                        <a href="#" class="look_more2"><img src="/resources/img/view_more2.png" alt="더보기"></a>
-                        <div class="ahead_top">
-                            <img src="/resources/img/ahead2.gif" alt="">
-                            <a href="#" class="ahead_text">
-                                <p class="aheadtext_title">각종 정보의 게시글의 제목을 보여줍니다.</p>
-                                <p class="aheadtext_title2">각종정보에 대한 내용의 영역입니다.내용이 채워지는 영역입니다..</p>
-                                <p class="aheadtext_title3">2015.09.03</p>
-                            </a>
-                        </div>
-                        <ul class="look_list2">
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        </ul>
+                        <a href="javaScript:goBoardList('SIX_INFOFREEREC_BOARD')" class="look_more2"><img src="/resources/img/view_more2.png" alt="더보기"></a>
+                        <c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_INFOFREEREC_BOARD) > 0}">
+                          	   <c:forEach begin="0" end="4" varStatus="loop">
+                          	   <c:choose>
+                          	   	   <c:when test="${loop.index eq 0}">
+                          	   	   	   <div class="ahead_top">
+                          	   	   	   <c:choose>
+									      <c:when test="${fn:length(boardList.SIX_INFOFREEREC_BOARD[loop.index].THUMB_IMAGE) > 0}">
+										   	   <c:out value="${boardList.SIX_INFOFREEREC_BOARD[loop.index].THUMB_IMAGE}" escapeXml="false" />
+										   </c:when>
+										   <c:otherwise>
+										   	   <img src="/resources/img/ahead2.gif" alt="주식배움터 썸네일 기본이미지">	
+										   </c:otherwise>
+									   </c:choose>										   
+									   <a href="javascript:goBoardView('SIX_INFOFREEREC_BOARD','${boardList.SIX_INFOFREEREC_BOARD[loop.index].SEQ}')" class="ahead_text type2">
+			                               <p class="aheadtext_title">${boardList.SIX_INFOFREEREC_BOARD[loop.index].TITLE}</p>
+			                               <p class="aheadtext_title2">${boardList.SIX_INFOFREEREC_BOARD[loop.index].PARSE_CONTENTS}</p>
+			                               <p class="aheadtext_title3">${boardList.SIX_INFOFREEREC_BOARD[loop.index].CREATE_DATE}</p>
+			                           </a>
+			                           </div>	                          	   	   
+                          	   	   </c:when>
+                          	   	   <c:otherwise>
+                          	   	   	   <ul class="look_list2">
+                          	   	   	   <c:choose>
+	                          	   	   	   <c:when test="${fn:length(boardList.SIX_INFOFREEREC_BOARD) >= loop.count}">
+										   	  <li><a href="javascript:goBoardView('SIX_INFOFREEREC_BOARD',${boardList.SIX_INFOFREEREC_BOARD[loop.index].SEQ})">${boardList.SIX_INFOFREEREC_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_INFOFREEREC_BOARD[loop.index].CREATE_DATE}</span></li>		                          	   	   	
+			                          	   </c:when>
+			                          	   <c:otherwise>
+											  <li>&nbsp;</li>	                          	   	   		                          	   
+			                               </c:otherwise>
+		                               </c:choose>
+								   	   </ul>	                          	   	   
+                          	   	   </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
+                          	</c:when>
+                          	<c:otherwise>
+                          		<div class="ahead_top">
+		                            <img src="/resources/img/ahead2.gif" alt="">
+		                            <a href="#" class="ahead_text">
+		                                <p class="aheadtext_title">게시물이 없습니다.</p>
+		                                <p class="aheadtext_title2">&nbsp;</p>
+		                                <p class="aheadtext_title3">&nbsp;</p>
+		                            </a>
+		                        </div>
+		                        <ul class="look_list2">
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                        </ul>
+                          	</c:otherwise>                            	
+                       	</c:choose>
                     </li>
                     <li>
                         <p class="look_title"><span>SIX</span> 비기</p>
-                        <a href="#" class="look_more2"><img src="/resources/img/view_more2.png" alt="더보기"></a>
-                        <div class="ahead_top">
-                            <img src="/resources/img/ahead2.gif" alt="">
-                            <a href="#" class="ahead_text">
-                                <p class="aheadtext_title">각종 정보의 게시글의 제목을 보여줍니다.</p>
-                                <p class="aheadtext_title2">각종정보에 대한 내용의 영역입니다.내용이 채워지는 영역입니다..</p>
-                                <p class="aheadtext_title3">2015.09.03</p>
-                            </a>
-                        </div>
-                        <ul class="look_list2">
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        </ul>
+                        <a href="javaScript:goBoardList('SIX_INFOSECTECH_BOARD')" class="look_more2"><img src="/resources/img/view_more2.png" alt="더보기"></a>
+                        <c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_INFOSECTECH_BOARD) > 0}">
+                          	   <c:forEach begin="0" end="4" varStatus="loop">
+                          	   <c:choose>
+                          	   	   <c:when test="${loop.index eq 0}">
+                          	   	   	   <div class="ahead_top">
+                          	   	   	   <c:choose>
+									      <c:when test="${fn:length(boardList.SIX_INFOSECTECH_BOARD[loop.index].THUMB_IMAGE) > 0}">
+										   	   <c:out value="${boardList.SIX_INFOSECTECH_BOARD[loop.index].THUMB_IMAGE}" escapeXml="false" />
+										   </c:when>
+										   <c:otherwise>
+										   	   <img src="/resources/img/ahead2.gif" alt="주식배움터 썸네일 기본이미지">	
+										   </c:otherwise>
+									   </c:choose>										   
+									   <a href="javascript:goBoardView('SIX_INFOSECTECH_BOARD','${boardList.SIX_INFOSECTECH_BOARD[loop.index].SEQ}')" class="ahead_text type2">
+			                               <p class="aheadtext_title">${boardList.SIX_INFOSECTECH_BOARD[loop.index].TITLE}</p>
+			                               <p class="aheadtext_title2">${boardList.SIX_INFOSECTECH_BOARD[loop.index].PARSE_CONTENTS}</p>
+			                               <p class="aheadtext_title3">${boardList.SIX_INFOSECTECH_BOARD[loop.index].CREATE_DATE}</p>
+			                           </a>
+			                           </div>	                          	   	   
+                          	   	   </c:when>
+                          	   	   <c:otherwise>
+                          	   	   	   <ul class="look_list2">
+                          	   	   	   <c:choose>
+	                          	   	   	   <c:when test="${fn:length(boardList.SIX_INFOSECTECH_BOARD) >= loop.count}">
+										   	  <li><a href="javascript:goBoardView('SIX_INFOSECTECH_BOARD',${boardList.SIX_INFOSECTECH_BOARD[loop.index].SEQ})">${boardList.SIX_INFOSECTECH_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_INFOSECTECH_BOARD[loop.index].CREATE_DATE}</span></li>		                          	   	   	
+			                          	   </c:when>
+			                          	   <c:otherwise>
+											  <li>&nbsp;</li>	                          	   	   		                          	   
+			                               </c:otherwise>
+		                               </c:choose>
+								   	   </ul>	                          	   	   
+                          	   	   </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
+                          	</c:when>
+                          	<c:otherwise>
+                          		<div class="ahead_top">
+		                            <img src="/resources/img/ahead2.gif" alt="">
+		                            <a href="#" class="ahead_text">
+		                                <p class="aheadtext_title">게시물이 없습니다.</p>
+		                                <p class="aheadtext_title2">&nbsp;</p>
+		                                <p class="aheadtext_title3">&nbsp;</p>
+		                            </a>
+		                        </div>
+		                        <ul class="look_list2">
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                        </ul>
+                          	</c:otherwise>                            	
+                       	</c:choose>
                     </li>
                     <li class="type3">
                         <p class="look_title"><span>테마</span> 정보</p>
-                        <a href="#" class="look_more2"><img src="/resources/img/view_more2.png" alt="더보기"></a>
-                        <div class="ahead_top">
-                            <img src="/resources/img/ahead2.gif" alt="">
-                            <a href="#" class="ahead_text">
-                                <p class="aheadtext_title">각종 정보의 게시글의 제목을 보여줍니다.</p>
-                                <p class="aheadtext_title2">각종정보에 대한 내용의 영역입니다.내용이 채워지는 영역입니다..</p>
-                                <p class="aheadtext_title3">2015.09.03</p>
-                            </a>
-                        </div>
-                        <ul class="look_list2">
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        </ul>
+                        <a href="javaScript:goBoardList('SIX_INFOTHEME_BOARD')" class="look_more2"><img src="/resources/img/view_more2.png" alt="더보기"></a>
+                        <c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_INFOTHEME_BOARD) > 0}">
+                          	   <c:forEach begin="0" end="4" varStatus="loop">
+                          	   <c:choose>
+                          	   	   <c:when test="${loop.index eq 0}">
+                          	   	   	   <div class="ahead_top">
+                          	   	   	   <c:choose>
+									      <c:when test="${fn:length(boardList.SIX_INFOTHEME_BOARD[loop.index].THUMB_IMAGE) > 0}">
+										   	   <c:out value="${boardList.SIX_INFOTHEME_BOARD[loop.index].THUMB_IMAGE}" escapeXml="false" />
+										   </c:when>
+										   <c:otherwise>
+										   	   <img src="/resources/img/ahead2.gif" alt="주식배움터 썸네일 기본이미지">	
+										   </c:otherwise>
+									   </c:choose>										   
+									   <a href="javascript:goBoardView('SIX_INFOTHEME_BOARD','${boardList.SIX_INFOTHEME_BOARD[loop.index].SEQ}')" class="ahead_text type2">
+			                               <p class="aheadtext_title">${boardList.SIX_INFOTHEME_BOARD[loop.index].TITLE}</p>
+			                               <p class="aheadtext_title2">${boardList.SIX_INFOTHEME_BOARD[loop.index].PARSE_CONTENTS}</p>
+			                               <p class="aheadtext_title3">${boardList.SIX_INFOTHEME_BOARD[loop.index].CREATE_DATE}</p>
+			                           </a>
+			                           </div>	                          	   	   
+                          	   	   </c:when>
+                          	   	   <c:otherwise>
+                          	   	   	   <ul class="look_list2">
+                          	   	   	   <c:choose>
+	                          	   	   	   <c:when test="${fn:length(boardList.SIX_INFOTHEME_BOARD) >= loop.count}">
+										   	  <li><a href="javascript:goBoardView('SIX_INFOTHEME_BOARD',${boardList.SIX_INFOTHEME_BOARD[loop.index].SEQ})">${boardList.SIX_INFOTHEME_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_INFOTHEME_BOARD[loop.index].CREATE_DATE}</span></li>		                          	   	   	
+			                          	   </c:when>
+			                          	   <c:otherwise>
+											  <li>&nbsp;</li>	                          	   	   		                          	   
+			                               </c:otherwise>
+		                               </c:choose>
+								   	   </ul>	                          	   	   
+                          	   	   </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
+                          	</c:when>
+                          	<c:otherwise>
+                          		<div class="ahead_top">
+		                            <img src="/resources/img/ahead2.gif" alt="">
+		                            <a href="#" class="ahead_text">
+		                                <p class="aheadtext_title">게시물이 없습니다.</p>
+		                                <p class="aheadtext_title2">&nbsp;</p>
+		                                <p class="aheadtext_title3">&nbsp;</p>
+		                            </a>
+		                        </div>
+		                        <ul class="look_list2">
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                        </ul>
+                          	</c:otherwise>                            	
+                       	</c:choose>
                     </li>
                     <li class="type3">
                         <p class="look_title"><span>증시</span> 브리핑</p>
-                        <a href="#" class="look_more2"><img src="/resources/img/view_more2.png" alt="더보기"></a>
-                        <div class="ahead_top">
-                            <img src="/resources/img/ahead2.gif" alt="">
-                            <a href="#" class="ahead_text">
-                                <p class="aheadtext_title">각종 정보의 게시글의 제목을 보여줍니다.</p>
-                                <p class="aheadtext_title2">각종정보에 대한 내용의 영역입니다.내용이 채워지는 영역입니다..</p>
-                                <p class="aheadtext_title3">2015.09.03</p>
-                            </a>
-                        </div>
-                        <ul class="look_list2">
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        </ul>
+                        <a href="javaScript:goBoardList('SIX_INFOSTOCKBRIEFING_BOARD')" class="look_more2"><img src="/resources/img/view_more2.png" alt="더보기"></a>
+                        <c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_INFOSTOCKBRIEFING_BOARD) > 0}">
+                          	   <c:forEach begin="0" end="4" varStatus="loop">
+                          	   <c:choose>
+                          	   	   <c:when test="${loop.index eq 0}">
+                          	   	   	   <div class="ahead_top">
+                          	   	   	   <c:choose>
+									      <c:when test="${fn:length(boardList.SIX_INFOSTOCKBRIEFING_BOARD[loop.index].THUMB_IMAGE) > 0}">
+										   	   <c:out value="${boardList.SIX_INFOSTOCKBRIEFING_BOARD[loop.index].THUMB_IMAGE}" escapeXml="false" />
+										   </c:when>
+										   <c:otherwise>
+										   	   <img src="/resources/img/ahead2.gif" alt="주식배움터 썸네일 기본이미지">	
+										   </c:otherwise>
+									   </c:choose>										   
+									   <a href="javascript:goBoardView('SIX_INFOSTOCKBRIEFING_BOARD','${boardList.SIX_INFOSTOCKBRIEFING_BOARD[loop.index].SEQ}')" class="ahead_text type2">
+			                               <p class="aheadtext_title">${boardList.SIX_INFOSTOCKBRIEFING_BOARD[loop.index].TITLE}</p>
+			                               <p class="aheadtext_title2">${boardList.SIX_INFOSTOCKBRIEFING_BOARD[loop.index].PARSE_CONTENTS}</p>
+			                               <p class="aheadtext_title3">${boardList.SIX_INFOSTOCKBRIEFING_BOARD[loop.index].CREATE_DATE}</p>
+			                           </a>
+			                           </div>	                          	   	   
+                          	   	   </c:when>
+                          	   	   <c:otherwise>
+                          	   	   	   <ul class="look_list2">
+                          	   	   	   <c:choose>
+	                          	   	   	   <c:when test="${fn:length(boardList.SIX_INFOSTOCKBRIEFING_BOARD) >= loop.count}">
+										   	  <li><a href="javascript:goBoardView('SIX_INFOSTOCKBRIEFING_BOARD',${boardList.SIX_INFOSTOCKBRIEFING_BOARD[loop.index].SEQ})">${boardList.SIX_INFOSTOCKBRIEFING_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_INFOSTOCKBRIEFING_BOARD[loop.index].CREATE_DATE}</span></li>		                          	   	   	
+			                          	   </c:when>
+			                          	   <c:otherwise>
+											  <li>&nbsp;</li>	                          	   	   		                          	   
+			                               </c:otherwise>
+		                               </c:choose>
+								   	   </ul>	                          	   	   
+                          	   	   </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
+                          	</c:when>
+                          	<c:otherwise>
+                          		<div class="ahead_top">
+		                            <img src="/resources/img/ahead2.gif" alt="">
+		                            <a href="#" class="ahead_text">
+		                                <p class="aheadtext_title">게시물이 없습니다.</p>
+		                                <p class="aheadtext_title2">&nbsp;</p>
+		                                <p class="aheadtext_title3">&nbsp;</p>
+		                            </a>
+		                        </div>
+		                        <ul class="look_list2">
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                        </ul>
+                          	</c:otherwise>                            	
+                       	</c:choose>
                     </li>
                     <li>
                         <p class="look_title"><span>고수들의</span> 인터뷰</p>
-                        <a href="#" class="look_more2"><img src="/resources/img/view_more2.png" alt="더보기"></a>
-                        <div class="ahead_top">
-                            <img src="/resources/img/ahead2.gif" alt="">
-                            <a href="#" class="ahead_text">
-                                <p class="aheadtext_title">각종 정보의 게시글의 제목을 보여줍니다.</p>
-                                <p class="aheadtext_title2">각종정보에 대한 내용의 영역입니다.내용이 채워지는 영역입니다..</p>
-                                <p class="aheadtext_title3">2015.09.03</p>
-                            </a>
-                        </div>
-                        <ul class="look_list2">
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        </ul>
+                        <a href="javaScript:goBoardList('SIX_INFOGINTERVIEW_BOARD')" class="look_more2"><img src="/resources/img/view_more2.png" alt="더보기"></a>
+                        <c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_INFOGINTERVIEW_BOARD) > 0}">
+                          	   <c:forEach begin="0" end="4" varStatus="loop">
+                          	   <c:choose>
+                          	   	   <c:when test="${loop.index eq 0}">
+                          	   	   	   <div class="ahead_top">
+                          	   	   	   <c:choose>
+									      <c:when test="${fn:length(boardList.SIX_INFOGINTERVIEW_BOARD[loop.index].THUMB_IMAGE) > 0}">
+										   	   <c:out value="${boardList.SIX_INFOGINTERVIEW_BOARD[loop.index].THUMB_IMAGE}" escapeXml="false" />
+										   </c:when>
+										   <c:otherwise>
+										   	   <img src="/resources/img/ahead2.gif" alt="주식배움터 썸네일 기본이미지">	
+										   </c:otherwise>
+									   </c:choose>										   
+									   <a href="javascript:goBoardView('SIX_INFOGINTERVIEW_BOARD','${boardList.SIX_INFOGINTERVIEW_BOARD[loop.index].SEQ}')" class="ahead_text type2">
+			                               <p class="aheadtext_title">${boardList.SIX_INFOGINTERVIEW_BOARD[loop.index].TITLE}</p>
+			                               <p class="aheadtext_title2">${boardList.SIX_INFOGINTERVIEW_BOARD[loop.index].PARSE_CONTENTS}</p>
+			                               <p class="aheadtext_title3">${boardList.SIX_INFOGINTERVIEW_BOARD[loop.index].CREATE_DATE}</p>
+			                           </a>
+			                           </div>	                          	   	   
+                          	   	   </c:when>
+                          	   	   <c:otherwise>
+                          	   	   	   <ul class="look_list2">
+                          	   	   	   <c:choose>
+	                          	   	   	   <c:when test="${fn:length(boardList.SIX_INFOGINTERVIEW_BOARD) >= loop.count}">
+										   	  <li><a href="javascript:goBoardView('SIX_INFOGINTERVIEW_BOARD',${boardList.SIX_INFOGINTERVIEW_BOARD[loop.index].SEQ})">${boardList.SIX_INFOGINTERVIEW_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_INFOGINTERVIEW_BOARD[loop.index].CREATE_DATE}</span></li>		                          	   	   	
+			                          	   </c:when>
+			                          	   <c:otherwise>
+											  <li>&nbsp;</li>	                          	   	   		                          	   
+			                               </c:otherwise>
+		                               </c:choose>
+								   	   </ul>	                          	   	   
+                          	   	   </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
+                          	</c:when>
+                          	<c:otherwise>
+                          		<div class="ahead_top">
+		                            <img src="/resources/img/ahead2.gif" alt="">
+		                            <a href="#" class="ahead_text">
+		                                <p class="aheadtext_title">게시물이 없습니다.</p>
+		                                <p class="aheadtext_title2">&nbsp;</p>
+		                                <p class="aheadtext_title3">&nbsp;</p>
+		                            </a>
+		                        </div>
+		                        <ul class="look_list2">
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                        </ul>
+                          	</c:otherwise>                            	
+                       	</c:choose>
                     </li>
                     <li>
                         <p class="look_title"><span>실시간</span> 증시일정</p>
-                        <a href="#" class="look_more2"><img src="/resources/img/view_more2.png" alt="더보기"></a>
-                        <div class="ahead_top">
-                            <img src="/resources/img/ahead2.gif" alt="">
-                            <a href="#" class="ahead_text">
-                                <p class="aheadtext_title">각종 정보의 게시글의 제목을 보여줍니다.</p>
-                                <p class="aheadtext_title2">각종정보에 대한 내용의 영역입니다.내용이 채워지는 영역입니다..</p>
-                                <p class="aheadtext_title3">2015.09.03</p>
-                            </a>
-                        </div>
-                        <ul class="look_list2">
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                            <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        </ul>
+                        <a href="javaScript:goBoardList('SIX_INFOREALSTOCK_BOARD')" class="look_more2"><img src="/resources/img/view_more2.png" alt="더보기"></a>
+                        <c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_INFOREALSTOCK_BOARD) > 0}">
+                          	   <c:forEach begin="0" end="4" varStatus="loop">
+                          	   <c:choose>
+                          	   	   <c:when test="${loop.index eq 0}">
+                          	   	   	   <div class="ahead_top">
+                          	   	   	   <c:choose>
+									      <c:when test="${fn:length(boardList.SIX_INFOREALSTOCK_BOARD[loop.index].THUMB_IMAGE) > 0}">
+										   	   <c:out value="${boardList.SIX_INFOREALSTOCK_BOARD[loop.index].THUMB_IMAGE}" escapeXml="false" />
+										   </c:when>
+										   <c:otherwise>
+										   	   <img src="/resources/img/ahead2.gif" alt="주식배움터 썸네일 기본이미지">	
+										   </c:otherwise>
+									   </c:choose>										   
+									   <a href="javascript:goBoardView('SIX_INFOREALSTOCK_BOARD','${boardList.SIX_INFOREALSTOCK_BOARD[loop.index].SEQ}')" class="ahead_text type2">
+			                               <p class="aheadtext_title">${boardList.SIX_INFOREALSTOCK_BOARD[loop.index].TITLE}</p>
+			                               <p class="aheadtext_title2">${boardList.SIX_INFOREALSTOCK_BOARD[loop.index].PARSE_CONTENTS}</p>
+			                               <p class="aheadtext_title3">${boardList.SIX_INFOREALSTOCK_BOARD[loop.index].CREATE_DATE}</p>
+			                           </a>
+			                           </div>	                          	   	   
+                          	   	   </c:when>
+                          	   	   <c:otherwise>
+                          	   	   	   <ul class="look_list2">
+                          	   	   	   <c:choose>
+	                          	   	   	   <c:when test="${fn:length(boardList.SIX_INFOREALSTOCK_BOARD) >= loop.count}">
+										   	  <li><a href="javascript:goBoardView('SIX_INFOREALSTOCK_BOARD',${boardList.SIX_INFOREALSTOCK_BOARD[loop.index].SEQ})">${boardList.SIX_INFOREALSTOCK_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_INFOREALSTOCK_BOARD[loop.index].CREATE_DATE}</span></li>		                          	   	   	
+			                          	   </c:when>
+			                          	   <c:otherwise>
+											  <li>&nbsp;</li>	                          	   	   		                          	   
+			                               </c:otherwise>
+		                               </c:choose>
+								   	   </ul>	                          	   	   
+                          	   	   </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
+                          	</c:when>
+                          	<c:otherwise>
+                          		<div class="ahead_top">
+		                            <img src="/resources/img/ahead2.gif" alt="">
+		                            <a href="#" class="ahead_text">
+		                                <p class="aheadtext_title">게시물이 없습니다.</p>
+		                                <p class="aheadtext_title2">&nbsp;</p>
+		                                <p class="aheadtext_title3">&nbsp;</p>
+		                            </a>
+		                        </div>
+		                        <ul class="look_list2">
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                        </ul>
+                          	</c:otherwise>                            	
+                       	</c:choose>
                     </li>
                 </ul>
             </div>

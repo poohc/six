@@ -49,7 +49,7 @@ public class NewsController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -77,7 +77,7 @@ public class NewsController {
 		mav.addObject("listPage","/main/newsStockView.do");
 		mav.addObject("updateAction","/main/newsStockUpdate.do");
 		mav.addObject("deleteAction","/main/newsStockDeleteProcess.do");
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -87,6 +87,7 @@ public class NewsController {
 		ModelAndView mav = new ModelAndView("news/news_stock_write");
 		mav.addObject("listPage","/main/newsStockView.do");
 		mav.addObject("insertAction","/main/newsStockWriteProcess.do");
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -114,7 +115,7 @@ public class NewsController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;		
 	}
 	
@@ -236,7 +237,7 @@ public class NewsController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -264,7 +265,7 @@ public class NewsController {
 		mav.addObject("listPage","/main/newsEtcView.do");
 		mav.addObject("updateAction","/main/newsEtcUpdate.do");
 		mav.addObject("deleteAction","/main/newsEtcDeleteProcess.do");
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -274,6 +275,7 @@ public class NewsController {
 		ModelAndView mav = new ModelAndView("news/news_etc_write");
 		mav.addObject("listPage","/main/newsEtcView.do");
 		mav.addObject("insertAction","/main/newsEtcWriteProcess.do");
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -301,7 +303,7 @@ public class NewsController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;		
 	}
 	

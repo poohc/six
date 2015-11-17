@@ -10,11 +10,10 @@
 <script type="text/javascript" src="/resources/js/boardCommon_nonEditor.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#info4').addClass("on");	
+	$('#info3').addClass("on");	
 });
 </script>
 </head>
-
 <body>
 <div class="wrapper main">
 	<!-- header -->
@@ -25,7 +24,7 @@ $(document).ready(function(){
         <div class="container">
             <div class="wrap_left">
                 <jsp:include page="../common/login_common.jsp" />
-                <jsp:include page="../common/info_menu.jsp" />
+                <jsp:include page="../common/info_menu.jsp" />                
                 <div class="youtube_channel">
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
@@ -48,7 +47,7 @@ $(document).ready(function(){
                 	<input type="hidden" id="writePage" name="writePage" value="${writePage}">
                		<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
                		<input type="hidden" id="seq" name="seq">
-                    <p class="title_type1">실시간증시일정</p>
+                    <p class="title_type1">테마정보</p>
                     <div class="table_top">
                         <p class="table_type1title2"><span>데이터를 이용한 투자 기법을 제공해 드립니다.</span></p>
                         <div class="table_rightarea">
@@ -93,7 +92,7 @@ $(document).ready(function(){
 			                                    		<c:out value="${list.THUMB_IMAGE}" escapeXml="false" />
 			                                    	</c:when>
 			                                    	<c:otherwise>
-			                                    		<img src="/resources/img/academy_bul.jpg" alt="SIX 주식배움터 기본 이미지">	
+			                                    		<img src="/resources/img/academy_bul.jpg" alt="테마 정보 기본 이미지">	
 			                                    	</c:otherwise>
 		                                    	</c:choose>
 		                                    	<div class="acatitle_area">
@@ -137,7 +136,7 @@ $(document).ready(function(){
             
             <!-- Left Side -->
             <jsp:include page="../common/right.jsp" />
-            <!-- Left Side end -->   
+            <!-- Left Side end -->  
         </div>
 	</div>
 	<!-- //container -->

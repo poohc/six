@@ -10,7 +10,7 @@
 <script type="text/javascript" src="/resources/js/boardCommon_nonEditor.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#info4').addClass("on");	
+	$('#info3').addClass("on");	
 });
 </script>
 </head>
@@ -42,7 +42,7 @@ $(document).ready(function(){
             <div class="wrap_right">
                 <img src="/resources/img/introduce1.jpg" alt="" class="top_mainimg">
                 <div class="right_contents">
-                    <p class="title_type1">실시간증시일정</p>
+                    <p class="title_type1">테마정보</p>
                     <div class="table_top">
                         <p class="table_type1title2"><span>데이터를 이용한 투자 기법을 제공해 드립니다.</span></p>
 <!--                         <div class="table_rightarea"> -->

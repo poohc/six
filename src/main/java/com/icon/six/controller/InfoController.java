@@ -31,6 +31,14 @@ public class InfoController {
 	@RequestMapping(value="infoMain.do")
 	public ModelAndView infoMain(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("info/info_main");
+		
+		//메인 화면 게시판 게시물 가져오기
+		String[] boardNameArray = {CommonConstant.INFOFREEREC_BOARD,CommonConstant.INFOSECTECH_BOARD,
+							       CommonConstant.INFOTHEME_BOARD,CommonConstant.INFOSTOCKBRIEFING_BOARD,
+							       CommonConstant.INFOGINTERVIEW_BOARD,CommonConstant.INFOREALSTOCK_BOARD};
+		
+		mav.addObject("boardList",boardService.selectMainBoardList(boardNameArray));
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -54,7 +62,7 @@ public class InfoController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -85,7 +93,7 @@ public class InfoController {
 		mav.addObject("replyAddAction","/info/infoFreeRecReplyAdd.do");
 		mav.addObject("replyDelAction","/info/infoFreeRecReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoFreeRecReplyUpdate.do");
-			
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -94,6 +102,7 @@ public class InfoController {
 		ModelAndView mav = new ModelAndView("info/info_freeRec_write");
 		mav.addObject("listPage","/info/infoFreeRec.do");
 		mav.addObject("insertAction","/info/infoFreeRecWriteProcess.do");
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -119,6 +128,7 @@ public class InfoController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}	
 	
@@ -240,7 +250,6 @@ public class InfoController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 		
 	}
@@ -267,7 +276,6 @@ public class InfoController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 		
 	}
@@ -293,7 +301,6 @@ public class InfoController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 	}
 	
@@ -317,7 +324,7 @@ public class InfoController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -348,7 +355,7 @@ public class InfoController {
 		mav.addObject("replyAddAction","/info/infoSecTechReplyAdd.do");
 		mav.addObject("replyDelAction","/info/infoSecTechReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoSecTechReplyUpdate.do");
-			
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -357,6 +364,7 @@ public class InfoController {
 		ModelAndView mav = new ModelAndView("info/info_secTech_write");
 		mav.addObject("listPage","/info/infoSecTech.do");
 		mav.addObject("insertAction","/info/infoSecTechWriteProcess.do");
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -382,6 +390,7 @@ public class InfoController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}	
 	
@@ -503,7 +512,6 @@ public class InfoController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 		
 	}
@@ -530,7 +538,6 @@ public class InfoController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 		
 	}
@@ -556,7 +563,268 @@ public class InfoController {
 			// TODO: 에러처리
 			
 		}
+		return mav;
+	}
+	
+	@RequestMapping(value="infoTheme.do")
+	public ModelAndView infoTheme(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("info/info_theme");
 		
+		logger.debug("requestMap : " + requestMap);
+		
+		try {
+				requestMap.put("boardName", CommonConstant.INFOTHEME_BOARD);
+				Map<String, Object> boardInfo = boardService.selectBoardList(requestMap);
+								
+				mav.addObject("list",boardInfo.get("list"));
+				mav.addObject("page",boardInfo.get("page"));
+				mav.addObject("currentPage",requestMap.get("currentPage"));
+				mav.addObject("viewPage","/info/infoThemeView.do");
+				mav.addObject("writePage","/info/infoThemeWrite.do");
+				
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("공지사항 불러오기 에러");			
+		}
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		return mav;
+	}
+	
+	@RequestMapping(value = "infoThemeView.do")
+	public ModelAndView infoThemeView(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		
+		ModelAndView mav = new ModelAndView("info/info_theme_view");
+		
+		requestMap.put("boardName", CommonConstant.INFOTHEME_BOARD);	
+		Map<String, Object> resultMap = boardService.selectBoardViewInfo(requestMap);
+		
+		if(resultMap.get("boardInfoMap") != null){
+			
+			Map<String, Object> boardInfoMap = new HashMap<String, Object>(); 
+			boardInfoMap = (Map<String, Object>) resultMap.get("boardInfoMap");
+			
+			mav.addObject("list",boardInfoMap.get("list"));
+			mav.addObject("page",boardInfoMap.get("page"));
+		}
+		
+		mav.addObject("fileList",resultMap.get("fileList"));
+		mav.addObject("boardInfo",resultMap.get("boardInfo"));
+		mav.addObject("currentPage", resultMap.get("currentPage"));
+		
+		mav.addObject("listPage","/info/infoTheme.do");
+		mav.addObject("updateAction","/info/infoThemeUpdate.do");
+		mav.addObject("deleteAction","/info/infoThemeDeleteProcess.do");
+		mav.addObject("replyAddAction","/info/infoThemeReplyAdd.do");
+		mav.addObject("replyDelAction","/info/infoThemeReplyDel.do");
+		mav.addObject("replyUpdAction","/info/infoThemeReplyUpdate.do");
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		return mav;
+	}
+	
+	@RequestMapping(value="infoThemeWrite.do")
+	public ModelAndView infoThemeWrite(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("info/info_theme_write");
+		mav.addObject("listPage","/info/infoTheme.do");
+		mav.addObject("insertAction","/info/infoThemeWriteProcess.do");
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		return mav;
+	}
+	
+	@RequestMapping(value="infoThemeUpdate.do")
+	public ModelAndView infoThemeUpdate(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("info/info_theme_write");
+		logger.debug("requetsMap : " + requestMap);
+		
+		try {
+			requestMap.put("boardName", CommonConstant.INFOTHEME_BOARD);
+			Map<String, Object> resultMap = boardService.selectBoardUpdateInfo(requestMap);
+			
+			mav.addObject("boardInfo",resultMap.get("boardInfo"));
+			mav.addObject("fileList",resultMap.get("fileList"));
+			
+			if(resultMap.get("file")!=null){
+				mav.addObject("file",resultMap.get("file"));
+			}
+			
+			mav.addObject("isUpdate","true");
+			mav.addObject("updateAction","/info/infoThemeUpdateProcess.do");
+			
+		} catch (Exception e) {
+			// TODO: 에러처리
+		}
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		return mav;
+	}	
+	
+	@RequestMapping(value="infoThemeWriteProcess.do")
+	public void infoThemeWriteProcess(@RequestParam Map<String, Object> requestMap, MultipartHttpServletRequest request, HttpServletResponse response){
+		
+		logger.debug("requestMap : " + requestMap);
+		int result = 0;
+		
+		try {
+			if("NotNull".equals(StringUtil.nullCheckMap((HashMap<String, Object>) requestMap))){
+				
+				requestMap.put("boardName", CommonConstant.INFOTHEME_BOARD);
+				requestMap.put("multipartRequest", request);
+				result = boardService.insertBoardProcess(requestMap);
+				
+				if(result == 1){
+					response.sendRedirect("/info/infoTheme.do");
+				} else {
+					// TODO 에러페이지
+					response.sendRedirect("/main/error.do");
+				}
+			} else {
+				// TODO 에러페이지
+				response.sendRedirect("/main/error.do");
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(value="infoThemeUpdateProcess.do")
+	public void infoThemeUpdateProcess(@RequestParam Map<String, Object> requestMap, MultipartHttpServletRequest request, HttpServletResponse response){
+		
+		logger.debug("requestMap : " + requestMap);
+		int result = 0;
+		
+		try{
+			
+			if("NotNull".equals(StringUtil.nullCheckMap((HashMap<String, Object>) requestMap))){
+				
+				requestMap.put("boardName", CommonConstant.INFOTHEME_BOARD);
+				requestMap.put("multipartRequest", request);
+				
+				result = boardService.updateBoardProcess(requestMap);
+				
+				if(result == 1){
+					response.sendRedirect("/info/infoTheme.do");
+				} else {
+					//TODO 에러 페이지
+					response.sendRedirect("/main/error.do");
+				}
+				
+			} else {
+				// TODO 에러페이지 처리
+				response.sendRedirect("/main/error.do");
+			}
+			
+		} catch (IOException e) {
+			// TODO 에러 페이지 처리
+			
+		}	
+	}
+	
+	@RequestMapping(value="infoThemeDeleteProcess.do")
+	public void infoThemeDeleteProcess(@RequestParam Map<String, Object> requestMap, HttpServletRequest request, HttpServletResponse response){
+		
+		logger.debug("requestMap : " + requestMap);
+		int result = 0;
+		
+		try{
+			
+			if("NotNull".equals(StringUtil.nullCheckMap((HashMap<String, Object>) requestMap))){
+				
+				requestMap.put("boardName", CommonConstant.INFOTHEME_BOARD);
+				requestMap.put("path", request.getSession().getServletContext().getRealPath("/"));
+				
+				result = boardService.deleteBoardProcess(requestMap);
+				
+				if(result == 1){
+					response.sendRedirect("/info/infoTheme.do");
+				} else {
+					//TODO 에러 페이지
+					response.sendRedirect("/main/error.do");
+				}
+				
+			} else {
+				// TODO 에러페이지 처리
+				response.sendRedirect("/main/error.do");
+			}
+			
+		} catch (IOException e) {
+			// TODO 에러 페이지 처리
+			
+		}	
+	}
+	
+	@RequestMapping(value = "infoThemeReplyAdd.do")
+	public ModelAndView infoThemeReplyAdd(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		
+		ModelAndView mav = new ModelAndView("main/commonPage");
+		
+		try {
+			 
+			 requestMap.put("boardName", CommonConstant.INFOTHEME_BOARD);
+			 Map<String, Object> resultMap = boardService.insertReplyProcess(requestMap);
+			 
+			 if((Integer) resultMap.get("result") == 1){
+				 mav.addObject("page","/info/infoThemeView.do");
+				 mav.addObject("seq",resultMap.get("seq"));
+			 } else {
+				 // TODO 에러처리
+				 response.sendRedirect("/main/error.do");
+			 }
+			 
+		} catch (Exception e) {
+			// TODO: 에러처리
+			
+		}
+		return mav;
+		
+	}
+	
+	@RequestMapping(value = "infoThemeReplyDel.do")
+	public ModelAndView infoThemeReplyDel(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		
+		ModelAndView mav = new ModelAndView("main/commonPage");
+		
+		try {
+			
+			 requestMap.put("boardName", CommonConstant.INFOTHEME_BOARD); 
+			 Map<String, Object> resultMap = boardService.deleteReplyProcess(requestMap);
+			 
+			 if((Integer) resultMap.get("result") == 1){
+				 mav.addObject("page","/info/infoThemeView.do");
+				 mav.addObject("seq",resultMap.get("seq"));
+			 } else {
+				 // TODO 에러처리
+				 response.sendRedirect("/main/error.do");
+			 }
+			
+		} catch (Exception e) {
+			// TODO: 에러처리
+			
+		}
+		return mav;
+		
+	}
+	
+	@RequestMapping(value = "infoThemeReplyUpdate.do")
+	public ModelAndView infoThemeReplyUpdate(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("main/commonPage");
+		
+		try {
+			
+			  requestMap.put("boardName", CommonConstant.INFOTHEME_BOARD);
+			  Map<String, Object> resultMap = boardService.updateReplyProcess(requestMap);
+				 
+			  if((Integer) resultMap.get("result") == 1){
+				  mav.addObject("page","/info/infoThemeView.do");
+				  mav.addObject("seq",resultMap.get("seq"));
+			  } else {
+				 // TODO 에러처리
+				  response.sendRedirect("/main/error.do");
+			  }
+			
+		} catch (Exception e) {
+			// TODO: 에러처리
+			
+		}
 		return mav;
 	}
 	
@@ -580,7 +848,7 @@ public class InfoController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -611,7 +879,7 @@ public class InfoController {
 		mav.addObject("replyAddAction","/info/infoRealStockReplyAdd.do");
 		mav.addObject("replyDelAction","/info/infoRealStockReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoRealStockReplyUpdate.do");
-			
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -620,6 +888,7 @@ public class InfoController {
 		ModelAndView mav = new ModelAndView("info/info_realStock_write");
 		mav.addObject("listPage","/info/infoRealStock.do");
 		mav.addObject("insertAction","/info/infoRealStockWriteProcess.do");
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -645,6 +914,7 @@ public class InfoController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}	
 	
@@ -766,7 +1036,6 @@ public class InfoController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 		
 	}
@@ -793,7 +1062,6 @@ public class InfoController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 		
 	}
@@ -819,7 +1087,6 @@ public class InfoController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 	}
 	
@@ -843,7 +1110,7 @@ public class InfoController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -874,7 +1141,7 @@ public class InfoController {
 		mav.addObject("replyAddAction","/info/infoStockBriefingReplyAdd.do");
 		mav.addObject("replyDelAction","/info/infoStockBriefingReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoStockBriefingReplyUpdate.do");
-			
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -883,6 +1150,7 @@ public class InfoController {
 		ModelAndView mav = new ModelAndView("info/info_stockBriefing_write");
 		mav.addObject("listPage","/info/infoStockBriefing.do");
 		mav.addObject("insertAction","/info/infoStockBriefingWriteProcess.do");
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -908,6 +1176,7 @@ public class InfoController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}	
 	
@@ -1029,7 +1298,6 @@ public class InfoController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 		
 	}
@@ -1056,7 +1324,6 @@ public class InfoController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 		
 	}
@@ -1082,7 +1349,6 @@ public class InfoController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 	}
 	
@@ -1106,7 +1372,7 @@ public class InfoController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -1137,7 +1403,7 @@ public class InfoController {
 		mav.addObject("replyAddAction","/info/infoGInterviewReplyAdd.do");
 		mav.addObject("replyDelAction","/info/infoGInterviewReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoGInterviewReplyUpdate.do");
-			
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -1146,6 +1412,7 @@ public class InfoController {
 		ModelAndView mav = new ModelAndView("info/info_gInterview_write");
 		mav.addObject("listPage","/info/infoGInterview.do");
 		mav.addObject("insertAction","/info/infoGInterviewWriteProcess.do");
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -1171,6 +1438,7 @@ public class InfoController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}	
 	
@@ -1292,7 +1560,6 @@ public class InfoController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 		
 	}
@@ -1319,7 +1586,6 @@ public class InfoController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 		
 	}
@@ -1345,7 +1611,6 @@ public class InfoController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 	}
 	

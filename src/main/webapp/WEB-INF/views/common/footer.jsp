@@ -34,6 +34,7 @@
                             <ul class="sitemap_list2">
                                 <li><a href="/info/infoFreeRec.do">일급무료종목추천</a></li>
                                 <li><a href="/info/infoSecTech.do">식스비기</a></li>
+                                <li><a href="/info/infoTheme.do">테마정보</a></li>
                                 <li><a href="/info/infoRealStock.do">실시간 증시일정</a></li>
                                 <li><a href="/info/infoStockBriefing.do">증시브리핑</a></li>
                                 <li><a href="/info/infoGInterview.do">고수들의 인터뷰</a></li>

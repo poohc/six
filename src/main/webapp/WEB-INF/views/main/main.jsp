@@ -7,6 +7,7 @@
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
+<script type="text/javascript" src="/resources/js/boardMain.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		
@@ -29,91 +30,6 @@
 		});		
 		
 	});
-	
-	function goBoardList(boardName){
-		
-		var action;
-		
-		switch (boardName) {
-		
-		case 'SIX_ACADEMY': action = '/academy/academyMain.do';
-		      break;
-		case 'SIX_INFO': action = '/info/infoMain.do';
-		      break;
-		case 'SIX_COMMSPEICAL_BOARD': action = '/community/communitySpeical.do';
-		      break;
-		case 'SIX_MARKETFREE_BOARD': action = '/market/marketFree.do';
-			  break;
-		case 'SIX_MARKETISTRATEGY_BOARD': action = '/market/marketIstrategy.do';
-			  break;
-		case 'SIX_MARKETANALYSIS_BOARD': action = '/market/marketAnalysis.do';
-		  	  break;
-		case 'SIX_MARKETPAY_BOARD': action = '/market/marketPay.do';
-		      break;
-		case 'SIX_MARKETBARGAIN_BOARD': action = '/market/marketBargain.do';
-		  	  break;
-		case 'SIX_MARKETADV_BOARD': action = '/market/marketAdv.do';
-		  	  break;
-		case 'SIX_LEARNCENTER_BOARD': action = '/academy/academyLearningCenter.do';
-		  	  break;
-		case 'SIX_LEARNSTRATEGY_BOARD': action = '/academy/academyInvestStrategy.do';
-		  	  break;
-		case 'SIX_SNOTE_BOARD': action = '/academy/academySearchNote.do';
-		  	  break;
-		case 'SIX_INFOSECTECH_BOARD': action = '/info/infoSecTech.do';
-		  	  break;
-		case 'SIX_INFOSTOCKBRIEFING_BOARD': action = '/info/infoStockBriefing.do';
-		  	  break;
-		case 'SIX_INFOGINTERVIEW_BOARD': action = '/info/infoGInterview.do';
-	  	  	  break;
-		default:
-			break;
-		}
-		
-		$('#loginForm').attr('action',action);
-		$('#loginForm').submit();	
-		
-	}
-	
-	function goBoardView(boardName,seq){
-		
-		var action;
-		$('#seq').val(seq);
-		
-		switch (boardName) {
-		
-		case 'SIX_MARKETFREE_BOARD': action = '/market/marketFreeView.do';
-			  break;
-		case 'SIX_MARKETISTRATEGY_BOARD': action = '/market/marketIstrategyView.do';
-			  break;
-		case 'SIX_MARKETANALYSIS_BOARD': action = '/market/marketAnalysisView.do';
-		  	  break;
-		case 'SIX_MARKETPAY_BOARD': action = '/market/marketPayView.do';
-		      break;
-		case 'SIX_MARKETBARGAIN_BOARD': action = '/market/marketBargainView.do';
-		  	  break;
-		case 'SIX_MARKETADV_BOARD': action = '/market/marketAdvView.do';
-		  	  break;
-		case 'SIX_LEARNCENTER_BOARD': action = '/academy/academyLearningCenterView.do';
-		  	  break;
-		case 'SIX_LEARNSTRATEGY_BOARD': action = '/academy/academyInvestStrategyView.do';
-		  	  break;
-		case 'SIX_SNOTE_BOARD': action = '/academy/academySearchNoteView.do';
-		  	  break;
-		case 'SIX_INFOSECTECH_BOARD': action = '/info/infoSecTechView.do';
-		  	  break;
-		case 'SIX_INFOSTOCKBRIEFING_BOARD': action = '/info/infoStockBriefingView.do';
-		  	  break;
-		case 'SIX_INFOGINTERVIEW_BOARD': action = '/info/infoGInterviewView.do';
-	  	  	  break;
-		default:
-			break;
-		}
-		
-		$('#loginForm').attr('action',action);
-		$('#loginForm').submit();	
-		
-	}
 	
 </script>
 </head>
@@ -415,9 +331,16 @@
                     <ul class="look_list">
                     	<c:choose>
                           	<c:when test="${fn:length(boardList.SIX_MARKETFREE_BOARD) > 0}">
-                          		<c:forEach items="${boardList.SIX_MARKETFREE_BOARD}" var="list" end="3">
-                                	<li><a href="javascript:goBoardView('SIX_MARKETFREE_BOARD','${list.SEQ}')">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>
-                                </c:forEach>
+                          	   <c:forEach begin="0" end="3" varStatus="loop">
+                          	   <c:choose>                          	   	   
+	                          	   <c:when test="${fn:length(boardList.SIX_MARKETFREE_BOARD) < loop.count}">
+	                          	   	   <li>&nbsp;</li>	
+	                          	   </c:when>
+	                          	   <c:otherwise>
+		                          	   <li><a href="javascript:goBoardView('SIX_MARKETFREE_BOARD',${boardList.SIX_MARKETFREE_BOARD[loop.index].SEQ})">${boardList.SIX_MARKETFREE_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_MARKETFREE_BOARD[loop.index].CREATE_DATE}</span></li>
+	                               </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
                           	</c:when>
                           	<c:otherwise>
                           		<li>게시글이 없습니다.</li>
@@ -434,9 +357,16 @@
                     <ul class="look_list">
                         <c:choose>
                           	<c:when test="${fn:length(boardList.SIX_MARKETISTRATEGY_BOARD) > 0}">
-                          		<c:forEach items="${boardList.SIX_MARKETISTRATEGY_BOARD}" var="list" end="3">
-                                	<li><a href="javascript:goBoardView('SIX_MARKETISTRATEGY_BOARD','${list.SEQ}')">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>
-                                </c:forEach>
+                          	   <c:forEach begin="0" end="3" varStatus="loop">
+                          	   <c:choose>                          	   	   
+	                          	   <c:when test="${fn:length(boardList.SIX_MARKETISTRATEGY_BOARD) < loop.count}">
+	                          	   	   <li>&nbsp;</li>	
+	                          	   </c:when>
+	                          	   <c:otherwise>
+		                          	   <li><a href="javascript:goBoardView('SIX_MARKETISTRATEGY_BOARD',${boardList.SIX_MARKETISTRATEGY_BOARD[loop.index].SEQ})">${boardList.SIX_MARKETISTRATEGY_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_MARKETISTRATEGY_BOARD[loop.index].CREATE_DATE}</span></li>
+	                               </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
                           	</c:when>
                           	<c:otherwise>
                           		<li>게시글이 없습니다.</li>
@@ -453,9 +383,16 @@
                     <ul class="look_list">
                         <c:choose>
                           	<c:when test="${fn:length(boardList.SIX_MARKETANALYSIS_BOARD) > 0}">
-                          		<c:forEach items="${boardList.SIX_MARKETANALYSIS_BOARD}" var="list" end="3">
-                                	<li><a href="javascript:goBoardView('SIX_MARKETANALYSIS_BOARD','${list.SEQ}')">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>
-                                </c:forEach>
+                          	   <c:forEach begin="0" end="3" varStatus="loop">
+                          	   <c:choose>                          	   	   
+	                          	   <c:when test="${fn:length(boardList.SIX_MARKETANALYSIS_BOARD) < loop.count}">
+	                          	   	   <li>&nbsp;</li>	
+	                          	   </c:when>
+	                          	   <c:otherwise>
+		                          	   <li><a href="javascript:goBoardView('SIX_MARKETANALYSIS_BOARD',${boardList.SIX_MARKETANALYSIS_BOARD[loop.index].SEQ})">${boardList.SIX_MARKETANALYSIS_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_MARKETANALYSIS_BOARD[loop.index].CREATE_DATE}</span></li>
+	                               </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
                           	</c:when>
                           	<c:otherwise>
                           		<li>게시글이 없습니다.</li>
@@ -472,9 +409,16 @@
                     <ul class="look_list">
                         <c:choose>
                           	<c:when test="${fn:length(boardList.SIX_MARKETPAY_BOARD) > 0}">
-                          		<c:forEach items="${boardList.SIX_MARKETPAY_BOARD}" var="list" end="3">
-                                	<li><a href="javascript:goBoardView('SIX_MARKETPAY_BOARD','${list.SEQ}')">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>
-                                </c:forEach>
+                          	   <c:forEach begin="0" end="3" varStatus="loop">
+                          	   <c:choose>                          	   	   
+	                          	   <c:when test="${fn:length(boardList.SIX_MARKETPAY_BOARD) < loop.count}">
+	                          	   	   <li>&nbsp;</li>	
+	                          	   </c:when>
+	                          	   <c:otherwise>
+		                          	   <li><a href="javascript:goBoardView('SIX_MARKETPAY_BOARD',${boardList.SIX_MARKETPAY_BOARD[loop.index].SEQ})">${boardList.SIX_MARKETPAY_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_MARKETPAY_BOARD[loop.index].CREATE_DATE}</span></li>
+	                               </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
                           	</c:when>
                           	<c:otherwise>
                           		<li>게시글이 없습니다.</li>
@@ -491,9 +435,16 @@
                     <ul class="look_list">
                         <c:choose>
                           	<c:when test="${fn:length(boardList.SIX_MARKETBARGAIN_BOARD) > 0}">
-                          		<c:forEach items="${boardList.SIX_MARKETBARGAIN_BOARD}" var="list" end="3">
-                                	<li><a href="javascript:goBoardView('SIX_MARKETBARGAIN_BOARD','${list.SEQ}')">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>
-                                </c:forEach>
+                          	   <c:forEach begin="0" end="3" varStatus="loop">
+                          	   <c:choose>                          	   	   
+	                          	   <c:when test="${fn:length(boardList.SIX_MARKETBARGAIN_BOARD) < loop.count}">
+	                          	   	   <li>&nbsp;</li>	
+	                          	   </c:when>
+	                          	   <c:otherwise>
+		                          	   <li><a href="javascript:goBoardView('SIX_MARKETBARGAIN_BOARD',${boardList.SIX_MARKETBARGAIN_BOARD[loop.index].SEQ})">${boardList.SIX_MARKETBARGAIN_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_MARKETBARGAIN_BOARD[loop.index].CREATE_DATE}</span></li>
+	                               </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
                           	</c:when>
                           	<c:otherwise>
                           		<li>게시글이 없습니다.</li>
@@ -510,9 +461,16 @@
                     <ul class="look_list">
                         <c:choose>
                           	<c:when test="${fn:length(boardList.SIX_MARKETADV_BOARD) > 0}">
-                          		<c:forEach items="${boardList.SIX_MARKETADV_BOARD}" var="list" end="3">
-                                <li><a href="javascript:goBoardView('SIX_MARKETADV_BOARD','${list.SEQ}')">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>
-                               </c:forEach>
+                          	   <c:forEach begin="0" end="3" varStatus="loop">
+                          	   <c:choose>                          	   	   
+	                          	   <c:when test="${fn:length(boardList.SIX_MARKETADV_BOARD) < loop.count}">
+	                          	   	   <li>&nbsp;</li>	
+	                          	   </c:when>
+	                          	   <c:otherwise>
+		                          	   <li><a href="javascript:goBoardView('SIX_MARKETADV_BOARD',${boardList.SIX_MARKETADV_BOARD[loop.index].SEQ})">${boardList.SIX_MARKETADV_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_MARKETADV_BOARD[loop.index].CREATE_DATE}</span></li>
+	                               </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
                           	</c:when>
                           	<c:otherwise>
                           		<li>게시글이 없습니다.</li>
@@ -560,133 +518,172 @@
                     <p class="look_title"><span>SIX</span>주식 배움터</p>
                     <a href="javaScript:goBoardList('SIX_LEARNCENTER_BOARD')" class="look_more2"><img src="/resources/img/view_more2.png" alt="더보기"></a>
                     <c:choose>
-                    	<c:when test="${fn:length(boardList.SIX_LEARNCENTER_BOARD) > 0}">
-                      		<c:forEach items="${boardList.SIX_LEARNCENTER_BOARD}" var="list" varStatus="loop">
-                      			<c:choose>
-                      			<c:when test="${loop.index eq 0}">
-                      				<c:choose>
-                      				<c:when test="${fn:length(list.THUMB_IMAGE) > 0}">
-                      					<c:out value="${list.THUMB_IMAGE}" escapeXml="false" />
-                      				</c:when>
-                      				<c:otherwise>
-                      					<img src="/resources/img/ahead2.gif" alt="주식배움터이미지">
-                      				</c:otherwise>
-                      				</c:choose>
-                      				<a href="javascript:goBoardView('SIX_LEARNCENTER_BOARD','${list.SEQ}')" class="ahead_text">
-			                            <p class="aheadtext_title" style="overflow: hidden;white-space: nowrap;text-overflow:ellipsis;">${list.TITLE}</p>
-			                            <p class="aheadtext_title2" style="overflow: hidden;white-space: nowrap;text-overflow:ellipsis;">
-			                            	<c:out value="${list.PARSE_CONTENTS}" escapeXml="false"/>
-			                            </p>
-			                            <p class="aheadtext_title3">${list.CREATE_DATE}</p>
-		                        	</a>	
-                      			</c:when>
-                      			<c:otherwise>
-                      			<ul class="look_list2">
-			                        <li><a href="javascript:goBoardView('SIX_LEARNCENTER_BOARD','${list.SEQ}')">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>			                        
-			                    </ul>	
-                      			</c:otherwise>
-                      			</c:choose>	
-                            </c:forEach>
-                      	</c:when>
-                      	<c:otherwise>
-                      		<img src="/resources/img/ahead2.gif" alt="">
-                            <p class="aheadtext_title">게시글이 없습니다.</p>
-                        	<ul class="look_list2">
-                      		<li>게시글이 없습니다.</li>
-                      		<li>&nbsp;</li>
-                      		<li>&nbsp;</li>
-                      		<li>&nbsp;</li>
-                      		</ul>
-                      	</c:otherwise>                            	
-                    </c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_LEARNCENTER_BOARD) > 0}">
+                          	   <c:forEach begin="0" end="4" varStatus="loop">
+                          	   <c:choose>
+                          	   	   <c:when test="${loop.index eq 0}">
+                          	   	   	   <div class="ahead_top">
+                          	   	   	   <c:choose>
+									      <c:when test="${fn:length(boardList.SIX_LEARNCENTER_BOARD[loop.index].THUMB_IMAGE) > 0}">
+										   	   <c:out value="${boardList.SIX_LEARNCENTER_BOARD[loop.index].THUMB_IMAGE}" escapeXml="false" />
+										   </c:when>
+										   <c:otherwise>
+										   	   <img src="/resources/img/ahead2.gif" alt="주식배움터 썸네일 기본이미지">	
+										   </c:otherwise>
+									   </c:choose>										   
+									   <a href="javascript:goBoardView('SIX_LEARNCENTER_BOARD','${boardList.SIX_LEARNCENTER_BOARD[loop.index].SEQ}')" class="ahead_text type2">
+			                               <p class="aheadtext_title">${boardList.SIX_LEARNCENTER_BOARD[loop.index].TITLE}</p>
+			                               <p class="aheadtext_title2">${boardList.SIX_LEARNCENTER_BOARD[loop.index].PARSE_CONTENTS}</p>
+			                               <p class="aheadtext_title3">${boardList.SIX_LEARNCENTER_BOARD[loop.index].CREATE_DATE}</p>
+			                           </a>
+			                           </div>	                          	   	   
+                          	   	   </c:when>
+                          	   	   <c:otherwise>
+                          	   	   	   <ul class="look_list2">
+                          	   	   	   <c:choose>
+	                          	   	   	   <c:when test="${fn:length(boardList.SIX_LEARNCENTER_BOARD) >= loop.count}">
+										   	  <li><a href="javascript:goBoardView('SIX_LEARNCENTER_BOARD',${boardList.SIX_LEARNCENTER_BOARD[loop.index].SEQ})">${boardList.SIX_LEARNCENTER_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_LEARNCENTER_BOARD[loop.index].CREATE_DATE}</span></li>		                          	   	   	
+			                          	   </c:when>
+			                          	   <c:otherwise>
+											  <li>&nbsp;</li>	                          	   	   		                          	   
+			                               </c:otherwise>
+		                               </c:choose>
+								   	   </ul>	                          	   	   
+                          	   	   </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
+                          	</c:when>
+                          	<c:otherwise>
+                          		<div class="ahead_top">
+		                            <img src="/resources/img/ahead2.gif" alt="">
+		                            <a href="#" class="ahead_text">
+		                                <p class="aheadtext_title">게시물이 없습니다.</p>
+		                                <p class="aheadtext_title2">&nbsp;</p>
+		                                <p class="aheadtext_title3">&nbsp;</p>
+		                            </a>
+		                        </div>
+		                        <ul class="look_list2">
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                        </ul>
+                          	</c:otherwise>                            	
+                       	</c:choose>
                 </li>
                 <li>
                     <p class="look_title"><span>SIX</span>투자 전략</p>
                     <a href="javaScript:goBoardList('SIX_LEARNSTRATEGY_BOARD')" class="look_more2"><img src="/resources/img/view_more2.png" alt="더보기"></a>
                     <c:choose>
-                    	<c:when test="${fn:length(boardList.SIX_LEARNSTRATEGY_BOARD) > 0}">
-                      		<c:forEach items="${boardList.SIX_LEARNSTRATEGY_BOARD}" var="list" varStatus="loop">
-                      			<c:choose>
-                      			<c:when test="${loop.index eq 0}">
-                      				<c:choose>
-                      				<c:when test="${fn:length(list.THUMB_IMAGE) > 0}">
-                      					<c:out value="${list.THUMB_IMAGE}" escapeXml="false" />
-                      				</c:when>
-                      				<c:otherwise>
-                      					<img src="/resources/img/ahead2.gif" alt="주식배움터이미지">
-                      				</c:otherwise>
-                      				</c:choose>
-                      				<a href="javascript:goBoardView('SIX_LEARNSTRATEGY_BOARD','${list.SEQ}')" class="ahead_text">
-			                            <p class="aheadtext_title" style="overflow: hidden;white-space: nowrap;text-overflow:ellipsis;">${list.TITLE}</p>
-			                            <p class="aheadtext_title2" style="overflow: hidden;white-space: nowrap;text-overflow:ellipsis;">
-			                            	<c:out value="${list.PARSE_CONTENTS}" escapeXml="false"/>
-			                            </p>
-			                            <p class="aheadtext_title3">${list.CREATE_DATE}</p>
-		                        	</a>	
-                      			</c:when>
-                      			<c:otherwise>
-                      			<ul class="look_list2">
-			                        <li><a href="javascript:goBoardView('SIX_LEARNSTRATEGY_BOARD','${list.SEQ}')">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>			                        
-			                    </ul>	
-                      			</c:otherwise>
-                      			</c:choose>	
-                            </c:forEach>
-                      	</c:when>
-                      	<c:otherwise>
-                      		<img src="/resources/img/ahead2.gif" alt="">
-                        	<p class="aheadtext_title">게시글이 없습니다.</p>
-                        	<ul class="look_list2">
-                      		<li>게시글이 없습니다.</li>
-                      		<li>&nbsp;</li>
-                      		<li>&nbsp;</li>
-                      		<li>&nbsp;</li>
-                      		</ul>
-                      	</c:otherwise>                            	
-                    </c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_LEARNSTRATEGY_BOARD) > 0}">
+                          	   <c:forEach begin="0" end="4" varStatus="loop">
+                          	   <c:choose>
+                          	   	   <c:when test="${loop.index eq 0}">
+                          	   	   	   <div class="ahead_top">
+                          	   	   	   <c:choose>
+									      <c:when test="${fn:length(boardList.SIX_LEARNSTRATEGY_BOARD[loop.index].THUMB_IMAGE) > 0}">
+										   	   <c:out value="${boardList.SIX_LEARNSTRATEGY_BOARD[loop.index].THUMB_IMAGE}" escapeXml="false" />
+										   </c:when>
+										   <c:otherwise>
+										   	   <img src="/resources/img/ahead2.gif" alt="주식배움터 썸네일 기본이미지">	
+										   </c:otherwise>
+									   </c:choose>										   
+									   <a href="javascript:goBoardView('SIX_LEARNSTRATEGY_BOARD','${boardList.SIX_LEARNSTRATEGY_BOARD[loop.index].SEQ}')" class="ahead_text type2">
+			                               <p class="aheadtext_title">${boardList.SIX_LEARNSTRATEGY_BOARD[loop.index].TITLE}</p>
+			                               <p class="aheadtext_title2">${boardList.SIX_LEARNSTRATEGY_BOARD[loop.index].PARSE_CONTENTS}</p>
+			                               <p class="aheadtext_title3">${boardList.SIX_LEARNSTRATEGY_BOARD[loop.index].CREATE_DATE}</p>
+			                           </a>
+			                           </div>	                          	   	   
+                          	   	   </c:when>
+                          	   	   <c:otherwise>
+                          	   	   	   <ul class="look_list2">
+                          	   	   	   <c:choose>
+	                          	   	   	   <c:when test="${fn:length(boardList.SIX_LEARNSTRATEGY_BOARD) >= loop.count}">
+										   	  <li><a href="javascript:goBoardView('SIX_LEARNSTRATEGY_BOARD',${boardList.SIX_LEARNSTRATEGY_BOARD[loop.index].SEQ})">${boardList.SIX_LEARNSTRATEGY_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_LEARNSTRATEGY_BOARD[loop.index].CREATE_DATE}</span></li>		                          	   	   	
+			                          	   </c:when>
+			                          	   <c:otherwise>
+											  <li>&nbsp;</li>	                          	   	   		                          	   
+			                               </c:otherwise>
+		                               </c:choose>
+								   	   </ul>	                          	   	   
+                          	   	   </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
+                          	</c:when>
+                          	<c:otherwise>
+                          		<div class="ahead_top">
+		                            <img src="/resources/img/ahead2.gif" alt="">
+		                            <a href="#" class="ahead_text">
+		                                <p class="aheadtext_title">게시물이 없습니다.</p>
+		                                <p class="aheadtext_title2">&nbsp;</p>
+		                                <p class="aheadtext_title3">&nbsp;</p>
+		                            </a>
+		                        </div>
+		                        <ul class="look_list2">
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                        </ul>
+                          	</c:otherwise>                            	
+                       	</c:choose>
                 </li>
                 <li>
                     <p class="look_title"><span>SIX</span>탐방노트</p>
                     <a href="javaScript:goBoardList('SIX_SNOTE_BOARD')" class="look_more2"><img src="/resources/img/view_more2.png" alt="더보기"></a>
                     <c:choose>
-                    	<c:when test="${fn:length(boardList.SIX_SNOTE_BOARD) > 0}">
-                      		<c:forEach items="${boardList.SIX_SNOTE_BOARD}" var="list" varStatus="loop">
-                      			<c:choose>
-                      			<c:when test="${loop.index eq 0}">
-                      				<c:choose>
-                      				<c:when test="${fn:length(list.THUMB_IMAGE) > 0}">
-                      					<c:out value="${list.THUMB_IMAGE}" escapeXml="false" />
-                      				</c:when>
-                      				<c:otherwise>
-                      					<img src="/resources/img/ahead2.gif" alt="주식배움터이미지">
-                      				</c:otherwise>
-                      				</c:choose>
-                      				<a href="javascript:goBoardView('SIX_SNOTE_BOARD','${list.SEQ}')" class="ahead_text">
-			                            <p class="aheadtext_title" style="overflow: hidden;white-space: nowrap;text-overflow:ellipsis;">${list.TITLE}</p>
-			                            <p class="aheadtext_title2" style="overflow: hidden;white-space: nowrap;text-overflow:ellipsis;">
-			                            	<c:out value="${list.PARSE_CONTENTS}" escapeXml="false"/>
-			                            </p>
-			                            <p class="aheadtext_title3">${list.CREATE_DATE}</p>
-		                        	</a>	
-                      			</c:when>
-                      			<c:otherwise>
-                      			<ul class="look_list2">
-			                        <li><a href="javascript:goBoardView('SIX_SNOTE_BOARD','${list.SEQ}')">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>			                        
-			                    </ul>	
-                      			</c:otherwise>
-                      			</c:choose>	
-                            </c:forEach>
-                      	</c:when>
-                      	<c:otherwise>
-                      		<img src="/resources/img/ahead2.gif" alt="">
-                       	    <p class="aheadtext_title">게시글이 없습니다.</p>
-                        	<ul class="look_list2">
-                      		<li>게시글이 없습니다.</li>
-                      		<li>&nbsp;</li>
-                      		<li>&nbsp;</li>
-                      		<li>&nbsp;</li>
-                      		</ul>
-                      	</c:otherwise>                            	
-                    </c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_SNOTE_BOARD) > 0}">
+                          	   <c:forEach begin="0" end="4" varStatus="loop">
+                          	   <c:choose>
+                          	   	   <c:when test="${loop.index eq 0}">
+                          	   	   	   <div class="ahead_top">
+                          	   	   	   <c:choose>
+									      <c:when test="${fn:length(boardList.SIX_SNOTE_BOARD[loop.index].THUMB_IMAGE) > 0}">
+										   	   <c:out value="${boardList.SIX_SNOTE_BOARD[loop.index].THUMB_IMAGE}" escapeXml="false" />
+										   </c:when>
+										   <c:otherwise>
+										   	   <img src="/resources/img/ahead2.gif" alt="주식배움터 썸네일 기본이미지">	
+										   </c:otherwise>
+									   </c:choose>										   
+									   <a href="javascript:goBoardView('SIX_SNOTE_BOARD','${boardList.SIX_SNOTE_BOARD[loop.index].SEQ}')" class="ahead_text type2">
+			                               <p class="aheadtext_title">${boardList.SIX_SNOTE_BOARD[loop.index].TITLE}</p>
+			                               <p class="aheadtext_title2">${boardList.SIX_SNOTE_BOARD[loop.index].PARSE_CONTENTS}</p>
+			                               <p class="aheadtext_title3">${boardList.SIX_SNOTE_BOARD[loop.index].CREATE_DATE}</p>
+			                           </a>
+			                           </div>	                          	   	   
+                          	   	   </c:when>
+                          	   	   <c:otherwise>
+                          	   	   	   <ul class="look_list2">
+                          	   	   	   <c:choose>
+	                          	   	   	   <c:when test="${fn:length(boardList.SIX_SNOTE_BOARD) >= loop.count}">
+										   	  <li><a href="javascript:goBoardView('SIX_SNOTE_BOARD',${boardList.SIX_SNOTE_BOARD[loop.index].SEQ})">${boardList.SIX_SNOTE_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_SNOTE_BOARD[loop.index].CREATE_DATE}</span></li>		                          	   	   	
+			                          	   </c:when>
+			                          	   <c:otherwise>
+											  <li>&nbsp;</li>	                          	   	   		                          	   
+			                               </c:otherwise>
+		                               </c:choose>
+								   	   </ul>	                          	   	   
+                          	   	   </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
+                          	</c:when>
+                          	<c:otherwise>
+                          		<div class="ahead_top">
+		                            <img src="/resources/img/ahead2.gif" alt="">
+		                            <a href="#" class="ahead_text">
+		                                <p class="aheadtext_title">게시물이 없습니다.</p>
+		                                <p class="aheadtext_title2">&nbsp;</p>
+		                                <p class="aheadtext_title3">&nbsp;</p>
+		                            </a>
+		                        </div>
+		                        <ul class="look_list2">
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                            <li>&nbsp;</li>
+		                        </ul>
+                          	</c:otherwise>                            	
+                       	</c:choose>
                 </li>
             </ul>
 
@@ -697,9 +694,16 @@
                     <ul class="look_list">
                     	<c:choose>
                           	<c:when test="${fn:length(boardList.SIX_INFOSECTECH_BOARD) > 0}">
-                          	   <c:forEach items="${boardList.SIX_INFOSECTECH_BOARD}" var="list" end="3">
-                          	   	  <li><a href="javascript:goBoardView('SIX_INFOSECTECH_BOARD',${list.SEQ})">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>
-                               </c:forEach>
+                          	   <c:forEach begin="0" end="3" varStatus="loop">
+                          	   <c:choose>                          	   	   
+	                          	   <c:when test="${fn:length(boardList.SIX_INFOSECTECH_BOARD) < loop.count}">
+	                          	   	   <li>&nbsp;</li>	
+	                          	   </c:when>
+	                          	   <c:otherwise>
+		                          	   <li><a href="javascript:goBoardView('SIX_INFOSECTECH_BOARD',${boardList.SIX_INFOSECTECH_BOARD[loop.index].SEQ})">${boardList.SIX_INFOSECTECH_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_INFOSECTECH_BOARD[loop.index].CREATE_DATE}</span></li>
+	                               </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
                           	</c:when>
                           	<c:otherwise>
                           		<li>게시글이 없습니다.</li>
@@ -716,9 +720,16 @@
                     <ul class="look_list">
                         <c:choose>
                           	<c:when test="${fn:length(boardList.SIX_INFOSTOCKBRIEFING_BOARD) > 0}">
-                          		<c:forEach items="${boardList.SIX_INFOSTOCKBRIEFING_BOARD}" var="list" end="3" varStatus="loop">
-                          			<li><a href="javascript:goBoardView('SIX_INFOSTOCKBRIEFING_BOARD',${list.SEQ})">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>									
-                                </c:forEach>
+                          	   <c:forEach begin="0" end="3" varStatus="loop">
+                          	   <c:choose>                          	   	   
+	                          	   <c:when test="${fn:length(boardList.SIX_INFOSTOCKBRIEFING_BOARD) < loop.count}">
+	                          	   	   <li>&nbsp;</li>	
+	                          	   </c:when>
+	                          	   <c:otherwise>
+		                          	   <li><a href="javascript:goBoardView('SIX_INFOSTOCKBRIEFING_BOARD',${boardList.SIX_INFOSTOCKBRIEFING_BOARD[loop.index].SEQ})">${boardList.SIX_INFOSTOCKBRIEFING_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_INFOSTOCKBRIEFING_BOARD[loop.index].CREATE_DATE}</span></li>
+	                               </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
                           	</c:when>
                           	<c:otherwise>
                           		<li>게시글이 없습니다.</li>
@@ -735,12 +746,16 @@
                     <ul class="look_list">
                         <c:choose>
                           	<c:when test="${fn:length(boardList.SIX_INFOGINTERVIEW_BOARD) > 0}">
-                          		<c:forEach items="${boardList.SIX_INFOGINTERVIEW_BOARD}" var="list" end="3">
-                                <li><a href="javascript:goBoardView('SIX_INFOGINTERVIEW_BOARD',${list.SEQ})">${list.TITLE}</a><span>${list.CREATE_DATE}</span></li>
-                                <c:if test="${fn:length(list.TITLE) eq 0}">
-                               		<li>&nbsp;</li>		
-                               	</c:if>
-                                </c:forEach>
+                          	   <c:forEach begin="0" end="3" varStatus="loop">
+                          	   <c:choose>                          	   	   
+	                          	   <c:when test="${fn:length(boardList.SIX_INFOGINTERVIEW_BOARD) < loop.count}">
+	                          	   	   <li>&nbsp;</li>	
+	                          	   </c:when>
+	                          	   <c:otherwise>
+		                          	   <li><a href="javascript:goBoardView('SIX_INFOGINTERVIEW_BOARD',${boardList.SIX_INFOGINTERVIEW_BOARD[loop.index].SEQ})">${boardList.SIX_INFOGINTERVIEW_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_INFOGINTERVIEW_BOARD[loop.index].CREATE_DATE}</span></li>
+	                               </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
                           	</c:when>
                           	<c:otherwise>
                           		<li>게시글이 없습니다.</li>
@@ -748,7 +763,7 @@
                           		<li>&nbsp;</li>
                           		<li>&nbsp;</li>
                           	</c:otherwise>                            	
-                        </c:choose>  
+                        </c:choose>
                     </ul>
                 </li>
                 <li>

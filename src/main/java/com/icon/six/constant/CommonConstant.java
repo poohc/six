@@ -23,6 +23,8 @@ public class CommonConstant {
 	public static final String INFOFREEREC_BOARD = "SIX_INFOFREEREC_BOARD";
 	/*SIX 식스 비기 게시판*/
 	public static final String INFOSECTECH_BOARD = "SIX_INFOSECTECH_BOARD";
+	/*SIX 식스 테마정보 게시판*/
+	public static final String INFOTHEME_BOARD = "SIX_INFOTHEME_BOARD";
 	/*SIX 실시간 증시 일정 게시판*/
 	public static final String INFOREALSTOCK_BOARD = "SIX_INFOREALSTOCK_BOARD";
 	/*SIX 증시브리핑 게시판*/

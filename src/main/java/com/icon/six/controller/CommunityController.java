@@ -48,7 +48,7 @@ public class CommunityController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -76,7 +76,7 @@ public class CommunityController {
 		mav.addObject("listPage","/community/communityFreeboard.do");
 		mav.addObject("updateAction","/community/communityFreeboardUpdate.do");
 		mav.addObject("deleteAction","/community/communityFreeboardDeleteProcess.do");
-			
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -85,6 +85,7 @@ public class CommunityController {
 		ModelAndView mav = new ModelAndView("community/community_freeboard_write");
 		mav.addObject("listPage","/community/communityFreeboard.do");
 		mav.addObject("insertAction","/community/communityFreeboardWriteProcess.do");
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -110,6 +111,7 @@ public class CommunityController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}	
 	
@@ -306,7 +308,7 @@ public class CommunityController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -334,7 +336,7 @@ public class CommunityController {
 		mav.addObject("listPage","/community/communityDiscussion.do");
 		mav.addObject("updateAction","/community/communityDiscussionUpdate.do");
 		mav.addObject("deleteAction","/community/communityDiscussionDeleteProcess.do");
-			
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -343,6 +345,7 @@ public class CommunityController {
 		ModelAndView mav = new ModelAndView("community/community_discussion_write");
 		mav.addObject("listPage","/community/communityDiscussion.do");
 		mav.addObject("insertAction","/community/communityDiscussionWriteProcess.do");
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -368,6 +371,7 @@ public class CommunityController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}	
 	
@@ -564,7 +568,7 @@ public class CommunityController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -592,7 +596,7 @@ public class CommunityController {
 		mav.addObject("listPage","/community/communityReview.do");
 		mav.addObject("updateAction","/community/communityReviewUpdate.do");
 		mav.addObject("deleteAction","/community/communityReviewDeleteProcess.do");
-			
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -601,6 +605,7 @@ public class CommunityController {
 		ModelAndView mav = new ModelAndView("community/community_review_write");
 		mav.addObject("listPage","/community/communityReview.do");
 		mav.addObject("insertAction","/community/communityReviewWriteProcess.do");
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -626,6 +631,7 @@ public class CommunityController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}	
 	
@@ -822,7 +828,7 @@ public class CommunityController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -850,7 +856,7 @@ public class CommunityController {
 		mav.addObject("listPage","/community/community_speical.do");
 		mav.addObject("updateAction","/community/community_speicalUpdate.do");
 		mav.addObject("deleteAction","/community/community_speicalDeleteProcess.do");
-			
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -859,6 +865,7 @@ public class CommunityController {
 		ModelAndView mav = new ModelAndView("community/community_speical_write");
 		mav.addObject("listPage","/community/community_speical.do");
 		mav.addObject("insertAction","/community/community_speicalWriteProcess.do");
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -884,6 +891,7 @@ public class CommunityController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}	
 	

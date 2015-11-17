@@ -51,7 +51,7 @@ public class MainController {
 	public ModelAndView introSix(HttpServletRequest request, HttpServletResponse response){
 		
 		ModelAndView mav = new ModelAndView("introduce/intro_six");
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -76,7 +76,7 @@ public class MainController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -105,6 +105,7 @@ public class MainController {
 		mav.addObject("updateAction","/main/introNoticeUpdate.do");
 		mav.addObject("deleteAction","/main/introNoticeDeleteProcess.do");
 		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -114,6 +115,8 @@ public class MainController {
 		ModelAndView mav = new ModelAndView("introduce/intro_notice_write");
 		mav.addObject("listPage","/main/introNoticeView.do");
 		mav.addObject("insertAction","/main/introNoticeWriteProcess.do");
+		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -141,7 +144,7 @@ public class MainController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;		
 	}
 	
@@ -173,6 +176,7 @@ public class MainController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 	
 	@RequestMapping(value = "introNoticeUpdateProcess.do")
@@ -245,7 +249,7 @@ public class MainController {
 	@RequestMapping(value = "introHowToPay.do")
 	public ModelAndView introHowToPay(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("introduce/intro_howTopay");
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -269,7 +273,7 @@ public class MainController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -300,7 +304,8 @@ public class MainController {
 		mav.addObject("replyAddAction","/main/introQnaReplyAdd.do");
 		mav.addObject("replyDelAction","/main/introQnaReplyDel.do");
 		mav.addObject("replyUpdAction","/main/introQnaReplyUpdate.do");
-			
+		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -309,6 +314,7 @@ public class MainController {
 		ModelAndView mav = new ModelAndView("introduce/intro_qna_write");
 		mav.addObject("listPage","/main/introQnaView.do");
 		mav.addObject("insertAction","/main/introQnaWriteProcess.do");
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	
@@ -334,6 +340,7 @@ public class MainController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}	
 	
@@ -455,7 +462,6 @@ public class MainController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 		
 	}
@@ -482,7 +488,6 @@ public class MainController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 		
 	}
@@ -508,13 +513,13 @@ public class MainController {
 			// TODO: 에러처리
 			
 		}
-		
 		return mav;
 	}
 	
 	@RequestMapping(value = "freeAdvice.do")
 	public ModelAndView freeAdvice(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("introduce/intro_free_advice");
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		return mav;
 	}
 	

@@ -18,7 +18,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.icon.six.constant.CommonConstant;
 import com.icon.six.dao.BoardDao;
 import com.icon.six.util.PagingUtil;
 import com.icon.six.vo.BoardVo;
@@ -201,8 +200,15 @@ public class BoardServiceImpl implements BoardService{
 				String thumbImg = String.valueOf(boardList.get(i).get("THUMB_IMAGE"));
 				
 				if(!"null".equals(thumbImg)){
-					thumbImg = thumbImg.substring(0, thumbImg.indexOf("width"));
-					thumbImg += ">"; 
+					
+					if(thumbImg.indexOf("width") > 0){
+						thumbImg = thumbImg.substring(0, thumbImg.indexOf("width"));
+						thumbImg += "width=\"95\" height=\"66\">";
+					} else {
+						thumbImg = thumbImg.substring(0, (thumbImg.indexOf(">")-1));
+						thumbImg += "\" width=\"95\" height=\"66\">";
+					}
+					
 				} else {
 					thumbImg = null;
 				}
@@ -408,6 +414,14 @@ public class BoardServiceImpl implements BoardService{
 				String[] tempThumbArray = tempThumbPath.split("<img src");
 				String thumbPath = tempThumbArray[1];
 				thumbPath = thumbPath.substring(0, thumbPath.indexOf(">"));
+				
+				/**
+				 * 에디터 창 크기 넘어가는 이미지 강제 사이즈 고정으로 인해 썸네일 이미지 저장 전에 width 옵션 삭제 처리
+				 */
+				
+				if(thumbPath.indexOf("width") > 0){
+					thumbPath = thumbPath.substring(0,thumbPath.indexOf("width"));
+				}
 				
 				paramVo.setThumbImage("<img src" + thumbPath + ">");
 			}

@@ -10,7 +10,7 @@
 <script type="text/javascript" src="/resources/js/boardCommon_Editor.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#info5').addClass("on");	
+	$('#info3').addClass("on");	
 });
 </script>
 </head>
@@ -42,7 +42,7 @@ $(document).ready(function(){
             <div class="wrap_right">
                 <img src="/resources/img/introduce1.jpg" alt="" class="top_mainimg">
                 <div class="right_contents">
-                    <p class="title_type1">증시브리핑</p>
+                    <p class="title_type1">테마정보</p>
                     <div class="table_top">
                         <p class="table_type1title2"><span>SIX의 이용중 궁금하신 사항에 대하여 문의 주시기 바랍니다.</span></p>
                     </div>
@@ -53,7 +53,7 @@ $(document).ready(function(){
                     <input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}">
                     <div class="table_type1_write">
                         <table>
-                            <caption>증시브리핑</caption>
+                            <caption>테마정보</caption>
                             <colgroup>
                                 <col style="width:10%;">
                                 <col style="width:90%;">

@@ -10,7 +10,7 @@
 <script type="text/javascript" src="/resources/js/boardCommon_nonEditor.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#info4').addClass("on");	
+	$('#info5').addClass("on");	
 });
 </script>
 </head>
