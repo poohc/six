@@ -7,7 +7,7 @@
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
-<script type="text/javascript" src="/resources/js/boardCommon_Editor.js"></script>
+<jsp:include page="../common/boardCommon_Editor.jsp" />
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#community1').addClass("on");	
@@ -65,11 +65,33 @@ $(document).ready(function(){
                             <tbody>
                                 <tr>
                                     <th class="bb_line1">제목</td>
-                                    <td class="bb_line1"><input type="text"></td>
+                                    <td class="bb_line1"><input type="text" id="title" name="title" value="${boardInfo.TITLE}"></td>
+                                </tr>
+                                <tr>
+                                	<c:choose>
+                                	<c:when test="${isUpdate eq 'true'}">
+                                		<td>
+                                			<c:forEach items="${fileList}" var="fileList">
+                                				${fileList.file}
+                                			</c:forEach>
+                                		</td>
+                                		<td>
+	                                		파일 업로드 <input id="file" name="file" type="file" multiple>
+	                                	</td>
+                                	</c:when>
+                                	<c:otherwise>
+	                                	<td colspan="2">
+	                                		파일 업로드 <input id="file" name="file" type="file" multiple>
+	                                	</td>
+                                	</c:otherwise>
+                                	</c:choose>                                	
                                 </tr>
                                 <tr class="">
                                     <th>내용</td>
-                                    <td><textarea name="" id="" cols="30" rows="10" class="contents_write"></textarea></td>
+                                    <td>
+                                    	<textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:100%; height:412px;">
+                                    	</textarea>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

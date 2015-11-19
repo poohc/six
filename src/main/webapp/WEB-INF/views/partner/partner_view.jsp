@@ -32,7 +32,15 @@
             </div>
             <div class="wrap_right">
                 <img src="/resources/img/partner1.jpg" alt="" class="top_mainimg">
-                <img src="/resources/img/partner2.jpg" alt="" class="partner2_img">
+                <div class="personInfo">
+                    <img src="/resources/img/p_1.png" alt="">
+                    <p class="personTitle">최성관</p>
+                    <p class="personTitle2">SIX파트너</p>
+                    <p class="personTitle3">주식정보의 큰손</p>
+                    <p class="personTitle4">OO대학교 경제학과</p>
+                    <p class="personTitle5">OO투자증권 FP</p>
+                    <p class="personTitle6">SIX투자증권</p>
+                </div>
                 <ul class="inform_list">
                     <li>총 정보등록건수<span>100</span></li>
                     <li>총 다운로드<span>100</span></li>

@@ -44,7 +44,7 @@ $(document).ready(function(){
                 <div class="right_contents">
                     <p class="title_type1">테마정보</p>
                     <div class="table_top">
-                        <p class="table_type1title2"><span>데이터를 이용한 투자 기법을 제공해 드립니다.</span></p>
+                        <p class="table_type1title2"><span>SIX에서 준비한 테마별 정보를 드립니다.</span></p>
 <!--                         <div class="table_rightarea"> -->
 <!--                             <select name="titleandcontent" id="titleandcontent" title="분류"> -->
 <!--                                 <option value="제목">제목</option> -->

@@ -1,20 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<script type="text/javascript">
 $(document).ready(function(){
-		
+	 
 	var editor_object = [];
     nhn.husky.EZCreator.createInIFrame({
         oAppRef: editor_object,
         elPlaceHolder: "smarteditor",
         sSkinURI: "/resources/smarteditor/SmartEditor2Skin.html", 
         htParams : {
-        	fOnBeforeUnload : function(){},
-            //boolean
-            // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+        	// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
             bUseToolbar : true,             
             // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
             bUseVerticalResizer : false,     
             // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-            bUseModeChanger : true, 
-        }
+            bUseModeChanger : true,
+            fOnBeforeUnload : function(){},
+        },	    
+	    //boolean
+	    fOnAppLoad : function(){
+	    	
+	    	if('<c:out value="${isUpdate}" />' == 'true'){
+	    		var contents = '<c:out value="${boardInfo.CONTENTS}" escapeXml="false" />';
+	    		editor_object.getById["smarteditor"].exec("PASTE_HTML", [contents]); //로딩이 끝나면 contents를 txtContent에 넣습니다.
+	    	}
+	    }    
     });
             	
 	//전송버튼 클릭이벤트
@@ -44,6 +60,7 @@ $(document).ready(function(){
     })
 	     
     $("#updateBtn").click(function(){
+    	editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
     	$('#frm').attr('action',$('#updateAction').val());
     	$('#frm').submit();        
     });
@@ -77,3 +94,6 @@ function fileDownLoad(fileName){
 	$('#fileName').val(fileName);
 	$('#frm').submit();
 }
+</script>
+</head>
+</html>

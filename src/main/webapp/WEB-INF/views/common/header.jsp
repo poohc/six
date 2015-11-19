@@ -10,9 +10,9 @@
 	<div id="header">
         <div class="top_banner">
             <div class="top_banner2">
-                <p class="popup_title">수익률 관리가 필요한 <span>연금저축</span> <br><em>이제 금융기관 <span>단 한번 방문으로 간편하게 이전</span> 하세요.</em></p>
+                <p class="popup_title">투자 성공의 나침반 <span>SIX 주식정보거래소에서</span> <br><em>편리한 <span>무료상담을</span> 받아보세요.</em></p>
                 <a href="#" class="banner_close" id="close_top_notice" onclick="javascript:document.getElementById('top_notice').style.display = 'none'; return false;"><span>닫기</span><img src="/resources/img/close.png" alt="닫기"></a>
-                <p class="popup_title2">NH투자증권 준법감시인 심사필 제 2015-1303 (2015.05.11~2015.11.10)</p>
+                <a href="/main/freeAdvice.do"><p class="popup_title2">무료상담신청으로 이동</p></a>
             </div>
         </div>
         <div class="top_header">

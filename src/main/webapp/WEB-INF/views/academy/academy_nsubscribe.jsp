@@ -50,7 +50,8 @@ $(document).ready(function(){
                		<input type="hidden" id="seq" name="seq">
                     <p class="title_type1">필수 구독자료</p>
                     <div class="table_top">
-                        <p class="table_type1title2"><span>데이터를 이용한 투자 기법을 제공해 드립니다.</span></p>
+                        <p class="table_type1title2"><span>정보의 비대칭성을 해결하는 주식정보거래소 SIX
+실시간 정보구독하기</span></p>
                         <div class="table_rightarea">
                             <select name="searchOption" id="searchOption" title="분류">
                                 <option value="title">제목</option>

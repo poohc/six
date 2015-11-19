@@ -7,7 +7,7 @@
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
-<script type="text/javascript" src="/resources/js/boardCommon_Editor.js"></script>
+<jsp:include page="../common/boardCommon_Editor.jsp" />
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#intro4').addClass("on");	
@@ -86,7 +86,6 @@ $(document).ready(function(){
                                     <th>내용</td>
                                     <td>
                                     	<textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:100%; height:412px;">
-                                    	${boardInfo.CONTENTS}
                                     	</textarea>
                                     </td>
                                 </tr>

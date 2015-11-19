@@ -39,7 +39,9 @@ public class MainController {
 				 			       CommonConstant.MARKETBARGAIN_BOARD,CommonConstant.MARKETADV_BOARD,
 				 			       CommonConstant.LEARNCENTER_BOARD,CommonConstant.LEARNSTRATEGY_BOARD,
 				 			       CommonConstant.SNOTE_BOARD,CommonConstant.INFOSECTECH_BOARD,
-				 			       CommonConstant.INFOSTOCKBRIEFING_BOARD,CommonConstant.INFOGINTERVIEW_BOARD};
+				 			       CommonConstant.INFOSTOCKBRIEFING_BOARD,CommonConstant.INFOGINTERVIEW_BOARD,
+				 			       CommonConstant.INFOTHEME_BOARD,CommonConstant.MARKETFREE_BOARD,
+				 			       CommonConstant.NSUBSCRIBE_BOARD};
 		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		mav.addObject("boardList",boardService.selectMainBoardList(boardNameArray));

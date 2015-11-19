@@ -48,17 +48,17 @@
                     </li>
                     <li>
                         <ul class="inforecent_list">
-                            <li><a href="#">일급무료종목 게시판 최근글 링크입니다.</a></li>
-                            <li><a href="#">일급무료종목 게시판 최근글 링크입니다.</a></li>
-                            <li><a href="#">일급무료종목 게시판 최근글 링크입니다.</a></li>
+                            <li><a href="#">식스비기 게시판 최근글 링크입니다.</a></li>
+                            <li><a href="#">식스비기 게시판 최근글 링크입니다.</a></li>
+                            <li><a href="#">식스비기 게시판 최근글 링크입니다.</a></li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="briefing">
                     <li class="expert_interview">
                         <p class="interview_title">고수들의 인터뷰</p>
-                        <p class="interview_title2">조훈현 편</p>
-                        <img src="/resources/img/expert_img.png" alt="">
+                        <p class="interview_title2">복재성 편</p>
+                        <img src="/resources/img/expert_man.jpg" alt="">
                     </li>
                     <li class="briefing_li">
                         <ul class="briefing_li2">
@@ -93,6 +93,7 @@
                         </ul>
                     </li>
                 </ul>
+                <p class="line_title">일급과 비기 이 두가지 정보가 궁금하지 않소?</p>
                 <ul class="look_ahead2 type2">
                     <li>
                         <p class="look_title"><span>일급</span> 무료종목 추천</p>

@@ -132,9 +132,9 @@ $(document).ready(function(){
                                 </tr>
                                 <tr>
                                     <th class="bb_line1"><span class="essential">상담신청내용</span>
-                                    </th><td class="bb_line1"><textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:100%; height:412px;">
-                                    	${boardInfo.CONTENTS}
-                                    	</textarea></td>
+                                    </th><td class="bb_line1">
+                                    <textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:100%; height:412px;">
+                                    </textarea></td>
                                 </tr>
                             </tbody>
                         </table>

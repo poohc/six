@@ -44,7 +44,7 @@ $(document).ready(function(){
                 <div class="right_contents">
                     <p class="title_type1">SIX 주식배움터</p>
                     <div class="table_top">
-                        <p class="table_type1title2"><span>데이터를 이용한 투자 기법을 제공해 드립니다.</span></p>
+                        <p class="table_type1title2"><span>주식 기초를 쌓는법은 튼튼한 뼈대를 구축하는 법</span></p>
                         <!-- 
                         <div class="table_rightarea">
                             <select name="titleandcontent" id="titleandcontent" title="분류">

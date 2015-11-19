@@ -7,7 +7,7 @@
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
-<script type="text/javascript" src="/resources/js/boardCommon_Editor.js"></script>
+<jsp:include page="../common/boardCommon_Editor.jsp" />
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#info2').addClass("on");	
@@ -44,7 +44,7 @@ $(document).ready(function(){
                 <div class="right_contents">
                     <p class="title_type1">SIX비기</p>
                     <div class="table_top">
-                        <p class="table_type1title2"><span>SIX의 이용중 궁금하신 사항에 대하여 문의 주시기 바랍니다.</span></p>
+                        <p class="table_type1title2"><span>기업 분석을 통한 정확한 투자 SIX의 비기! 그 핵심의 이면을 공개합니다.</span></p>
                     </div>
                     <form name="frm" id="frm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
                     <input type="hidden" id="insertAction" name="insertAction" value="${insertAction}">
@@ -86,7 +86,6 @@ $(document).ready(function(){
                                     <th>내용</td>
                                     <td>
                                     	<textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:100%; height:412px;">
-                                    	${boardInfo.CONTENTS}
                                     	</textarea>
                                     </td>
                                 </tr>

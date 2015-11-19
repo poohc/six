@@ -44,7 +44,8 @@ $(document).ready(function(){
                 <div class="right_contents">
                     <p class="title_type1">실시간증시일정</p>
                     <div class="table_top">
-                        <p class="table_type1title2"><span>데이터를 이용한 투자 기법을 제공해 드립니다.</span></p>
+                        <p class="table_type1title2"><span>뭐라고 오늘이 쿼드러플워칭데이라고??
+뭐라고 오늘이 기준금리 결정일이라고??</span></p>
 <!--                         <div class="table_rightarea"> -->
 <!--                             <select name="titleandcontent" id="titleandcontent" title="분류"> -->
 <!--                                 <option value="제목">제목</option> -->

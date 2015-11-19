@@ -49,7 +49,7 @@ $(document).ready(function(){
                		<input type="hidden" id="seq" name="seq">
                     <p class="title_type1">SIX비기</p>
                     <div class="table_top">
-                        <p class="table_type1title2"><span>데이터를 이용한 투자 기법을 제공해 드립니다.</span></p>
+                        <p class="table_type1title2"><span>기업 분석을 통한 정확한 투자 SIX의 비기! 그 핵심의 이면을 공개합니다.</span></p>
                         <div class="table_rightarea">
                             <select name="searchOption" id="searchOption" title="분류">
                                 <option value="title">제목</option>

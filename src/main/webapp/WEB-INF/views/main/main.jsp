@@ -321,8 +321,12 @@
                 <a href="#" class="free_more">더보기 +</a>
             </div>
             <div class="latest_popular">
-                <p class="latest_title">신용평가사 S&amp;P</p>
-                <p class="latest_title2">지난달 청년실업률이 올해 들어 최저치를 기록했다. 14일 통계청이 발표한 '9월 고용동향'에 따르면 지난달 15~29세 청년실업률은 7.9%로 올해 들어 가장 낮았다. 청년실업률은 지난 6월 10.2%로 정점을 찍은 이후 7월 9.4%→8월 8.0%→9월 7.9%로 조금씩 하락했다. 전체 실업률은 3.2%로 전년동월과 같은 수준이었다. 전체 취업자는 전년동월대비 34만 7000명 증가했다. </p>
+                <p class="latest_title">코스피 상장사 498곳 3분기 실적 분석해보니</p>
+                <p class="latest_title2">유가증권시장 소속 상장사들이 올 들어 3분기 연속 '불황형 흑자'를 지속한 것으로 나타났다.
+
+'불황형 흑자'란 회사 외형(매출)은 줄었는데 수익(영업이익·순이익)이 늘어난 것을 말한다. 그만큼 업황이 부진한데도 기업들이 허리띠를 졸라매 억지로 수익을 내고 있다는 얘기다.
+
+17일 한국거래소와 한국상장회사협의회에 따르면 연결재무제표를 제출한 유가증권시장 12월 결산법인 588개 중 90개를 제외한 498개를 분석한 결과 올해 3분기 매출액은 408조1554억원으로 지난해 3분기에 비해 0.44% 감소했다. 반면 영업이익(26조1543억원)과 순이익(5조8979억원)은 전년 동기 대비 각각 24.2%와 42.2% 급증했다. 매출액 대비 영업이익률은 3분기 6.4%로 지난해 같은 기간보다 1.27%포인트 높아졌다. 1000원어치를 팔아 영업이익 64원을 남겼다는 얘기다. </p>
             </div>
             <ul class="look_ahead">
                 <li>
@@ -352,7 +356,7 @@
                     </ul>
                 </li>
                 <li>
-                    <p class="look_title"><span>투자</span>종목</p>
+                    <p class="look_title"><span>투자</span>전략</p>
                     <a href="javaScript:goBoardList('SIX_MARKETISTRATEGY_BOARD')" class="look_more">더보기 +</a>
                     <ul class="look_list">
                         <c:choose>
@@ -378,7 +382,7 @@
                     </ul>
                 </li>
                 <li>
-                    <p class="look_title"><span>시장</span>종목</p>
+                    <p class="look_title"><span>시장</span>분석</p>
                     <a href="javaScript:goBoardList('SIX_MARKETANALYSIS_BOARD')" class="look_more">더보기 +</a>
                     <ul class="look_list">
                         <c:choose>
@@ -430,7 +434,7 @@
                     </ul>
                 </li>
                 <li>
-                    <p class="look_title"><span>매매</span>종목</p>
+                    <p class="look_title"><span>매매</span>기법</p>
                     <a href="javaScript:goBoardList('SIX_MARKETBARGAIN_BOARD')" class="look_more">더보기 +</a>
                     <ul class="look_list">
                         <c:choose>
@@ -456,7 +460,7 @@
                     </ul>
                 </li>
                 <li>
-                    <p class="look_title"><span>고급</span>종목</p>
+                    <p class="look_title"><span>고급</span>시황</p>
                     <a href="javaScript:goBoardList('SIX_MARKETADV_BOARD')" class="look_more">더보기 +</a>
                     <ul class="look_list">
                         <c:choose>
@@ -767,33 +771,81 @@
                     </ul>
                 </li>
                 <li>
-                    <p class="look_title">나침반추천주</p>
-                    <a href="#" class="look_more">더보기 +</a>
+                    <p class="look_title">테마정보</p>
+                    <a href="javaScript:goBoardList('SIX_INFOTHEME_BOARD')" class="look_more">더보기 +</a>
                     <ul class="look_list">
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
+                        <c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_INFOTHEME_BOARD) > 0}">
+                          	   <c:forEach begin="0" end="3" varStatus="loop">
+                          	   <c:choose>                          	   	   
+	                          	   <c:when test="${fn:length(boardList.SIX_INFOTHEME_BOARD) < loop.count}">
+	                          	   	   <li>&nbsp;</li>	
+	                          	   </c:when>
+	                          	   <c:otherwise>
+		                          	   <li><a href="javascript:goBoardView('SIX_INFOTHEME_BOARD',${boardList.SIX_INFOTHEME_BOARD[loop.index].SEQ})">${boardList.SIX_INFOTHEME_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_INFOTHEME_BOARD[loop.index].CREATE_DATE}</span></li>
+	                               </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
+                          	</c:when>
+                          	<c:otherwise>
+                          		<li>게시글이 없습니다.</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          	</c:otherwise>                            	
+                        </c:choose>
                     </ul>
                 </li>
                 <li>
-                    <p class="look_title">핵심정보</p>
-                    <a href="#" class="look_more">더보기 +</a>
+                    <p class="look_title">무료추천종목</p>
+                    <a href="javaScript:goBoardList('SIX_MARKETFREE_BOARD')" class="look_more">더보기 +</a>
                     <ul class="look_list">
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
+                        <c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_MARKETFREE_BOARD) > 0}">
+                          	   <c:forEach begin="0" end="3" varStatus="loop">
+                          	   <c:choose>                          	   	   
+	                          	   <c:when test="${fn:length(boardList.SIX_MARKETFREE_BOARD) < loop.count}">
+	                          	   	   <li>&nbsp;</li>	
+	                          	   </c:when>
+	                          	   <c:otherwise>
+		                          	   <li><a href="javascript:goBoardView('SIX_MARKETFREE_BOARD',${boardList.SIX_MARKETFREE_BOARD[loop.index].SEQ})">${boardList.SIX_MARKETFREE_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_MARKETFREE_BOARD[loop.index].CREATE_DATE}</span></li>
+	                               </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
+                          	</c:when>
+                          	<c:otherwise>
+                          		<li>게시글이 없습니다.</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          	</c:otherwise>                            	
+                        </c:choose>
                     </ul>
                 </li>
                 <li>
-                    <p class="look_title">정보원토론실</p>
-                    <a href="#" class="look_more">더보기 +</a>
+                    <p class="look_title">필수구독자료</p>
+                    <a href="javaScript:goBoardList('SIX_NSUBSCRIBE_BOARD')" class="look_more">더보기 +</a>
                     <ul class="look_list">
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
-                        <li><a href="#">각종 정보의 게시글의 제목을 확인합니다.</a><span>2015.09.03</span></li>
+                        <c:choose>
+                          	<c:when test="${fn:length(boardList.SIX_NSUBSCRIBE_BOARD) > 0}">
+                          	   <c:forEach begin="0" end="3" varStatus="loop">
+                          	   <c:choose>                          	   	   
+	                          	   <c:when test="${fn:length(boardList.SIX_NSUBSCRIBE_BOARD) < loop.count}">
+	                          	   	   <li>&nbsp;</li>	
+	                          	   </c:when>
+	                          	   <c:otherwise>
+		                          	   <li><a href="javascript:goBoardView('SIX_NSUBSCRIBE_BOARD',${boardList.SIX_NSUBSCRIBE_BOARD[loop.index].SEQ})">${boardList.SIX_NSUBSCRIBE_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_NSUBSCRIBE_BOARD[loop.index].CREATE_DATE}</span></li>
+	                               </c:otherwise>
+                          	   </c:choose>
+                          	   </c:forEach>                          	   
+                          	</c:when>
+                          	<c:otherwise>
+                          		<li>게시글이 없습니다.</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          		<li>&nbsp;</li>
+                          	</c:otherwise>                            	
+                        </c:choose>
                     </ul>
                 </li>
             </ul>
