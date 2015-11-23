@@ -68,23 +68,8 @@ $(document).ready(function(){
                                     <td class="bb_line1"><input type="text" id="title" name="title" value="${boardInfo.TITLE}"></td>
                                 </tr>
                                 <tr>
-                                	<c:choose>
-                                	<c:when test="${isUpdate eq 'true'}">
-                                		<td>
-                                			<c:forEach items="${fileList}" var="fileList">
-                                				${fileList.file}
-                                			</c:forEach>
-                                		</td>
-                                		<td>
-	                                		파일 업로드 <input id="file" name="file" type="file" multiple>
-	                                	</td>
-                                	</c:when>
-                                	<c:otherwise>
-	                                	<td colspan="2">
-	                                		파일 업로드 <input id="file" name="file" type="file" multiple>
-	                                	</td>
-                                	</c:otherwise>
-                                	</c:choose>                                	
+                                	<th class="bb_line1">종목명</td>
+                                    <td class="bb_line1"><input type="text" id="stockName" name="stockName" value="${boardInfo.STOCK_NAME}"></td>                                	
                                 </tr>
                                 <tr class="">
                                     <th>내용</td>

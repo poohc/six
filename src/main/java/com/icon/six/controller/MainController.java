@@ -43,7 +43,7 @@ public class MainController {
 				 			       CommonConstant.INFOTHEME_BOARD,CommonConstant.MARKETFREE_BOARD,
 				 			       CommonConstant.NSUBSCRIBE_BOARD};
 		
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		mav.addObject("boardList",boardService.selectMainBoardList(boardNameArray));
 		
 		return mav;
@@ -53,7 +53,7 @@ public class MainController {
 	public ModelAndView introSix(HttpServletRequest request, HttpServletResponse response){
 		
 		ModelAndView mav = new ModelAndView("introduce/intro_six");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -78,7 +78,7 @@ public class MainController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -107,7 +107,7 @@ public class MainController {
 		mav.addObject("updateAction","/main/introNoticeUpdate.do");
 		mav.addObject("deleteAction","/main/introNoticeDeleteProcess.do");
 		
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -118,7 +118,7 @@ public class MainController {
 		mav.addObject("listPage","/main/introNoticeView.do");
 		mav.addObject("insertAction","/main/introNoticeWriteProcess.do");
 		
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -146,7 +146,7 @@ public class MainController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;		
 	}
 	
@@ -251,7 +251,7 @@ public class MainController {
 	@RequestMapping(value = "introHowToPay.do")
 	public ModelAndView introHowToPay(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("introduce/intro_howTopay");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -275,7 +275,7 @@ public class MainController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -307,7 +307,7 @@ public class MainController {
 		mav.addObject("replyDelAction","/main/introQnaReplyDel.do");
 		mav.addObject("replyUpdAction","/main/introQnaReplyUpdate.do");
 		
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -316,7 +316,7 @@ public class MainController {
 		ModelAndView mav = new ModelAndView("introduce/intro_qna_write");
 		mav.addObject("listPage","/main/introQnaView.do");
 		mav.addObject("insertAction","/main/introQnaWriteProcess.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -342,7 +342,7 @@ public class MainController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}	
 	
@@ -521,7 +521,7 @@ public class MainController {
 	@RequestMapping(value = "freeAdvice.do")
 	public ModelAndView freeAdvice(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("introduce/intro_free_advice");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	

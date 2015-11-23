@@ -8,15 +8,12 @@
 	   xmlns:util="http://www.springframework.org/schema/util"
 	   xmlns:task="http://www.springframework.org/schema/task"
 	   xsi:schemaLocation="	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-	   						http://www.springframework.org/schema/mvc 
-		     				http://www.springframework.org/schema/mvc/spring-mvc.xsd
-		     				http://www.springframework.org/schema/util
-		     				http://www.springframework.org/schema/util/spring-util-3.2.xsd
-						   	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	   						http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd 
+		     				http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+		     				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 						   	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 						    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
-						    http://www.springframework.org/schema/task 
-							http://www.springframework.org/schema/task/spring-task.xsd">
+						    http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 	
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 	    <property name="messageConverters">
@@ -31,6 +28,7 @@
 	        </list>
 	    </property>
 	</bean>
+	
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
     	<property name="maxUploadSize" value="104857600" />
     	<property name="maxInMemorySize" value="10485760" />
@@ -46,6 +44,15 @@
 		<property name="suffix" value=".jsp" />
 		<property name="order" value="1" />
 	</bean>
+	
+	<mvc:interceptors>
+	    <mvc:interceptor>
+	        <mvc:mapping path="/**"/>
+	        <mvc:exclude-mapping path="/login/**"/>
+	        <bean class="com.icon.six.intercepter.CommonIntercepter" />
+	    </mvc:interceptor>	 
+	</mvc:interceptors>
+	
 	
 	<bean id="downloadView" class="com.icon.six.util.FileDownLoad" />
 	<bean id="StockScheduler" class="com.icon.six.scheduler.StockScheduler" />

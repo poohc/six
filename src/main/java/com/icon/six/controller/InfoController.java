@@ -38,7 +38,7 @@ public class InfoController {
 							       CommonConstant.INFOGINTERVIEW_BOARD,CommonConstant.INFOREALSTOCK_BOARD};
 		
 		mav.addObject("boardList",boardService.selectMainBoardList(boardNameArray));
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -62,7 +62,7 @@ public class InfoController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -93,7 +93,7 @@ public class InfoController {
 		mav.addObject("replyAddAction","/info/infoFreeRecReplyAdd.do");
 		mav.addObject("replyDelAction","/info/infoFreeRecReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoFreeRecReplyUpdate.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -102,7 +102,7 @@ public class InfoController {
 		ModelAndView mav = new ModelAndView("info/info_freeRec_write");
 		mav.addObject("listPage","/info/infoFreeRec.do");
 		mav.addObject("insertAction","/info/infoFreeRecWriteProcess.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -128,7 +128,7 @@ public class InfoController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}	
 	
@@ -324,7 +324,7 @@ public class InfoController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -355,7 +355,7 @@ public class InfoController {
 		mav.addObject("replyAddAction","/info/infoSecTechReplyAdd.do");
 		mav.addObject("replyDelAction","/info/infoSecTechReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoSecTechReplyUpdate.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -364,7 +364,7 @@ public class InfoController {
 		ModelAndView mav = new ModelAndView("info/info_secTech_write");
 		mav.addObject("listPage","/info/infoSecTech.do");
 		mav.addObject("insertAction","/info/infoSecTechWriteProcess.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -390,7 +390,7 @@ public class InfoController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}	
 	
@@ -586,7 +586,7 @@ public class InfoController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -617,7 +617,7 @@ public class InfoController {
 		mav.addObject("replyAddAction","/info/infoThemeReplyAdd.do");
 		mav.addObject("replyDelAction","/info/infoThemeReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoThemeReplyUpdate.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -626,7 +626,7 @@ public class InfoController {
 		ModelAndView mav = new ModelAndView("info/info_theme_write");
 		mav.addObject("listPage","/info/infoTheme.do");
 		mav.addObject("insertAction","/info/infoThemeWriteProcess.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -652,7 +652,7 @@ public class InfoController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}	
 	
@@ -848,7 +848,7 @@ public class InfoController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -879,7 +879,7 @@ public class InfoController {
 		mav.addObject("replyAddAction","/info/infoRealStockReplyAdd.do");
 		mav.addObject("replyDelAction","/info/infoRealStockReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoRealStockReplyUpdate.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -888,7 +888,7 @@ public class InfoController {
 		ModelAndView mav = new ModelAndView("info/info_realStock_write");
 		mav.addObject("listPage","/info/infoRealStock.do");
 		mav.addObject("insertAction","/info/infoRealStockWriteProcess.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -914,7 +914,7 @@ public class InfoController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}	
 	
@@ -1110,7 +1110,7 @@ public class InfoController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -1141,7 +1141,7 @@ public class InfoController {
 		mav.addObject("replyAddAction","/info/infoStockBriefingReplyAdd.do");
 		mav.addObject("replyDelAction","/info/infoStockBriefingReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoStockBriefingReplyUpdate.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -1150,7 +1150,7 @@ public class InfoController {
 		ModelAndView mav = new ModelAndView("info/info_stockBriefing_write");
 		mav.addObject("listPage","/info/infoStockBriefing.do");
 		mav.addObject("insertAction","/info/infoStockBriefingWriteProcess.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -1176,7 +1176,7 @@ public class InfoController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}	
 	
@@ -1372,7 +1372,7 @@ public class InfoController {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -1403,7 +1403,7 @@ public class InfoController {
 		mav.addObject("replyAddAction","/info/infoGInterviewReplyAdd.do");
 		mav.addObject("replyDelAction","/info/infoGInterviewReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoGInterviewReplyUpdate.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -1412,7 +1412,7 @@ public class InfoController {
 		ModelAndView mav = new ModelAndView("info/info_gInterview_write");
 		mav.addObject("listPage","/info/infoGInterview.do");
 		mav.addObject("insertAction","/info/infoGInterviewWriteProcess.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -1438,7 +1438,7 @@ public class InfoController {
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}	
 	

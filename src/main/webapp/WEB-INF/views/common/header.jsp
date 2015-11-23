@@ -1,6 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
+<script type="text/javascript">
+	function goRealStockView(seq){
+		$('#seq').val(seq);
+		$('#frm').attr('action','/info/infoRealStockView.do');
+		$('#frm').submit();
+	}
+</script>
+	<form id="frm" name="frm" method="post">
+		<input type="hidden" id="seq" name="seq">
+	</form>
 	<div class="skipMenu">
 		<a href="#navigation">주메뉴 바로가기</a>
 		<a href="#wrap_container">본문 바로가기</a>
@@ -19,7 +32,7 @@
             <div class="top_header2">
                 <ul class="top_header3">
                     <li><a href="/login/login.do">로그인</a></li>
-                    <li><a href="/member/memberJoin.do">회원가입</a></li>
+                    <li><a href="/member/memberNotice.do">회원가입</a></li>
                 </ul>
             </div>
         </div>
@@ -30,9 +43,9 @@
                     <p class="realtime1"><img src="/resources/img/pang.png" alt=""> <span>실시간 증시일정</span></p>
                     <div id="newsticker2" class="newsticker">
                     	<ul>
-                   			<li>1 오늘은 선물옵션 만기일입니다.</li>
-                   			<li>2 오늘은 선물옵션 만기일입니다.</li>
-                   			<li>3 오늘은 선물옵션 만기일입니다.</li>
+                    		<c:forEach items="${realStockInfo}" var="realStockInfo" end="4" varStatus="loop">
+                    			<li><a href="javascript:goRealStockView('${realStockInfo.SEQ}')">${loop.count} ${realStockInfo.TITLE}</a></li>
+                    		</c:forEach>
                     	</ul>
                 	</div>
            		 </div>

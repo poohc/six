@@ -42,14 +42,14 @@ public class NewsController {
 				mav.addObject("list",boardInfo.get("list"));
 				mav.addObject("page",boardInfo.get("page"));
 				mav.addObject("currentPage",requestMap.get("currentPage"));
-				mav.addObject("viewPage","/main/newsStockView.do");
-				mav.addObject("writePage","/main/newsStockWrite.do");
+				mav.addObject("viewPage","/news/newsStockView.do");
+				mav.addObject("writePage","/news/newsStockWrite.do");
 				
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -74,10 +74,10 @@ public class NewsController {
 		mav.addObject("boardInfo",resultMap.get("boardInfo"));
 		mav.addObject("currentPage", resultMap.get("currentPage"));
 		
-		mav.addObject("listPage","/main/newsStockView.do");
-		mav.addObject("updateAction","/main/newsStockUpdate.do");
-		mav.addObject("deleteAction","/main/newsStockDeleteProcess.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("listPage","/news/newsStockView.do");
+		mav.addObject("updateAction","/news/newsStockUpdate.do");
+		mav.addObject("deleteAction","/news/newsStockDeleteProcess.do");
+		
 		return mav;
 	}
 	
@@ -85,9 +85,9 @@ public class NewsController {
 	public ModelAndView newsStockWrite(HttpServletRequest request, HttpServletResponse response){
 		
 		ModelAndView mav = new ModelAndView("news/news_stock_write");
-		mav.addObject("listPage","/main/newsStockView.do");
-		mav.addObject("insertAction","/main/newsStockWriteProcess.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("listPage","/news/newsStockView.do");
+		mav.addObject("insertAction","/news/newsStockWriteProcess.do");
+		
 		return mav;
 	}
 	
@@ -110,12 +110,12 @@ public class NewsController {
 			}
 			
 			mav.addObject("isUpdate","true");
-			mav.addObject("updateAction","/main/newsStockUpdateProcess.do");
+			mav.addObject("updateAction","/news/newsStockUpdateProcess.do");
 			
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;		
 	}
 	
@@ -133,14 +133,14 @@ public class NewsController {
 				result = boardService.insertBoardProcess(requestMap);
 				
 				if(result == 1){
-					response.sendRedirect("/main/newsStock.do");
+					response.sendRedirect("/news/newsStock.do");
 				} else {
 					// TODO 에러페이지
 					response.sendRedirect("/main/error.do");
 				}
 			} else {
 				// TODO 에러페이지
-				response.sendRedirect("/main/error.do");
+				response.sendRedirect("/news/error.do");
 			}
 			
 		} catch (IOException e) {
@@ -165,7 +165,7 @@ public class NewsController {
 				result = boardService.updateBoardProcess(requestMap);
 				
 				if(result == 1){
-					response.sendRedirect("/main/newsStock.do");
+					response.sendRedirect("/news/newsStock.do");
 				} else {
 					//TODO 에러 페이지
 					response.sendRedirect("/main/error.do");
@@ -198,7 +198,7 @@ public class NewsController {
 				result = boardService.deleteBoardProcess(requestMap);
 				
 				if(result == 1){
-					response.sendRedirect("/main/newsStock.do");
+					response.sendRedirect("/news/newsStock.do");
 				} else {
 					//TODO 에러 페이지
 					response.sendRedirect("/main/error.do");
@@ -230,14 +230,14 @@ public class NewsController {
 				mav.addObject("list",boardInfo.get("list"));
 				mav.addObject("page",boardInfo.get("page"));
 				mav.addObject("currentPage",requestMap.get("currentPage"));
-				mav.addObject("viewPage","/main/newsEtcView.do");
-				mav.addObject("writePage","/main/newsEtcWrite.do");
+				mav.addObject("viewPage","/news/newsEtcView.do");
+				mav.addObject("writePage","/news/newsEtcWrite.do");
 				
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 	
@@ -262,10 +262,10 @@ public class NewsController {
 		mav.addObject("boardInfo",resultMap.get("boardInfo"));
 		mav.addObject("currentPage", resultMap.get("currentPage"));
 		
-		mav.addObject("listPage","/main/newsEtcView.do");
-		mav.addObject("updateAction","/main/newsEtcUpdate.do");
-		mav.addObject("deleteAction","/main/newsEtcDeleteProcess.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("listPage","/news/newsEtcView.do");
+		mav.addObject("updateAction","/news/newsEtcUpdate.do");
+		mav.addObject("deleteAction","/news/newsEtcDeleteProcess.do");
+		
 		return mav;
 	}
 	
@@ -273,9 +273,9 @@ public class NewsController {
 	public ModelAndView newsEtcWrite(HttpServletRequest request, HttpServletResponse response){
 		
 		ModelAndView mav = new ModelAndView("news/news_etc_write");
-		mav.addObject("listPage","/main/newsEtcView.do");
-		mav.addObject("insertAction","/main/newsEtcWriteProcess.do");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("listPage","/news/newsEtcView.do");
+		mav.addObject("insertAction","/news/newsEtcWriteProcess.do");
+		
 		return mav;
 	}
 	
@@ -298,12 +298,12 @@ public class NewsController {
 			}
 			
 			mav.addObject("isUpdate","true");
-			mav.addObject("updateAction","/main/newsEtcUpdateProcess.do");
+			mav.addObject("updateAction","/news/newsEtcUpdateProcess.do");
 			
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;		
 	}
 	
@@ -321,7 +321,7 @@ public class NewsController {
 				result = boardService.insertBoardProcess(requestMap);
 				
 				if(result == 1){
-					response.sendRedirect("/main/newsEtc.do");
+					response.sendRedirect("/news/newsEtc.do");
 				} else {
 					// TODO 에러페이지
 					response.sendRedirect("/main/error.do");
@@ -353,7 +353,7 @@ public class NewsController {
 				result = boardService.updateBoardProcess(requestMap);
 				
 				if(result == 1){
-					response.sendRedirect("/main/newsEtc.do");
+					response.sendRedirect("/news/newsEtc.do");
 				} else {
 					//TODO 에러 페이지
 					response.sendRedirect("/main/error.do");
@@ -386,7 +386,7 @@ public class NewsController {
 				result = boardService.deleteBoardProcess(requestMap);
 				
 				if(result == 1){
-					response.sendRedirect("/main/newsEtc.do");
+					response.sendRedirect("/news/newsEtc.do");
 				} else {
 					//TODO 에러 페이지
 					response.sendRedirect("/main/error.do");

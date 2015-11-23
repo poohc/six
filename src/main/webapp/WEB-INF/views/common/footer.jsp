@@ -5,7 +5,7 @@
         	<ul class="look_ahead4">
                 <li><a href="/partner/partnerJoin.do"><p class="look_title">SIX 파트너 신청</p></a></li>
                 <li><a href="#" onclick="javascript:alert('준비중입니다.')"><p class="look_title">고객센터</p></a></li>
-                <li><a href="/member/memberJoin.do"><p class="look_title">회원가입</p></a></li>
+                <li><a href="/member/memberNotice.do"><p class="look_title">회원가입</p></a></li>
             </ul>
             <div class="footer_top">
                 <div class="footer_top2">

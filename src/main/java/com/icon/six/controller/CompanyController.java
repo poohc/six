@@ -20,7 +20,7 @@ public class CompanyController {
 	@RequestMapping(value = "aboutCompany.do")
 	public ModelAndView aboutCompany(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("/company/aboutCompany");
-		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		
 		return mav;
 	}
 }

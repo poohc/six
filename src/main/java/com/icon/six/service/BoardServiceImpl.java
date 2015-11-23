@@ -89,6 +89,11 @@ public class BoardServiceImpl implements BoardService{
 					addParsedMap.put("IS_NOTICE", boardInfoList.get(i).get("IS_NOTICE"));
 					addParsedMap.put("FILE", boardInfoList.get(i).get("FILE"));
 					addParsedMap.put("THUMB_IMAGE", boardInfoList.get(i).get("THUMB_IMAGE"));
+					
+					if(param.get("stockName")!=null){
+						addParsedMap.put("STOCK_NAME", boardInfoList.get(i).get("STOCK_NAME"));
+					}
+					
 					addParsedBoardInfoList.add(addParsedMap);
 				}
 				
