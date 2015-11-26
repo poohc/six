@@ -34,6 +34,9 @@
 		       REF,
 		       INDENT,
 		       STEP
+		       <if test="stockName != null">
+		       ,STOCK_NAME
+		       </if>
 		  FROM ${boardName}
 		 WHERE 1=1
 		   AND NO > 0
@@ -107,7 +110,10 @@
 		       INDENT,
 		       STEP,
 		       FILE,
-		       THUMB_IMAGE		       
+		       THUMB_IMAGE
+		       <if test="stockName != null">
+		       ,STOCK_NAME
+		       </if>		       
 		  FROM ${boardName}
 		 WHERE 1=1
 		   <if test="seq != null">
@@ -147,6 +153,9 @@
 				           THUMB_IMAGE,
 				       </if>
 				       IS_NOTICE
+				       <if test="stockName != null">
+				       ,STOCK_NAME
+				       </if>
 			    	)
 			 VALUES (
 			 		   <if test="ref == null">
@@ -175,6 +184,9 @@
 				           #{thumbImage},
 				       </if>
 				       #{isNotice}
+				       <if test="stockName != null">
+				       ,#{stockName}
+				       </if>
 			 		)      	
     </insert>
     
@@ -190,6 +202,7 @@
 	      	  <if test="step != null">STEP=#{step},</if>
 	      	  <if test="file != null">FILE=#{file},</if>
 	      	  <if test="thumbImage != null">THUMB_IMAGE=#{thumbImage},</if>
+	      	  <if test="stockName != null">STOCK_NAME=#{stockName},</if>
 	      	  UPDATE_USER_ID = #{updateUserId},
 		      UPDATE_DATE = now()
 	    </set>

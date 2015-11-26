@@ -71,9 +71,7 @@ $(document).ready(function(){
                                 </tr>
                                 <tr>
                                 	<td colspan="5">
-                                	<c:forEach items="${fileList}" var="fileList">
-                                		<a href="javascript:fileDownLoad('${fileList.rFile}')">${fileList.file}</a>
-                                	</c:forEach>
+                                	${boardInfo.STOCK_NAME}
                                 	</td>
                                 </tr>
                                 <tr class="">

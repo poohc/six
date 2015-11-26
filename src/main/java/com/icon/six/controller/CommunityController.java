@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -49,6 +50,7 @@ public class CommunityController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -76,7 +78,12 @@ public class CommunityController {
 		mav.addObject("listPage","/community/communityFreeboard.do");
 		mav.addObject("updateAction","/community/communityFreeboardUpdate.do");
 		mav.addObject("deleteAction","/community/communityFreeboardDeleteProcess.do");
+		mav.addObject("replyAddAction","/community/communityFreeboardReplyAdd.do");
+		mav.addObject("replyUpdAction","/community/communityFreeboardReplyDel.do");
+		mav.addObject("replyDelAction","/community/communityFreeboardReplyUpdate.do");
+		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -86,6 +93,7 @@ public class CommunityController {
 		mav.addObject("listPage","/community/communityFreeboard.do");
 		mav.addObject("insertAction","/community/communityFreeboardWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -112,6 +120,7 @@ public class CommunityController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}	
 	
@@ -296,6 +305,7 @@ public class CommunityController {
 		
 		try {
 				requestMap.put("boardName", CommonConstant.COMMDISCUSSION_BOARD);
+				requestMap.put("stockName", "stockName");
 				Map<String, Object> boardInfo = boardService.selectBoardList(requestMap);
 								
 				mav.addObject("list",boardInfo.get("list"));
@@ -309,6 +319,7 @@ public class CommunityController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -317,7 +328,8 @@ public class CommunityController {
 		
 		ModelAndView mav = new ModelAndView("community/community_discussion_view");
 		
-		requestMap.put("boardName", CommonConstant.COMMDISCUSSION_BOARD);	
+		requestMap.put("boardName", CommonConstant.COMMDISCUSSION_BOARD);
+		requestMap.put("stockName", "stockName");
 		Map<String, Object> resultMap = boardService.selectBoardViewInfo(requestMap);
 		
 		if(resultMap.get("boardInfoMap") != null){
@@ -336,7 +348,12 @@ public class CommunityController {
 		mav.addObject("listPage","/community/communityDiscussion.do");
 		mav.addObject("updateAction","/community/communityDiscussionUpdate.do");
 		mav.addObject("deleteAction","/community/communityDiscussionDeleteProcess.do");
+		mav.addObject("replyAddAction","/community/communityDiscussionReplyAdd.do");
+		mav.addObject("replyUpdAction","/community/communityDiscussionReplyDel.do");
+		mav.addObject("replyDelAction","/community/communityDiscussionReplyUpdate.do");
+		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -346,6 +363,7 @@ public class CommunityController {
 		mav.addObject("listPage","/community/communityDiscussion.do");
 		mav.addObject("insertAction","/community/communityDiscussionWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -372,20 +390,20 @@ public class CommunityController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}	
 	
 	@RequestMapping(value="communityDiscussionWriteProcess.do")
-	public void communityDiscussionWriteProcess(@RequestParam Map<String, Object> requestMap, MultipartHttpServletRequest request, HttpServletResponse response){
+	public void communityDiscussionWriteProcess(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
 		
-		logger.debug("requestMap : " + requestMap);
+		logger.info("requestMap : " + requestMap);
 		int result = 0;
 		
 		try {
 			if("NotNull".equals(StringUtil.nullCheckMap((HashMap<String, Object>) requestMap))){
 				
 				requestMap.put("boardName", CommonConstant.COMMDISCUSSION_BOARD);
-				requestMap.put("multipartRequest", request);
 				result = boardService.insertBoardProcess(requestMap);
 				
 				if(result == 1){
@@ -569,6 +587,7 @@ public class CommunityController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -596,7 +615,12 @@ public class CommunityController {
 		mav.addObject("listPage","/community/communityReview.do");
 		mav.addObject("updateAction","/community/communityReviewUpdate.do");
 		mav.addObject("deleteAction","/community/communityReviewDeleteProcess.do");
+		mav.addObject("replyAddAction","/community/communityReviewReplyAdd.do");
+		mav.addObject("replyUpdAction","/community/communityReviewReplyDel.do");
+		mav.addObject("replyDelAction","/community/communityReviewReplyUpdate.do");
+		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -606,6 +630,7 @@ public class CommunityController {
 		mav.addObject("listPage","/community/communityReview.do");
 		mav.addObject("insertAction","/community/communityReviewWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -632,6 +657,7 @@ public class CommunityController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}	
 	
@@ -821,14 +847,15 @@ public class CommunityController {
 				mav.addObject("list",boardInfo.get("list"));
 				mav.addObject("page",boardInfo.get("page"));
 				mav.addObject("currentPage",requestMap.get("currentPage"));
-				mav.addObject("viewPage","/community/community_speicalView.do");
-				mav.addObject("writePage","/community/community_speicalWrite.do");
+				mav.addObject("viewPage","/community/communitySpeicalView.do");
+				mav.addObject("writePage","/community/communitySpeicalWrite.do");
 				
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -854,18 +881,24 @@ public class CommunityController {
 		mav.addObject("currentPage", resultMap.get("currentPage"));
 		
 		mav.addObject("listPage","/community/community_speical.do");
-		mav.addObject("updateAction","/community/community_speicalUpdate.do");
-		mav.addObject("deleteAction","/community/community_speicalDeleteProcess.do");
+		mav.addObject("updateAction","/community/communitySpeicalUpdate.do");
+		mav.addObject("deleteAction","/community/communitySpeicalDeleteProcess.do");
+		mav.addObject("replyAddAction","/community/communitySpeicalReplyAdd.do");
+		mav.addObject("replyUpdAction","/community/communitySpeicalReplyDel.do");
+		mav.addObject("replyDelAction","/community/communitySpeicalReplyUpdate.do");
+		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
 	@RequestMapping(value="communitySpeicalWrite.do")
 	public ModelAndView community_speicalWrite(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("community/community_speical_write");
-		mav.addObject("listPage","/community/community_speical.do");
-		mav.addObject("insertAction","/community/community_speicalWriteProcess.do");
+		mav.addObject("listPage","/community/communitySpeical.do");
+		mav.addObject("insertAction","/community/communitySpeicalWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -886,12 +919,13 @@ public class CommunityController {
 			}
 			
 			mav.addObject("isUpdate","true");
-			mav.addObject("updateAction","/community/community_speicalUpdateProcess.do");
+			mav.addObject("updateAction","/community/communitySpeicalUpdateProcess.do");
 			
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}	
 	
@@ -909,7 +943,7 @@ public class CommunityController {
 				result = boardService.insertBoardProcess(requestMap);
 				
 				if(result == 1){
-					response.sendRedirect("/community/community_speical.do");
+					response.sendRedirect("/community/communitySpeical.do");
 				} else {
 					// TODO 에러페이지
 					response.sendRedirect("/main/error.do");
@@ -940,7 +974,7 @@ public class CommunityController {
 				result = boardService.updateBoardProcess(requestMap);
 				
 				if(result == 1){
-					response.sendRedirect("/community/community_speical.do");
+					response.sendRedirect("/community/communitySpeical.do");
 				} else {
 					//TODO 에러 페이지
 					response.sendRedirect("/main/error.do");
@@ -972,7 +1006,7 @@ public class CommunityController {
 				result = boardService.deleteBoardProcess(requestMap);
 				
 				if(result == 1){
-					response.sendRedirect("/community/community_speical.do");
+					response.sendRedirect("/community/communitySpeical.do");
 				} else {
 					//TODO 에러 페이지
 					response.sendRedirect("/main/error.do");
@@ -1000,7 +1034,7 @@ public class CommunityController {
 			 Map<String, Object> resultMap = boardService.insertReplyProcess(requestMap);
 			 
 			 if((Integer) resultMap.get("result") == 1){
-				 mav.addObject("page","/community/community_speicalView.do");
+				 mav.addObject("page","/community/communitySpeicalView.do");
 				 mav.addObject("seq",resultMap.get("seq"));
 			 } else {
 				 // TODO 에러처리
@@ -1027,7 +1061,7 @@ public class CommunityController {
 			 Map<String, Object> resultMap = boardService.deleteReplyProcess(requestMap);
 			 
 			 if((Integer) resultMap.get("result") == 1){
-				 mav.addObject("page","/community/community_speicalView.do");
+				 mav.addObject("page","/community/communitySpeicalView.do");
 				 mav.addObject("seq",resultMap.get("seq"));
 			 } else {
 				 // TODO 에러처리
@@ -1053,7 +1087,7 @@ public class CommunityController {
 			  Map<String, Object> resultMap = boardService.updateReplyProcess(requestMap);
 				 
 			  if((Integer) resultMap.get("result") == 1){
-				  mav.addObject("page","/community/community_speicalView.do");
+				  mav.addObject("page","/community/communitySpeicalView.do");
 				  mav.addObject("seq",resultMap.get("seq"));
 			  } else {
 				 // TODO 에러처리

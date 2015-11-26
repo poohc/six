@@ -90,6 +90,9 @@ public class BoardServiceImpl implements BoardService{
 					addParsedMap.put("IS_NOTICE", boardInfoList.get(i).get("IS_NOTICE"));
 					addParsedMap.put("FILE", boardInfoList.get(i).get("FILE"));
 					addParsedMap.put("THUMB_IMAGE", boardInfoList.get(i).get("THUMB_IMAGE"));
+					if(param.get("stockName")!=null){
+						addParsedMap.put("STOCK_NAME", boardInfoList.get(i).get("STOCK_NAME"));
+					}
 					addParsedBoardInfoList.add(addParsedMap);
 				}
 				
@@ -370,42 +373,44 @@ public class BoardServiceImpl implements BoardService{
 		try {
 			MultipartHttpServletRequest request = (MultipartHttpServletRequest) param.get("multipartRequest");
 			
-			//파일 업로드 처리(다중 파일 업로드)
-			String filePath = request.getSession().getServletContext().getRealPath("/") + fileUploadPath.replace("/", File.separator);
-			String dbFileName = ""; 
-			
-			int fileCount = 0;
-			String fileNm = "";
-			
-			List<MultipartFile> multiPartFileList = request.getFiles("file");
-			
-			for(MultipartFile multiPartFile : multiPartFileList){
+			if(request!=null){
+				//파일 업로드 처리(다중 파일 업로드)
+				String filePath = request.getSession().getServletContext().getRealPath("/") + fileUploadPath.replace("/", File.separator);
+				String dbFileName = ""; 
 				
-				if(!multiPartFile.isEmpty()){
-					if(fileCount == 0){
-						 File file = new File(filePath);
-					        if(!file.exists()) {
-					           file.mkdirs();
-					     } 
-					}
+				int fileCount = 0;
+				String fileNm = "";
+				
+				List<MultipartFile> multiPartFileList = request.getFiles("file");
+				
+				for(MultipartFile multiPartFile : multiPartFileList){
 					
-					SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
-			        String today= formatter.format(new java.util.Date());
-			        fileNm = today+ "__" +multiPartFile.getOriginalFilename();
-			        
-		        	if(fileCount == 0){
-			        	dbFileName += fileNm;
-			        } else {
-			        	dbFileName += "," + fileNm;
-			        }
-					multiPartFile.transferTo(new File(filePath + fileNm));
-			        
-				}						
-				fileCount++;					
-			}
-			
-			if(!"".equals(dbFileName)){
-				paramVo.setFile(fileNm);
+					if(!multiPartFile.isEmpty()){
+						if(fileCount == 0){
+							 File file = new File(filePath);
+						        if(!file.exists()) {
+						           file.mkdirs();
+						     } 
+						}
+						
+						SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
+				        String today= formatter.format(new java.util.Date());
+				        fileNm = today+ "__" +multiPartFile.getOriginalFilename();
+				        
+			        	if(fileCount == 0){
+				        	dbFileName += fileNm;
+				        } else {
+				        	dbFileName += "," + fileNm;
+				        }
+						multiPartFile.transferTo(new File(filePath + fileNm));
+				        
+					}						
+					fileCount++;					
+				}
+				
+				if(!"".equals(dbFileName)){
+					paramVo.setFile(fileNm);
+				}
 			}
 			
 			//썸네일 파일 경로 처리
@@ -432,6 +437,10 @@ public class BoardServiceImpl implements BoardService{
 			paramVo.setCreateUserId(SecurityContextHolder.getContext().getAuthentication().getName());
 			paramVo.setBoardName(String.valueOf(param.get("boardName")));
 			
+			if(!"null".equals(String.valueOf(param.get("stockName")))){
+				paramVo.setStockName(String.valueOf(param.get("stockName")));
+			}
+			
 			result = boardDao.insertBoard(paramVo);
 		} catch (Exception e) {
 			// TODO: 에러 처리
@@ -450,38 +459,40 @@ public class BoardServiceImpl implements BoardService{
 		try {
 			MultipartHttpServletRequest request = (MultipartHttpServletRequest) param.get("multipartRequest");
 			
-			//파일 업로드 처리(다중 파일 업로드)
-			String filePath = request.getSession().getServletContext().getRealPath("/") + fileUploadPath.replace("/", File.separator);
-			String dbFileName = ""; 
-			
-			int fileCount = 0;
-			String fileNm = "";
-			
-			List<MultipartFile> multiPartFileList = request.getFiles("file");
-			
-			for(MultipartFile multiPartFile : multiPartFileList){
+			if(request!=null){
+				//파일 업로드 처리(다중 파일 업로드)
+				String filePath = request.getSession().getServletContext().getRealPath("/") + fileUploadPath.replace("/", File.separator);
+				String dbFileName = ""; 
 				
-				if(!multiPartFile.isEmpty()){
-					if(fileCount == 0){
-						 File file = new File(filePath);
-					        if(!file.exists()) {
-					           file.mkdirs();
-					     } 
-					}
+				int fileCount = 0;
+				String fileNm = "";
+				
+				List<MultipartFile> multiPartFileList = request.getFiles("file");
+				
+				for(MultipartFile multiPartFile : multiPartFileList){
 					
-					SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
-			        String today= formatter.format(new java.util.Date());
-			        fileNm = today + "__" + multiPartFile.getOriginalFilename();
-			        
-		        	if(fileCount == 0){
-			        	dbFileName += fileNm;
-			        } else {
-			        	dbFileName += "," + fileNm;
-			        }
-					multiPartFile.transferTo(new File(filePath + fileNm));
-			        
-				}						
-				fileCount++;					
+					if(!multiPartFile.isEmpty()){
+						if(fileCount == 0){
+							 File file = new File(filePath);
+						        if(!file.exists()) {
+						           file.mkdirs();
+						     } 
+						}
+						
+						SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
+				        String today= formatter.format(new java.util.Date());
+				        fileNm = today + "__" + multiPartFile.getOriginalFilename();
+				        
+			        	if(fileCount == 0){
+				        	dbFileName += fileNm;
+				        } else {
+				        	dbFileName += "," + fileNm;
+				        }
+						multiPartFile.transferTo(new File(filePath + fileNm));
+				        
+					}						
+					fileCount++;					
+				}
 			}
 			
 			//썸네일 파일 경로 처리
