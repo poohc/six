@@ -17,6 +17,7 @@ public class BoardVo {
 	private String boardName;
 	private String file;
 	private String thumbImage;
+	private String stockName;
 	
 	public String getSeq() {
 		return seq;
@@ -107,6 +108,12 @@ public class BoardVo {
 	}
 	public void setThumbImage(String thumbImage) {
 		this.thumbImage = thumbImage;
+	}
+	public String getStockName() {
+		return stockName;
+	}
+	public void setStockName(String stockName) {
+		this.stockName = stockName;
 	}		
 	
 }

@@ -21,6 +21,7 @@ public class CompanyController {
 	public ModelAndView aboutCompany(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("/company/aboutCompany");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 }

@@ -38,6 +38,7 @@ public class AcademyController {
 		
 		mav.addObject("boardList",boardService.selectMainBoardList(boardNameArray));
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -62,6 +63,7 @@ public class AcademyController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -94,6 +96,7 @@ public class AcademyController {
 		mav.addObject("replyUpdAction","/academy/academyLearningCenterReplyUpdate.do");
 		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -103,6 +106,7 @@ public class AcademyController {
 		mav.addObject("listPage","/academy/academyLearningCenter.do");
 		mav.addObject("insertAction","/academy/academyLearningCenterWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -129,6 +133,7 @@ public class AcademyController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}	
 	
@@ -323,6 +328,7 @@ public class AcademyController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -355,6 +361,7 @@ public class AcademyController {
 		mav.addObject("replyUpdAction","/academy/academyInvestStrategyReplyUpdate.do");
 		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -364,6 +371,7 @@ public class AcademyController {
 		mav.addObject("listPage","/academy/academyInvestStrategy.do");
 		mav.addObject("insertAction","/academy/academyInvestStrategyWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -391,6 +399,7 @@ public class AcademyController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}	
 	
@@ -590,6 +599,7 @@ public class AcademyController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -622,6 +632,7 @@ public class AcademyController {
 		mav.addObject("replyUpdAction","/academy/academySearchNoteReplyUpdate.do");
 		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -631,6 +642,7 @@ public class AcademyController {
 		mav.addObject("listPage","/academy/academySearchNote.do");
 		mav.addObject("insertAction","/academy/academySearchNoteWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -657,6 +669,7 @@ public class AcademyController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}	
 	
@@ -851,6 +864,7 @@ public class AcademyController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -882,6 +896,7 @@ public class AcademyController {
 		mav.addObject("replyDelAction","/academy/academyNecessarySubscribeReplyDel.do");
 		mav.addObject("replyUpdAction","/academy/academyNecessarySubscribeReplyUpdate.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -891,6 +906,7 @@ public class AcademyController {
 		mav.addObject("listPage","/academy/academyNecessarySubscribe.do");
 		mav.addObject("insertAction","/academy/academyNecessarySubscribeWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -917,6 +933,7 @@ public class AcademyController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}	
 	

@@ -41,9 +41,10 @@ public class MainController {
 				 			       CommonConstant.SNOTE_BOARD,CommonConstant.INFOSECTECH_BOARD,
 				 			       CommonConstant.INFOSTOCKBRIEFING_BOARD,CommonConstant.INFOGINTERVIEW_BOARD,
 				 			       CommonConstant.INFOTHEME_BOARD,CommonConstant.MARKETFREE_BOARD,
-				 			       CommonConstant.NSUBSCRIBE_BOARD};
+				 			       CommonConstant.NSUBSCRIBE_BOARD,CommonConstant.INFOFREEREC_BOARD};
 		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		mav.addObject("boardList",boardService.selectMainBoardList(boardNameArray));
 		
 		return mav;
@@ -54,6 +55,7 @@ public class MainController {
 		
 		ModelAndView mav = new ModelAndView("introduce/intro_six");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -79,6 +81,7 @@ public class MainController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -108,6 +111,7 @@ public class MainController {
 		mav.addObject("deleteAction","/main/introNoticeDeleteProcess.do");
 		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -119,6 +123,7 @@ public class MainController {
 		mav.addObject("insertAction","/main/introNoticeWriteProcess.do");
 		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -147,6 +152,7 @@ public class MainController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;		
 	}
 	
@@ -252,6 +258,7 @@ public class MainController {
 	public ModelAndView introHowToPay(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("introduce/intro_howTopay");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -276,6 +283,7 @@ public class MainController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -308,6 +316,7 @@ public class MainController {
 		mav.addObject("replyUpdAction","/main/introQnaReplyUpdate.do");
 		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -317,6 +326,7 @@ public class MainController {
 		mav.addObject("listPage","/main/introQnaView.do");
 		mav.addObject("insertAction","/main/introQnaWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -343,6 +353,7 @@ public class MainController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}	
 	
@@ -522,6 +533,7 @@ public class MainController {
 	public ModelAndView freeAdvice(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("introduce/intro_free_advice");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	

@@ -15,6 +15,6 @@
 </head>
 <body>
 	<h1>에러가 발생했습니다. 다시 시도하거나 관리자에게 문의해 주세요.</h1>
-	<a href="goHome()">홈으로 가기</a>
+	<a href="javascript:goHome()">홈으로 가기</a>
 </body>
 </html>

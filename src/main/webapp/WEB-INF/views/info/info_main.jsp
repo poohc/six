@@ -41,16 +41,48 @@
                 <ul class="recent_extract">
                     <li>
                         <ul class="inforecent_list">
-                            <li><a href="#">일급무료종목 게시판 최근글 링크입니다.</a></li>
-                            <li><a href="#">일급무료종목 게시판 최근글 링크입니다.</a></li>
-                            <li><a href="#">일급무료종목 게시판 최근글 링크입니다.</a></li>
+                            <c:choose>
+	                          	<c:when test="${fn:length(boardList.SIX_INFOFREEREC_BOARD) > 0}">
+	                          	   <c:forEach begin="0" end="2" varStatus="loop">
+	                          	   <c:choose>                          	   	   
+		                          	   <c:when test="${fn:length(boardList.SIX_INFOFREEREC_BOARD) < loop.count}">
+		                          	   	   <li>&nbsp;</li>	
+		                          	   </c:when>
+		                          	   <c:otherwise>
+			                          	   <li><a href="javascript:goBoardView('SIX_INFOFREEREC_BOARD',${boardList.SIX_INFOFREEREC_BOARD[loop.index].SEQ})">${boardList.SIX_INFOFREEREC_BOARD[loop.index].TITLE}</a></li>
+		                               </c:otherwise>
+	                          	   </c:choose>
+	                          	   </c:forEach>                          	   
+	                          	</c:when>
+	                          	<c:otherwise>
+	                          		<li>게시글이 없습니다.</li>
+	                          		<li>&nbsp;</li>
+	                          		<li>&nbsp;</li>
+	                          	</c:otherwise>                            	
+                        	</c:choose>
                         </ul>
                     </li>
                     <li>
                         <ul class="inforecent_list">
-                            <li><a href="#">식스비기 게시판 최근글 링크입니다.</a></li>
-                            <li><a href="#">식스비기 게시판 최근글 링크입니다.</a></li>
-                            <li><a href="#">식스비기 게시판 최근글 링크입니다.</a></li>
+                            <c:choose>
+	                          	<c:when test="${fn:length(boardList.SIX_INFOSECTECH_BOARD) > 0}">
+	                          	   <c:forEach begin="0" end="2" varStatus="loop">
+	                          	   <c:choose>                          	   	   
+		                          	   <c:when test="${fn:length(boardList.SIX_INFOSECTECH_BOARD) < loop.count}">
+		                          	   	   <li>&nbsp;</li>	
+		                          	   </c:when>
+		                          	   <c:otherwise>
+			                          	   <li><a href="javascript:goBoardView('SIX_INFOSECTECH_BOARD',${boardList.SIX_INFOSECTECH_BOARD[loop.index].SEQ})">${boardList.SIX_INFOSECTECH_BOARD[loop.index].TITLE}</a></li>
+		                               </c:otherwise>
+	                          	   </c:choose>
+	                          	   </c:forEach>                          	   
+	                          	</c:when>
+	                          	<c:otherwise>
+	                          		<li>게시글이 없습니다.</li>
+	                          		<li>&nbsp;</li>
+	                          		<li>&nbsp;</li>
+	                          	</c:otherwise>                            	
+                        	</c:choose>
                         </ul>
                     </li>
                 </ul>

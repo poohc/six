@@ -68,18 +68,18 @@ $(document).ready(function(){
                         <table>
                             <caption>공지사항</caption>
                             <colgroup>
-                                <col style="width:7%;">
-                                <col style="width:13%;">
-                                <col style="width:49%;">
-                                <col style="width:7%;">
-                                <col style="width:17%;">
-                                <col style="width:7%;">
+                                <col style="width:10%;">
+                                <col style="width:25%;">
+                                <col style="width:15%;">
+                                <col style="width:15%;">
+                                <col style="width:25%;">
+                                <col style="width:10%;">
                             </colgroup>
                             <thead>
                                 <tr>
                                     <th>번호</th>
-                                    <th>종목명</th>
                                     <th>제목</th>
+                                    <th>종목명</th>
                                     <th>작성자</th>
                                     <th>작성일</th>
                                     <th>조회수</th>
@@ -99,6 +99,7 @@ $(document).ready(function(){
 		                                    		${list.TITLE}
 		                                    	</a>
 		                                    </td>
+		                                    <td>${list.STOCK_NAME}</td>
 		                                    <td><img src="/resources/img/master.png" alt="six"></td>
 		                                    <td>${list.CREATE_DATE}</td>
 		                                    <td>${list.HIT_COUNT}</td>

@@ -44,11 +44,33 @@
             <div class="top_area">
                 <div class="kospi">
                     <p class="kospi_title">KOSPI</p>
-                    <p class="kospi_title2">${stockInfo.KOSPI} <span>${stockInfo.KOSPI_UPDOWN_VAL} (${stockInfo.KOSPI_UPDOWN_PER})</span></p>
+                    <c:choose>
+                    <c:when test="${fn:contains(stockInfo.KOSPI_UPDOWN_VAL,'▲')}">
+                    	<p class="kospi_title2 type2">
+                    </c:when>
+                    <c:otherwise>
+                    	<p class="kospi_title2">
+                    </c:otherwise>
+                    </c:choose>
+                    ${stockInfo.KOSPI} <span>${stockInfo.KOSPI_UPDOWN_VAL} (${stockInfo.KOSPI_UPDOWN_PER})</span></p>
                     <p class="kospi_title">KOSPI200</p>
-                    <p class="kospi_title2 type2">${stockInfo.KOSPI200} <span>${stockInfo.KOSPI200_UPDOWN_VAL} (${stockInfo.KOSPI200_UPDOWN_PER})</span></p>
+                    <c:choose>
+                    <c:when test="${fn:contains(stockInfo.KOSPI_UPDOWN_VAL,'▲')}">
+                    	<p class="kospi_title2 type2">
+                    </c:when>
+                    <c:otherwise>
+                    	<p class="kospi_title2">
+                    </c:otherwise>
+                    </c:choose>${stockInfo.KOSPI200} <span>${stockInfo.KOSPI200_UPDOWN_VAL} (${stockInfo.KOSPI200_UPDOWN_PER})</span></p>
                     <p class="kospi_title">KOSDAQ</p>
-                    <p class="kospi_title2 type2">${stockInfo.KOSDAQ} <span>${stockInfo.KOSDAQ_UPDOWN_VAL} (${stockInfo.KOSDAQ_UPDOWN_PER})</span></p>
+                    <c:choose>
+                    <c:when test="${fn:contains(stockInfo.KOSPI_UPDOWN_VAL,'▲')}">
+                    	<p class="kospi_title2 type2">
+                    </c:when>
+                    <c:otherwise>
+                    	<p class="kospi_title2">
+                    </c:otherwise>
+                    </c:choose>${stockInfo.KOSDAQ} <span>${stockInfo.KOSDAQ_UPDOWN_VAL} (${stockInfo.KOSDAQ_UPDOWN_PER})</span></p>
                 </div>
                 <div class="rolling">
                     <div class="banner_list_box">
@@ -798,17 +820,17 @@
                 </li>
                 <li>
                     <p class="look_title">무료추천종목</p>
-                    <a href="javaScript:goBoardList('SIX_MARKETFREE_BOARD')" class="look_more">더보기 +</a>
+                    <a href="javaScript:goBoardList('SIX_INFOFREEREC_BOARD')" class="look_more">더보기 +</a>
                     <ul class="look_list">
                         <c:choose>
-                          	<c:when test="${fn:length(boardList.SIX_MARKETFREE_BOARD) > 0}">
+                          	<c:when test="${fn:length(boardList.SIX_INFOFREEREC_BOARD) > 0}">
                           	   <c:forEach begin="0" end="3" varStatus="loop">
                           	   <c:choose>                          	   	   
-	                          	   <c:when test="${fn:length(boardList.SIX_MARKETFREE_BOARD) < loop.count}">
+	                          	   <c:when test="${fn:length(boardList.SIX_INFOFREEREC_BOARD) < loop.count}">
 	                          	   	   <li>&nbsp;</li>	
 	                          	   </c:when>
 	                          	   <c:otherwise>
-		                          	   <li><a href="javascript:goBoardView('SIX_MARKETFREE_BOARD',${boardList.SIX_MARKETFREE_BOARD[loop.index].SEQ})">${boardList.SIX_MARKETFREE_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_MARKETFREE_BOARD[loop.index].CREATE_DATE}</span></li>
+		                          	   <li><a href="javascript:goBoardView('SIX_INFOFREEREC_BOARD',${boardList.SIX_INFOFREEREC_BOARD[loop.index].SEQ})">${boardList.SIX_INFOFREEREC_BOARD[loop.index].TITLE}</a><span>${boardList.SIX_INFOFREEREC_BOARD[loop.index].CREATE_DATE}</span></li>
 	                               </c:otherwise>
                           	   </c:choose>
                           	   </c:forEach>                          	   

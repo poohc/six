@@ -50,11 +50,12 @@ $(document).ready(function(){
                     <div class="table_top">
                         <p class="table_type1title2"><span>무료종목도 좋은 정보를 제공합니다.</span></p>
                     </div>
-                    <form name="frm" id="frm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                    <form name="frm" id="frm" method="post" accept-charset="utf-8">
                     <input type="hidden" id="insertAction" name="insertAction" value="${insertAction}">
                     <input type="hidden" id="updateAction" name="updateAction" value="${updateAction}">
                     <input type="hidden" id="listPage" name="listPage" value="${listPage}">
                     <input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}">
+                    <input type="file" id="file" name="file" style="visibility: hidden;">
                     <div class="table_type1_write">
                         <table>
                             <caption>종목토론방</caption>
@@ -68,23 +69,8 @@ $(document).ready(function(){
                                     <td class="bb_line1"><input type="text" id="title" name="title" value="${boardInfo.TITLE}"></td>
                                 </tr>
                                 <tr>
-                                	<c:choose>
-                                	<c:when test="${isUpdate eq 'true'}">
-                                		<td>
-                                			<c:forEach items="${fileList}" var="fileList">
-                                				${fileList.file}
-                                			</c:forEach>
-                                		</td>
-                                		<td>
-	                                		파일 업로드 <input id="file" name="file" type="file" multiple>
-	                                	</td>
-                                	</c:when>
-                                	<c:otherwise>
-	                                	<td colspan="2">
-	                                		파일 업로드 <input id="file" name="file" type="file" multiple>
-	                                	</td>
-                                	</c:otherwise>
-                                	</c:choose>                                	
+                                	<th class="bb_line1">종목명</td>
+                                    <td class="bb_line1"><input type="text" id="stockName" name="stockName" value="${boardInfo.STOCK_NAME}"></td>                                	
                                 </tr>
                                 <tr class="">
                                     <th>내용</td>
