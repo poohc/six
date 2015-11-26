@@ -143,4 +143,9 @@ public interface BoardService {
 	 * @return
 	 */
 	public Map<String, Object> selectScheduleStock();
+	/**
+	 * 실시간 증시 일정 가져오기
+	 * @return
+	 */
+	public List<Map<String, Object>> selectRealStockList();
 }

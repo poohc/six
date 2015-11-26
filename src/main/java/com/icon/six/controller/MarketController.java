@@ -32,6 +32,7 @@ public class MarketController {
 	public ModelAndView marketMain(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("market/market_main");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -56,6 +57,7 @@ public class MarketController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -87,6 +89,7 @@ public class MarketController {
 		mav.addObject("replyDelAction","/market/marketFreeReplyDel.do");
 		mav.addObject("replyUpdAction","/market/marketFreeReplyUpdate.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -96,6 +99,7 @@ public class MarketController {
 		mav.addObject("listPage","/market/marketFree.do");
 		mav.addObject("insertAction","/market/marketFreeWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -122,6 +126,7 @@ public class MarketController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}	
 	
@@ -315,6 +320,7 @@ public class MarketController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -346,6 +352,7 @@ public class MarketController {
 		mav.addObject("replyDelAction","/market/marketIstrategyReplyDel.do");
 		mav.addObject("replyUpdAction","/market/marketIstrategyReplyUpdate.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -355,6 +362,7 @@ public class MarketController {
 		mav.addObject("listPage","/market/marketIstrategy.do");
 		mav.addObject("insertAction","/market/marketIstrategyWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -381,6 +389,7 @@ public class MarketController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}	
 	
@@ -573,6 +582,7 @@ public class MarketController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -604,6 +614,7 @@ public class MarketController {
 		mav.addObject("replyDelAction","/market/marketAnalysisReplyDel.do");
 		mav.addObject("replyUpdAction","/market/marketAnalysisReplyUpdate.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -613,6 +624,7 @@ public class MarketController {
 		mav.addObject("listPage","/market/marketAnalysis.do");
 		mav.addObject("insertAction","/market/marketAnalysisWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -639,6 +651,7 @@ public class MarketController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}	
 	
@@ -834,6 +847,7 @@ public class MarketController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -865,6 +879,7 @@ public class MarketController {
 		mav.addObject("replyDelAction","/market/marketPayReplyDel.do");
 		mav.addObject("replyUpdAction","/market/marketPayReplyUpdate.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -874,6 +889,7 @@ public class MarketController {
 		mav.addObject("listPage","/market/marketPay.do");
 		mav.addObject("insertAction","/market/marketPayWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -900,6 +916,7 @@ public class MarketController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}	
 	
@@ -1097,6 +1114,7 @@ public class MarketController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -1128,6 +1146,7 @@ public class MarketController {
 		mav.addObject("replyDelAction","/market/marketBargainReplyDel.do");
 		mav.addObject("replyUpdAction","/market/marketBargainReplyUpdate.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -1137,6 +1156,7 @@ public class MarketController {
 		mav.addObject("listPage","/market/marketBargain.do");
 		mav.addObject("insertAction","/market/marketBargainWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -1163,6 +1183,7 @@ public class MarketController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}	
 	
@@ -1360,6 +1381,7 @@ public class MarketController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -1391,6 +1413,7 @@ public class MarketController {
 		mav.addObject("replyDelAction","/market/marketAdvReplyDel.do");
 		mav.addObject("replyUpdAction","/market/marketAdvReplyUpdate.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -1400,6 +1423,7 @@ public class MarketController {
 		mav.addObject("listPage","/market/marketAdv.do");
 		mav.addObject("insertAction","/market/marketAdvWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -1426,6 +1450,7 @@ public class MarketController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}	
 	

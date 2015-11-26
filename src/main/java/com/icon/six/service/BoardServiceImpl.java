@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.icon.six.constant.CommonConstant;
 import com.icon.six.dao.BoardDao;
 import com.icon.six.util.PagingUtil;
 import com.icon.six.vo.BoardVo;
@@ -873,6 +874,17 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public Map<String, Object> selectScheduleStock() {
 		return boardDao.selectScheduleStock();
+	}
+
+	@Override
+	public List<Map<String, Object>> selectRealStockList() {
+		Map<String, Object> param = new HashMap<String, Object>();
+		
+		param.put("boardName", CommonConstant.INFOREALSTOCK_BOARD);
+		param.put("start", 0);
+		param.put("end", 5);
+		
+		return boardDao.selectBoardList(param);
 	}
 	
 }
