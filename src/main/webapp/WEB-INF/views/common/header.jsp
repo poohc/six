@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<div class="skipMenu">
 		<a href="#navigation">주메뉴 바로가기</a>
@@ -18,7 +19,14 @@
         <div class="top_header">
             <div class="top_header2">
                 <ul class="top_header3">
-                    <li><a href="/login/login.do">로그인</a></li>
+                    <c:choose>
+                	<c:when test="${not empty sessionScope.userInfo}">
+                		<li><a href="/login/logout.do">로그아웃</a></li>
+                	</c:when>
+                	<c:otherwise>
+                		<li><a href="/login/login.do">로그인</a></li>
+                	</c:otherwise>
+                	</c:choose>
                     <li><a href="/member/memberJoin.do">회원가입</a></li>
                 </ul>
             </div>
@@ -30,9 +38,9 @@
                     <p class="realtime1"><img src="/resources/img/pang.png" alt=""> <span>실시간 증시일정</span></p>
                     <div id="newsticker2" class="newsticker">
                     	<ul>
-                   			<li>1 오늘은 선물옵션 만기일입니다.</li>
-                   			<li>2 오늘은 선물옵션 만기일입니다.</li>
-                   			<li>3 오늘은 선물옵션 만기일입니다.</li>
+                   			<c:forEach items="${realStockInfo}" var="realStockInfo" end="4" varStatus="loop">
+                    			<li><a href="javascript:goRealStockView('${realStockInfo.SEQ}')">${loop.count} ${realStockInfo.TITLE}</a></li>
+                    		</c:forEach>
                     	</ul>
                 	</div>
            		 </div>

@@ -15,11 +15,33 @@
 </script> 
 <div class="kospi">
 	<p class="kospi_title">KOSPI</p>
-    <p class="kospi_title2">${stockInfo.KOSPI} <span>${stockInfo.KOSPI_UPDOWN_VAL} (${stockInfo.KOSPI_UPDOWN_PER})</span></p>
-    <p class="kospi_title">KOSPI200</p>
-    <p class="kospi_title2 type2">${stockInfo.KOSPI200} <span>${stockInfo.KOSPI200_UPDOWN_VAL} (${stockInfo.KOSPI200_UPDOWN_PER})</span></p>
-    <p class="kospi_title">KOSDAQ</p>
-    <p class="kospi_title2 type2">${stockInfo.KOSDAQ} <span>${stockInfo.KOSDAQ_UPDOWN_VAL} (${stockInfo.KOSDAQ_UPDOWN_PER})</span></p>
+                    <c:choose>
+                    <c:when test="${fn:contains(stockInfo.KOSPI_UPDOWN_VAL,'▲')}">
+                    	<p class="kospi_title2 type2">
+                    </c:when>
+                    <c:otherwise>
+                    	<p class="kospi_title2">
+                    </c:otherwise>
+                    </c:choose>
+                    ${stockInfo.KOSPI} <span>${stockInfo.KOSPI_UPDOWN_VAL} (${stockInfo.KOSPI_UPDOWN_PER})</span></p>
+                    <p class="kospi_title">KOSPI200</p>
+                    <c:choose>
+                    <c:when test="${fn:contains(stockInfo.KOSPI_UPDOWN_VAL,'▲')}">
+                    	<p class="kospi_title2 type2">
+                    </c:when>
+                    <c:otherwise>
+                    	<p class="kospi_title2">
+                    </c:otherwise>
+                    </c:choose>${stockInfo.KOSPI200} <span>${stockInfo.KOSPI200_UPDOWN_VAL} (${stockInfo.KOSPI200_UPDOWN_PER})</span></p>
+                    <p class="kospi_title">KOSDAQ</p>
+                    <c:choose>
+                    <c:when test="${fn:contains(stockInfo.KOSPI_UPDOWN_VAL,'▲')}">
+                    	<p class="kospi_title2 type2">
+                    </c:when>
+                    <c:otherwise>
+                    	<p class="kospi_title2">
+                    </c:otherwise>
+                    </c:choose>${stockInfo.KOSDAQ} <span>${stockInfo.KOSDAQ_UPDOWN_VAL} (${stockInfo.KOSDAQ_UPDOWN_PER})</span></p>
 </div>
 <form id="loginForm" action="j_spring_security_check.do" method="post">
 	<security:authorize access="hasRole('ROLE_USER')" var="isUser" />
