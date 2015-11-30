@@ -95,4 +95,27 @@ public interface BoardDao {
 	 * @return
 	 */
 	public Map<String, Object> selectScheduleStock();
+	/**
+	 * 약관 가져오기
+	 * @return
+	 */
+	public List<Map<String, Object>> selectSixTerms(String boardName);
+	/**
+	 * 회원 정보 가져오기
+	 * @param id
+	 * @return
+	 */
+	public Map<String, Object> selectMemberInfo(String id);
+	/**
+	 * 식스 파트너 입력하기
+	 * @param param
+	 * @return
+	 */
+	public int insertSixPartner(Map<String, Object> param);
+	/**
+	 * 공통 코드 가져오기
+	 * @param cdType
+	 * @return
+	 */
+	public List<Map<String, Object>> selectCommonCode(String cdType);
 }

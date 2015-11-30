@@ -8,13 +8,16 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.icon.six.auth.CustomUserDetails;
 import com.icon.six.constant.CommonConstant;
 import com.icon.six.service.BoardService;
 import com.icon.six.util.StringUtil;
@@ -532,6 +535,39 @@ public class MainController {
 	@RequestMapping(value = "freeAdvice.do")
 	public ModelAndView freeAdvice(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("introduce/intro_free_advice");
+		mav.addObject("terms",boardService.selectSixTerms(CommonConstant.FREEADVICE_BOARD));
+		
+		CustomUserDetails customUserDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getDetails();
+
+		String id = StringUtils.defaultIfEmpty(customUserDetails.getUsername(), "");
+		
+		if(!"".equals(id)){
+			
+			Map<String, Object> memberInfo = boardService.selectMemberInfo(id);
+			
+			String cellPhone = String.valueOf(memberInfo.get("CELLPHONE"));
+			String email = String.valueOf(memberInfo.get("EMAIL"));
+			
+			if(cellPhone.length() == 11){
+				
+				memberInfo.put("CELLPHONE1", cellPhone.substring(0, 3));
+				memberInfo.put("CELLPHONE2", cellPhone.substring(3, 7));
+				memberInfo.put("CELLPHONE3", cellPhone.substring(7, 11));
+				
+			} else if(cellPhone.length() == 10){
+				
+				memberInfo.put("CELLPHONE1", cellPhone.substring(0, 3));
+				memberInfo.put("CELLPHONE2", cellPhone.substring(3, 6));
+				memberInfo.put("CELLPHONE3", cellPhone.substring(6, 10));
+				
+			} 
+			
+			memberInfo.put("EMAIL1", email.substring(0,email.indexOf("@")));
+			memberInfo.put("EMAIL2", email.substring(email.indexOf("@")+1,email.length()));
+			
+			mav.addObject("memberInfo",memberInfo);
+		}
+		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;

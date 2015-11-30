@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin">
+    
+    <select id="selectJoinPartnerCount" parameterType="java.util.HashMap" resultType="Integer">
+		SELECT COUNT(*)		       
+		  FROM SIX_PARTNER
+    </select>    
+    
+    <select id="selectJoinPartnerList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT SEQ,
+		       ID,
+		       NAME,
+		       REQUEST_CD,
+		       IMAGE,
+		       POST,
+		       INTRODUCE,
+		       SLOGAN,
+		       BANK_CD,
+		       ACCOUNT_NO,
+		       ACCOUNT_NAME,
+		       CREATE_DATE
+		  FROM SIX_PARTNER
+		 WHERE 1=1
+		   <if test="name != null">
+		   AND NAME = #{name}
+		   </if>		   
+	  ORDER BY SEQ DESC
+		   <if test="start != null">
+		 LIMIT #{start},#{end}    
+		   </if>      		   
+    </select>       
+    
+</mapper>

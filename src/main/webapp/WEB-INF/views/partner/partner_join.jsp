@@ -8,7 +8,56 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#partner2').addClass("on");	
+	
+	$('#accountNo').on("keyup", function() {
+		$('#accountNo').val($('#accountNo').val().replace(/[^0-9]/g,''));		
+	});
+	
 });
+
+function goJoin(){
+	//유효성 체크
+	
+	if($('#name').val().length == 0 || $('#name').val() == ''){
+		alert('회원 이름을 불러오지 못했습니다. 로그인 하고 이용해 주세요.');
+		return false;
+	}	
+	
+	if($('#id').val().length == 0 || $('#id').val() == ''){
+		alert('회원 아이디를 불러오지 못했습니다. 로그인 하고 이용해 주세요.');
+		return false;
+	}	
+	
+	if($('#requestCd').val().length == 0 || $('#requestCd').val() == ''){
+		alert('신청 구분을 선택해 주세요.');
+		return false;
+	}	
+	
+	if($('#file').val().length == 0 || $('#file').val() == ''){
+		alert('사진을 업로드 해주세요.');
+		return false;
+	}	
+	
+	if($('#post').val().length == 0 || $('#post').val() == ''){
+		alert('소속을 입력해 주세요.');
+		return false;
+	}	
+	
+	if($('#introduce').val().length == 0 || $('#introduce').val() == ''){
+		alert('소개글을 입력해 주세요.');
+		return false;
+	}	
+	
+	if($('#introduce').val().length < 5){
+		alert('소개글은 5글자 이상 입력해주세요');
+		return false;
+	}				
+	
+	$('#frm').attr('action','/partner/partnerJoinProcess.do');
+	$('#frm').submit();
+	
+}
+
 </script>
 </head>
 <body>
@@ -39,6 +88,9 @@ $(document).ready(function(){
                 <img src="/resources/img/partner1.jpg" alt="" class="top_mainimg">
                 <img src="/resources/img/partner3.jpg" alt="" class="partner3">
                 <div class="right_contents">
+                	<form id="frm" name="frm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                	<input type="hidden" id="id" name="id" value="${sessionScope.userInfo.username}">
+                	<input type="hidden" id="name" name="name" value="${sessionScope.userInfo.name}">
                     <p class="title_type1">SIX 파트너스 신청</p>
                     <p class="text_type3"><span>SIX</span>의 파트너가 되기 위하여 아래의 약관을 확인하시고 동의여부를 체크하여 주세요.</p>
                     <div class="advice_box">
@@ -60,60 +112,58 @@ $(document).ready(function(){
                             <tbody>
                             	<tr>
                             		<th class="bb_line1">회원정보</th>
-                            		<td>회원이름(로그인된 유저의 이름)</td>
+                            		<td>회원이름(로그인된 유저의 이름)${sessionScope.userInfo.name}</td>
                             	</tr>
                             	<tr>
                             		<th class="bb_line1">회원아이디</td>
-                            		<td>ID(로그인 된 유저의 아이디)</td>
+                            		<td>ID(로그인 된 유저의 아이디)${sessionScope.userInfo.username}</td>
                             	</tr>
                             	<tr>
                             		<th class="bb_line1">신청구분</th>
                             		<td>
-                                        <select name="" id="">
-                                            <option value="">제도권</option>
-                                            <option value="">비제도권(SIX파트너)</option>
+                            			<select name="requestCd" id="requestCd">
+                            				<c:forEach items="${requestList}" var="requestList">
+                            					<option value="${requestList.CD}">${requestList.CD_NAME}</option>
+                            				</c:forEach>
                                         </select>
                                     </td>
                             	</tr>
                                 <tr>
                                     <th class="bb_line1">사진업로드</td>
-                                    <td class="bb_line1"><input type="text" id="uploadfile"><input type="file"><p class="picup_title">상반신이 나오고 “파이팅”이나 “넘버원” 등의 포즈가 들어간 사진을 주시면 프로필이 더욱 멋있게 구성됩니다. <br>사진이 첨부되면 홍보가 더 극대화 될 수 있습니다.</p></td>
+                                    <td class="bb_line1">
+                                    	<input type="file" id="file" name="file" style="width: 100%"><br/>
+                                    	<p class="picup_title">상반신이 나오고 “파이팅”이나 “넘버원” 등의 포즈가 들어간 사진을 주시면 프로필이 더욱 멋있게 구성됩니다. <br>사진이 첨부되면 홍보가 더 극대화 될 수 있습니다.</p>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>소속</th>
-                                    <td><input type="text">(예)현대증권 독산지점 (비제도권일 경우 "파트너"로 입력해 주세요)</td>
+                                    <td><input type="text" id="post" name="post">(예)현대증권 독산지점 (비제도권일 경우 "파트너"로 입력해 주세요)</td>
                                 </tr>
                                 <tr class="">
                                     <th>소개글</td>
-                                    <td><textarea name="" id="" cols="30" rows="3" class="contents_write2"></textarea></td>
+                                    <td><textarea name="introduce" id="introduce" cols="30" rows="3" class="contents_write2"></textarea></td>
                                 </tr>
                                 <tr>
                                     <th>슬로건</th>
-                                    <td><input type="text">(예)알짜정보만 드리는 증권찌라시맨입니다.</td>
+                                    <td><input type="text" id="slogan" name="slogan">(예)알짜정보만 드리는 증권찌라시맨입니다.</td>
                                 </tr>
                                 <tr>
                                     <th>정산은행</th>
                                     <td>
-                                        <select name="" id="">
-                                            <option value="">우리은행</option>
-                                            <option value="">국민은행</option>
-                                            <option value="">기업은행</option>
-                                            <option value="">하나은행</option>
-                                            <option value="">농협</option>
-                                            <option value="">우체국</option>
-                                            <option value="">새마을금고</option>
-                                            <option value="">SC제일은행</option>
-                                            <option value="">시티은행</option>
+                                        <select name="bankCd" id="bankCd">
+                                        	<c:forEach items="${bankList}" var="bankList">
+                                        		<option value="${bankList.CD}">${bankList.CD_NAME}</option>	
+                                        	</c:forEach>
                                         </select>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>계좌번호</th>
-                                    <td><input type="text">"-"없이 계좌번호를 연속으로 적어 주세요.</td>
+                                    <td><input type="text" id="accountNo" name="accountNo">"-"없이 계좌번호를 연속으로 적어 주세요.</td>
                                 </tr>
                                 <tr>
                                     <th>예금주</th>
-                                    <td><input type="text">가입자 본인 명의의 계좌만 가능합니다.</td>
+                                    <td><input type="text" id="accountName" name="accountName">가입자 본인 명의의 계좌만 가능합니다.</td>
                                 </tr>
                                 <tr>
                                     <th>정산률</th>
@@ -128,10 +178,10 @@ $(document).ready(function(){
                             </tbody>
                         </table>
                     </div>
-                    
+                    </form>
                     <div class="table_bottom type2">
-                        <a href="#" class="go_list">신청하기</a>
-                        <a href="#" class="go_list type2">취소</a>
+                    	<button type="button" class="go_list" onclick="goJoin()">신청하기</button>
+                        <a href="javascript:history.back()" class="go_list type2">취소</a>
                     </div>
                 </div>
             </div>

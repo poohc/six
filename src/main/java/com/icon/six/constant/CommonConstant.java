@@ -1,6 +1,9 @@
 package com.icon.six.constant;
 
 public class CommonConstant {
+	
+	/**************** 게시판 관련 ********************/
+	
 	/*관리자 권한*/
 	public static final String AUTH_ADMIN = "ROLE_ADMIN";
 	/*파트너 권한*/
@@ -55,4 +58,14 @@ public class CommonConstant {
 	public static final String COMMREVIEW_BOARD = "SIX_COMMREVIEW_BOARD";
 	/*SIX 특강세미나 게시판*/
 	public static final String COMMSPEICAL_BOARD = "SIX_COMMSPEICAL_BOARD";
+	/*SIX 무료상담신청 게시판*/
+	public static final String FREEADVICE_BOARD = "SIX_FREEADVICE_BOARD";
+	
+	
+	/**************** 공통 코드 관련 ********************/
+	
+	/*공통코드 - 은행코드*/
+	public static final String COMMON_REQUEST_CD = "REQUEST_CD";
+	/*공통코드 - 은행코드*/
+	public static final String COMMON_BANK_CD = "BANK_CD";
 }

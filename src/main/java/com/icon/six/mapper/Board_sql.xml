@@ -340,4 +340,75 @@
 		   LIMIT 0,1
     </select>
     
+    <select id="selectSixTerms" resultType="java.util.HashMap">
+          SELECT SEQ,
+                 BOARD_NAME,
+                 TERMS_ID,
+                 TERMS_DESC,
+                 TERMS_HTML,
+                 TERMS_ORDER
+		    FROM SIX_TERMS
+	       WHERE 1=1
+	         <if test="boardName != null">
+	         AND BOARD_NAME = #{boardName}
+	         </if>  
+	    ORDER BY TERMS_ORDER ASC 
+    </select>
+    
+    <select id="selectMemberInfo" resultType="java.util.HashMap">
+        SELECT NAME,
+               BIRTHDAY,
+               CELLPHONE,
+               NICKNAME,
+               EMAIL,
+               GENDER
+          FROM SIX_MEMBER
+         WHERE ENABLED = 1
+           AND ID = #{id} 
+    </select>
+    
+    <insert id="insertSixPartner" parameterType="java.util.HashMap">
+    	INSERT INTO SIX_PARTNER
+    	            (
+    	             ID,
+    	             NAME,
+    	             REQUEST_CD,
+    	             IMAGE,
+    	             POST,
+    	             INTRODUCE,
+    	             SLOGAN,
+    	             BANK_CD,
+    	             ACCOUNT_NO,
+    	             ACCOUNT_NAME,
+    	             CREATE_DATE,
+    	             IS_CONFIRM
+    	            )    
+    	            VALUES
+    	            (
+    	             #{id},
+    	             #{name},
+    	             #{requestCd},
+    	             #{image},
+    	             #{post},
+    	             #{introduce},
+    	             #{slogan},
+    	             #{bankCd},
+    	             #{accountNo},
+    	             #{accountName},
+    	             now(),
+    	             'N'
+    	            )
+    </insert>
+    
+    <select id="selectCommonCode" resultType="java.util.HashMap">
+    	SELECT SEQ,
+    	       CD,
+    	       CD_NAME,
+    	       CD_TYPE,
+    	       CREATE_DATE,
+    	       UPDATE_DATE
+    	  FROM SIX_COMMON_CODE    
+    	 WHERE CD_TYPE = #{cdType}
+    </select>
+    
 </mapper>

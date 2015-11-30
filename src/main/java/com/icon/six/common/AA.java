@@ -39,10 +39,11 @@ public class AA {
 		System.out.println(kospi200Array[1] + kospi200Array[2] + kospi200Array[3] + kospi200Array[4]);
 		System.out.println(kosdakArray[2] + kosdakArray[3] + kosdakArray[4] + kosdakArray[5]);
 		*/
-		String a = "<img src=\"/resources/photoUpload/20151103172746ad18aefd-43ca-4128-950d-a6daaf5303fb.png\">";
+//		String a = "<img src=\"/resources/photoUpload/20151103172746ad18aefd-43ca-4128-950d-a6daaf5303fb.png\">";
 //		String a = "<img src=\"/resources/photoUpload/201511161424176d2d0c67-40c6-4755-aae1-f1da166fac6f.jpg\" width=\"550\">";
-		String b = "=\"/resources/photoUpload/20151117134519145fd0c1-9a5c-45d5-9777-5618733c5d4e.jpg\" width=\"550\"";
+//		String b = "=\"/resources/photoUpload/20151117134519145fd0c1-9a5c-45d5-9777-5618733c5d4e.jpg\" width=\"550\"";
 		
+		String c = "BBAS@NAVER.com";
 		
 //		System.out.println(a);
 //		
@@ -56,13 +57,15 @@ public class AA {
 //		
 //		System.out.println(a);
 		
-		System.out.println(b);
+//		System.out.println(b);
+//		
+//		if(b.indexOf("width") > 0){
+//			b = b.substring(0,b.indexOf("width"));
+//		} 
+//		
+//		System.out.println("<img src" + b + ">");
 		
-		if(b.indexOf("width") > 0){
-			b = b.substring(0,b.indexOf("width"));
-		} 
-		
-		System.out.println("<img src" + b + ">");
+		System.out.println(c.substring(0,c.indexOf("@")) + " , " + c.substring(c.indexOf("@")+1,c.length()));
 		
 	}
 	

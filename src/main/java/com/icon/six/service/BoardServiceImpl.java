@@ -897,5 +897,75 @@ public class BoardServiceImpl implements BoardService{
 		
 		return boardDao.selectBoardList(param);
 	}
+
+	@Override
+	public List<Map<String, Object>> selectSixTerms(String boardName) {
+		return boardDao.selectSixTerms(boardName);
+	}
+
+	@Override
+	public Map<String, Object> selectMemberInfo(String id) {
+		return boardDao.selectMemberInfo(id);
+	}
+
+	@Override
+	public int insertSixPartner(Map<String, Object> param) {
+		
+		int result = 0;
+		
+		try {
+			MultipartHttpServletRequest request = (MultipartHttpServletRequest) param.get("multipartRequest");
+			
+			if(request!=null){
+				//파일 업로드 처리(다중 파일 업로드)
+				String filePath = request.getSession().getServletContext().getRealPath("/") + fileUploadPath.replace("/", File.separator);
+				String dbFileName = ""; 
+				
+				int fileCount = 0;
+				String fileNm = "";
+				
+				List<MultipartFile> multiPartFileList = request.getFiles("file");
+				
+				for(MultipartFile multiPartFile : multiPartFileList){
+					
+					if(!multiPartFile.isEmpty()){
+						if(fileCount == 0){
+							 File file = new File(filePath);
+						        if(!file.exists()) {
+						           file.mkdirs();
+						     } 
+						}
+						
+						SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
+				        String today= formatter.format(new java.util.Date());
+				        fileNm = today+ "__" +multiPartFile.getOriginalFilename();
+				        
+			        	if(fileCount == 0){
+				        	dbFileName += fileNm;
+				        } else {
+				        	dbFileName += "," + fileNm;
+				        }
+						multiPartFile.transferTo(new File(filePath + fileNm));
+				        
+					}						
+					fileCount++;					
+				}
+				
+				if(!"".equals(dbFileName)){
+					param.put("image", fileNm);
+				}
+				result = boardDao.insertSixPartner(param);
+			}
+		} catch (Exception e) {
+			// TODO: 에러 처리
+		}
+		
+		return result;
+	}
+
+	@Override
+	public List<Map<String, Object>> selectCommonCode(String cdType) {
+		return boardDao.selectCommonCode(cdType);
+	}
 	
 }

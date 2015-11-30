@@ -55,7 +55,7 @@
                     ${stockInfo.KOSPI} <span>${stockInfo.KOSPI_UPDOWN_VAL} (${stockInfo.KOSPI_UPDOWN_PER})</span></p>
                     <p class="kospi_title">KOSPI200</p>
                     <c:choose>
-                    <c:when test="${fn:contains(stockInfo.KOSPI_UPDOWN_VAL,'▲')}">
+                    <c:when test="${fn:contains(stockInfo.KOSPI200_UPDOWN_VAL,'▲')}">
                     	<p class="kospi_title2 type2">
                     </c:when>
                     <c:otherwise>
@@ -64,7 +64,7 @@
                     </c:choose>${stockInfo.KOSPI200} <span>${stockInfo.KOSPI200_UPDOWN_VAL} (${stockInfo.KOSPI200_UPDOWN_PER})</span></p>
                     <p class="kospi_title">KOSDAQ</p>
                     <c:choose>
-                    <c:when test="${fn:contains(stockInfo.KOSPI_UPDOWN_VAL,'▲')}">
+                    <c:when test="${fn:contains(stockInfo.KOSDAQ_UPDOWN_VAL,'▲')}">
                     	<p class="kospi_title2 type2">
                     </c:when>
                     <c:otherwise>
