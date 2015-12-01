@@ -5,21 +5,30 @@
     <select id="selectJoinPartnerCount" parameterType="java.util.HashMap" resultType="Integer">
 		SELECT COUNT(*)		       
 		  FROM SIX_PARTNER
+		 WHERE 1=1 
+		  <if test="name != null">
+		   AND NAME = #{name}
+		   </if>
     </select>    
     
     <select id="selectJoinPartnerList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 		SELECT SEQ,
 		       ID,
 		       NAME,
-		       REQUEST_CD,
+		       (SELECT CD_NAME
+		          FROM SIX_COMMON_CODE A 
+		         WHERE A.CD = REQUEST_CD) REQUEST_NAME,
 		       IMAGE,
 		       POST,
 		       INTRODUCE,
 		       SLOGAN,
-		       BANK_CD,
+		       (SELECT CD_NAME
+		          FROM SIX_COMMON_CODE A 
+		         WHERE A.CD = BANK_CD) BANK_NAME,
 		       ACCOUNT_NO,
 		       ACCOUNT_NAME,
-		       CREATE_DATE
+		       CREATE_DATE,
+		       IS_CONFIRM
 		  FROM SIX_PARTNER
 		 WHERE 1=1
 		   <if test="name != null">

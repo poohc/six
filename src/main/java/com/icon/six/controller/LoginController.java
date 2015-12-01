@@ -43,6 +43,7 @@ public class LoginController {
 	@RequestMapping(value="loginSuccess.do")	
 	public void loginSuccess(HttpServletRequest request, HttpServletResponse response, HttpSession session){
 		System.out.println("전 페이지 : " + request.getHeader("Referer"));
+		System.out.println("요청 페이지 :"  + request.getRequestURI());
 		
 		String url = "/main/main.do";
 		
