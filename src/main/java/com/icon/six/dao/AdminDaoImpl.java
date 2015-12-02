@@ -18,4 +18,14 @@ public class AdminDaoImpl extends SqlSessionDao implements AdminDao{
 		return selectList("admin.selectJoinPartnerList",param);
 	}
 
+	@Override
+	public Map<String, Object> selectPartnerInfo(String seq) {
+		return (Map<String, Object>) selectOne("admin.selectPartnerInfo",seq);
+	}
+
+	@Override
+	public int updatePartner(Map<String, Object> param) {
+		return (int) update("admin.updatePartner", param);
+	}
+
 }

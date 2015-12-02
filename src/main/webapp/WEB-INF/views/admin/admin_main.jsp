@@ -151,16 +151,16 @@
 							<input type="text" style="width:92%;">
 						</fieldset><div class="clear"></div>
 				</div>
-			<footer>
-				<div class="submit_link">
-					<select>
-						<option>Draft</option>
-						<option>Published</option>
-					</select>
-					<input type="submit" value="Publish" class="alt_btn">
-					<input type="submit" value="Reset">
-				</div>
-			</footer>
+<!-- 			<footer> -->
+<!-- 				<div class="submit_link"> -->
+<!-- 					<select> -->
+<!-- 						<option>Draft</option> -->
+<!-- 						<option>Published</option> -->
+<!-- 					</select> -->
+<!-- 					<input type="submit" value="Publish" class="alt_btn"> -->
+<!-- 					<input type="submit" value="Reset"> -->
+<!-- 				</div> -->
+<!-- 			</footer> -->
 		</article><!-- end of post new article -->		
 	</section>
 </body>

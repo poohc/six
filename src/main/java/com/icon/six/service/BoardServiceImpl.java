@@ -952,7 +952,8 @@ public class BoardServiceImpl implements BoardService{
 				}
 				
 				if(!"".equals(dbFileName)){
-					param.put("image", fileNm);
+					String img = "<img src=\""+fileUploadPath + fileNm+"\">";
+					param.put("image", img);
 				}
 				result = boardDao.insertSixPartner(param);
 			}

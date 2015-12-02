@@ -28,7 +28,9 @@
 		       ACCOUNT_NO,
 		       ACCOUNT_NAME,
 		       CREATE_DATE,
-		       IS_CONFIRM
+		       IS_CONFIRM,
+		       UPDATE_USER_ID,
+		       UPDATE_DATE
 		  FROM SIX_PARTNER
 		 WHERE 1=1
 		   <if test="name != null">
@@ -39,5 +41,49 @@
 		 LIMIT #{start},#{end}    
 		   </if>      		   
     </select>       
+    
+    <select id="selectPartnerInfo" parameterType="String" resultType="java.util.HashMap">
+    	SELECT SEQ,
+		       ID,
+		       NAME,
+		       REQUEST_CD,
+		       (SELECT CD_NAME
+		          FROM SIX_COMMON_CODE A 
+		         WHERE A.CD = REQUEST_CD) REQUEST_NAME,
+		       IMAGE,
+		       POST,
+		       INTRODUCE,
+		       SLOGAN,
+		       BANK_CD,
+		       (SELECT CD_NAME
+		          FROM SIX_COMMON_CODE A 
+		         WHERE A.CD = BANK_CD) BANK_NAME,
+		       ACCOUNT_NO,
+		       ACCOUNT_NAME,
+		       CREATE_DATE,
+		       IS_CONFIRM,
+		       UPDATE_USER_ID,
+		       UPDATE_DATE
+		  FROM SIX_PARTNER
+		 WHERE SEQ = #{seq}
+	</select>
+	
+    <update id="updatePartner" parameterType="java.util.HashMap">
+        UPDATE SIX_PARTNER
+           <set>
+	          <if test="requestCd != null">REQUEST_CD=#{requestCd},</if>
+	          <if test="image != null">IMAGE=#{image},</if>
+	      	  <if test="post != null">POST=post,</if>
+	      	  <if test="introduce != null">INTRODUCE=#{introduce},</if>
+	      	  <if test="slogan != null">SLOGAN=#{slogan},</if>
+	      	  <if test="bankCd != null">BANK_CD=#{bankCd},</if>
+	      	  <if test="accountNo != null">ACCOUNT_NO=#{accountNo},</if>
+	      	  <if test="accountName != null">ACCOUNT_NAME=#{accountName},</if>
+	      	  <if test="isConfirm != null">IS_CONFIRM=#{isConfirm},</if>
+	      	  UPDATE_USER_ID = #{updateUserId},
+		      UPDATE_DATE = now()
+	       </set>
+         WHERE SEQ = #{seq}
+    </update>
     
 </mapper>

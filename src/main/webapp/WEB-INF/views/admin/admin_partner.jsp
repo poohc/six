@@ -6,6 +6,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <jsp:include page="../common/admin_common.jsp" />
+<head>
+<script type="text/javascript">
+
+function pageMove(page){
+	$('#currentPage').val(page);
+	$('#frm').attr('action',$('#listPage').val());
+	$('#frm').submit();
+}
+
+function goView(seq){
+	alert('1');
+	$('#seq').val(seq);	
+	$('#frm').attr('action',$('#viewPage').val());
+	$('#frm').submit();
+}
+
+</script>
+</head>
 <body>
 	<jsp:include page="../common/admin_menu.jsp" />
 	<section id="main" class="column">
@@ -17,8 +35,7 @@
 			<table class="tablesorter" cellspacing="0"> 
 			<thead> 
 				<tr> 
-   					<th></th> 
-    				<th>ID</th> 
+   					<th>ID</th> 
     				<th>이름</th> 
     				<th>신청구분</th> 
     				<th>소속</th>
@@ -28,13 +45,14 @@
 			</thead> 
 			<form method="post" id="frm" name="frm">
 			<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
-       		<input type="hidden" id="seq" name="seq">
-			<tbody> 
+			<input type="hidden" id="seq" name="seq">
+			<input type="hidden" id="lsitPage" name="lsitPage" value="${lsitPage}">
+			<input type="hidden" id="viewPage" name="viewPage" value="${viewPage}">
+       		<tbody> 
 				<c:forEach items="${list}" var="partnerList">
-					<tr> 
-	   					<td><input type="checkbox" id="seq" name="seq" value="${partnerList.SEQ}"></td> 
-	    				<td>${partnerList.ID}</td> 
-	    				<td>${partnerList.NAME}</td> 
+					<tr onclick="goView('${partnerList.SEQ}')" style="cursor:pointer;"> 
+	   					<td>${partnerList.ID}</td>
+	   					<td>${partnerList.NAME}</td> 
 	    				<td>${partnerList.REQUEST_NAME}</td>
 	    				<td>${partnerList.POST}</td> 
 	    				<td>${partnerList.CREATE_DATE}</td>
@@ -47,7 +65,7 @@
 	    						승인
 	    					</c:otherwise>
 	    					</c:choose>
-	    				</td> 
+	    				</td>	    				
 					</tr>
 				</c:forEach>
 			</tbody> 
@@ -56,9 +74,9 @@
             	<c:out value="${page}" escapeXml="false" />
             </c:if>
 			</div>
-			</form>
+			</form>			
 		</div>		
-		</article><!-- end of content manager article -->				
+		</article>				
 	</section>
 </body>
 </html>

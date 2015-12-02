@@ -60,4 +60,14 @@ public class AdminServiceImpl implements AdminService{
 		return resultMap;
 	}
 
+	@Override
+	public Map<String, Object> selectPartnerInfo(String seq) {
+		return adminDao.selectPartnerInfo(seq);
+	}
+
+	@Override
+	public int updatePartner(Map<String, Object> param) {
+		return adminDao.updatePartner(param);
+	}
+
 }
