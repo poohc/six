@@ -16,7 +16,6 @@ function pageMove(page){
 }
 
 function goView(seq){
-	alert('1');
 	$('#seq').val(seq);	
 	$('#frm').attr('action',$('#viewPage').val());
 	$('#frm').submit();

@@ -12,7 +12,7 @@ $(document).ready(function(){
     $("#confirmBtn").click(function(){
     	$('#frm').attr('action',$('#confirmPage').val());
     	$('#frm').submit();
-    });s
+    });
     
 	$("#updateBtn").click(function(){
 		$('#frm').attr('action',$('#updatePage').val());
@@ -24,17 +24,6 @@ $(document).ready(function(){
     	$('#frm').submit();
     });
 });
-function pageMove(page){
-	$('#currentPage').val(page);
-	$('#frm').attr('action',$('#listPage').val());
-	$('#frm').submit();
-}
-
-function goView(seq){
-	$('#seq').val(seq);	
-	$('#frm').attr('action',$('#viewPage').val());
-	$('#frm').submit();
-}
 
 </script>
 </head>
@@ -44,12 +33,12 @@ function goView(seq){
 		<h4 class="alert_info">파트너 정보</h4>
 		<article class="module width_full">
 			<header><h3>파트너 정보</h3></header>
-			<form id="frm" name="frm" method="post">
+			<form id="frm" name="frm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 				<input type="hidden" id="seq" name="seq" value="${partnerInfo.SEQ}">
+				<input type="hidden" id="isConfirm" name="isConfirm" value="${partnerInfo.IS_CONFIRM}">
 				<input type="hidden" id="lsitPage" name="lsitPage" value="${lsitPage}">
 				<input type="hidden" id="updatePage" name="updatePage" value="${updatePage}">
 				<input type="hidden" id="confirmPage" name="confirmPage" value="${confirmPage}">
-			</form>
 				<div class="module_content">
 					<table>
 						<caption>파트너정보</caption>
@@ -86,6 +75,7 @@ function goView(seq){
 							<tr>
 								<th class="bb_line1">사진</td>
 								<td class="bb_line1">
+									<input type="file" id="file" name="file" style="width: 100%"><br/>
 									<c:out value="${partnerInfo.IMAGE}" escapeXml="false" />
 								</td>
 							</tr>
@@ -141,9 +131,17 @@ function goView(seq){
 						</tbody>
 					</table>
 				</div>
+				</form>
 				<footer>
 					<div class="submit_link">
-						<button type="button" id="confirmBtn">승인</button>
+						<c:choose>
+							<c:when test="${partnerInfo.IS_CONFIRM eq 'N'}">
+								<button type="button" id="confirmBtn">승인</button>
+							</c:when>
+							<c:otherwise>
+								<button type="button" id="confirmBtn">승인취소</button>
+							</c:otherwise>
+						</c:choose>
 						<button type="button" id="updateBtn">수정</button>
 						<button type="button" id="listBtn">리스트</button>
 					</div>

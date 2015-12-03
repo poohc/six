@@ -11,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.icon.six.constant.CommonConstant;
@@ -69,7 +70,7 @@ public class AdminController {
 			Map<String, Object> partnerInfo = adminService.selectPartnerInfo(seq);
 			
 			mav.addObject("listPage","/admin/partner.do");
-			mav.addObject("updatePage","/admin/partnerUpdate.do");
+			mav.addObject("updatePage","/admin/partnerUpdateProcess.do");
 			mav.addObject("confirmPage","/admin/partnerConfirmProcess.do");
 			
 			mav.addObject("requestList", boardService.selectCommonCode(CommonConstant.COMMON_REQUEST_CD));
@@ -83,49 +84,74 @@ public class AdminController {
 		return mav;
 	}
 	
-	@RequestMapping(value="partnerUpdate.do")
-	public ModelAndView partnerUpdate(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("admin/admin_partner_update");
+	@RequestMapping(value="partnerUpdateProcess.do")
+	public ModelAndView partnerUpdateProcess(@RequestParam Map<String, Object> requestMap, MultipartHttpServletRequest request, HttpServletResponse response) throws IOException{
 		
+		ModelAndView mav = new ModelAndView("main/commonPage");
+		int result = 0;
+		String msg = "";
 		try {
-			String seq = String.valueOf(requestMap.get("seq"));
-			Map<String, Object> partnerInfo = adminService.selectPartnerInfo(seq);
 			
-			mav.addObject("listPage","/admin/partner.do");
-			mav.addObject("updatePage","/admin/partnerUpdateProcess.do");
+			if(String.valueOf(requestMap.get("file")) == null){
+				requestMap.remove("file");
+			}
 			
-			mav.addObject("requestList", boardService.selectCommonCode(CommonConstant.COMMON_REQUEST_CD));
-			mav.addObject("bankList", boardService.selectCommonCode(CommonConstant.COMMON_BANK_CD));
-			mav.addObject("partnerInfo",partnerInfo);
+			requestMap.put("updateUserId", SecurityContextHolder.getContext().getAuthentication().getName());
+			requestMap.put("multipartRequest", request);
+			
+			result = adminService.updatePartner(requestMap);
+			
+			if(result == 1){
+				msg = "파트너 정보 수정에 성공했습니다.";
+			} else {
+				msg = "파트너 정보 수정에 실패 했습니다.";
+			}
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			// TODO: 에러 처리
+			msg = "오류가 발생했습니다. 관리자에게 문의해 주세요.";
 		}
 		
+		mav.addObject("page","/admin/partnerView.do");
+		mav.addObject("msg",msg);
+		mav.addObject("seq",requestMap.get("seq"));
 		
 		return mav;
-	}
-	
-	@RequestMapping(value="partnerUpdateProcess.do")
-	public void partnerUpdateProcess(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
-		
-		requestMap.put("updateUserId", SecurityContextHolder.getContext().getAuthentication().getName());
-		adminService.updatePartner(requestMap);
 		
 	}
 	
 	@RequestMapping(value="partnerConfirmProcess.do")
 	public void partnerConfirmProcess(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
 		
+		int result = 0;
+		
 		try {
 			
+			if("N".equals(requestMap.get("isConfirm"))){
+				requestMap.put("isConfirm", "Y");
+			} else if("Y".equals(requestMap.get("isConfirm"))){
+				requestMap.put("isConfirm", "N");
+			} else {
+				response.sendRedirect("/main/error.do");
+			}
 			
+			requestMap.put("updateUserId", SecurityContextHolder.getContext().getAuthentication().getName());
+			result = adminService.updatePartner(requestMap);
 			
+			if(result==1){
+				response.sendRedirect("/admin/partner.do");
+			} else {
+				response.sendRedirect("/main/error.do");
+			}
 			
-			response.sendRedirect("/admin/partner.do");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// TODO 에러 처리
+			try {
+				response.sendRedirect("/main/error.do");
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}		
 		
 	}

@@ -1,12 +1,17 @@
 package com.icon.six.service;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.icon.six.dao.AdminDao;
 import com.icon.six.util.PagingUtil;
@@ -16,6 +21,9 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Resource
 	private AdminDao adminDao;
+	
+	@Value("${file.upload.path}")
+	private String fileUploadPath;
 	
 	@Override
 	public Map<String, Object> selectJoinPartnerList(Map<String, Object> param) {
@@ -67,7 +75,60 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public int updatePartner(Map<String, Object> param) {
-		return adminDao.updatePartner(param);
+		
+		int result = 0;
+		
+		try {
+			
+			MultipartHttpServletRequest request = (MultipartHttpServletRequest) param.get("multipartRequest");
+			
+			if(request!=null){
+				//파일 업로드 처리(다중 파일 업로드)
+				String filePath = request.getSession().getServletContext().getRealPath("/") + fileUploadPath.replace("/", File.separator);
+				String dbFileName = ""; 
+				
+				int fileCount = 0;
+				String fileNm = "";
+				
+				List<MultipartFile> multiPartFileList = request.getFiles("file");
+				
+				for(MultipartFile multiPartFile : multiPartFileList){
+					
+					if(!multiPartFile.isEmpty()){
+						if(fileCount == 0){
+							 File file = new File(filePath);
+						        if(!file.exists()) {
+						           file.mkdirs();
+						     } 
+						}
+						
+						SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
+				        String today= formatter.format(new java.util.Date());
+				        fileNm = today+ "__" +multiPartFile.getOriginalFilename();
+				        
+			        	if(fileCount == 0){
+				        	dbFileName += fileNm;
+				        } else {
+				        	dbFileName += "," + fileNm;
+				        }
+						multiPartFile.transferTo(new File(filePath + fileNm));
+				        
+					}						
+					fileCount++;					
+				}
+				
+				if(!"".equals(dbFileName)){
+					String img = "<img src=\""+fileUploadPath + fileNm+"\">";
+					param.put("image", img);
+				}
+				result = adminDao.updatePartner(param);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return result;	
 	}
-
+	
 }
