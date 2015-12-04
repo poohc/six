@@ -86,4 +86,46 @@
          WHERE SEQ = #{seq}
     </update>
     
+    <select id="selectCommonCodeList" resultType="java.util.HashMap">
+        SELECT SEQ,
+               CD,
+               CD_NAME,
+               CD_TYPE,
+               CREATE_DATE,
+               CREATE_ID
+               UPDATE_DATE,
+               UPDATE_ID
+          FROM SIX_COMMON_CODE
+      ORDER BY CD_TYPE, SEQ
+    </select>
+    
+    <update id="updateCommonCode" parameterType="java.util.HashMap">
+        UPDATE SIX_COMMON_CODE
+           <set>
+	         <if test="cdName != null">CD_NAME=#{cdName},</if>
+	         UPDATE_USER_ID = #{updateUserId},
+		     UPDATE_DATE = now()
+	       </set>
+         WHERE SEQ = #{seq}
+    </update>
+    
+    <insert id="insertCommonCode" parameterType="java.util.HashMap">
+        INSERT INTO SIX_COMMON_CODE
+        			(
+        				CD,
+        				CD_NAME,
+        				CD_TYPE,
+        				CREATE_DATE,
+        				CREATE_ID
+        			)
+        			VALUES
+        			(
+        				#{cd},
+        				#{cdName},
+        				#{cdType},
+        				now(),
+        				#{createId}
+        			)
+    </insert>
+   
 </mapper>

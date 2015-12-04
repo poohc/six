@@ -102,7 +102,27 @@ public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 
 	@Override
 	public List<Map<String, Object>> selectCommonCode(String cdType) {
-		return selectList("board.selectCommonCode",cdType);
+		return selectList("board.selectCommonCode", cdType);
+	}
+
+	@Override
+	public List<Map<String, Object>> selectPartnerList(Map<String, Object> param) {
+		return selectList("board.selectPartnerList", param);
+	}
+	
+	@Override
+	public int selectPartnerBoardCount(Map<String, Object> param) {
+		return (int) selectOne("board.selectPartnerBoardCount", param);
+	}
+
+	@Override
+	public List<Map<String, Object>> selectPartnerBoardList(Map<String, Object> param) {
+		return selectList("board.selectPartnerBoardList", param);
+	}
+
+	@Override
+	public Map<String, Object> selectPartnerBoardInfo(Map<String, Object> param) {
+		return (Map<String, Object>) selectOne("board.selectPartnerBoardInfo", param);
 	}
 	
 }

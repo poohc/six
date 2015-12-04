@@ -8,31 +8,31 @@ import com.icon.six.vo.BoardVo;
 public interface BoardDao {
 	/**
 	 * 게시판 리스트 총 개수 가져오기
-	 * @param page
+	 * @param param
 	 * @return
 	 */
 	public int selectBoardCount(Map<String, Object> param);
 	/**
 	 * 게시판 리스트 가져오기
-	 * @param page
+	 * @param param
 	 * @return
 	 */
 	public List<Map<String, Object>> selectBoardList(Map<String, Object> param);
 	/**
 	 * 정보거래소 게시판 리스트 가져오기
-	 * @param page
+	 * @param param
 	 * @return
 	 */
 	public List<Map<String, Object>> selectMarketBoardList(Map<String, Object> param);
 	/**
-	 * 가져오기 
-	 * @param seq
+	 * 게시판 정보 가져오기 
+	 * @param param
 	 * @return
 	 */
 	public Map<String, Object> getBoardInfo(Map<String, Object> param); 
 	/**
 	 * 게시판 글 쓰기
-	 * @param boardVo
+	 * @param paramVo
 	 * @return
 	 */
 	public int insertBoard(BoardVo paramVo);
@@ -44,19 +44,19 @@ public interface BoardDao {
 	public int updateBoard(BoardVo paramVo);
 	/**
 	 * 댓글 게시글 수정
-	 * @param paramVo
+	 * @param param
 	 * @return
 	 */
 	public int updateBoardAddReply(Map<String, Object> param);
 	/**
 	 * 댓글 게시글 삭제시 수정
-	 * @param seq
+	 * @param param
 	 * @return
 	 */
 	public int updateBoardDelReply(Map<String, Object> param);
 	/**
 	 * 게시판 글 삭제
-	 * @param seq
+	 * @param param
 	 * @return
 	 */
 	public int deleteBoard(Map<String, Object> param);	
@@ -68,19 +68,19 @@ public interface BoardDao {
 	public List<String> selectBoardReplySeq(Map<String, Object> param); 
 	/**
 	 * 댓글 게시판 리스트 총 개수 가져오기
-	 * @param page
+	 * @param param
 	 * @return
 	 */
 	public int selectBoardReplyCount(Map<String, Object> param);
 	/**
 	 * 댓글 게시판 리스트 가져오기
-	 * @param page
+	 * @param param
 	 * @return
 	 */
 	public List<Map<String, Object>> selectBoardReplyList(Map<String, Object> param);
 	/**
 	 * 게시판 댓글 삭제
-	 * @param seq
+	 * @param param
 	 * @return
 	 */
 	public int deleteBoardReply(Map<String, Object> param);
@@ -118,4 +118,29 @@ public interface BoardDao {
 	 * @return
 	 */
 	public List<Map<String, Object>> selectCommonCode(String cdType);
+	/**
+	 * 파트너 리스트 가져오기
+	 * @param param
+	 * @return
+	 */
+	public List<Map<String, Object>> selectPartnerList(Map<String, Object> param);
+	/**
+	 * 파트너 게시판 리스트 총 개수 가져오기
+	 * @param param
+	 * @return
+	 */
+	public int selectPartnerBoardCount(Map<String, Object> param);
+	/**
+	 * 파트너 게시판 리스트 가져오기
+	 * @param param
+	 * @return
+	 */
+	public List<Map<String, Object>> selectPartnerBoardList(Map<String, Object> param);
+	/**
+	 * 파트너 게시판 정보 가져오기
+	 * @param param
+	 * @return
+	 */
+	public Map<String, Object> selectPartnerBoardInfo(Map<String, Object> param);
+	
 }

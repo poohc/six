@@ -411,4 +411,78 @@
     	 WHERE CD_TYPE = #{cdType}
     </select>
     
+    <select id="selectPartnerList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    	SELECT SEQ,
+		       ID,
+		       NAME,
+		       REQUEST_CD,
+		       (SELECT CD_NAME
+		          FROM SIX_COMMON_CODE A 
+		         WHERE A.CD = REQUEST_CD) REQUEST_NAME,
+		       IMAGE,
+		       POST,
+		       INTRODUCE,
+		       SLOGAN,
+		       BANK_CD,
+		       (SELECT CD_NAME
+		          FROM SIX_COMMON_CODE A 
+		         WHERE A.CD = BANK_CD) BANK_NAME,
+		       ACCOUNT_NO,
+		       ACCOUNT_NAME,
+		       CREATE_DATE,
+		       IS_CONFIRM,
+		       UPDATE_USER_ID,
+		       UPDATE_DATE
+		  FROM SIX_PARTNER
+		 WHERE IS_CONFIRM = 'Y'
+		   AND REQUEST_CD = #{requestCd}
+    </select>
+    
+    <select id="selectPartnerBoardCount" parameterType="java.util.HashMap" resultType="Integer">
+    	SELECT COUNT(*)
+    	  FROM SIX_PARTNER_BOARD
+    	 WHERE ID = #{id}
+    	   AND CATEGORY = #{category}
+    </select>
+    
+    <select id="selectPartnerBoardList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT SEQ,
+               NO,
+               ID, 
+               TITLE,
+               CONTENTS,
+               FILE,
+               PRICE,
+               DOWNLOAD_COUNT,
+               HIT_COUNT,
+               CREATE_DATE,
+               CREATE_ID,
+               UPDATE_DATE,
+               UPDATE_ID,
+               CATEGORY
+          FROM SIX_PARTNER_BOARD      
+         WHERE ID = #{id}
+    	   AND CATEGORY = #{category}   
+    </select>
+    
+    <select id="selectPartnerBoardInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT SEQ,
+               NO,
+               ID, 
+               TITLE,
+               CONTENTS,
+               FILE,
+               PRICE,
+               DOWNLOAD_COUNT,
+               HIT_COUNT,
+               CREATE_DATE,
+               CREATE_ID,
+               UPDATE_DATE,
+               UPDATE_ID,
+               CATEGORY
+          FROM SIX_PARTNER_BOARD
+         WHERE SEQ = #{seq}
+           AND CATEGORY = #{category}
+    </select>
+    
 </mapper>

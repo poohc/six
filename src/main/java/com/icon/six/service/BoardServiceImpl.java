@@ -968,5 +968,60 @@ public class BoardServiceImpl implements BoardService{
 	public List<Map<String, Object>> selectCommonCode(String cdType) {
 		return boardDao.selectCommonCode(cdType);
 	}
+
+	@Override
+	public List<Map<String, Object>> selectPartnerList(Map<String, Object> param) {
+		return boardDao.selectPartnerList(param);
+	}
+	
+	@Override
+	public Map<String, Object> selectPartnerBoardList(Map<String, Object> param) {
+		
+		int totalCount = 0;
+		Map<String, Object> resultMap = null;
+		
+		try {
+			
+				if(param.get("currentPage")==null){
+					param.put("currentPage", "1");
+				}
+				
+				if(param.get("searchText")!=null){
+					if("title".equals(param.get("searchOption"))){
+						param.put("title", param.get("searchText"));
+					} else if("contents".equals(param.get("searchOption"))){
+						param.put("contents", param.get("searchText"));
+					}
+				}
+				
+				param.put("ref","0");
+				
+				totalCount = boardDao.selectPartnerBoardCount(param);
+				
+				param.put("totalCount", totalCount);
+				
+				Map<String, Object> pageInfo = PagingUtil.setPageView(param);
+				
+				param.put("start", pageInfo.get("start"));
+				param.put("end", pageInfo.get("end"));
+				
+				List<Map<String, Object>> boardInfoList = boardDao.selectPartnerBoardList(param);
+				
+				resultMap = new HashMap<>();
+				resultMap.put("list", boardInfoList);
+				resultMap.put("page", pageInfo.get("page"));
+				
+		} catch (Exception e) {
+			//TODO 오류 처리
+			System.out.println("파트너 게시판 가져오기 오류");
+		}
+		
+		return resultMap;
+	}
+
+	@Override
+	public Map<String, Object> selectPartnerBoardInfo(Map<String, Object> param) {
+		return boardDao.selectPartnerBoardInfo(param);
+	}
 	
 }

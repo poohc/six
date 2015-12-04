@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,7 +10,44 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#partner1').addClass("on");	
+	
+	switch ('<c:out value="${category}" />') {
+	
+	case 'FREE_INFO': $('#categoryFree').addClass("on");
+					  $('#categoryInvest').removeClass();
+					  $('#categoryMarket').removeClass();
+		              break;
+	case 'INVEST_STRATEGY': $('#categoryFree').removeClass();
+					  		$('#categoryInvest').addClass("on");
+					  		$('#categoryMarket').removeClass();
+    				  		break;
+	case 'MARKET_ANALYSIS': $('#categoryFree').removeClass();
+					  		$('#categoryInvest').removeClass();
+					  		$('#categoryMarket').addClass("on");
+    				  		break;
+	default:
+		break;
+	}
+	
 });
+
+function goCategory(category){
+	$('#category').val(category);
+	$('#frm').attr('action',$('#listPage').val());
+	$('#frm').submit();
+}
+
+function goView(seq){
+	$('#seq').val(seq);
+	$('#frm').attr('action',$('#viewPage').val());
+	$('#frm').submit();
+}
+
+function goWrite(){
+	$('#frm').attr('action',$('#writePage').val());
+	$('#frm').submit();
+}
+
 </script>
 </head>
 <body>
@@ -35,6 +74,14 @@ $(document).ready(function(){
                     </div>
                 </div>
             </div>
+            <form id="frm" name="frm" method="post">
+            	<input type="hidden" id="category" name="category" value="${category}">
+            	<input type="hidden" id="listPage" name="listPage" value="${listPage}">
+            	<input type="hidden" id="viewPage" name="viewPage" value="${viewPage}">
+            	<input type="hidden" id="writePage" name="writePage" value="${writePage}">
+            	<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
+               	<input type="hidden" id="seq" name="seq">
+            </form>
             <div class="wrap_right">
                 <img src="/resources/img/partner1.jpg" alt="" class="top_mainimg">
                 <img src="/resources/img/partner2.jpg" alt="" class="partner2_img">
@@ -45,9 +92,9 @@ $(document).ready(function(){
                     <li>다운로드 순위<span>100</span></li>
                 </ul>
                 <ul class="inform_list2">
-                    <li class="on"><a href="#">무료종목</a></li>
-                    <li class=""><a href="#">투자전략</a></li>
-                    <li class=""><a href="#">시장분석</a></li>
+                    <li id="categoryFree"><a href="javascript:goCategory('FREE_INFO')">무료종목</a></li>
+                    <li id="categoryInvest"><a href="javascript:goCategory('INVEST_STRATEGY')">투자전략</a></li>
+                    <li id="categoryMarket"><a href="javascript:goCategory('MARKET_ANALYSIS')">시장분석</a></li>
                 </ul>
                 <div class="right_contents">
                     <div class="tab_contents" id="tab1">
@@ -71,176 +118,39 @@ $(document).ready(function(){
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="new">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#"><span class="notice_bul">공지</span>알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td><img src="/resources/img/master.png" alt="six"></td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="new">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#"><span class="notice_bul">공지</span>알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td><img src="/resources/img/master.png" alt="six"></td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
-                                    <tr class="">
-                                        <td>999</td>
-                                        <td class="t_l"><a href="#">알리바바 한국 진출설…국내 IT업계 "승산 있다"</a></td>
-                                        <td>앨리스</td>
-                                        <td>2015-09-20</td>
-                                        <td>3125</td>
-                                    </tr>
+                                	<c:choose>
+	                                	<c:when test="${fn:length(list)>0}">
+		                                	<c:forEach items="${list}" var="list">
+		                                    	<tr>
+			                                        <td>${list.NO}</td>
+			                                        <td class="t_l">
+			                                        	<a href="javascript:goView('${list.SEQ}')">${list.TITLE}</a>
+			                                        </td>
+			                                        <td>${list.ID}</td>
+			                                        <td>${list.CREATE_DATE}</td>
+			                                        <td>${list.HIT_COUNT}</td>
+		                                    	</tr>
+	                                    	</c:forEach>
+	                                	</c:when>
+	                                	<c:otherwise>
+	                                		<tr>
+	                                			<td colspan="5">게시물이 없습니다.</td>
+	                                		</tr>
+	                                	</c:otherwise>
+                                	</c:choose>                                                                        
                                 </tbody>
                             </table>
                         </div>
                         <div class="table_bottom">
-                            <a href="#" class="go_list">목록으로</a>
-                            <ul class="table_option">
-                                <li><a href="#">삭제</a></li>
-                                <li><a href="#">취소</a></li>
-                                <li><a href="#">수정</a></li>
-                                <li class="on"><a href="#">글쓰기</a></li>
-                            </ul>
-                        </div>
-                        <div class="paging">
-                            <a href="#" class="prev2"><img src="/resources/img/prev2.png" alt="이전"></a>
-                            <a href="#" class="prev1"><img src="/resources/img/prev1.png" alt="이전"></a>
-                            <ul class="paging_list">
-                                <li class="on"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">6</a></li>
-                                <li><a href="#">7</a></li>
-                                <li><a href="#">8</a></li>
-                                <li><a href="#">9</a></li>
-                                <li><a href="#">10</a></li>
-                            </ul>
-                            <a href="#" class="next1"><img src="/resources/img/next1.png" alt="이전"></a>
-                            <a href="#" class="next2"><img src="/resources/img/next2.png" alt="이전"></a>
-                        </div>
+	                        <security:authorize ifAnyGranted="ROLE_ADMIN">
+	                        <ul class="table_option">
+	                            <li><a href="javascript:goWrite()">글쓰기</a></li>
+	                        </ul>
+	                        </security:authorize>
+	                    </div>
+	                    <c:if test="${fn:length(list) > 0}">
+	                    	<c:out value="${page}" escapeXml="false" />
+	                    </c:if>
                     </div>
                 </div>
             </div>

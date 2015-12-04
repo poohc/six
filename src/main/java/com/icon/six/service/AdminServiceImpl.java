@@ -121,8 +121,10 @@ public class AdminServiceImpl implements AdminService{
 					String img = "<img src=\""+fileUploadPath + fileNm+"\">";
 					param.put("image", img);
 				}
-				result = adminDao.updatePartner(param);
+				
 			}
+			
+			result = adminDao.updatePartner(param);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
