@@ -142,5 +142,22 @@ public interface BoardDao {
 	 * @return
 	 */
 	public Map<String, Object> selectPartnerBoardInfo(Map<String, Object> param);
-	
+	/**
+	 * 파트너 게시판 글 쓰기
+	 * @param param
+	 * @return
+	 */
+	public int insertSixPartnerBoard(Map<String, Object> param);
+	/**
+	 * 파트너 게시판 글 업데이트 하기
+	 * @param param
+	 * @return
+	 */
+	public int updateSixPartnerBoard(Map<String, Object> param);
+	/**
+	 * 파트너 게시판 글 삭제하기
+	 * @param seq
+	 * @return
+	 */
+	public int deleteSixPartnerBoard(String seq);
 }

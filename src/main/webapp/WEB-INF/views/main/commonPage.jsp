@@ -25,6 +25,8 @@
 <form method="post" id="frm" name="frm">
 	<input type="hidden" id="seq" name="seq" value="${seq}">
 	<input type="hidden" id="page" name="page" value="${page}">
+	<input type="hidden" id="id" name="id" value="${id}">
+	<input type="hidden" id="category" name="category" value="${category}">
 </form>
 </body>
 </html>

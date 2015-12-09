@@ -473,8 +473,8 @@
                CONTENTS,
                FILE,
                PRICE,
-               DOWNLOAD_COUNT,
-               HIT_COUNT,
+               IFNULL(DOWNLOAD_COUNT,0) DOWNLOAD_COUNT,
+               IFNULL(HIT_COUNT,0) HIT_COUNT,
                CREATE_DATE,
                CREATE_ID,
                UPDATE_DATE,
@@ -484,5 +484,54 @@
          WHERE SEQ = #{seq}
            AND CATEGORY = #{category}
     </select>
+    
+    <insert id="insertSixPartnerBoard" parameterType="java.util.HashMap">
+    	INSERT INTO SIX_PARTNER_BOARD
+    	            (
+    	             NO,
+    	             ID,
+    	             TITLE,
+    	             CONTENTS,
+    	             FILE,
+    	             PRICE,
+    	             CATEGORY,
+    	             CREATE_DATE,
+    	             CREATE_ID
+    	            )    
+    	            VALUES
+    	            (
+    	             (SELECT IFNULL(MAX(NO),0) + 1 FROM SIX_PARTNER_BOARD A WHERE A.CATEGORY = #{category}),
+    	             #{id},
+    	             #{title},
+    	             #{contents},
+    	             #{file},
+    	             #{price},
+    	             #{category},
+    	             now(),
+    	             #{id}
+    	            )
+    </insert>
+    
+     <update id="updateSixPartnerBoard" parameterType="java.util.HashMap">
+        UPDATE SIX_PARTNER_BOARD
+         <set>
+	          <if test="title != null">TITLE=#{title},</if>
+	          <if test="contents != null">CONTENTS=#{contents},</if>
+	          <if test="file != null">FILE=#{file},</if>
+	          <if test="price != null">PRICE=#{price},</if>
+	      	  <if test="downloadCount != null">DOWNLOAD_COUNT=DOWNLOAD_COUNT+1,</if>
+	      	  <if test="category != null">CATEGORY=#{category},</if>
+	      	  <if test="hitCount != null">HIT_COUNT=HIT_COUNT+1,</if>	      	  
+	      	  <if test="updateUserId != null">UPDATE_USER_ID = #{updateUserId},</if>
+		      <if test="updateUserId != null">UPDATE_DATE = now()</if>
+	    </set>
+	    WHERE SEQ = #{seq}                   
+    </update>
+    
+    <delete id="deleteSixPartnerBoard" parameterType="String">
+        DELETE 
+          FROM SIX_PARTNER_BOARD
+         WHERE SEQ = #{seq}
+    </delete>
     
 </mapper>

@@ -5,8 +5,11 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.icon.six.service.BoardService;
 import com.mortennobel.imagescaling.ResampleOp;
 
 @Controller
@@ -28,6 +32,9 @@ public class FileController {
 	
 	@Value("${file.upload.path}")
 	private String fileUploadPath;
+	
+	@Resource
+	private BoardService boardService;
 	
 	@RequestMapping(value="imgFileUpload.do")
 	public void imgFileUpload(HttpServletRequest request, HttpServletResponse response){
@@ -103,6 +110,34 @@ public class FileController {
 	@RequestMapping(value = "fileDownLoad.do")
 	public ModelAndView fileDownLoad(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("downloadView");
+		
+		String fileName = StringUtils.defaultIfEmpty(request.getParameter("fileName"), "");
+		String dftFilePath = request.getSession().getServletContext().getRealPath("/");
+		fileUploadPath = fileUploadPath.replace("/", File.separator); 
+		
+		System.out.println("dftFilePath : " + dftFilePath);
+		
+		if(!"".equals(fileName)){
+			
+			mav.addObject("fileName", new File(dftFilePath + fileUploadPath + fileName));
+			
+		} else {
+			//TODO 에러처리
+			
+		}
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "partnerFileDownLoad.do")
+	public ModelAndView partnerFileDownLoad(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("downloadView");
+		
+		// 다운로드 카운트 증가
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("downloadCount", "1");
+		paramMap.put("seq", request.getParameter("seq"));
+		boardService.updateSixPartnerBoardHitCount(paramMap);
 		
 		String fileName = StringUtils.defaultIfEmpty(request.getParameter("fileName"), "");
 		String dftFilePath = request.getSession().getServletContext().getRealPath("/");

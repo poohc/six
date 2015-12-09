@@ -11,6 +11,14 @@
 $(document).ready(function(){
 	$('#partner1').addClass("on");	
 });
+
+function goPartner(id,seq){
+	$('#id').val(id);
+	$('#seq').val(seq);
+	$('#frm').attr('action',$('#listPage').val());
+	$('#frm').submit();
+}
+
 </script>
 </head>
 <body>
@@ -74,6 +82,8 @@ $(document).ready(function(){
             </div>
             <form id="frm" name="frm" method="post">
             	<input type="hidden" id="id" name="id">
+            	<input type="hidden" id="listPage" name="listPage" value="${listPage}">
+            	<input type="hidden" id="seq" name="seq">            	
             </form>
             <div class="wrap_right">
                 <p class="title_type1 type2 type4">SIX 파트너스</p>
@@ -82,7 +92,7 @@ $(document).ready(function(){
                 		<c:when test="${fn:length(partnerList1) > 0}">
 	                		<c:forEach items="${partnerList1}" var="partnerList1">
 		                		<li>
-			                        <a href="javascript:goPartner('${partnerList1.ID}')" class="name_block">
+			                        <a href="javascript:goPartner('${partnerList1.ID}','${partnerList1.SEQ}')" class="name_block">
 			                            <div class="name_top">
 			                                <span class="name_title new">${partnerList1.NAME}</span>
 			                                <span class="name_title2">${partnerList1.POST}</span>
@@ -93,7 +103,7 @@ $(document).ready(function(){
 			                                <p class="name_text">${partnerList1.SLOGAN}</p>
 			                            </div>
 			                        </a>
-			                        <a href="#" class="watch_movie">동영상 보기</a>
+			                        <a href="javascript:goPartner('${partnerList1.ID}','${partnerList1.SEQ}')" class="watch_movie">파트너 페이지 이동하기</a>
 			                    </li>
 	                		</c:forEach>                		
                 		</c:when>
@@ -110,7 +120,7 @@ $(document).ready(function(){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">동영상 보기</a>
+	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
 	                    <li>
 	                        <a href="/partner/partnerView.do" class="name_block">
@@ -124,7 +134,7 @@ $(document).ready(function(){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">동영상 보기</a>
+	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
 	                    <li>
 	                        <a href="/partner/partnerView.do" class="name_block">
@@ -138,7 +148,7 @@ $(document).ready(function(){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">동영상 보기</a>
+	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
 	                    <li>
 	                        <a href="/partner/partnerView.do" class="name_block">
@@ -152,7 +162,7 @@ $(document).ready(function(){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">동영상 보기</a>
+	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
 	                    <li>
 	                        <a href="/partner/partnerView.do" class="name_block">
@@ -166,7 +176,7 @@ $(document).ready(function(){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">동영상 보기</a>
+	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
 	                    <li>
 	                        <a href="/partner/partnerView.do" class="name_block">
@@ -180,7 +190,7 @@ $(document).ready(function(){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">동영상 보기</a>
+	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
 	                    <li>
 	                        <a href="/partner/partnerView.do" class="name_block">
@@ -194,7 +204,7 @@ $(document).ready(function(){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">동영상 보기</a>
+	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
 	                    <li>
 	                        <a href="/partner/partnerView.do" class="name_block">
@@ -208,7 +218,7 @@ $(document).ready(function(){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">동영상 보기</a>
+	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
 	                    <li>
 	                        <a href="/partner/partnerView.do" class="name_block">
@@ -222,7 +232,7 @@ $(document).ready(function(){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">동영상 보기</a>
+	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
                 		</c:otherwise>
                 	</c:choose>
@@ -233,7 +243,7 @@ $(document).ready(function(){
                		<c:when test="${fn:length(partnerList2) > 0}">
                 		<c:forEach items="${partnerList2}" var="partnerList2">
 	                		<li>
-		                        <a href="javascript:goPartner('${partnerList2.ID}')" class="name_block">
+		                        <a href="javascript:goPartner('${partnerList2.ID}','${partnerList2.SEQ}')" class="name_block">
 		                            <div class="name_top">
 		                                <span class="name_title new">${partnerList2.NAME}</span>
 		                                <span class="name_title2">${partnerList2.POST}</span>
@@ -244,7 +254,7 @@ $(document).ready(function(){
 		                                <p class="name_text">${partnerList2.SLOGAN}</p>
 		                            </div>
 		                        </a>
-		                        <a href="#" class="watch_movie">동영상 보기</a>
+		                        <a href="javascript:goPartner('${partnerList2.ID}','${partnerList2.SEQ}')" class="watch_movie">파트너 페이지 이동하기</a>
 		                    </li>
                 		</c:forEach>                		
                		</c:when>
@@ -261,7 +271,7 @@ $(document).ready(function(){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">동영상 보기</a>
+                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     <li>
                         <a href="/partner/partnerView.do" class="name_block">
@@ -275,7 +285,7 @@ $(document).ready(function(){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">동영상 보기</a>
+                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     <li>
                         <a href="/partner/partnerView.do" class="name_block">
@@ -289,7 +299,7 @@ $(document).ready(function(){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">동영상 보기</a>
+                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     <li>
                         <a href="/partner/partnerView.do" class="name_block">
@@ -303,7 +313,7 @@ $(document).ready(function(){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">동영상 보기</a>
+                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     <li>
                         <a href="/partner/partnerView.do" class="name_block">
@@ -317,7 +327,7 @@ $(document).ready(function(){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">동영상 보기</a>
+                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     <li>
                         <a href="/partner/partnerView.do" class="name_block">
@@ -331,7 +341,7 @@ $(document).ready(function(){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">동영상 보기</a>
+                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     <li>
                         <a href="/partner/partnerView.do" class="name_block">
@@ -345,7 +355,7 @@ $(document).ready(function(){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">동영상 보기</a>
+                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     <li>
                         <a href="/partner/partnerView.do" class="name_block">
@@ -359,7 +369,7 @@ $(document).ready(function(){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">동영상 보기</a>
+                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     <li>
                         <a href="/partner/partnerView.do" class="name_block">
@@ -373,29 +383,11 @@ $(document).ready(function(){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">동영상 보기</a>
+                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     </c:otherwise>
                 </c:choose>
-                </ul>
-                <div class="paging type3">
-                        <a href="#" class="prev2"><img src="/resources/img/prev2.png" alt="이전"></a>
-                        <a href="#" class="prev1"><img src="/resources/img/prev1.png" alt="이전"></a>
-                        <ul class="paging_list">
-                            <li class="on"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">7</a></li>
-                            <li><a href="#">8</a></li>
-                            <li><a href="#">9</a></li>
-                            <li><a href="#">10</a></li>
-                        </ul>
-                        <a href="#" class="next1"><img src="/resources/img/next1.png" alt="이전"></a>
-                        <a href="#" class="next2"><img src="/resources/img/next2.png" alt="이전"></a>
-                    </div>
+                </ul>                
             </div>
             <!-- Left Side -->
             <jsp:include page="../common/left.jsp" />

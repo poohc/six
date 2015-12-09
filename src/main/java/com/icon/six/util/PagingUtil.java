@@ -35,6 +35,11 @@ public class PagingUtil {
 		StringBuffer pageString = new StringBuffer();
 		
 		try {
+			
+			if(!"null".equals(String.valueOf(pageInfo.get("pageCount")))){
+				pageCount = Integer.parseInt(String.valueOf(pageInfo.get("pageCount")));
+			}
+			
 			totalCount = Integer.parseInt(String.valueOf(pageInfo.get("totalCount"))); 			
 			currentPage  = Integer.parseInt(String.valueOf(pageInfo.get("currentPage")));
 			totalCount = (totalCount / (pageCount+1))+1;			

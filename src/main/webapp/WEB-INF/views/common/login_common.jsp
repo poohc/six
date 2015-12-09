@@ -46,6 +46,7 @@
 <form id="loginForm" action="j_spring_security_check.do" method="post">
 	<security:authorize access="hasRole('ROLE_USER')" var="isUser" />
 	<security:authorize access="hasRole('ROLE_ADMIN')" var="isAdmin" />
+	<security:authorize access="hasRole('ROLE_PARTNER')" var="isPartner" />
 	<c:choose>
 	<c:when test="${not empty sessionScope.userInfo}">
 		<div class="login_box type2">

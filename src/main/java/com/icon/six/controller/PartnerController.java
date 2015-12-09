@@ -1,5 +1,8 @@
 package com.icon.six.controller;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -7,6 +10,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,14 +18,21 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.icon.six.constant.CommonConstant;
+import com.icon.six.service.AdminService;
 import com.icon.six.service.BoardService;
+import com.icon.six.util.StringUtil;
 
 @Controller
 @RequestMapping("partner")
 public class PartnerController {
 	
+	private Logger logger = Logger.getLogger(this.getClass());
+	
 	@Resource
 	private BoardService boardService;
+	
+	@Resource
+	private AdminService adminService;
 	
 	@RequestMapping(value="partnerMain.do")
 	public ModelAndView partnerMain(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
@@ -35,7 +46,7 @@ public class PartnerController {
 			mav.addObject("partnerList1",boardService.selectPartnerList(requestMap));
 			requestMap.put("requestCd", requestCodeList.get(0).get("CD"));
 			mav.addObject("partnerList2",boardService.selectPartnerList(requestMap));
-			
+			mav.addObject("listPage","/partner/partnerFreeInfo.do");
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
@@ -99,15 +110,19 @@ public class PartnerController {
 				category = "FREE_INFO";
 			}
 			
+			requestMap.put("category", category);
 			Map<String, Object> partnerBoardInfo = boardService.selectPartnerBoardList(requestMap);
+			Map<String, Object> partnerInfo = adminService.selectPartnerInfo(String.valueOf(requestMap.get("seq")));
 			
+			mav.addObject("id",requestMap.get("id"));
 			mav.addObject("list",partnerBoardInfo.get("list"));
 			mav.addObject("page",partnerBoardInfo.get("page"));
 			mav.addObject("listPage","/partner/partnerFreeInfo.do");
-			mav.addObject("viewPage","/partner/partnerFreeInfoView.do");
+			mav.addObject("viewPage","/partner/partnerBoardView.do");
 			mav.addObject("writePage","/partner/partnerFreeInfoWrite.do");
 			mav.addObject("currentPage",requestMap.get("currentPage"));
 			mav.addObject("category",category);
+			mav.addObject("partnerInfo",partnerInfo);
 			
 		} catch (Exception e) {
 			// TODO: 에러 처리
@@ -117,14 +132,45 @@ public class PartnerController {
 		return mav;
 	}
 	
-	@RequestMapping(value="partnerFreeInfoView.do")
-	public ModelAndView partnerFreeInfoView(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("partner/partner_freeInfo_view");
+	@RequestMapping(value="partnerBoardView.do")
+	public ModelAndView partnerBoardView(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("partner/partner_view");
 		
 		try {
-			Map<String, Object> partnerBoardInfo = boardService.selectPartnerBoardInfo(requestMap);
+			//HIT COUNT 업데이트
+			requestMap.put("hitCount", "1");
+			boardService.updateSixPartnerBoardHitCount(requestMap);
 			
-			mav.addObject("partnerBoardInfo",partnerBoardInfo);
+			Map<String, Object> resultMap = boardService.selectPartnerBoardInfo(requestMap);
+			
+			mav.addObject("partnerBoardInfo",resultMap.get("boardInfo"));
+			mav.addObject("fileList",resultMap.get("fileList"));
+			
+			String category = String.valueOf(requestMap.get("category"));
+			mav.addObject("id",requestMap.get("id"));
+			mav.addObject("listPage","/partner/partnerFreeInfo.do");
+			mav.addObject("updateAction","/partner/partnerFreeInfoUpdate.do");
+			mav.addObject("deleteAction","/partner/partnerFreeInfoDelete.do");
+			
+		} catch (Exception e) {
+			// TODO: 에러 처리
+		}
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="partnerFreeInfoUpdate.do")
+	public ModelAndView partnerFreeInfoUpdate(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("partner/partner_freeInfo_write");
+		
+		try {
+			Map<String, Object> resultMap = boardService.selectPartnerBoardInfo(requestMap);
+			
+			mav.addObject("boardInfo",resultMap.get("boardInfo"));
+			mav.addObject("fileList",resultMap.get("fileList"));
+			mav.addObject("id",requestMap.get("id"));
+			mav.addObject("isUpdate","true");
+			mav.addObject("updateAction","/partner/partnerFreeInfoUpdateProcess.do");
 			
 		} catch (Exception e) {
 			// TODO: 에러 처리
@@ -138,9 +184,8 @@ public class PartnerController {
 		ModelAndView mav = new ModelAndView("partner/partner_freeInfo_write");
 		
 		try {
-			Map<String, Object> partnerBoardInfo = boardService.selectPartnerBoardInfo(requestMap);
-			
-			mav.addObject("partnerBoardInfo",partnerBoardInfo);
+			mav.addObject("insertAction","/partner/partnerFreeInfoWriteProcess.do");
+			mav.addObject("category","FREE_INFO");
 			
 		} catch (Exception e) {
 			// TODO: 에러 처리
@@ -149,16 +194,187 @@ public class PartnerController {
 		return mav;
 	}
 	
-	
-	@RequestMapping(value="partnerPayInfo.do")
-	public ModelAndView partnerPayInfo(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("partner/partner_payInfo");
+	@RequestMapping(value="partnerFreeInfoWriteProcess.do")
+	public ModelAndView partnerFreeInfoWriteProcess(@RequestParam Map<String, Object> requestMap, MultipartHttpServletRequest request, HttpServletResponse response) throws IOException{
+		logger.debug("requestMap : " + requestMap);
+		ModelAndView mav = new ModelAndView("main/commonPage");
+		int result = 0;
+		
+		try {
+			if("NotNull".equals(StringUtil.nullCheckMap((HashMap<String, Object>) requestMap))){
+				
+				requestMap.put("multipartRequest", request);
+				result = boardService.insertSixPartnerBoard(requestMap);
+				
+				List<String> freeTab = new ArrayList<String>();
+				List<String> paidTab = new ArrayList<String>();
+				
+				freeTab.add("FREE_INFO");
+				freeTab.add("INVEST_STRATEGY");
+				freeTab.add("MARKET_ANALYSIS");
+				
+				paidTab.add("PAID_INFO");
+				paidTab.add("BARGAIN_TECHNIQUES");
+				paidTab.add("ADVANCE_MARKET");
+				
+				if(result == 1){
+					mav.addObject("id", requestMap.get("id"));
+					mav.addObject("msg","게시물 입력에 성공했습니다.");
+					mav.addObject("category", requestMap.get("category"));
+					if(freeTab.contains(requestMap.get("category"))){
+						mav.addObject("page","/partner/partnerFreeInfo.do");
+					} else if(paidTab.contains(requestMap.get("category"))){
+						mav.addObject("page","/partner/partnerPaidInfo.do");
+					}
+					
+				} else {
+					// TODO 에러페이지
+					response.sendRedirect("/main/error.do");
+				}
+			} else {
+				// TODO 에러페이지
+				response.sendRedirect("/main/error.do");
+			}
+			
+		} catch (IOException e) {
+			// TODO 에러 처리
+			response.sendRedirect("/main/error.do");
+		}
+		
 		return mav;
 	}
 	
-	@RequestMapping(value="partnerView.do")
-	public ModelAndView partnerView(HttpServletRequest request, HttpServletResponse response){
-		ModelAndView mav = new ModelAndView("partner/partner_view");
+	@RequestMapping(value="partnerFreeInfoUpdateProcess.do")
+	public ModelAndView partnerFreeInfoUpdateProcess(@RequestParam Map<String, Object> requestMap, MultipartHttpServletRequest request, HttpServletResponse response) throws IOException{
+		logger.debug("requestMap : " + requestMap);
+		ModelAndView mav = new ModelAndView("main/commonPage");
+		int result = 0;
+		
+		try {
+			if("NotNull".equals(StringUtil.nullCheckMap((HashMap<String, Object>) requestMap))){
+				
+				requestMap.put("multipartRequest", request);
+				result = boardService.updateSixPartnerBoard(requestMap);
+				
+				List<String> freeTab = new ArrayList<String>();
+				List<String> paidTab = new ArrayList<String>();
+				
+				freeTab.add("FREE_INFO");
+				freeTab.add("INVEST_STRATEGY");
+				freeTab.add("MARKET_ANALYSIS");
+				
+				paidTab.add("PAID_INFO");
+				paidTab.add("BARGAIN_TECHNIQUES");
+				paidTab.add("ADVANCE_MARKET");
+				
+				if(result == 1){
+					mav.addObject("id", requestMap.get("id"));
+					mav.addObject("msg","게시물 수정에 성공했습니다.");
+					mav.addObject("category", requestMap.get("category"));
+					
+					if(freeTab.contains(requestMap.get("category"))){
+						mav.addObject("page","/partner/partnerFreeInfo.do");
+					} else if(paidTab.contains(requestMap.get("category"))){
+						mav.addObject("page","/partner/partnerPaidInfo.do");
+					}
+					
+				} else {
+					// TODO 에러페이지
+					response.sendRedirect("/main/error.do");
+				}
+			} else {
+				// TODO 에러페이지
+				response.sendRedirect("/main/error.do");
+			}
+			
+		} catch (IOException e) {
+			// TODO 에러 처리
+			response.sendRedirect("/main/error.do");
+		}
+		
 		return mav;
 	}
+	
+	@RequestMapping(value="partnerFreeInfoDelete.do")
+	public ModelAndView partnerFreeInfoDelete(@RequestParam Map<String, Object> requestMap, HttpServletResponse response) throws IOException{
+		logger.debug("requestMap : " + requestMap);
+		ModelAndView mav = new ModelAndView("main/commonPage");
+		int result = 0;
+		
+		try {
+			if("NotNull".equals(StringUtil.nullCheckMap((HashMap<String, Object>) requestMap))){
+				
+				result = boardService.deleteSixPartnerBoard(requestMap);
+				
+				if(result == 1){
+					mav.addObject("id", requestMap.get("id"));
+					mav.addObject("msg","게시물을 삭제했습니다.");
+					mav.addObject("category", requestMap.get("category"));
+					mav.addObject("page","/partner/partnerFreeInfo.do");
+				} else {
+					// TODO 에러페이지
+					response.sendRedirect("/main/error.do");
+				}
+			} else {
+				// TODO 에러페이지
+				response.sendRedirect("/main/error.do");
+			}
+			
+		} catch (IOException e) {
+			// TODO 에러 처리
+			response.sendRedirect("/main/error.do");
+		}
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="partnerPaidInfo.do")
+	public ModelAndView partnerPaidInfo(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("partner/partner_paidInfo");
+		
+		try {
+			
+			String category = String.valueOf(requestMap.get("category")); 
+			
+			if("null".equals(category)){
+				category = "PAID_INFO";
+			}
+			
+			requestMap.put("category", category);
+			Map<String, Object> partnerBoardInfo = boardService.selectPartnerBoardList(requestMap);
+			Map<String, Object> partnerInfo = adminService.selectPartnerInfo(String.valueOf(requestMap.get("seq")));
+			
+			mav.addObject("id",requestMap.get("id"));
+			mav.addObject("list",partnerBoardInfo.get("list"));
+			mav.addObject("page",partnerBoardInfo.get("page"));
+			mav.addObject("listPage","/partner/partnerPaidInfo.do");
+			mav.addObject("viewPage","/partner/partnerBoardView.do");
+			mav.addObject("writePage","/partner/partnerPaidInfoWrite.do");
+			mav.addObject("currentPage",requestMap.get("currentPage"));
+			mav.addObject("category",category);
+			mav.addObject("partnerInfo",partnerInfo);
+			
+		} catch (Exception e) {
+			// TODO: 에러 처리
+			
+		}
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="partnerPaidInfoWrite.do")
+	public ModelAndView partnerPaidInfoWrite(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("partner/partner_paidInfo_write");
+		
+		try {
+			mav.addObject("insertAction","/partner/partnerFreeInfoWriteProcess.do");
+			mav.addObject("category","PAID_INFO");
+			
+		} catch (Exception e) {
+			// TODO: 에러 처리
+		}
+		
+		return mav;
+	}
+	
 }

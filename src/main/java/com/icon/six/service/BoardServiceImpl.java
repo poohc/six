@@ -1021,7 +1021,212 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public Map<String, Object> selectPartnerBoardInfo(Map<String, Object> param) {
-		return boardDao.selectPartnerBoardInfo(param);
+		
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		
+		Map<String, Object> boardInfo = boardDao.selectPartnerBoardInfo(param);
+		resultMap.put("boardInfo", boardInfo);
+		
+		//파일 목록 리스트 화
+		if(boardInfo.get("FILE")!=null){
+			
+			String file = StringUtils.defaultIfEmpty(String.valueOf(boardInfo.get("FILE")), ""); 
+			
+			if(!"".equals(file)){
+				String[] fileArray = file.split(",");				
+				List<Map<String, String>> fileList = new ArrayList<Map<String, String>>();
+				
+				if(fileArray.length == 1){
+					Map<String, String> fileMap = new HashMap<String, String>();
+					fileMap.put("rFile", file);
+					file = file.substring(file.indexOf("__"), file.length()).replace("__", "");
+					fileMap.put("file", file);
+					fileList.add(fileMap);
+				} else {
+					for(String fileName : fileArray){
+						Map<String, String> fileMap = new HashMap<String, String>();
+						fileMap.put("rFile", fileName);
+						fileName = fileName.substring(fileName.indexOf("__"), fileName.length()).replace("__", "");
+						fileMap.put("file", fileName);	
+						fileList.add(fileMap);
+					}
+				}			
+				resultMap.put("fileList",fileList);
+			}			
+		}
+		
+		return resultMap;
+	}
+
+	@Override
+	public int insertSixPartnerBoard(Map<String, Object> param) {
+		int result = 0;
+		
+		try {
+			MultipartHttpServletRequest request = (MultipartHttpServletRequest) param.get("multipartRequest");
+			
+			if(request!=null){
+				//파일 업로드 처리(다중 파일 업로드)
+				String filePath = request.getSession().getServletContext().getRealPath("/") + fileUploadPath.replace("/", File.separator);
+				String dbFileName = ""; 
+				
+				int fileCount = 0;
+				String fileNm = "";
+				
+				List<MultipartFile> multiPartFileList = request.getFiles("file");
+				
+				for(MultipartFile multiPartFile : multiPartFileList){
+					
+					if(!multiPartFile.isEmpty()){
+						if(fileCount == 0){
+							 File file = new File(filePath);
+						        if(!file.exists()) {
+						           file.mkdirs();
+						     } 
+						}
+						
+						SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
+				        String today= formatter.format(new java.util.Date());
+				        fileNm = today+ "__" +multiPartFile.getOriginalFilename();
+				        
+			        	if(fileCount == 0){
+				        	dbFileName += fileNm;
+				        } else {
+				        	dbFileName += "," + fileNm;
+				        }
+						multiPartFile.transferTo(new File(filePath + fileNm));
+				        
+					}						
+					fileCount++;					
+				}
+				
+				if(!"".equals(dbFileName)){
+					param.put("file", fileNm);
+				}
+				
+				if("".equals(String.valueOf(param.get("price")))){
+					param.put("price","0");
+				}
+				
+				param.put("contents", String.valueOf(param.get("smarteditor")));
+				param.put("id", SecurityContextHolder.getContext().getAuthentication().getName());
+				param.put("createId", SecurityContextHolder.getContext().getAuthentication().getName());
+				
+				result = boardDao.insertSixPartnerBoard(param);
+			}
+		} catch (Exception e) {
+			// TODO: 에러 처리
+		}
+		
+		return result;
+	}
+
+	@Override
+	public int updateSixPartnerBoard(Map<String, Object> param) {
+		int result = 0;
+		
+		try {
+			MultipartHttpServletRequest request = (MultipartHttpServletRequest) param.get("multipartRequest");
+			
+			if(request!=null){
+				//파일 업로드 처리(다중 파일 업로드)
+				String filePath = request.getSession().getServletContext().getRealPath("/") + fileUploadPath.replace("/", File.separator);
+				String dbFileName = ""; 
+				
+				int fileCount = 0;
+				String fileNm = "";
+				
+				List<MultipartFile> multiPartFileList = request.getFiles("file");
+				
+				for(MultipartFile multiPartFile : multiPartFileList){
+					
+					if(!multiPartFile.isEmpty()){
+						if(fileCount == 0){
+							 File file = new File(filePath);
+						        if(!file.exists()) {
+						           file.mkdirs();
+						     } 
+						}
+						
+						SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
+				        String today= formatter.format(new java.util.Date());
+				        fileNm = today+ "__" +multiPartFile.getOriginalFilename();
+				        
+			        	if(fileCount == 0){
+				        	dbFileName += fileNm;
+				        } else {
+				        	dbFileName += "," + fileNm;
+				        }
+						multiPartFile.transferTo(new File(filePath + fileNm));
+				        
+					}						
+					fileCount++;					
+				}
+				
+				if(!"".equals(dbFileName)){
+					param.put("file", fileNm);
+				}
+				
+				if("".equals(String.valueOf(param.get("price")))){
+					param.put("price","0");
+				}
+				
+				if(param.get("smarteditor")!=null){
+					param.put("contents", String.valueOf(param.get("smarteditor")));
+				}
+				
+				if(param.get("downloadCount")!=null){
+					param.put("downloadCount", String.valueOf(param.get("downloadCount")));
+				}
+				
+				param.put("updateId", SecurityContextHolder.getContext().getAuthentication().getName());
+				
+				
+				result = boardDao.updateSixPartnerBoard(param);
+			}
+		} catch (Exception e) {
+			// TODO: 에러 처리
+		}
+		
+		return result;
+	}
+
+	@Override
+	public int deleteSixPartnerBoard(Map<String, Object> param) {
+		
+		Map<String, Object> boardInfo = boardDao.selectPartnerBoardInfo(param);
+		int result = 0;
+		//첨부 파일 삭제			
+		if(boardInfo !=null && boardInfo.get("FILE")!=null){
+			
+			String tempFile = String.valueOf(boardInfo.get("FILE"));
+			String path = String.valueOf(param.get("path"));
+			
+			//단일 파일이 아닐 경우 
+			if(tempFile.split(",").length > 1){
+				
+				String[] tempFileArray = tempFile.split(",");
+				
+				for(String file : tempFileArray){
+					File f = new File(path + fileUploadPath + file);
+					f.delete();
+				}
+				
+			} else {
+				
+				File f = new File(path + fileUploadPath + tempFile);
+				f.delete();
+				
+			}
+			
+		}		
+		result = boardDao.deleteSixPartnerBoard(String.valueOf(param.get("seq")));
+		return result;
+	}
+
+	@Override
+	public int updateSixPartnerBoardHitCount(Map<String, Object> param) {
+		return boardDao.updateSixPartnerBoard(param);
 	}
 	
 }

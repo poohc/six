@@ -9,22 +9,22 @@
 <jsp:include page="../common/common.jsp" />
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#partner1').addClass("on");	
+	$('#partner2').addClass("on");	
 	
 	switch ('<c:out value="${category}" />') {
 	
-	case 'FREE_INFO': $('#categoryFree').addClass("on");
-					  $('#categoryInvest').removeClass();
-					  $('#categoryMarket').removeClass();
+	case 'PAID_INFO': $('#categoryPaid').addClass("on");
+					  $('#categoryBargain').removeClass();
+					  $('#categoryAdvance').removeClass();
 		              break;
-	case 'INVEST_STRATEGY': $('#categoryFree').removeClass();
-					  		$('#categoryInvest').addClass("on");
-					  		$('#categoryMarket').removeClass();
-    				  		break;
-	case 'MARKET_ANALYSIS': $('#categoryFree').removeClass();
-					  		$('#categoryInvest').removeClass();
-					  		$('#categoryMarket').addClass("on");
-    				  		break;
+	case 'BARGAIN_TECHNIQUES': $('#categoryPaid').removeClass();
+							   $('#categoryBargain').addClass("on");
+							   $('#categoryAdvance').removeClass();
+    				  		   break;
+	case 'ADVANCE_MARKET': $('#categoryPaid').removeClass();
+					       $('#categoryBargain').removeClass();
+						   $('#categoryAdvance').addClass("on");
+    				  	   break;
 	default:
 		break;
 	}
@@ -99,9 +99,9 @@ function goWrite(){
                     <li>다운로드 순위<span>100</span></li>
                 </ul>
                 <ul class="inform_list2">
-                    <li id="categoryFree"><a href="javascript:goCategory('FREE_INFO')">무료종목</a></li>
-                    <li id="categoryInvest"><a href="javascript:goCategory('INVEST_STRATEGY')">투자전략</a></li>
-                    <li id="categoryMarket"><a href="javascript:goCategory('MARKET_ANALYSIS')">시장분석</a></li>
+                    <li id="categoryPaid"><a href="javascript:goCategory('PAID_INFO')">유료종목</a></li>
+                    <li id="categoryBargain"><a href="javascript:goCategory('BARGAIN_TECHNIQUES')">매매기법</a></li>
+                    <li id="categoryAdvance"><a href="javascript:goCategory('ADVANCE_MARKET')">고급시황</a></li>
                 </ul>
                 <div class="right_contents">
                     <div class="tab_contents" id="tab1">

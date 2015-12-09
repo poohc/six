@@ -104,7 +104,7 @@ public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 	public List<Map<String, Object>> selectCommonCode(String cdType) {
 		return selectList("board.selectCommonCode", cdType);
 	}
-
+	
 	@Override
 	public List<Map<String, Object>> selectPartnerList(Map<String, Object> param) {
 		return selectList("board.selectPartnerList", param);
@@ -123,6 +123,21 @@ public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 	@Override
 	public Map<String, Object> selectPartnerBoardInfo(Map<String, Object> param) {
 		return (Map<String, Object>) selectOne("board.selectPartnerBoardInfo", param);
+	}
+
+	@Override
+	public int insertSixPartnerBoard(Map<String, Object> param) {
+		return (int) insert("board.insertSixPartnerBoard", param);
+	}
+
+	@Override
+	public int updateSixPartnerBoard(Map<String, Object> param) {
+		return (int) update("board.updateSixPartnerBoard", param);
+	}
+
+	@Override
+	public int deleteSixPartnerBoard(String seq) {
+		return (int) delete("board.deleteSixPartnerBoard", seq);
 	}
 	
 }
