@@ -500,7 +500,7 @@
     	            )    
     	            VALUES
     	            (
-    	             (SELECT IFNULL(MAX(NO),0) + 1 FROM SIX_PARTNER_BOARD A WHERE A.CATEGORY = #{category}),
+    	             (SELECT IFNULL(MAX(NO),0) + 1 FROM SIX_PARTNER_BOARD A WHERE A.ID = #{id} AND A.CATEGORY = #{category}),
     	             #{id},
     	             #{title},
     	             #{contents},
@@ -533,5 +533,41 @@
           FROM SIX_PARTNER_BOARD
          WHERE SEQ = #{seq}
     </delete>
+    
+    <select id="selectSixPartnerBoardStat" parameterType="String" resultType="java.util.HashMap">
+    	  SELECT C.ID,
+		         CONVERT(C.RANK, UNSIGNED) RANK, 
+		         CONVERT(C.CNT, UNSIGNED) CNT,
+		         CONVERT(D.DOWNLOAD_RANK, UNSIGNED) DOWNLOAD_RANK,
+		         CONVERT(D.DOWNLOAD_COUNT, UNSIGNED) DOWNLOAD_COUNT
+		    FROM (  
+					  SELECT @ROWNUM := @ROWNUM + 1 AS RANK,
+					         A.CNT,
+					         A.ID
+					    FROM (
+					  SELECT COUNT(ID) CNT,
+					         ID
+					    FROM SIX_PARTNER_BOARD
+					GROUP BY ID
+					         ) A,
+								(SELECT @rownum:=0) R 
+					ORDER BY CNT DESC
+		         ) C,
+		         (         
+					  SELECT @RNUM := @RNUM + 1 AS DOWNLOAD_RANK,
+					         B.DOWNLOAD_COUNT,
+					         B.ID
+					    FROM (
+					  SELECT SUM(DOWNLOAD_COUNT) DOWNLOAD_COUNT,
+					         ID
+					    FROM SIX_PARTNER_BOARD
+					GROUP BY ID
+					         ) B,
+								(SELECT @RNUM:=0) T 
+					ORDER BY B.DOWNLOAD_COUNT DESC
+					) D
+		   WHERE C.ID = D.ID
+             AND C.ID = #{id}
+    </select>
     
 </mapper>

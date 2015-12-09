@@ -43,7 +43,7 @@ public class AA {
 //		String a = "<img src=\"/resources/photoUpload/201511161424176d2d0c67-40c6-4755-aae1-f1da166fac6f.jpg\" width=\"550\">";
 //		String b = "=\"/resources/photoUpload/20151117134519145fd0c1-9a5c-45d5-9777-5618733c5d4e.jpg\" width=\"550\"";
 		
-		String c = "BBAS@NAVER.com";
+//		String c = "BBAS@NAVER.com";
 		
 //		System.out.println(a);
 //		
@@ -65,7 +65,10 @@ public class AA {
 //		
 //		System.out.println("<img src" + b + ">");
 		
-		System.out.println(c.substring(0,c.indexOf("@")) + " , " + c.substring(c.indexOf("@")+1,c.length()));
+//		System.out.println(c.substring(0,c.indexOf("@")) + " , " + c.substring(c.indexOf("@")+1,c.length()));
+		
+		String a = "2.0";
+		System.out.println(Integer.parseInt(a));
 		
 	}
 	

@@ -1,12 +1,14 @@
 package com.icon.six.controller;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -139,6 +141,21 @@ public class AdminController {
 			result = adminService.updatePartner(requestMap);
 			
 			if(result==1){
+				List<GrantedAuthority> roles = (List<GrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+				
+				System.out.println("roles : " + roles.toString());
+				
+				/**
+				 * PARTNER ROLE 검색 후 없으면 INSERT
+				 */
+				requestMap.put("id", requestMap.get("id"));
+				requestMap.put("authority", CommonConstant.AUTH_PARTNER);
+				int roleCount = adminService.selectRoleCount(requestMap);
+				
+				if(roleCount == 0 && !roles.contains(CommonConstant.AUTH_ADMIN)){
+					adminService.insertAuthority(requestMap);
+				}
+				
 				response.sendRedirect("/admin/partner.do");
 			} else {
 				response.sendRedirect("/main/error.do");

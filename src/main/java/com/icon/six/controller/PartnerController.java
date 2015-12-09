@@ -46,11 +46,13 @@ public class PartnerController {
 			mav.addObject("partnerList1",boardService.selectPartnerList(requestMap));
 			requestMap.put("requestCd", requestCodeList.get(0).get("CD"));
 			mav.addObject("partnerList2",boardService.selectPartnerList(requestMap));
-			mav.addObject("listPage","/partner/partnerFreeInfo.do");
+			mav.addObject("listPage","/partner/partnerFreeInfo.do");			
+			
 		} catch (Exception e) {
 			// TODO: 에러처리
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -61,6 +63,8 @@ public class PartnerController {
 		//공통 코드 가져오기(신청구분, 은행 리스트)
 		mav.addObject("requestList", boardService.selectCommonCode(CommonConstant.COMMON_REQUEST_CD));
 		mav.addObject("bankList", boardService.selectCommonCode(CommonConstant.COMMON_BANK_CD));
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		
 		return mav;
 	}
@@ -93,7 +97,8 @@ public class PartnerController {
 		
 		mav.addObject("msg",msg);
 		mav.addObject("page",page);
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 				
 	}
@@ -113,6 +118,7 @@ public class PartnerController {
 			requestMap.put("category", category);
 			Map<String, Object> partnerBoardInfo = boardService.selectPartnerBoardList(requestMap);
 			Map<String, Object> partnerInfo = adminService.selectPartnerInfo(String.valueOf(requestMap.get("seq")));
+			Map<String, Object> partnerBoardStat = boardService.selectSixPartnerBoardStat(String.valueOf(partnerInfo.get("ID")));
 			
 			mav.addObject("id",requestMap.get("id"));
 			mav.addObject("list",partnerBoardInfo.get("list"));
@@ -123,12 +129,13 @@ public class PartnerController {
 			mav.addObject("currentPage",requestMap.get("currentPage"));
 			mav.addObject("category",category);
 			mav.addObject("partnerInfo",partnerInfo);
-			
+			mav.addObject("partnerBoardStat",partnerBoardStat);
 		} catch (Exception e) {
 			// TODO: 에러 처리
 			
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -142,6 +149,7 @@ public class PartnerController {
 			boardService.updateSixPartnerBoardHitCount(requestMap);
 			
 			Map<String, Object> resultMap = boardService.selectPartnerBoardInfo(requestMap);
+			Map<String, Object> partnerBoardStat = boardService.selectSixPartnerBoardStat(String.valueOf(requestMap.get("id")));
 			
 			mav.addObject("partnerBoardInfo",resultMap.get("boardInfo"));
 			mav.addObject("fileList",resultMap.get("fileList"));
@@ -151,11 +159,13 @@ public class PartnerController {
 			mav.addObject("listPage","/partner/partnerFreeInfo.do");
 			mav.addObject("updateAction","/partner/partnerFreeInfoUpdate.do");
 			mav.addObject("deleteAction","/partner/partnerFreeInfoDelete.do");
+			mav.addObject("partnerBoardStat",partnerBoardStat);
 			
 		} catch (Exception e) {
 			// TODO: 에러 처리
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -175,7 +185,8 @@ public class PartnerController {
 		} catch (Exception e) {
 			// TODO: 에러 처리
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -186,11 +197,13 @@ public class PartnerController {
 		try {
 			mav.addObject("insertAction","/partner/partnerFreeInfoWriteProcess.do");
 			mav.addObject("category","FREE_INFO");
+			mav.addObject("id",requestMap.get("id"));
 			
 		} catch (Exception e) {
 			// TODO: 에러 처리
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -343,6 +356,7 @@ public class PartnerController {
 			requestMap.put("category", category);
 			Map<String, Object> partnerBoardInfo = boardService.selectPartnerBoardList(requestMap);
 			Map<String, Object> partnerInfo = adminService.selectPartnerInfo(String.valueOf(requestMap.get("seq")));
+			Map<String, Object> partnerBoardStat = boardService.selectSixPartnerBoardStat(String.valueOf(partnerInfo.get("ID")));
 			
 			mav.addObject("id",requestMap.get("id"));
 			mav.addObject("list",partnerBoardInfo.get("list"));
@@ -353,12 +367,14 @@ public class PartnerController {
 			mav.addObject("currentPage",requestMap.get("currentPage"));
 			mav.addObject("category",category);
 			mav.addObject("partnerInfo",partnerInfo);
+			mav.addObject("partnerBoardStat",partnerBoardStat);
 			
 		} catch (Exception e) {
 			// TODO: 에러 처리
 			
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	
@@ -369,11 +385,13 @@ public class PartnerController {
 		try {
 			mav.addObject("insertAction","/partner/partnerFreeInfoWriteProcess.do");
 			mav.addObject("category","PAID_INFO");
+			mav.addObject("id",requestMap.get("id"));
 			
 		} catch (Exception e) {
 			// TODO: 에러 처리
 		}
-		
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		return mav;
 	}
 	

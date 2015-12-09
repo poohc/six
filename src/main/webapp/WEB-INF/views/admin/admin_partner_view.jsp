@@ -39,6 +39,7 @@ $(document).ready(function(){
 				<input type="hidden" id="lsitPage" name="lsitPage" value="${lsitPage}">
 				<input type="hidden" id="updatePage" name="updatePage" value="${updatePage}">
 				<input type="hidden" id="confirmPage" name="confirmPage" value="${confirmPage}">
+				<input type="hidden" id="id" name="id" value="${partnerInfo.ID}">
 				<div class="module_content">
 					<table>
 						<caption>파트너정보</caption>

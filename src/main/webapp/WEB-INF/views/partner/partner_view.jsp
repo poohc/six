@@ -130,10 +130,10 @@ function fileDownLoad(fileName){
                     <p class="personTitle6">SIX투자증권</p>
                 </div>
                 <ul class="inform_list">
-                    <li>총 정보등록건수<span>100</span></li>
-                    <li>총 다운로드<span>100</span></li>
-                    <li>정보등록건수 순위<span>100</span></li>
-                    <li>다운로드 순위<span>100</span></li>
+                    <li>총 정보등록건수<span>${partnerBoardStat.CNT}</span></li>
+                    <li>총 다운로드<span>${partnerBoardStat.DOWNLOAD_COUNT}</span></li>
+                    <li>정보등록건수 순위<span>${partnerBoardStat.RANK}</span></li>
+                    <li>다운로드 순위<span>${partnerBoardStat.DOWNLOAD_RANK}</span></li>
                 </ul>
                 <ul class="inform_list2" id="freeTab" style="visibility: hidden;">
                     <li id="categoryFree"><a href="javascript:goCategory('FREE_INFO')">무료종목</a></li>

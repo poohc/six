@@ -127,5 +127,23 @@
         				#{createId}
         			)
     </insert>
-   
+    
+    <select id="selectRoleCount" parameterType="java.util.HashMap" resultType="Integer">
+	    SELECT COUNT(*)
+		  FROM SIX_AUTHORITY
+		 WHERE ID = #{id}
+		   AND AUTHORITY = #{authority}
+    </select>
+    
+    <insert id="insertAuthority" parameterType="java.util.HashMap">
+    	INSERT INTO SIX_AUTHORITY(
+    	                          ID, 
+    	                          AUTHORITY
+    	                         )
+    	                   VALUES(
+    	                          #{id},
+    	                          #{authority}
+    	                         )
+    </insert>
+    
 </mapper>

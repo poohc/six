@@ -139,5 +139,10 @@ public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 	public int deleteSixPartnerBoard(String seq) {
 		return (int) delete("board.deleteSixPartnerBoard", seq);
 	}
+
+	@Override
+	public Map<String, Object> selectSixPartnerBoardStat(String id) {
+		return (Map<String, Object>) selectOne("board.selectSixPartnerBoardStat", id);
+	}
 	
 }

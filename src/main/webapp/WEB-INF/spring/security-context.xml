@@ -14,10 +14,11 @@
 	    <intercept-url pattern="/main/intro.do" access="permitAll" />
 	    <intercept-url pattern="/main/notice.do" access="permitAll" />
 	    <intercept-url pattern="/main/introNoticeWrite.do" access="hasRole('ROLE_ADMIN')" />
-	    <intercept-url pattern="/partner/partnerJoin.do" access="hasRole('ROLE_ADMIN')" />
+	    <intercept-url pattern="/partner/partnerJoin.do" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
 	    <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 	    <intercept-url pattern="/member/**" access="permitAll" />
 	      
+	    <access-denied-handler error-page="/main/accessDenied.do" />  
 	    <form-login login-page="/login/login.do" 
 			        authentication-failure-url="/login/loginFail.do" 
 					login-processing-url="/j_spring_security_check.do"

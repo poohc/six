@@ -132,5 +132,15 @@ public class AdminServiceImpl implements AdminService{
 		
 		return result;	
 	}
+
+	@Override
+	public int selectRoleCount(Map<String, Object> param) {
+		return adminDao.selectRoleCount(param);
+	}
+
+	@Override
+	public int insertAuthority(Map<String, Object> param) {
+		return adminDao.insertAuthority(param);
+	}
 	
 }

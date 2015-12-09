@@ -28,4 +28,14 @@ public class AdminDaoImpl extends SqlSessionDao implements AdminDao{
 		return (int) update("admin.updatePartner", param);
 	}
 
+	@Override
+	public int selectRoleCount(Map<String, Object> param) {
+		return (int) selectOne("admin.selectRoleCount", param);
+	}
+
+	@Override
+	public int insertAuthority(Map<String, Object> param) {
+		return (int) insert("admin.insertAuthority", param);
+	}
+
 }

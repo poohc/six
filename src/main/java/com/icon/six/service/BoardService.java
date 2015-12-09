@@ -213,4 +213,9 @@ public interface BoardService {
 	 * @return
 	 */
 	public int updateSixPartnerBoardHitCount(Map<String, Object> param);
+	/**
+	 * 파트너 통계 구하기
+	 * @return
+	 */
+	public Map<String, Object> selectSixPartnerBoardStat(String id);
 }

@@ -1228,5 +1228,10 @@ public class BoardServiceImpl implements BoardService{
 	public int updateSixPartnerBoardHitCount(Map<String, Object> param) {
 		return boardDao.updateSixPartnerBoard(param);
 	}
+
+	@Override
+	public Map<String, Object> selectSixPartnerBoardStat(String id) {
+		return boardDao.selectSixPartnerBoardStat(id);
+	}
 	
 }

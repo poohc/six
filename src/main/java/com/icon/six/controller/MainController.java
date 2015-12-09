@@ -573,6 +573,12 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "accessDenied.do")
+	public ModelAndView accessDenied(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("common/accessDenied");
+		return mav;
+	}
+	
 	@RequestMapping(value = "error.do")
 	public ModelAndView errorPage(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("common/error");

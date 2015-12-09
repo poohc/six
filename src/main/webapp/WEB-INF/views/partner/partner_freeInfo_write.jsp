@@ -94,9 +94,18 @@ $(document).ready(function(){
                                 <tr>
                                 	<th>카테고리</th>
                                 	<td>
-                                		<input type="radio" name="category" value="FREE_INFO" <c:if test="${boardInfo.CATEGORY eq 'FREE_INFO'}">checked="checked"</c:if> style="width: 5%">무료종목
-                                		<input type="radio" name="category" value="INVEST_STRATEGY" <c:if test="${boardInfo.CATEGORY eq 'INVEST_STRATEGY'}">checked="checked"</c:if> style="width: 5%">투자전략
-                                		<input type="radio" name="category" value="MARKET_ANALYSIS" <c:if test="${boardInfo.CATEGORY eq 'MARKET_ANALYSIS'}">checked="checked"</c:if> style="width: 5%">시장분석
+                                		<c:choose>
+                                			<c:when test="${isUpdate eq 'true'}">
+                                				<input type="radio" name="category" value="FREE_INFO" <c:if test="${boardInfo.CATEGORY eq 'FREE_INFO'}">checked="checked"</c:if> style="width: 5%">무료종목
+		                                		<input type="radio" name="category" value="INVEST_STRATEGY" <c:if test="${boardInfo.CATEGORY eq 'INVEST_STRATEGY'}">checked="checked"</c:if> style="width: 5%">투자전략
+		                                		<input type="radio" name="category" value="MARKET_ANALYSIS" <c:if test="${boardInfo.CATEGORY eq 'MARKET_ANALYSIS'}">checked="checked"</c:if> style="width: 5%">시장분석
+                                			</c:when>
+                                			<c:otherwise>
+                                				<input type="radio" name="category" value="FREE_INFO" checked="checked" style="width: 5%">무료종목
+		                                		<input type="radio" name="category" value="INVEST_STRATEGY" style="width: 5%">투자전략
+		                                		<input type="radio" name="category" value="MARKET_ANALYSIS" style="width: 5%">시장분석
+                                			</c:otherwise>
+                                		</c:choose>
                                 	</td>
                                 </tr>
                                 <tr>

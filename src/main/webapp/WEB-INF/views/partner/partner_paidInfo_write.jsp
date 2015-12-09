@@ -94,9 +94,18 @@ $(document).ready(function(){
                                 <tr>
                                 	<th>카테고리</th>
                                 	<td>
-                                		<input type="radio" name="category" value="PAID_INFO" <c:if test="${boardInfo.CATEGORY eq 'PAID_INFO'}">checked="checked"</c:if> style="width: 5%">유료종목
-                                		<input type="radio" name="category" value="BARGAIN_TECHNIQUES" <c:if test="${boardInfo.CATEGORY eq 'BARGAIN_TECHNIQUES'}">checked="checked"</c:if> style="width: 5%">매매기법
-                                		<input type="radio" name="category" value="ADVANCE_MARKET" <c:if test="${boardInfo.CATEGORY eq 'ADVANCE_MARKET'}">checked="checked"</c:if> style="width: 5%">고급시황
+                                		<c:choose>
+	                                		<c:when test="${isUpdate eq 'true'}">
+	                                			<input type="radio" name="category" value="PAID_INFO" <c:if test="${boardInfo.CATEGORY eq 'PAID_INFO'}">checked="checked"</c:if> style="width: 5%">유료종목
+		                                		<input type="radio" name="category" value="BARGAIN_TECHNIQUES" <c:if test="${boardInfo.CATEGORY eq 'BARGAIN_TECHNIQUES'}">checked="checked"</c:if> style="width: 5%">매매기법
+		                                		<input type="radio" name="category" value="ADVANCE_MARKET" <c:if test="${boardInfo.CATEGORY eq 'ADVANCE_MARKET'}">checked="checked"</c:if> style="width: 5%">고급시황
+	                                		</c:when>
+	                                		<c:otherwise>
+	                                			<input type="radio" name="category" value="PAID_INFO" checked="checked" style="width: 5%">유료종목
+		                                		<input type="radio" name="category" value="BARGAIN_TECHNIQUES" style="width: 5%">매매기법
+		                                		<input type="radio" name="category" value="ADVANCE_MARKET" style="width: 5%">고급시황
+	                                		</c:otherwise>
+                                		</c:choose>                                		
                                 	</td>
                                 </tr>
                                 <tr>

@@ -160,4 +160,9 @@ public interface BoardDao {
 	 * @return
 	 */
 	public int deleteSixPartnerBoard(String seq);
+	/**
+	 * 파트너 통계 구하기
+	 * @return
+	 */
+	public Map<String, Object> selectSixPartnerBoardStat(String id);
 }

@@ -27,5 +27,17 @@ public interface AdminDao {
 	 * @param param
 	 * @return
 	 */
-	public int updatePartner(Map<String, Object> param);	
+	public int updatePartner(Map<String, Object> param);
+	/**
+	 * ROLE 존재 여부 가져오기
+	 * @param param
+	 * @return
+	 */
+	public int selectRoleCount(Map<String, Object> param);
+	/**
+	 * ROLE 추가하기
+	 * @param param
+	 * @return
+	 */
+	public int insertAuthority(Map<String, Object> param);
 }
