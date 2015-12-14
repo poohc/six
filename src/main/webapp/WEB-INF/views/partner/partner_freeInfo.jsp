@@ -80,7 +80,8 @@ function goWrite(){
             	<input type="hidden" id="viewPage" name="viewPage" value="${viewPage}">
             	<input type="hidden" id="writePage" name="writePage" value="${writePage}">
             	<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
-               	<input type="hidden" id="seq" name="seq"> 
+               	<input type="hidden" id="seq" name="seq">
+               	<input type="hidden" id="partnerSeq" name="partnerSeq" value="${partnerSeq}"> 
                	<input type="hidden" id="id" name="id" value="${id}">              					
             </form>
             <div class="wrap_right">
@@ -117,7 +118,7 @@ function goWrite(){
                                 </colgroup>
                                 <thead>
                                     <tr>
-                                        <th>번호</th>
+                                        <th>번호${partnerSeq}</th>
                                         <th>제목</th>
                                         <th>작성자</th>
                                         <th>작성일</th>

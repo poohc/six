@@ -151,9 +151,11 @@ function fileDownLoad(fileName){
                     <input type="hidden" id="listPage" name="listPage" value="${listPage}">
                     <input type="hidden" id="updateAction" name="updateAction" value="${updateAction}">
                 	<input type="hidden" id="deleteAction" name="deleteAction" value="${deleteAction}">
+					<input type="hidden" id="partnerSeq" name="partnerSeq" value="${partnerSeq}">
                 	<input type="hidden" id="seq" name="seq" value="${partnerBoardInfo.SEQ}">
                 	<input type="hidden" id="id" name="id" value="${id}">
                 	<input type="hidden" id="category" name="category" value="${partnerBoardInfo.CATEGORY}">
+                	<input type="hidden" id="isView" name="isView" value="true">
                 </form>
                 <div class="right_contents">
                     <div class="table_type1_view type2">

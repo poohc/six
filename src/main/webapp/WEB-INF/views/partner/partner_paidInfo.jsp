@@ -80,7 +80,8 @@ function goWrite(){
             	<input type="hidden" id="viewPage" name="viewPage" value="${viewPage}">
             	<input type="hidden" id="writePage" name="writePage" value="${writePage}">
             	<input type="hidden" id="currentPage" name="currentPage" value="${currentPage}">
-               	<input type="hidden" id="seq" name="seq"> 
+               	<input type="hidden" id="seq" name="seq">
+               	<input type="hidden" id="partnerSeq" name="partnerSeq" value="${partnerSeq}"> 
                	<input type="hidden" id="id" name="id" value="${id}">              					
             </form>
             <div class="wrap_right">

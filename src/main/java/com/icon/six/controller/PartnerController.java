@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -111,16 +112,21 @@ public class PartnerController {
 			
 			String category = String.valueOf(requestMap.get("category")); 
 			
+			if(!"".equals(StringUtils.defaultIfEmpty(String.valueOf(requestMap.get("seq")), "")) && "null".equals(String.valueOf(requestMap.get("isView")))){
+				requestMap.put("partnerSeq", requestMap.get("seq"));
+			} 
+			
 			if("null".equals(category)){
 				category = "FREE_INFO";
 			}
 			
 			requestMap.put("category", category);
 			Map<String, Object> partnerBoardInfo = boardService.selectPartnerBoardList(requestMap);
-			Map<String, Object> partnerInfo = adminService.selectPartnerInfo(String.valueOf(requestMap.get("seq")));
+			Map<String, Object> partnerInfo = adminService.selectPartnerInfo(String.valueOf(requestMap.get("partnerSeq")));
 			Map<String, Object> partnerBoardStat = boardService.selectSixPartnerBoardStat(String.valueOf(partnerInfo.get("ID")));
 			
 			mav.addObject("id",requestMap.get("id"));
+			mav.addObject("partnerSeq",requestMap.get("partnerSeq"));
 			mav.addObject("list",partnerBoardInfo.get("list"));
 			mav.addObject("page",partnerBoardInfo.get("page"));
 			mav.addObject("listPage","/partner/partnerFreeInfo.do");
@@ -156,6 +162,8 @@ public class PartnerController {
 			
 			String category = String.valueOf(requestMap.get("category"));
 			mav.addObject("id",requestMap.get("id"));
+			mav.addObject("seq",requestMap.get("seq"));
+			mav.addObject("partnerSeq",requestMap.get("partnerSeq"));
 			mav.addObject("listPage","/partner/partnerFreeInfo.do");
 			mav.addObject("updateAction","/partner/partnerFreeInfoUpdate.do");
 			mav.addObject("deleteAction","/partner/partnerFreeInfoDelete.do");
@@ -349,16 +357,21 @@ public class PartnerController {
 			
 			String category = String.valueOf(requestMap.get("category")); 
 			
+			if(!"".equals(StringUtils.defaultIfEmpty(String.valueOf(requestMap.get("seq")), "")) && "null".equals(String.valueOf(requestMap.get("isView")))){
+				requestMap.put("partnerSeq", requestMap.get("seq"));
+			}
+			
 			if("null".equals(category)){
 				category = "PAID_INFO";
 			}
 			
 			requestMap.put("category", category);
 			Map<String, Object> partnerBoardInfo = boardService.selectPartnerBoardList(requestMap);
-			Map<String, Object> partnerInfo = adminService.selectPartnerInfo(String.valueOf(requestMap.get("seq")));
+			Map<String, Object> partnerInfo = adminService.selectPartnerInfo(String.valueOf(requestMap.get("partnerSeq")));
 			Map<String, Object> partnerBoardStat = boardService.selectSixPartnerBoardStat(String.valueOf(partnerInfo.get("ID")));
 			
 			mav.addObject("id",requestMap.get("id"));
+			mav.addObject("partnerSeq",requestMap.get("partnerSeq"));
 			mav.addObject("list",partnerBoardInfo.get("list"));
 			mav.addObject("page",partnerBoardInfo.get("page"));
 			mav.addObject("listPage","/partner/partnerPaidInfo.do");
