@@ -1109,7 +1109,6 @@ public class BoardServiceImpl implements BoardService{
 				}
 				
 				param.put("contents", String.valueOf(param.get("smarteditor")));
-				param.put("id", SecurityContextHolder.getContext().getAuthentication().getName());
 				param.put("createId", SecurityContextHolder.getContext().getAuthentication().getName());
 				
 				result = boardDao.insertSixPartnerBoard(param);

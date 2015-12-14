@@ -62,7 +62,8 @@ $(document).ready(function(){
             	<input type="hidden" id="listPage" name="listPage" value="${listPage}">
             	<input type="hidden" id="updateAction" name="updateAction" value="${updateAction}">
             	<input type="hidden" id="insertAction" name="insertAction" value="${insertAction}">
-            	<input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}">               					
+            	<input type="hidden" id="seq" name="seq" value="${boardInfo.SEQ}">
+            	<input type="hidden" id="partnerSeq" name="partnerSeq" value="${partnerSeq}">               					
             	<input type="hidden" id="id" name="id" value="${id}">
             <div class="wrap_right">
                 <img src="/resources/img/partner1.jpg" alt="" class="top_mainimg">

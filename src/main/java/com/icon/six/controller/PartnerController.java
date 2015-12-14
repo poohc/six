@@ -187,6 +187,7 @@ public class PartnerController {
 			mav.addObject("boardInfo",resultMap.get("boardInfo"));
 			mav.addObject("fileList",resultMap.get("fileList"));
 			mav.addObject("id",requestMap.get("id"));
+			mav.addObject("partnerSeq",requestMap.get("partnerSeq"));
 			mav.addObject("isUpdate","true");
 			mav.addObject("updateAction","/partner/partnerFreeInfoUpdateProcess.do");
 			
@@ -206,6 +207,7 @@ public class PartnerController {
 			mav.addObject("insertAction","/partner/partnerFreeInfoWriteProcess.do");
 			mav.addObject("category","FREE_INFO");
 			mav.addObject("id",requestMap.get("id"));
+			mav.addObject("partnerSeq",requestMap.get("partnerSeq"));
 			
 		} catch (Exception e) {
 			// TODO: 에러 처리
@@ -217,7 +219,7 @@ public class PartnerController {
 	
 	@RequestMapping(value="partnerFreeInfoWriteProcess.do")
 	public ModelAndView partnerFreeInfoWriteProcess(@RequestParam Map<String, Object> requestMap, MultipartHttpServletRequest request, HttpServletResponse response) throws IOException{
-		logger.debug("requestMap : " + requestMap);
+		logger.info("requestMap : " + requestMap);
 		ModelAndView mav = new ModelAndView("main/commonPage");
 		int result = 0;
 		
@@ -244,8 +246,10 @@ public class PartnerController {
 					mav.addObject("category", requestMap.get("category"));
 					if(freeTab.contains(requestMap.get("category"))){
 						mav.addObject("page","/partner/partnerFreeInfo.do");
+						mav.addObject("partnerSeq",requestMap.get("partnerSeq"));
 					} else if(paidTab.contains(requestMap.get("category"))){
 						mav.addObject("page","/partner/partnerPaidInfo.do");
+						mav.addObject("partnerSeq",requestMap.get("partnerSeq"));
 					}
 					
 				} else {
@@ -292,6 +296,7 @@ public class PartnerController {
 					mav.addObject("id", requestMap.get("id"));
 					mav.addObject("msg","게시물 수정에 성공했습니다.");
 					mav.addObject("category", requestMap.get("category"));
+					mav.addObject("partnerSeq",requestMap.get("partnerSeq"));
 					
 					if(freeTab.contains(requestMap.get("category"))){
 						mav.addObject("page","/partner/partnerFreeInfo.do");
@@ -332,6 +337,7 @@ public class PartnerController {
 					mav.addObject("msg","게시물을 삭제했습니다.");
 					mav.addObject("category", requestMap.get("category"));
 					mav.addObject("page","/partner/partnerFreeInfo.do");
+					mav.addObject("partnerSeq",requestMap.get("partnerSeq"));
 				} else {
 					// TODO 에러페이지
 					response.sendRedirect("/main/error.do");
@@ -399,6 +405,7 @@ public class PartnerController {
 			mav.addObject("insertAction","/partner/partnerFreeInfoWriteProcess.do");
 			mav.addObject("category","PAID_INFO");
 			mav.addObject("id",requestMap.get("id"));
+			mav.addObject("partnerSeq",requestMap.get("partnerSeq"));
 			
 		} catch (Exception e) {
 			// TODO: 에러 처리

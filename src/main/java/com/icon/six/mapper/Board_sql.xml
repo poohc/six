@@ -508,7 +508,7 @@
     	             #{price},
     	             #{category},
     	             now(),
-    	             #{id}
+    	             #{createId}
     	            )
     </insert>
     
