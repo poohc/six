@@ -165,4 +165,16 @@ public interface BoardDao {
 	 * @return
 	 */
 	public Map<String, Object> selectSixPartnerBoardStat(String id);
+	/**
+	 * 포인트 신청하기
+	 * @param param
+	 * @return
+	 */
+	public int insertSixPoint(Map<String, Object> param);
+	/**
+	 * 포인트 업데이트 하기
+	 * @param param
+	 * @return
+	 */
+	public int updateSixPoint(Map<String, Object> param);
 }

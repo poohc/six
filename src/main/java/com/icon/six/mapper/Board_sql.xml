@@ -570,4 +570,50 @@
              AND C.ID = #{id}
     </select>
     
+    <insert id="insertSixPoint" parameterType="java.util.HashMap">
+        INSERT INTO SIX_POINT
+                    (
+                    	ID,
+                    	NAME,
+                    	POINT,
+                    	MONEY,
+                    	PAYMENT_METHOD,
+                    	MSG,
+                    	CREATE_DATE,
+                    	CREATE_ID
+                    )
+                    VALUES
+                    (
+                    	#{id},
+                    	#{name},
+                    	#{point},
+                    	#{money},
+                    	#{paymentMethod},
+                    	#{msg},
+                    	now(),
+                    	#{id}
+                    )
+    </insert>
+    
+    <update id="updateSixPoint" parameterType="java.util.HashMap">
+        UPDATE SIX_POINT
+           <set>
+	          <if test="updateId != null">
+	              UPDATE_DATE = now(),
+	              UPDATE_ID = #{updateId}
+	          </if>
+	          <if test="isConfirm != null and isConfirm.equals('Y')">
+	              IS_CONFIRM = #{isConfirm},
+	              CONFIRM_DATE = now(),
+	              CONFIRM_ID = #{confirmId}	
+	          </if>
+	          <if test="isConfirm != null and isConfirm.equals('N')">
+	              IS_CONFIRM = #{isConfirm},
+	              CANCEL_DATE = now(),
+	              CANCEL_ID = #{cancelId}
+	          </if>	          
+	       </set>
+         WHERE SEQ = #{seq}	       
+    </update>
+    
 </mapper>

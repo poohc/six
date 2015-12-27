@@ -119,7 +119,7 @@
 	                    <p class="login_title2"><em>${sessionScope.userInfo.name}</em> 회원님</p>
 	                    <p class="login_title3"><img src="/resources/img/diamond.png" alt=""><em>포인트</em><span>10,000 P</span></p>
 	                    <ul>
-	                        <li><a href="#">포인트신청</a></li>
+	                        <li><a href="/point/pointBuy.do">포인트신청</a></li>
 	                        <li><a href="#">구매내역</a></li>
 	                        <li><a href="#">회원정보</a></li>
 	                    </ul>
