@@ -68,4 +68,6 @@ public class CommonConstant {
 	public static final String COMMON_REQUEST_CD = "REQUEST_CD";
 	/*공통코드 - 은행코드*/
 	public static final String COMMON_BANK_CD = "BANK_CD";
+	/*공통코드 - 결제수단코드*/
+	public static final String COMMON_PAYMENT_CD = "PAYMENT_CD";
 }

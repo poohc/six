@@ -9,11 +9,13 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.icon.six.constant.CommonConstant;
 import com.icon.six.service.BoardService;
 
 @Controller
@@ -29,7 +31,8 @@ public class PointController {
 		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		mav.addObject("realStockInfo",boardService.selectRealStockList());
-		
+		mav.addObject("paymentCd",boardService.selectCommonCode(CommonConstant.COMMON_PAYMENT_CD));
+		mav.addObject("payAction","/point/pointBuyProcess.do");
 		return mav;
 	}
 	
@@ -62,37 +65,49 @@ public class PointController {
 		pointArray.add("210000");
 		pointArray.add("320000");
 		
-		/**
-		 * 포인트 유효성 검사 
-		 * 1. 선택된 포인트가 30,000, 51,000, 103,000, 210,000, 320,000 중 하나여야 함
-		 * 2. 선택된 라디오 버튼 Value 값 = 포인트 값 = 표시 포인트 일치 여부 검사
-		 * 3. 표시 포인트와 표시 금액이 매치 되는지 검사
-		 */
-		
-		if(!pointArray.contains(point)){
-			page = "/point/pointBuy.do";
-			msg = "유효한 포인트가 아닙니다.";
-			result = "false";
-		} else {
+		try {
+			/**
+			 * 포인트 유효성 검사 
+			 * 1. 선택된 포인트가 30,000, 51,000, 103,000, 210,000, 320,000 중 하나여야 함
+			 * 2. 선택된 라디오 버튼 Value 값 = 포인트 값 = 표시 포인트 일치 여부 검사
+			 * 3. 표시 포인트와 표시 금액이 매치 되는지 검사
+			 */
 			
-			if(!point.equals(sChargePoint) || !pointRadio.equals(point) || !pointRadio.equals(sChargePoint)){
+			if(!pointArray.contains(point)){
 				page = "/point/pointBuy.do";
-				msg = "선택된 포인트와 일치 하지 않는 포인트 입니다.";
+				msg = "유효한 포인트가 아닙니다.";
 				result = "false";
 			} else {
 				
-				if(chkPointMoney(point, sChargeMoney)){
+				if(!point.equals(sChargePoint) || !pointRadio.equals(point) || !pointRadio.equals(sChargePoint)){
 					page = "/point/pointBuy.do";
-					msg = "포인트와 금액이 일치 하지 않습니다.";
+					msg = "선택된 포인트와 일치 하지 않는 포인트 입니다.";
 					result = "false";
+				} else {
+					
+					if(chkPointMoney(point, sChargeMoney)){
+						page = "/point/pointBuy.do";
+						msg = "포인트와 금액이 일치 하지 않습니다.";
+						result = "false";
+					}
 				}
 			}
+			
+			Map<String, Object> paramMap = new HashMap<String, Object>();
+			
+			Map<String, Object> userDetail = (Map<String, Object>) SecurityContextHolder.getContext().getAuthentication().getDetails();
+			
+			paramMap.put("point", point);
+			paramMap.put("money", sChargeMoney);
+			paramMap.put("paymentMethod", paymentMethod);
+			paramMap.put("msg", msg);
+			paramMap.put("id", SecurityContextHolder.getContext().getAuthentication().getName());
+			paramMap.put("name", userDetail.get("name"));
+			
+			boardService.insertSixPoint(paramMap);
+		} catch (Exception e) {
+			// TODO: 에러처리			
 		}
-		
-		Map<String, Object> paramMap = new HashMap<String, Object>();
-		
-		
-		
 		return mav;
 	}
 	

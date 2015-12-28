@@ -10,9 +10,12 @@
 <script type="text/javascript" src="/resources/js/boardCommon_nonEditor.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	
+	initPoint();
+	
 	$('#payBtn').click(function(){
-		var point = $('input:radio[name="point_radio"]:checked').val();
-		var radioId = $('input:radio[name="point_radio"]:checked').attr('id');
+		var point = $('input:radio[name="pointRadio"]:checked').val();
+		var radioId = $('input:radio[name="pointRadio"]:checked').attr('id');
 		var radioCheckResult = false;
 		
 		alert(point);
@@ -44,37 +47,42 @@ $(document).ready(function(){
 		$('#sChargeMoney').val($('#chargeMoney').text());
 		$('#sChargePoint').val($('#chargePoint').text());
 		
-		
+		$('#frm').attr('action',$('#payAction').val());
+		$('#frm').submit();
 		
 	});	
 	
-	$('[type=radio]').prop('checked', true).attr('checked',true).trigger('change');
+// 	$('[type=radio]').prop('checked', true).attr('checked',true).trigger('change');
 	
-	$('input:radio[name="point_radio"]').change(function(){
-		var point = $('input:radio[name="point_radio"]:checked').val();
-		$('#point').val(point);
-		var money;
-		
-		switch (point) {
-		case '30000' : money = 30000;
-					   break;
-		case '51000' : money = 50000;
-		 			   break;
-		case '103000' : money = 100000;
-		   			    break;
-		case '210000' : money = 200000;
-		 			    break;
-		case '320000' : money = 300000;
-		 			    break;
-		    default :
-					 break;
-		}
-		
-		$('#chargeMoney').text(money);
-		$('#chargePoint').text(point);		
+	$('input:radio[name="pointRadio"]').change(function(){
+		initPoint();
 	});
 	
 });
+
+function initPoint(){
+	var point = $('input:radio[name="pointRadio"]:checked').val();
+	$('#point').val(point);
+	var money;
+	
+	switch (point) {
+	case '30000' : money = 30000;
+				   break;
+	case '51000' : money = 50000;
+	 			   break;
+	case '103000' : money = 100000;
+	   			    break;
+	case '210000' : money = 200000;
+	 			    break;
+	case '320000' : money = 300000;
+	 			    break;
+	    default :
+				 break;
+	}
+	
+	$('#chargeMoney').text(money);
+	$('#chargePoint').text(point);
+}
 
 function chkContainValue(value, array){
 	
@@ -159,6 +167,8 @@ function chkContainValue(value, array){
                         <input type="hidden" id="point" name="point">
                         <input type="hidden" id="sChargeMoney" name="sChargeMoney">
                         <input type="hidden" id="sChargePoint" name="sChargePoint">
+                        <input type="hidden" id="payAction" name="payAction" value="${payAction}">
+                        
                         <p class="pop_title">결제방법 및 충전할 포인트를 선택하세요.</p>
                         <ul class="select_point">
                             <li>
@@ -191,26 +201,40 @@ function chkContainValue(value, array){
                             </dl>
                         </div>
                         <ul class="radio_list">
-                        	<li>
-                        		<input type="radio" name="paymentMethod" id="way5" checked="checked">
-                        		<label for="way5">무통장입금</label>
-                        	</li>
-                            <li>
-                            	<input type="radio" name="paymentMethod" id="way1" disabled="disabled">
-                            	<label for="way1">신용카드</label>
-                            </li>
-                            <li>
-                            	<input type="radio" name="paymentMethod" id="way2" disabled="disabled">
-                            	<label for="way2">휴대폰</label>
-                            </li>
-                            <li>
-                            	<input type="radio" name="paymentMethod" id="way3" disabled="disabled">
-                            	<label for="way3">계좌이체</label>
-                            </li>
-                            <li>
-                            	<input type="radio" name="paymentMethod" id="way4" disabled="disabled">
-                            	<label for="way4">가상계좌</label>
-                            </li>                            
+                        	<c:forEach items="${paymentCd}" var="paymentCd" varStatus="loop">
+                        		<li>
+                        			<c:choose>
+                        			<c:when test="${loop.index eq 0}">
+                        				<input type="radio" name="paymentMethod" id="way${loop.count}" checked="checked" value="${paymentCd.CD}">
+                        				<label for="way${loop.count}">${paymentCd.CD_NAME}</label>
+                        			</c:when>
+                        			<c:otherwise>
+                        				<input type="radio" name="paymentMethod" id="way${loop.count}" value="${paymentCd.CD}" disabled="disabled">
+                        				<label for="way${loop.count}">${paymentCd.CD_NAME}</label>
+                        			</c:otherwise>                        			
+                        			</c:choose>
+                        		</li>
+                        	</c:forEach>
+<!--                         	<li> -->
+<!--                             	<input type="radio" name="paymentMethod" id="way1" value="PAYM0001" checked="checked"> -->
+<!--                             	<label for="way1">무통장입금</label> -->
+<!--                             </li> -->
+<!--                             <li> -->
+<!--                             	<input type="radio" name="paymentMethod" id="way2" disabled="disabled" value="PAYM0002"> -->
+<!--                             	<label for="way2">신용카드</label> -->
+<!--                             </li> -->
+<!--                             <li> -->
+<!--                             	<input type="radio" name="paymentMethod" id="way3" disabled="disabled" value="PAYM0003"> -->
+<!--                             	<label for="way3">휴대폰</label> -->
+<!--                             </li> -->
+<!--                             <li> -->
+<!--                             	<input type="radio" name="paymentMethod" id="way4" disabled="disabled" value="PAYM0004"> -->
+<!--                             	<label for="way4">계좌이체</label> -->
+<!--                             </li> -->
+<!--                             <li> -->
+<!--                             	<input type="radio" name="paymentMethod" id="way5" disabled="disabled" value="PAYM0005"> -->
+<!--                             	<label for="way5">가상계좌</label> -->
+<!--                             </li>                             -->
                         </ul>
                         <div class="center_btns">
                             <button class="btn_type3">취소</button>
