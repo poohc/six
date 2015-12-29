@@ -570,6 +570,32 @@
              AND C.ID = #{id}
     </select>
     
+    <select id="selectSixPoint" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT SEQ,
+               ID,
+               NAME,
+               POINT,
+               MONEY,
+               PAYMENT_METHOD,
+               (SELECT CD_NAME
+                  FROM SIX_COMMON_CODE
+                 WHERE CD = PAYMENT_METHOD) PAYMENT_METHOD_NAME,
+               MSG,
+               CREATE_DATE,
+               CREATE_ID,
+               UPDATE_DATE,
+               UPDATE_ID,
+               IS_VALID,
+               IS_CONFIRM,
+               CONFIRM_DATE,
+               CONFIRM_ID,
+               CANCEL_DATE,
+               CANCEL_ID                  
+          FROM SIX_POINT
+         WHERE IS_VALID = 'Y'
+           AND CREATE_DATE BETWEEN 
+    </select>
+    
     <insert id="insertSixPoint" parameterType="java.util.HashMap">
         INSERT INTO SIX_POINT
                     (
@@ -579,8 +605,9 @@
                     	MONEY,
                     	PAYMENT_METHOD,
                     	MSG,
+                    	IS_VALID,
                     	CREATE_DATE,
-                    	CREATE_ID
+                    	CREATE_ID                    	
                     )
                     VALUES
                     (
@@ -590,6 +617,7 @@
                     	#{money},
                     	#{paymentMethod},
                     	#{msg},
+                    	#{isValid},
                     	now(),
                     	#{id}
                     )

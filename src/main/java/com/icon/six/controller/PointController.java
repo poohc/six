@@ -10,11 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.icon.six.auth.CustomUserDetails;
 import com.icon.six.constant.CommonConstant;
 import com.icon.six.service.BoardService;
 
@@ -37,11 +39,11 @@ public class PointController {
 	}
 	
 	@RequestMapping(value = "pointBuyProcess.do")
-	public ModelAndView pointBuyProcess(@RequestParam String point,           //포인트
-										@RequestParam String sChargeMoney,    //표시 금액
-										@RequestParam String sChargePoint,    //표시 포인트
-										@RequestParam String pointRadio,      //포인트 선택 라디오
-										@RequestParam String paymentMethod,   //결제 수단
+	public ModelAndView pointBuyProcess(@RequestParam(value="point")         String point,           //포인트
+										@RequestParam(value="sChargeMoney")  String sChargeMoney,    //표시 금액
+										@RequestParam(value="sChargePoint")  String sChargePoint,    //표시 포인트
+										@RequestParam(value="pointRadio")    String pointRadio,      //포인트 선택 라디오
+										@RequestParam(value="paymentMethod") String paymentMethod,   //결제 수단
 									    HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("main/commonPage");
 		
@@ -55,9 +57,11 @@ public class PointController {
 		 */
 		
 		String result = "true";
-		String page = "main/commonPage";
+		String page = "/point/pointBuy.do";
 		String msg = "포인트 신청이 완료되었습니다.";
 		List<String> pointArray = new ArrayList<String>();
+		
+		int insertResult = 0;
 		
 		pointArray.add("30000");
 		pointArray.add("51000");
@@ -74,19 +78,16 @@ public class PointController {
 			 */
 			
 			if(!pointArray.contains(point)){
-				page = "/point/pointBuy.do";
 				msg = "유효한 포인트가 아닙니다.";
 				result = "false";
 			} else {
 				
 				if(!point.equals(sChargePoint) || !pointRadio.equals(point) || !pointRadio.equals(sChargePoint)){
-					page = "/point/pointBuy.do";
 					msg = "선택된 포인트와 일치 하지 않는 포인트 입니다.";
 					result = "false";
 				} else {
 					
-					if(chkPointMoney(point, sChargeMoney)){
-						page = "/point/pointBuy.do";
+					if(!chkPointMoney(point, sChargeMoney)){
 						msg = "포인트와 금액이 일치 하지 않습니다.";
 						result = "false";
 					}
@@ -95,19 +96,34 @@ public class PointController {
 			
 			Map<String, Object> paramMap = new HashMap<String, Object>();
 			
-			Map<String, Object> userDetail = (Map<String, Object>) SecurityContextHolder.getContext().getAuthentication().getDetails();
+			CustomUserDetails userDetail = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getDetails();
 			
 			paramMap.put("point", point);
 			paramMap.put("money", sChargeMoney);
 			paramMap.put("paymentMethod", paymentMethod);
 			paramMap.put("msg", msg);
 			paramMap.put("id", SecurityContextHolder.getContext().getAuthentication().getName());
-			paramMap.put("name", userDetail.get("name"));
+			paramMap.put("name", userDetail.getName());
 			
-			boardService.insertSixPoint(paramMap);
+			if("true".equals(result)){
+				paramMap.put("isValid", "Y");
+			} else if("false".equals(result)){
+				paramMap.put("isValid", "N");
+			}
+			
+			insertResult = boardService.insertSixPoint(paramMap);
+			
 		} catch (Exception e) {
 			// TODO: 에러처리			
 		}
+		
+		if(insertResult==0){
+			msg = "포인트 요청에 실패 하였습니다. 관리자에게 문의해 주세요.";
+		}
+		
+		mav.addObject("msg",msg);
+		mav.addObject("page",page);
+		
 		return mav;
 	}
 	
