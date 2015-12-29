@@ -1,8 +1,11 @@
 package com.icon.six.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -10,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -111,7 +113,7 @@ public class PointController {
 				paramMap.put("isValid", "N");
 			}
 			
-			insertResult = boardService.insertSixPoint(paramMap);
+			insertResult = boardService.insertSixPointCharge(paramMap);
 			
 		} catch (Exception e) {
 			// TODO: 에러처리			
@@ -139,4 +141,37 @@ public class PointController {
 		
 		return result;
 	}
+	
+	@RequestMapping(value = "pointUser.do")
+	public ModelAndView pointUser(@RequestParam Map<String, Object> paramMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("point/point_user");
+		
+		SimpleDateFormat formatter = new SimpleDateFormat ( "yyyyMMdd", Locale.KOREA );
+		Date currentTime = new Date ();
+		
+		String startDate = String.valueOf(paramMap.get("startDate"));
+		String endDate = String.valueOf(paramMap.get("endDate"));
+		
+		if("null".equals(startDate) && "null".equals(endDate)){
+			endDate = formatter.format (currentTime);
+			currentTime.setDate(currentTime.getDate() - 7);
+			startDate = formatter.format (currentTime);
+		}
+		
+		System.out.println("시작일 : " + startDate + " , 종료일 : " + endDate);
+		
+		paramMap.put("id", SecurityContextHolder.getContext().getAuthentication().getName());
+		paramMap.put("startDate", startDate);
+		paramMap.put("endDate", endDate);
+		
+		mav.addObject("pointList",boardService.selectSixPoint(paramMap));
+		mav.addObject("stockInfo",boardService.selectScheduleStock());
+		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		
+		mav.addObject("startDate", startDate);
+		mav.addObject("endDate", endDate);
+		
+		return mav;
+	}
+	
 }

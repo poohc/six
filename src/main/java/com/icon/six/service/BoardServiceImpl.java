@@ -1232,15 +1232,30 @@ public class BoardServiceImpl implements BoardService{
 	public Map<String, Object> selectSixPartnerBoardStat(String id) {
 		return boardDao.selectSixPartnerBoardStat(id);
 	}
+	
+	@Override
+	public List<Map<String, Object>> selectSixPointCharge(Map<String, Object> param) {
+		return boardDao.selectSixPointCharge(param);
+	}
+	
+	@Override
+	public int insertSixPointCharge(Map<String, Object> param) {
+		return boardDao.insertSixPointCharge(param);
+	}
+
+	@Override
+	public int updateSixPointCharge(Map<String, Object> param) {
+		return boardDao.updateSixPointCharge(param);
+	}
+
+	@Override
+	public List<Map<String, Object>> selectSixPoint(Map<String, Object> param) {
+		return boardDao.selectSixPoint(param);
+	}
 
 	@Override
 	public int insertSixPoint(Map<String, Object> param) {
 		return boardDao.insertSixPoint(param);
-	}
-
-	@Override
-	public int updateSixPoint(Map<String, Object> param) {
-		return boardDao.updateSixPoint(param);
 	}
 	
 }

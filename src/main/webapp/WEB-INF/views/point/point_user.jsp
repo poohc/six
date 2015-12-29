@@ -8,8 +8,42 @@
 <head>
 <jsp:include page="../common/common.jsp" />
 <script type="text/javascript" src="/resources/js/boardCommon_nonEditor.js"></script>
+<link rel="stylesheet" href="/resources/css/jquery-ui.css" type="text/css" />
+<script src="/resources/js/jquery-ui.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	$("#calendar1").datepicker({
+        showOn: "both", 
+        buttonImage: "/resources/img/calendar.png", 
+        buttonImageOnly: true,
+        changeMonth: true, 
+        changeYear: true,
+        nextText: '다음 달',
+        prevText: '이전 달',
+       	dayNames: ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'],
+        dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'], 
+        monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+        monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월']
+    });
+	
+	$("#calendar2").datepicker({
+        showOn: "both", 
+        buttonImage: "/resources/img/calendar.png", 
+        buttonImageOnly: true,
+        changeMonth: true, 
+        changeYear: true,
+        nextText: '다음 달',
+        prevText: '이전 달',
+        dayNames: ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'],
+        dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'], 
+        monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+        monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월']
+    });
+	
+	alert('<c:out value="${startDate}" />');
+	
+	$('#calendar1').val($.datepicker.formatDate('yymmdd', $.datepicker.parseDate('yymmdd','<c:out value="${startDate}" />')));
+	$('#calendar2').val($.datepicker.formatDate('yymmdd', $.datepicker.parseDate('yymmdd','<c:out value="${endDate}" />')));
 	
 });
 
@@ -64,16 +98,18 @@ $(document).ready(function(){
                                     <th rowspan="2">조회기간 선택</th>
                                     <td>
                                         <input type="text" class="input_type6" id="calendar1">
-                                        <label for="calendar1" class="type6_label"><img src="/resources/img/calendar.png" alt=""></label> -
+                                        <label for="calendar1" class="type6_label"></label> -
                                         <input type="text" class="input_type6" id="calendar2">
-                                        <label for="calendar2" class="type6_label"><img src="/resources/img/calendar.png" alt="">
+                                        <label for="calendar2" class="type6_label">
                                         <button class="btn_search">조회</button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><button class="btn_type6">최근 1주</button>
-                                    <button class="btn_type6">최근 2주</button>
-                                    <button class="btn_type6">최근 3주</button></td>
+                                    <td>
+	                                    <button class="btn_type6">최근 1주</button>
+	                                    <button class="btn_type6">최근 2주</button>
+	                                    <button class="btn_type6">최근 3주</button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -98,41 +134,17 @@ $(document).ready(function(){
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="">
-                                    <td>2015-09-20</td>
-                                    <td class="t_l2"><a href="#">유료 판매 정보유료 판매 정보유료 판매</a> </td>
-                                    <td><span class="color_type1">3,000P</span></td>
-                                    <td><span class="color_type2">50,000P</span></td>
-                                    <td>10,000P</td>
-                                </tr>
-                                <tr class="">
-                                    <td>2015-09-20</td>
-                                    <td class="t_l2"><a href="#">유료 판매 정보</a></td>
-                                    <td><span class="color_type1">3,000P</span></td>
-                                    <td><span class="color_type2">50,000P</span></td>
-                                    <td>10,000P</td>
-                                </tr>
-                                <tr class="">
-                                    <td>2015-09-20</td>
-                                    <td class="t_l2"><a href="#">유료 판매 정보</a></td>
-                                    <td><span class="color_type1">3,000P</span></td>
-                                    <td><span class="color_type2">50,000P</span></td>
-                                    <td>10,000P</td>
-                                </tr>
-                                <tr class="">
-                                    <td>2015-09-20</td>
-                                    <td class="t_l2"><a href="#">유료 판매 정보</a></td>
-                                    <td><span class="color_type1">3,000P</span></td>
-                                    <td><span class="color_type2">50,000P</span></td>
-                                    <td>10,000P</td>
-                                </tr>
-                                <tr class="">
-                                    <td>2015-09-20</td>
-                                    <td class="t_l2"><a href="#">유료 판매 정보</a></td>
-                                    <td><span class="color_type1">3,000P</span></td>
-                                    <td><span class="color_type2">50,000P</span></td>
-                                    <td>10,000P</td>
-                                </tr>
+                            	<c:forEach items="${pointList}" var="pointList">
+	                            	<tr class="">
+	                                    <td>${pointList.CREATE_DATE}</td>
+	                                    <td class="t_l2">
+	                                    	<a href="#">${pointList.CONTENTS}</a>
+	                                    </td>
+	                                    <td><span class="color_type1">${pointList.POINT}</span></td>
+	                                    <td><span class="color_type2">50,000P</span></td>
+	                                    <td>10,000P</td>
+	                                </tr>
+                            	</c:forEach>
                             </tbody>
                         </table>
                     </div>

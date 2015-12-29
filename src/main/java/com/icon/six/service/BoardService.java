@@ -219,15 +219,33 @@ public interface BoardService {
 	 */
 	public Map<String, Object> selectSixPartnerBoardStat(String id);
 	/**
+	 * 포인트 충전 내역 가져오기
+	 * @param param
+	 * @return
+	 */
+	public List<Map<String, Object>> selectSixPointCharge(Map<String, Object> param);
+	/**
 	 * 포인트 신청하기
 	 * @param param
 	 * @return
 	 */
-	public int insertSixPoint(Map<String, Object> param);
+	public int insertSixPointCharge(Map<String, Object> param);
 	/**
-	 * 포인트 업데이트 하기
+	 * 포인트 충전 내역 업데이트 하기
 	 * @param param
 	 * @return
 	 */
-	public int updateSixPoint(Map<String, Object> param);
+	public int updateSixPointCharge(Map<String, Object> param);
+	/**
+	 * 포인트 내역 가져오기
+	 * @param param
+	 * @return
+	 */
+	public List<Map<String, Object>> selectSixPoint(Map<String, Object> param);
+	/**
+	 * 포인트 내역 추가 하기
+	 * @param param
+	 * @return
+	 */
+	public int insertSixPoint(Map<String, Object> param);
 }

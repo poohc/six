@@ -570,7 +570,7 @@
              AND C.ID = #{id}
     </select>
     
-    <select id="selectSixPoint" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    <select id="selectSixPointCharge" parameterType="java.util.HashMap" resultType="java.util.HashMap">
         SELECT SEQ,
                ID,
                NAME,
@@ -592,12 +592,15 @@
                CANCEL_DATE,
                CANCEL_ID                  
           FROM SIX_POINT
-         WHERE IS_VALID = 'Y'
-           AND CREATE_DATE BETWEEN 
+         WHERE ID = #{id}
+           AND IS_VALID = 'Y'
+           <if test="startDate != null">
+           AND CREATE_DATE BETWEEN #{startDate} AND #{endDate}
+           </if>           
     </select>
     
-    <insert id="insertSixPoint" parameterType="java.util.HashMap">
-        INSERT INTO SIX_POINT
+    <insert id="insertSixPointCharge" parameterType="java.util.HashMap">
+        INSERT INTO SIX_POINT_CHARGE
                     (
                     	ID,
                     	NAME,
@@ -623,8 +626,8 @@
                     )
     </insert>
     
-    <update id="updateSixPoint" parameterType="java.util.HashMap">
-        UPDATE SIX_POINT
+    <update id="updateSixPointCharge" parameterType="java.util.HashMap">
+        UPDATE SIX_POINT_CHARGE
            <set>
 	          <if test="updateId != null">
 	              UPDATE_DATE = now(),
@@ -643,5 +646,55 @@
 	       </set>
          WHERE SEQ = #{seq}	       
     </update>
+    
+    <select id="selectSixPoint" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    	SELECT A.SEQ,
+    	       A.ID,
+    	       A.CONTENTS_SEQ,
+    	       A.CONTENTS,
+    	       A.POINT,
+    	       A.CHARGE_POINT,
+    	       (A.CHARGE_POINT - A.POINT) USED_POINT 
+		  FROM (		
+					SELECT SEQ,
+							 ID,
+							 CONTENTS_SEQ,
+					       POINT,
+			    	       (SELECT TITLE
+			    	          FROM SIX_PARTNER_BOARD
+			    	         WHERE SEQ = CONTENTS_SEQ) CONTENTS,
+			    	       (SELECT IFNULL(SUM(POINT),0)
+			    	          FROM SIX_POINT_CHARGE
+			    	         WHERE ID = #{id}
+			    	           AND IS_VALID = 'Y'
+			    	           AND IS_CONFIRM = 'Y') CHARGE_POINT,  
+			    	       CREATE_DATE,
+			    	       CREATE_ID
+			    	  FROM SIX_POINT
+			    	 WHERE ID = #{id}
+			    	   <if test="startDate != null">
+           			   AND CREATE_DATE BETWEEN #{startDate} AND #{endDate}
+           			   </if>
+    	       ) A
+    </select>
+    
+    <insert id="insertSixPoint" parameterType="java.util.HashMap">
+    	INSERT INTO SIX_POINT
+    	       (
+    	       	ID,
+    	       	POINT,
+    	       	CONTENTS_SEQ,
+    	       	CREATE_DATE,
+    	       	CREATE_ID
+    	       )
+    	       VALUES
+    	       (
+    	       	#{id},
+    	       	#{point},
+    	       	#{contentsSeq},
+    	       	now(),
+    	       	#{id}
+    	       )
+    </insert>
     
 </mapper>
