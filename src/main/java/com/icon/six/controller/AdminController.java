@@ -172,4 +172,17 @@ public class AdminController {
 		}		
 		
 	}
+	
+	@RequestMapping(value="point.do")
+	public ModelAndView point(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("admin/admin_point");
+		
+		Map<String, Object> pointInfo = adminService.selectRequestPointList(requestMap);
+		
+		mav.addObject("list",pointInfo.get("list"));
+		mav.addObject("page",pointInfo.get("page"));
+		
+		return mav;
+	}
+	
 }

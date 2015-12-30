@@ -31,7 +31,7 @@
 			<li class="icn_new_article"><a href="/admin/commonCode.do">공통 코드 관리</a></li>
 			<li class="icn_edit_article"><a href="/admin/terms.do">약관 관리</a></li>
 			<li class="icn_categories"><a href="/admin/partner.do">파트너 관리</a></li>
-<!-- 			<li class="icn_tags"><a href="#">Tags</a></li> -->
+			<li class="icn_tags"><a href="/admin/point.do">포인트 관리</a></li>
 		</ul>
 		<h3>회원 관리</h3>
 		<ul class="toggle">

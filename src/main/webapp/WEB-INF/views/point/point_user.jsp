@@ -12,12 +12,13 @@
 <script src="/resources/js/jquery-ui.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$("#calendar1").datepicker({
+	$("#startDate").datepicker({
         showOn: "both", 
         buttonImage: "/resources/img/calendar.png", 
         buttonImageOnly: true,
         changeMonth: true, 
         changeYear: true,
+        dateFormat: 'yymmdd',
         nextText: '다음 달',
         prevText: '이전 달',
        	dayNames: ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'],
@@ -26,12 +27,13 @@ $(document).ready(function(){
         monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월']
     });
 	
-	$("#calendar2").datepicker({
+	$("#endDate").datepicker({
         showOn: "both", 
         buttonImage: "/resources/img/calendar.png", 
         buttonImageOnly: true,
         changeMonth: true, 
         changeYear: true,
+        dateFormat: 'yymmdd',
         nextText: '다음 달',
         prevText: '이전 달',
         dayNames: ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'],
@@ -42,10 +44,76 @@ $(document).ready(function(){
 	
 	alert('<c:out value="${startDate}" />');
 	
-	$('#calendar1').val($.datepicker.formatDate('yymmdd', $.datepicker.parseDate('yymmdd','<c:out value="${startDate}" />')));
-	$('#calendar2').val($.datepicker.formatDate('yymmdd', $.datepicker.parseDate('yymmdd','<c:out value="${endDate}" />')));
+	$('#startDate').val($.datepicker.formatDate('yymmdd', $.datepicker.parseDate('yymmdd','<c:out value="${startDate}" />')));
+	$('#endDate').val($.datepicker.formatDate('yymmdd', $.datepicker.parseDate('yymmdd','<c:out value="${endDate}" />')));
 	
 });
+
+function searchProcess(){
+	
+	if($('#startDate').val().length == 0 || $('#startDate').val() == ''){
+		alert('검색 시작일을 입력해주세요');
+		return false;
+	}
+	
+	if($('#endDate').val().length == 0 || $('#endDate').val() == ''){
+		alert('검색 종료일을 입력해주세요');
+		return false;
+	}
+	
+	if($('#startDate').val() > $('#endDate').val()){
+		alert('검색 시작일은 검색 종료일보다 클 수 없습니다.');
+		return false;
+	}
+	
+	$('#frm').attr('action',$('#searchAction').val());
+	$('#frm').submit();
+}
+
+function searchWeek(week){
+	
+	var startDate;
+	var endDate;
+	
+	var tempStartDate = new Date();
+	var tempEndDate = new Date();
+	
+	switch (week) {
+	
+	case 1 : tempStartDate.setDate(tempStartDate.getDate()-7);
+		     break;
+	case 2 : tempStartDate.setDate(tempStartDate.getDate()-14);
+		     tempEndDate.setDate(tempEndDate.getDate()-7);
+		     break;
+	case 3 : tempStartDate.setDate(tempStartDate.getDate()-21);
+    	     tempEndDate.setDate(tempEndDate.getDate()-14);
+    		 break;
+	default:
+		break;
+	}
+	
+	startDate = createStringDate(tempStartDate);
+	endDate = createStringDate(tempEndDate);
+	
+	alert('startDate :' + startDate + ', endDate : ' + endDate);
+	
+	$('#startDate').val(startDate);
+	$('#endDate').val(endDate);
+	
+	$('#frm').attr('action',$('#searchAction').val());
+	$('#frm').submit();
+	
+}
+
+
+function createStringDate(date){
+	var year = date.getFullYear().toString();
+	var month = (date.getMonth()+1).toString();
+	var day = date.getDate().toString();
+	
+	return year + (month[1] ? month : '0'+month[0]) + (day[1] ? day : '0'+day[0]);
+	
+}
 
 </script>
 
@@ -81,8 +149,8 @@ $(document).ready(function(){
                     </ul>
                     <div class="inform_wrap">
                         <ul class="inform_list">
-                        	<li>무료정보 구입<span>100건</span></li>
-                            <li>유료정보 구입<span>100건</span></li>
+                        	<li>무료정보 구입<span>${pointStat.FREE_COUNT}건</span></li>
+                            <li>유료정보 구입<span>${pointStat.PAYED_COUNT}건</span></li>
                         </ul>
                         <button class="btn_type5">포인트 환전신청</button>
                     </div>
@@ -94,23 +162,26 @@ $(document).ready(function(){
                                 <col style="width:85%;">
                             </colgroup>
                             <tbody>
-                                <tr>
+                            	<form id="frm" name="frm" method="post">
+                            	<input type="hidden" id="searchAction" name="searchAction" value="${searchAction}">
+                            	<tr>
                                     <th rowspan="2">조회기간 선택</th>
                                     <td>
-                                        <input type="text" class="input_type6" id="calendar1">
+                                        <input type="text" class="input_type6" id="startDate" name="startDate">
                                         <label for="calendar1" class="type6_label"></label> -
-                                        <input type="text" class="input_type6" id="calendar2">
+                                        <input type="text" class="input_type6" id="endDate" name="endDate">
                                         <label for="calendar2" class="type6_label">
-                                        <button class="btn_search">조회</button>
+								</form>                                        
+                                        <button class="btn_search" type="button" onclick="searchProcess(); return false;">조회</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-	                                    <button class="btn_type6">최근 1주</button>
-	                                    <button class="btn_type6">최근 2주</button>
-	                                    <button class="btn_type6">최근 3주</button>
+	                                    <button class="btn_type6" type="button" onclick="searchWeek(1); return false;">최근 1주</button>
+	                                    <button class="btn_type6" type="button" onclick="searchWeek(2); return false;">최근 2주</button>
+	                                    <button class="btn_type6" type="button" onclick="searchWeek(3); return false;">최근 3주</button>
                                     </td>
-                                </tr>
+                                </tr>                                
                             </tbody>
                         </table>
                     </div>
@@ -134,17 +205,33 @@ $(document).ready(function(){
                                 </tr>
                             </thead>
                             <tbody>
-                            	<c:forEach items="${pointList}" var="pointList">
-	                            	<tr class="">
-	                                    <td>${pointList.CREATE_DATE}</td>
-	                                    <td class="t_l2">
-	                                    	<a href="#">${pointList.CONTENTS}</a>
-	                                    </td>
-	                                    <td><span class="color_type1">${pointList.POINT}</span></td>
-	                                    <td><span class="color_type2">50,000P</span></td>
-	                                    <td>10,000P</td>
-	                                </tr>
-                            	</c:forEach>
+                            	<c:choose>
+                            	<c:when test="${fn:length(pointList) > 0}">
+	                            	<c:forEach items="${pointList}" var="pointList">
+		                            	<tr class="">
+		                                    <td>${pointList.CREATE_DATE}</td>
+		                                    <td class="t_l2">
+		                                    	<c:choose>
+			                                    	<c:when test="${pointList.POINT_TYPE eq 'POINT001'}">
+			                                    		포인트 충전
+			                                    	</c:when>
+			                                    	<c:otherwise>
+			                                    		<a href="#">${pointList.CONTENTS}</a>
+			                                    	</c:otherwise>
+		                                    	</c:choose>
+		                                    </td>
+		                                    <td><span class="color_type1">${pointList.USE_POINT}P</span></td>
+		                                    <td><span class="color_type2">${pointList.CHARGE_POINT}P</span></td>
+		                                    <td>${pointList.AVAILABLE_POINT}P</td>
+		                                </tr>
+	                            	</c:forEach>
+                            	</c:when>
+                            	<c:otherwise>
+                            		<tr>
+                            			<td colspan="5">포인트 내역이 없습니다.</td>
+                            		</tr>
+                            	</c:otherwise>
+                            	</c:choose>                            	
                             </tbody>
                         </table>
                     </div>

@@ -142,5 +142,38 @@ public class AdminServiceImpl implements AdminService{
 	public int insertAuthority(Map<String, Object> param) {
 		return adminDao.insertAuthority(param);
 	}
+
+	@Override
+	public Map<String, Object> selectRequestPointList(Map<String, Object> param) {
+		int totalCount = 0;
+		Map<String, Object> resultMap = null;
+		
+		try {
+			
+				if(param.get("currentPage")==null){
+					param.put("currentPage", "1");
+				}
+				
+				totalCount = adminDao.selectRequestPointCount(param);
+				
+				param.put("totalCount", totalCount);
+				
+				Map<String, Object> pageInfo = PagingUtil.setPageView(param);
+				
+				param.put("start", pageInfo.get("start"));
+				param.put("end", pageInfo.get("end"));
+				
+				List<Map<String, Object>> boardInfoList = adminDao.selectRequestPointList(param);
+				resultMap = new HashMap<>();
+				resultMap.put("list", boardInfoList);
+				resultMap.put("page", pageInfo.get("page"));
+				
+		} catch (Exception e) {
+			//TODO 에러 처리
+			
+		}
+		
+		return resultMap;
+	}
 	
 }

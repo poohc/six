@@ -70,4 +70,10 @@ public class CommonConstant {
 	public static final String COMMON_BANK_CD = "BANK_CD";
 	/*공통코드 - 결제수단코드*/
 	public static final String COMMON_PAYMENT_CD = "PAYMENT_CD";
+	/*공통코드 - 충전 포인트 코드*/
+	public static final String COMMON_POINT_CD_CHARGE = "POINT001";
+	/*공통코드 - 사용 포인트 코드 유료*/
+	public static final String COMMON_POINT_CD_USE_PAYED = "POINT002";
+	/*공통코드 - 사용 포인트 코드 무료*/
+	public static final String COMMON_POINT_CD_USE_FREE = "POINT003";
 }

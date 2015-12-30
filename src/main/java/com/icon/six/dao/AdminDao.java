@@ -40,4 +40,16 @@ public interface AdminDao {
 	 * @return
 	 */
 	public int insertAuthority(Map<String, Object> param);
+	/**
+	 * 신청 포인트 리스트 개수 가져오기
+	 * @param param
+	 * @return
+	 */
+	public int selectRequestPointCount(Map<String, Object> param);
+	/**
+	 * 신청 포인트 리스트 가져오기
+	 * @param param
+	 * @return
+	 */
+	public List<Map<String, Object>> selectRequestPointList(Map<String, Object> param);
 }

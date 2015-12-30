@@ -570,64 +570,120 @@
              AND C.ID = #{id}
     </select>
     
-    <select id="selectSixPointCharge" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-        SELECT SEQ,
-               ID,
-               NAME,
-               POINT,
-               MONEY,
-               PAYMENT_METHOD,
-               (SELECT CD_NAME
-                  FROM SIX_COMMON_CODE
-                 WHERE CD = PAYMENT_METHOD) PAYMENT_METHOD_NAME,
-               MSG,
-               CREATE_DATE,
-               CREATE_ID,
-               UPDATE_DATE,
-               UPDATE_ID,
-               IS_VALID,
-               IS_CONFIRM,
-               CONFIRM_DATE,
-               CONFIRM_ID,
-               CANCEL_DATE,
-               CANCEL_ID                  
-          FROM SIX_POINT
-         WHERE ID = #{id}
-           AND IS_VALID = 'Y'
-           <if test="startDate != null">
-           AND CREATE_DATE BETWEEN #{startDate} AND #{endDate}
-           </if>           
+    <select id="selectSixPointUserStat" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT IFNULL(SUM(FREE_CONTENTS),0) FREE_COUNT,
+               IFNULL(SUM(PAYED_CONTENTS),0) PAYED_COUNT
+          FROM (
+				SELECT CASE WHEN POINT_TYPE = 'POINT003' THEN 1 END AS FREE_CONTENTS,
+		       		   CASE WHEN POINT_TYPE = 'POINT002' THEN 1 END AS PAYED_CONTENTS 
+		          FROM SIX_POINT
+		         WHERE IS_VALID = 'Y'
+		           AND IS_CONFIRM = 'Y'
+		           <if test="startDate != null">
+           		   AND CREATE_DATE BETWEEN #{startDate} AND #{endDate}
+           		   </if>
+               ) A
     </select>
     
-    <insert id="insertSixPointCharge" parameterType="java.util.HashMap">
-        INSERT INTO SIX_POINT_CHARGE
+    <select id="selectSixPoint" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT A.SEQ,
+               A.ID,
+               A.NAME,
+               A.POINT,
+               IFNULL(A.CHARGE_POINT,0) CHARGE_POINT,
+               IFNULL(A.USE_POINT,0) USE_POINT, 
+               A.POINT_SUM AVAILABLE_POINT,
+               A.POINT_TYPE,
+               A.CONTENTS,
+               A.MONEY,
+               A.PAYMENT_METHOD,
+               A.PAYMENT_METHOD_NAME,
+               A.MSG,
+               A.CREATE_DATE,
+               A.CREATE_ID,
+               A.UPDATE_DATE,
+               A.UPDATE_ID,
+               A.IS_VALID,
+               A.IS_CONFIRM,
+               A.CONFIRM_DATE,
+               A.CONFIRM_ID,
+               A.CANCEL_DATE,
+               A.CANCEL_ID    
+		    FROM (
+		  			  SELECT SEQ,
+			               ID,
+			               NAME,
+			               POINT,
+			               CASE POINT_TYPE WHEN 'POINT001' THEN IFNULL(POINT,0) END AS CHARGE_POINT,
+			               CASE POINT_TYPE WHEN 'POINT002' THEN IFNULL(POINT,0) END AS USE_POINT,
+			               POINT_SUM, 
+			               POINT_TYPE,
+			               (SELECT TITLE
+ 			                  FROM SIX_PARTNER_BOARD
+			                 WHERE SEQ = CONTENT_SEQ) CONTENTS,
+			               MONEY,
+			               PAYMENT_METHOD,
+			               (SELECT CD_NAME
+			                  FROM SIX_COMMON_CODE
+			                 WHERE CD = PAYMENT_METHOD) PAYMENT_METHOD_NAME,
+			               MSG,
+			               CREATE_DATE,
+			               CREATE_ID,
+			               UPDATE_DATE,
+			               UPDATE_ID,
+			               IS_VALID,
+			               IS_CONFIRM,
+			               CONFIRM_DATE,
+			               CONFIRM_ID,
+			               CANCEL_DATE,
+			               CANCEL_ID                  
+			          FROM SIX_POINT
+			         WHERE ID = #{id}
+			           AND IS_VALID = 'Y'
+			           AND IS_CONFIRM = 'Y'
+			           <if test="startDate != null">
+			           AND CREATE_DATE BETWEEN #{startDate} AND #{endDate}
+			           </if>  		
+		 		   ) A
+    </select>
+    
+    <insert id="insertSixPoint" parameterType="java.util.HashMap">
+        INSERT INTO SIX_POINT
                     (
                     	ID,
                     	NAME,
                     	POINT,
+                    	POINT_TYPE,
                     	MONEY,
                     	PAYMENT_METHOD,
                     	MSG,
                     	IS_VALID,
                     	CREATE_DATE,
-                    	CREATE_ID                    	
+                    	CREATE_ID
+                    	<if test="contentSeq != null">
+                    	,CONTENT_SEQ
+                    	</if>           	
                     )
                     VALUES
                     (
                     	#{id},
                     	#{name},
                     	#{point},
+                    	#{pointType},
                     	#{money},
                     	#{paymentMethod},
                     	#{msg},
                     	#{isValid},
                     	now(),
                     	#{id}
+                    	<if test="contentSeq != null">
+                    	,#{contentSeq}
+                    	</if>
                     )
     </insert>
     
-    <update id="updateSixPointCharge" parameterType="java.util.HashMap">
-        UPDATE SIX_POINT_CHARGE
+    <update id="updateSixPoint" parameterType="java.util.HashMap">
+        UPDATE SIX_POINT
            <set>
 	          <if test="updateId != null">
 	              UPDATE_DATE = now(),
@@ -647,54 +703,21 @@
          WHERE SEQ = #{seq}	       
     </update>
     
-    <select id="selectSixPoint" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-    	SELECT A.SEQ,
-    	       A.ID,
-    	       A.CONTENTS_SEQ,
-    	       A.CONTENTS,
-    	       A.POINT,
-    	       A.CHARGE_POINT,
-    	       (A.CHARGE_POINT - A.POINT) USED_POINT 
-		  FROM (		
-					SELECT SEQ,
-							 ID,
-							 CONTENTS_SEQ,
-					       POINT,
-			    	       (SELECT TITLE
-			    	          FROM SIX_PARTNER_BOARD
-			    	         WHERE SEQ = CONTENTS_SEQ) CONTENTS,
-			    	       (SELECT IFNULL(SUM(POINT),0)
-			    	          FROM SIX_POINT_CHARGE
-			    	         WHERE ID = #{id}
-			    	           AND IS_VALID = 'Y'
-			    	           AND IS_CONFIRM = 'Y') CHARGE_POINT,  
-			    	       CREATE_DATE,
-			    	       CREATE_ID
-			    	  FROM SIX_POINT
-			    	 WHERE ID = #{id}
-			    	   <if test="startDate != null">
-           			   AND CREATE_DATE BETWEEN #{startDate} AND #{endDate}
-           			   </if>
-    	       ) A
+    <select id="selectSixPointUserSeq" parameterType="java.util.HashMap" resultType="String">
+        SELECT MAX(SEQ)
+          FROM SIX_POINT
+         WHERE ID = #{id}        
     </select>
     
-    <insert id="insertSixPoint" parameterType="java.util.HashMap">
-    	INSERT INTO SIX_POINT
-    	       (
-    	       	ID,
-    	       	POINT,
-    	       	CONTENTS_SEQ,
-    	       	CREATE_DATE,
-    	       	CREATE_ID
-    	       )
-    	       VALUES
-    	       (
-    	       	#{id},
-    	       	#{point},
-    	       	#{contentsSeq},
-    	       	now(),
-    	       	#{id}
-    	       )
-    </insert>
+    <update id="updateSixPointProcess" parameterType="java.util.HashMap">
+        UPDATE SIX_POINT
+           <if test="pointType != null and pointType.equals('POINT001')">
+           SET POINT_SUM = IFNULL(POINT_SUM,0) + #{point}
+           </if>
+           <if test="pointType != null and pointType.equals('POINT002')">
+           SET POINT_SUM = IFNULL(POINT_SUM,0) - #{point}
+           </if>
+         WHERE SEQ = #{seq}              
+    </update>
     
 </mapper>

@@ -146,4 +146,43 @@
     	                         )
     </insert>
     
+    <select id="selectRequestPointCount" parameterType="java.util.HashMap" resultType="Integer">
+        SELECT COUNT(*)
+          FROM SIX_POINT
+         WHERE IS_VALID = 'Y'
+           AND IS_CONFIRM = 'N'       
+           AND POINT_TYPE = 'POINT001'
+    </select>
+    
+    <select id="selectRequestPointList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT SEQ,
+               ID,
+               NAME,
+               POINT,
+               MONEY,
+               PAYMENT_METHOD,
+               (SELECT CD_NAME
+                  FROM SIX_COMMON_CODE
+                 WHERE CD = PAYMENT_METHOD) PAYMENT_METHOD_NAME,
+               MSG,
+               CREATE_DATE,
+               CREATE_ID,
+               UPDATE_DATE,
+               UPDATE_ID,
+               IS_VALID,
+               IS_CONFIRM,
+               CONFIRM_DATE,
+               CONFIRM_ID,
+               CANCEL_DATE,
+               CANCEL_ID    
+          FROM SIX_POINT
+         WHERE IS_VALID = 'Y'
+           AND IS_CONFIRM = 'N'       
+           AND POINT_TYPE = 'POINT001'
+      ORDER BY SEQ DESC
+		   <if test="start != null">
+		 LIMIT #{start},#{end}    
+		   </if>    
+    </select>
+    
 </mapper>

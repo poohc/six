@@ -101,6 +101,7 @@ public class PointController {
 			CustomUserDetails userDetail = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getDetails();
 			
 			paramMap.put("point", point);
+			paramMap.put("pointType", CommonConstant.COMMON_POINT_CD_CHARGE);
 			paramMap.put("money", sChargeMoney);
 			paramMap.put("paymentMethod", paymentMethod);
 			paramMap.put("msg", msg);
@@ -113,7 +114,7 @@ public class PointController {
 				paramMap.put("isValid", "N");
 			}
 			
-			insertResult = boardService.insertSixPointCharge(paramMap);
+			insertResult = boardService.insertSixPoint(paramMap);
 			
 		} catch (Exception e) {
 			// TODO: 에러처리			
@@ -165,11 +166,13 @@ public class PointController {
 		paramMap.put("endDate", endDate);
 		
 		mav.addObject("pointList",boardService.selectSixPoint(paramMap));
+		mav.addObject("pointStat", boardService.selectSixPointUserStat(paramMap));
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		
 		mav.addObject("startDate", startDate);
 		mav.addObject("endDate", endDate);
+		mav.addObject("searchAction","/point/pointUser.do");
 		
 		return mav;
 	}

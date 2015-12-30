@@ -146,28 +146,32 @@ public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 	}
 	
 	@Override
-	public List<Map<String, Object>> selectSixPointCharge(Map<String, Object> param) {
-		return selectList("board.selectSixPointCharge", param);
-	}
-	
-	@Override
-	public int insertSixPointCharge(Map<String, Object> param) {
-		return (int) insert("board.insertSixPointCharge", param);
-	}
-
-	@Override
-	public int updateSixPointCharge(Map<String, Object> param) {
-		return (int) update("board.updateSixPointCharge", param);
-	}
-
-	@Override
 	public List<Map<String, Object>> selectSixPoint(Map<String, Object> param) {
 		return selectList("board.selectSixPoint", param);
 	}
-
+	
 	@Override
 	public int insertSixPoint(Map<String, Object> param) {
 		return (int) insert("board.insertSixPoint", param);
 	}
-	
+
+	@Override
+	public int updateSixPoint(Map<String, Object> param) {
+		return (int) update("board.updateSixPoint", param);
+	}
+
+	@Override
+	public Map<String, Object> selectSixPointUserStat(Map<String, Object> param) {
+		return (Map<String, Object>) selectOne("board.selectSixPointUserStat", param);
+	}
+
+	@Override
+	public String selectSixPointUserSeq(Map<String, Object> param) {
+		return (String) selectOne("board.selectSixPointUserSeq", param);
+	}
+
+	@Override
+	public int updateSixPointProcess(Map<String, Object> param) {
+		return (int) update("board.updateSixPointProcess", param);
+	}
 }

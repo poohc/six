@@ -37,5 +37,15 @@ public class AdminDaoImpl extends SqlSessionDao implements AdminDao{
 	public int insertAuthority(Map<String, Object> param) {
 		return (int) insert("admin.insertAuthority", param);
 	}
+	
+	@Override
+	public int selectRequestPointCount(Map<String, Object> param) {
+		return (int) selectOne("admin.selectRequestPointCount", param);
+	}
+	
+	@Override
+	public List<Map<String, Object>> selectRequestPointList(Map<String, Object> param) {
+		return selectList("admin.selectRequestPointList", param);
+	}
 
 }

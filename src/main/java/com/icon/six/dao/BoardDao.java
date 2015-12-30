@@ -166,33 +166,40 @@ public interface BoardDao {
 	 */
 	public Map<String, Object> selectSixPartnerBoardStat(String id);
 	/**
-	 * 포인트 충전 내역 가져오기
-	 * @param param
-	 * @return
-	 */
-	public List<Map<String, Object>> selectSixPointCharge(Map<String, Object> param);
-	/**
-	 * 포인트 신청하기
-	 * @param param
-	 * @return
-	 */
-	public int insertSixPointCharge(Map<String, Object> param);
-	/**
-	 * 포인트 충전 내역 업데이트 하기
-	 * @param param
-	 * @return
-	 */
-	public int updateSixPointCharge(Map<String, Object> param);
-	/**
 	 * 포인트 내역 가져오기
 	 * @param param
 	 * @return
 	 */
 	public List<Map<String, Object>> selectSixPoint(Map<String, Object> param);
 	/**
-	 * 포인트 내역 추가 하기
+	 * 포인트 신청하기
 	 * @param param
 	 * @return
 	 */
 	public int insertSixPoint(Map<String, Object> param);
+	/**
+	 * 포인트 내역 업데이트 하기
+	 * @param param
+	 * @return
+	 */
+	public int updateSixPoint(Map<String, Object> param);	
+	/**
+	 * 포인트 내역 통계(유무료 컨텐츠 구매 횟수)
+	 * @param param
+	 * @return
+	 */
+	public Map<String, Object> selectSixPointUserStat(Map<String, Object> param);
+	/**
+	 * 포인트 처리를 위해 seq 가져오기
+	 * @param param
+	 * @return
+	 */
+	public String selectSixPointUserSeq(Map<String, Object> param);
+	/**
+	 * 포인트 처리(충전, 유료 포인트 구매시)
+	 * @param param
+	 * @return
+	 */
+	public int updateSixPointProcess(Map<String, Object> param);
+	
 }

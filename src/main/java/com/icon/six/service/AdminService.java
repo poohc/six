@@ -1,5 +1,6 @@
 package com.icon.six.service;
 
+import java.util.List;
 import java.util.Map;
 
 public interface AdminService {
@@ -33,4 +34,10 @@ public interface AdminService {
 	 * @return
 	 */
 	public int insertAuthority(Map<String, Object> param);
+	/**
+	 * 신청 포인트 리스트 가져오기
+	 * @param param
+	 * @return
+	 */
+	public Map<String, Object> selectRequestPointList(Map<String, Object> param);
 }
