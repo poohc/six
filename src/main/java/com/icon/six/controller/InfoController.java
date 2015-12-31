@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,7 +40,7 @@ public class InfoController {
 		
 		mav.addObject("boardList",boardService.selectMainBoardList(boardNameArray));
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -64,7 +65,7 @@ public class InfoController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -96,7 +97,7 @@ public class InfoController {
 		mav.addObject("replyDelAction","/info/infoFreeRecReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoFreeRecReplyUpdate.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -106,7 +107,7 @@ public class InfoController {
 		mav.addObject("listPage","/info/infoFreeRec.do");
 		mav.addObject("insertAction","/info/infoFreeRecWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -133,7 +134,7 @@ public class InfoController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}	
 	
@@ -330,7 +331,7 @@ public class InfoController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -362,7 +363,7 @@ public class InfoController {
 		mav.addObject("replyDelAction","/info/infoSecTechReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoSecTechReplyUpdate.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -372,7 +373,7 @@ public class InfoController {
 		mav.addObject("listPage","/info/infoSecTech.do");
 		mav.addObject("insertAction","/info/infoSecTechWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -399,7 +400,7 @@ public class InfoController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}	
 	
@@ -596,7 +597,7 @@ public class InfoController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -628,7 +629,7 @@ public class InfoController {
 		mav.addObject("replyDelAction","/info/infoThemeReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoThemeReplyUpdate.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -638,7 +639,7 @@ public class InfoController {
 		mav.addObject("listPage","/info/infoTheme.do");
 		mav.addObject("insertAction","/info/infoThemeWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -665,7 +666,7 @@ public class InfoController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}	
 	
@@ -862,7 +863,7 @@ public class InfoController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -894,7 +895,7 @@ public class InfoController {
 		mav.addObject("replyDelAction","/info/infoRealStockReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoRealStockReplyUpdate.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -904,7 +905,7 @@ public class InfoController {
 		mav.addObject("listPage","/info/infoRealStock.do");
 		mav.addObject("insertAction","/info/infoRealStockWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -931,7 +932,7 @@ public class InfoController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}	
 	
@@ -1128,7 +1129,7 @@ public class InfoController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -1160,7 +1161,7 @@ public class InfoController {
 		mav.addObject("replyDelAction","/info/infoStockBriefingReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoStockBriefingReplyUpdate.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -1170,7 +1171,7 @@ public class InfoController {
 		mav.addObject("listPage","/info/infoStockBriefing.do");
 		mav.addObject("insertAction","/info/infoStockBriefingWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -1197,7 +1198,7 @@ public class InfoController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}	
 	
@@ -1394,7 +1395,7 @@ public class InfoController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -1426,7 +1427,7 @@ public class InfoController {
 		mav.addObject("replyDelAction","/info/infoGInterviewReplyDel.do");
 		mav.addObject("replyUpdAction","/info/infoGInterviewReplyUpdate.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -1436,7 +1437,7 @@ public class InfoController {
 		mav.addObject("listPage","/info/infoGInterview.do");
 		mav.addObject("insertAction","/info/infoGInterviewWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -1463,7 +1464,7 @@ public class InfoController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}	
 	

@@ -17,11 +17,12 @@
 </script>
 </head>
 <body>
-<c:if test="${msg ne null || msg ne ''}">
-	<script type="text/javascript">
-		alert('<c:out value="${msg}" />');
-	</script>
-</c:if>
+<script type="text/javascript">
+	if('<c:out value="${msg}" />' != ''){
+		alert('<c:out value="${msg}" />');		
+	}
+</script>
+
 <form method="post" id="frm" name="frm">
 	<input type="hidden" id="seq" name="seq" value="${seq}">
 	<input type="hidden" id="page" name="page" value="${page}">

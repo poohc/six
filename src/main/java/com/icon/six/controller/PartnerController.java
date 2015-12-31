@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,7 +54,7 @@ public class PartnerController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -65,7 +66,7 @@ public class PartnerController {
 		mav.addObject("requestList", boardService.selectCommonCode(CommonConstant.COMMON_REQUEST_CD));
 		mav.addObject("bankList", boardService.selectCommonCode(CommonConstant.COMMON_BANK_CD));
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		
 		return mav;
 	}
@@ -99,7 +100,7 @@ public class PartnerController {
 		mav.addObject("msg",msg);
 		mav.addObject("page",page);
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 				
 	}
@@ -141,7 +142,7 @@ public class PartnerController {
 			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -173,7 +174,7 @@ public class PartnerController {
 			// TODO: 에러 처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -195,7 +196,7 @@ public class PartnerController {
 			// TODO: 에러 처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -213,7 +214,7 @@ public class PartnerController {
 			// TODO: 에러 처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -393,7 +394,7 @@ public class PartnerController {
 			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -411,7 +412,7 @@ public class PartnerController {
 			// TODO: 에러 처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -50,7 +51,7 @@ public class CommunityController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -83,7 +84,7 @@ public class CommunityController {
 		mav.addObject("replyDelAction","/community/communityFreeboardReplyUpdate.do");
 		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -93,7 +94,7 @@ public class CommunityController {
 		mav.addObject("listPage","/community/communityFreeboard.do");
 		mav.addObject("insertAction","/community/communityFreeboardWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -120,7 +121,7 @@ public class CommunityController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}	
 	
@@ -319,7 +320,7 @@ public class CommunityController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -353,7 +354,7 @@ public class CommunityController {
 		mav.addObject("replyDelAction","/community/communityDiscussionReplyUpdate.do");
 		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -363,7 +364,7 @@ public class CommunityController {
 		mav.addObject("listPage","/community/communityDiscussion.do");
 		mav.addObject("insertAction","/community/communityDiscussionWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -390,7 +391,7 @@ public class CommunityController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}	
 	
@@ -587,7 +588,7 @@ public class CommunityController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -620,7 +621,7 @@ public class CommunityController {
 		mav.addObject("replyDelAction","/community/communityReviewReplyUpdate.do");
 		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -630,7 +631,7 @@ public class CommunityController {
 		mav.addObject("listPage","/community/communityReview.do");
 		mav.addObject("insertAction","/community/communityReviewWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -657,7 +658,7 @@ public class CommunityController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}	
 	
@@ -855,7 +856,7 @@ public class CommunityController {
 			System.out.println("공지사항 불러오기 에러");			
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -888,7 +889,7 @@ public class CommunityController {
 		mav.addObject("replyDelAction","/community/communitySpeicalReplyUpdate.do");
 		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -898,7 +899,7 @@ public class CommunityController {
 		mav.addObject("listPage","/community/communitySpeical.do");
 		mav.addObject("insertAction","/community/communitySpeicalWriteProcess.do");
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}
 	
@@ -925,7 +926,7 @@ public class CommunityController {
 			// TODO: 에러처리
 		}
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		return mav;
 	}	
 	

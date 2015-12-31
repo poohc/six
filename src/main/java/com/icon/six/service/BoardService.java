@@ -248,4 +248,15 @@ public interface BoardService {
 	 * @return
 	 */
 	public int selectUserPointSum(String id);
+	/**
+	 * SIX_SHORT_BOARD 데이터 넣기
+	 * @param param
+	 * @return
+	 */
+	public int insertSixShortBoard(Map<String, Object> param);
+	/**
+	 * SIX_SHORT_BOARD 데이터 가져오기(최근글 기준 5건 고정)
+	 * @return
+	 */
+	public List<Map<String, Object>> selectSixShortBoard();
 }

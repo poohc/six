@@ -34,7 +34,7 @@ public class PointController {
 		ModelAndView mav = new ModelAndView("point/point_buy");
 		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		mav.addObject("paymentCd",boardService.selectCommonCode(CommonConstant.COMMON_PAYMENT_CD));
 		mav.addObject("payAction","/point/pointBuyProcess.do");
 		return mav;
@@ -168,7 +168,7 @@ public class PointController {
 		mav.addObject("pointList",boardService.selectSixPoint(paramMap));
 		mav.addObject("pointStat", boardService.selectSixPointUserStat(paramMap));
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
-		mav.addObject("realStockInfo",boardService.selectRealStockList());
+		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		
 		mav.addObject("startDate", startDate);
 		mav.addObject("endDate", endDate);

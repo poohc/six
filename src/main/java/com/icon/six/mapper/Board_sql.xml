@@ -717,4 +717,32 @@
 				  AND IS_CONFIRM = 'Y') A        
     </select>    
     
+    <insert id="insertSixShortBoard" parameterType="java.util.HashMap">
+    	INSERT INTO SIX_SHORT_BOARD
+    	       (
+    	       	NICKNAME,
+    	        CONTENTS,
+    	        CREATE_DATE,
+    	        CREATE_ID
+    	       )
+    	       VALUES
+    	       (
+    	       	#{nickName},
+    	       	#{contents},
+    	       	now(),
+    	       	#{createId}	
+    	       )    	   
+    </insert>
+    
+    <select id="selectSixShortBoard" resultType="java.util.HashMap">
+    	SELECT SEQ,
+    	       NICKNAME,
+    	       CONTENTS,
+    	       CREATE_DATE,
+    	       CREATE_ID
+    	  FROM SIX_SHORT_BOARD
+      ORDER BY SEQ DESC
+         LIMIT 0,5
+    </select>
+    
 </mapper>

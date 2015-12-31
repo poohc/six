@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,6 +10,42 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#intro1').addClass("on");	
+	
+	$('#addReplyBtn').click(function(){
+		
+		if('<c:out value="${sessionScope.userInfo.name}" />' == ''){
+			alert('로그인이 필요한 서비스 입니다.');
+			return false;
+		}
+		
+		if($('#shortComment').val().length == 0 || $('#shortComment').val() == ''){
+			alert('댓글남긴 내용을 입력해주세요');
+			return false;
+		}
+		
+		if($('#shortComment').val().length > 100){
+			alert('100글자를 넘길 수 없습니다.');
+			return false;
+		}
+		
+		$('#frm').attr('action',$('#commentAction').val());
+		$('#frm').submit();
+		
+	});
+	
+	$('#shortComment').bind('input propertychange', function() {
+		
+		var commentLength = $('#shortComment').val().length;
+		$('#commentLength').text(commentLength);
+		
+		if(commentLength > 100){
+			alert('100글자를 넘길 수 없습니다.');
+			return false;
+		}
+		
+	});
+	
+	
 });
 </script>
 </head>
@@ -26,17 +64,25 @@ $(document).ready(function(){
                 <div class="left_comment">
                     <p class="left_comment_title">덧글</p>
                     <div class="comment_box">
-                        <div class="comment_box2">
-                            <textarea name="leftcomment" id="leftcomment" cols="30" rows="10" class="left_textarea"></textarea>
-                            <span><em>0</em>/100자</span>
-                        </div>
-                        <button class="comment_btn">덧글 남기기</button>
+                    	<form id="frm" name="frm" method="post">
+                    		<input type="hidden" id="commentAction" name="commentAction" value="${commentAction}">
+                    		<div class="comment_box2">
+	                            <textarea name="shortComment" id="shortComment" cols="30" rows="10" class="left_textarea"></textarea>
+	                            <span><em id="commentLength"></em>/100자</span>
+                        	</div>
+                    	</form>
+                        <button class="comment_btn" type="button" id="addReplyBtn" name="addReplyBtn">덧글 남기기</button>
                         <ul class="leftcomment_list">
-                            <li>기대됩니다. 앞으로 좋은 사이트로 발전하시길 바랍니다. <span>nickname</span></li>
-                            <li>기대됩니다. 앞으로 좋은 사이트로 발전하시길 바랍니다. <span>nickname</span></li>
-                            <li>기대됩니다. 앞으로 좋은 사이트로 발전하시길 바랍니다. <span>nickname</span></li>
-                            <li>기대됩니다. 앞으로 좋은 사이트로 발전하시길 바랍니다. <span>nickname</span></li>
-                            <li>기대됩니다. 앞으로 좋은 사이트로 발전하시길 바랍니다. <span>nickname</span></li>
+                        	<c:choose>
+                        		<c:when test="${fn:length(shortBoardList) > 0}">
+                        			<c:forEach items="${shortBoardList}" var="shortBoardList">
+                        				<li>${shortBoardList.CONTENTS}<span>${shortBoardList.NICKNAME}</span></li>
+                        			</c:forEach>                        		
+                        		</c:when>
+                        		<c:otherwise>
+                        			<li>덧글이 없습니다.</span></li>		
+                        		</c:otherwise>
+                        	</c:choose>
                         </ul>
                     </div>
                 </div>

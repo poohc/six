@@ -1258,4 +1258,14 @@ public class BoardServiceImpl implements BoardService{
 		return boardDao.selectUserPointSum(id);
 	}
 
+	@Override
+	public int insertSixShortBoard(Map<String, Object> param) {
+		return boardDao.insertSixShortBoard(param);
+	}
+
+	@Override
+	public List<Map<String, Object>> selectSixShortBoard() {
+		return boardDao.selectSixShortBoard();
+	}
+
 }
