@@ -10,10 +10,14 @@ import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.icon.six.constant.CommonConstant;
 import com.icon.six.dao.AdminDao;
+import com.icon.six.dao.BoardDao;
 import com.icon.six.util.PagingUtil;
 
 @Service
@@ -21,6 +25,9 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Resource
 	private AdminDao adminDao;
+	
+	@Resource
+	private BoardDao boardDao;
 	
 	@Value("${file.upload.path}")
 	private String fileUploadPath;
@@ -174,6 +181,49 @@ public class AdminServiceImpl implements AdminService{
 		}
 		
 		return resultMap;
+	}
+
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
+	public int updateSixPointConfirm(Map<String, Object> param) {
+		
+		int result1 = 0;
+		int result2 = 1;
+		
+		/**
+		 * 포인트 승인 처리 후 합산 포인트 처리 (처리 과정 중 하나라도 오류 시 모두 트랜잭션 처리)
+		 */
+		try {
+			result1 = adminDao.updateSixPointConfirm(param);
+			
+			if(result1 == 1){
+				
+				String[] seqList = (String[]) param.get("array");
+				String[] pointList = (String[]) param.get("pointList");
+				String[] idList = (String[]) param.get("idList");
+				
+				param.put("pointType", CommonConstant.COMMON_POINT_CD_CHARGE);
+				
+				for(int i=0;i<seqList.length;i++){
+					
+					param.put("seq", seqList[i]);
+					param.put("point", pointList[i]);
+					param.put("id", idList[i]);
+					
+					int pointSum = boardDao.selectUserPointSum(idList[i]);
+					
+					param.put("pointSum", pointSum);
+					result2 = boardDao.updateSixPoint(param);
+					
+				}
+				
+			}
+		} catch (Exception e) {
+			// TODO: 트랜잭션 에러 처리(DB LOG 남길까 ? ) 
+			
+		}		
+		
+		return result2;
 	}
 	
 }

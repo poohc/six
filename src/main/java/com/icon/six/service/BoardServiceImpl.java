@@ -899,7 +899,7 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public List<Map<String, Object>> selectSixTerms(String boardName) {
+	public List<Map<String, Object>> selectSixTerms(Map<String, Object> boardName) {
 		return boardDao.selectSixTerms(boardName);
 	}
 
@@ -1254,13 +1254,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public String selectSixPointUserSeq(Map<String, Object> param) {
-		return boardDao.selectSixPointUserSeq(param);
-	}
-
-	@Override
-	public int updateSixPointProcess(Map<String, Object> param) {
-		return boardDao.updateSixPointProcess(param);
+	public int selectUserPointSum(String id) {
+		return boardDao.selectUserPointSum(id);
 	}
 
 }

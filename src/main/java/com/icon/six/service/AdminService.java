@@ -40,4 +40,10 @@ public interface AdminService {
 	 * @return
 	 */
 	public Map<String, Object> selectRequestPointList(Map<String, Object> param);
+	/**
+	 * 신청 포인트 승인/취소 하기
+	 * @param param
+	 * @return
+	 */
+	public int updateSixPointConfirm(Map<String, Object> param);
 }

@@ -13,6 +13,7 @@
 	    <intercept-url pattern="/main/main.do" access="permitAll" />
 	    <intercept-url pattern="/main/intro.do" access="permitAll" />
 	    <intercept-url pattern="/main/notice.do" access="permitAll" />
+	    <intercept-url pattern="/main/freeAdvice.do" access="hasAnyRole('ROLE_USER','ROLE_PARTNER','ROLE_ADMIN')" />
 	    <intercept-url pattern="/main/introNoticeWrite.do" access="hasRole('ROLE_ADMIN')" />
 	    <intercept-url pattern="/partner/partnerJoin.do" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
 	    <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />

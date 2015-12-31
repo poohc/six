@@ -340,7 +340,7 @@
 		   LIMIT 0,1
     </select>
     
-    <select id="selectSixTerms" resultType="java.util.HashMap">
+    <select id="selectSixTerms" resultType="java.util.HashMap" parameterType="HashMap">
           SELECT SEQ,
                  BOARD_NAME,
                  TERMS_ID,
@@ -686,38 +686,35 @@
         UPDATE SIX_POINT
            <set>
 	          <if test="updateId != null">
-	              UPDATE_DATE = now(),
-	              UPDATE_ID = #{updateId}
+	              UPDATE_DATE = now()
+	              ,UPDATE_ID = #{updateId}
 	          </if>
 	          <if test="isConfirm != null and isConfirm.equals('Y')">
-	              IS_CONFIRM = #{isConfirm},
-	              CONFIRM_DATE = now(),
-	              CONFIRM_ID = #{confirmId}	
+	              ,IS_CONFIRM = #{isConfirm}
+	              ,CONFIRM_DATE = now()
+	              ,CONFIRM_ID = #{confirmId}	
 	          </if>
 	          <if test="isConfirm != null and isConfirm.equals('N')">
-	              IS_CONFIRM = #{isConfirm},
-	              CANCEL_DATE = now(),
-	              CANCEL_ID = #{cancelId}
+	              ,IS_CONFIRM = #{isConfirm}
+	              ,CANCEL_DATE = now()
+	              ,CANCEL_ID = #{cancelId}
 	          </if>	          
+	          <if test="pointSum != null">
+	              ,POINT_SUM = #{pointSum}
+	          </if>
 	       </set>
-         WHERE SEQ = #{seq}	       
+         WHERE SEQ = #{seq}        
     </update>
     
-    <select id="selectSixPointUserSeq" parameterType="java.util.HashMap" resultType="String">
-        SELECT MAX(SEQ)
-          FROM SIX_POINT
-         WHERE ID = #{id}        
-    </select>
-    
-    <update id="updateSixPointProcess" parameterType="java.util.HashMap">
-        UPDATE SIX_POINT
-           <if test="pointType != null and pointType.equals('POINT001')">
-           SET POINT_SUM = IFNULL(POINT_SUM,0) + #{point}
-           </if>
-           <if test="pointType != null and pointType.equals('POINT002')">
-           SET POINT_SUM = IFNULL(POINT_SUM,0) - #{point}
-           </if>
-         WHERE SEQ = #{seq}              
-    </update>
+    <select id="selectUserPointSum" parameterType="String" resultType="Integer">
+        SELECT IFNULL(SUM(A.POINT),0) SUM_POINT
+  		  FROM (
+  				SELECT CASE POINT_TYPE WHEN 'POINT001' THEN POINT
+                	      			   WHEN 'POINT002' THEN -POINT END AS POINT
+		     	 FROM SIX_POINT
+			 	WHERE ID = #{id}
+			      AND IS_VALID = 'Y'
+				  AND IS_CONFIRM = 'Y') A        
+    </select>    
     
 </mapper>

@@ -86,7 +86,7 @@ public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 	}
 
 	@Override
-	public List<Map<String, Object>> selectSixTerms(String boardName) {
+	public List<Map<String, Object>> selectSixTerms(Map<String, Object> boardName) {
 		return selectList("board.selectSixTerms",boardName);
 	}
 
@@ -166,12 +166,8 @@ public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 	}
 
 	@Override
-	public String selectSixPointUserSeq(Map<String, Object> param) {
-		return (String) selectOne("board.selectSixPointUserSeq", param);
+	public int selectUserPointSum(String id) {
+		return (int) selectOne("board.selectUserPointSum", id);
 	}
-
-	@Override
-	public int updateSixPointProcess(Map<String, Object> param) {
-		return (int) update("board.updateSixPointProcess", param);
-	}
+	
 }

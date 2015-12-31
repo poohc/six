@@ -99,7 +99,7 @@ public interface BoardDao {
 	 * 약관 가져오기
 	 * @return
 	 */
-	public List<Map<String, Object>> selectSixTerms(String boardName);
+	public List<Map<String, Object>> selectSixTerms(Map<String, Object> boardName);
 	/**
 	 * 회원 정보 가져오기
 	 * @param id
@@ -190,16 +190,10 @@ public interface BoardDao {
 	 */
 	public Map<String, Object> selectSixPointUserStat(Map<String, Object> param);
 	/**
-	 * 포인트 처리를 위해 seq 가져오기
+	 * 포인트 처리를 위한 포인트 합 가져오기
 	 * @param param
 	 * @return
 	 */
-	public String selectSixPointUserSeq(Map<String, Object> param);
-	/**
-	 * 포인트 처리(충전, 유료 포인트 구매시)
-	 * @param param
-	 * @return
-	 */
-	public int updateSixPointProcess(Map<String, Object> param);
+	public int selectUserPointSum(String id);
 	
 }

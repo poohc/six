@@ -48,4 +48,9 @@ public class AdminDaoImpl extends SqlSessionDao implements AdminDao{
 		return selectList("admin.selectRequestPointList", param);
 	}
 
+	@Override
+	public int updateSixPointConfirm(Map<String, Object> param) {
+		return (int) update("admin.updateSixPointConfirm", param);
+	}
+
 }

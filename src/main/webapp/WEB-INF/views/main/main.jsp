@@ -101,6 +101,7 @@
             	<form id="loginForm" method="post" action="j_spring_security_check.do">
             	<input type="hidden" id="seq" name="seq">
             	<security:authorize access="hasRole('ROLE_USER')" var="isUser" />
+            	<security:authorize access="hasRole('ROLE_PARTNER')" var="isPartner" />
 				<security:authorize access="hasRole('ROLE_ADMIN')" var="isAdmin" />
             	<c:choose>
             		<c:when test="${not empty sessionScope.userInfo}">
@@ -110,6 +111,9 @@
 	            				<c:when test="${isAdmin}">
 	            					<em>관리자</em>
 	            				</c:when>            				
+	            				<c:when test="${isPartner}">
+	            					<em>파트너</em>
+	            				</c:when>
 	            				<c:when test="${isUser}">
 	            					<em>일반회원</em>
 	            				</c:when>	                    	
@@ -117,7 +121,7 @@
 	                    	<button type="button" id="logoutBtn">로그아웃</button>
 	                    </p>
 	                    <p class="login_title2"><em>${sessionScope.userInfo.name}</em> 회원님</p>
-	                    <p class="login_title3"><img src="/resources/img/diamond.png" alt=""><em>포인트</em><span>10,000 P</span></p>
+	                    <p class="login_title3"><img src="/resources/img/diamond.png" alt=""><em>포인트</em><span>${userPoint} P</span></p>
 	                    <ul>
 	                        <li><a href="/point/pointBuy.do">포인트신청</a></li>
 	                        <li><a href="/point/pointUser.do">구매내역</a></li>

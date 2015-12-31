@@ -49,6 +49,7 @@ public class MainController {
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		mav.addObject("boardList",boardService.selectMainBoardList(boardNameArray));
+		mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		
 		return mav;
 	}
@@ -535,7 +536,11 @@ public class MainController {
 	@RequestMapping(value = "freeAdvice.do")
 	public ModelAndView freeAdvice(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView("introduce/intro_free_advice");
-		mav.addObject("terms",boardService.selectSixTerms(CommonConstant.FREEADVICE_BOARD));
+		
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("boardName", CommonConstant.FREEADVICE_BOARD);
+		
+		mav.addObject("terms",boardService.selectSixTerms(param));
 		
 		CustomUserDetails customUserDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getDetails();
 

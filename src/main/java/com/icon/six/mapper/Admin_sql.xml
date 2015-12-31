@@ -185,4 +185,28 @@
 		   </if>    
     </select>
     
+    <update id="updateSixPointConfirm" parameterType="java.util.HashMap">
+        UPDATE SIX_POINT
+           <set>
+	          <if test="updateId != null">
+	              UPDATE_DATE = now()
+	              ,UPDATE_ID = #{updateId}
+	          </if>
+	          <if test="isConfirm != null and (isConfirm eq 'Y'.toString())">
+	              ,IS_CONFIRM = #{isConfirm}
+	              ,CONFIRM_DATE = now()
+	              ,CONFIRM_ID = #{confirmId}	
+	          </if>
+	          <if test="isConfirm != null and (isConfirm eq 'N'.toString())">
+	              ,IS_CONFIRM = #{isConfirm}
+	              ,CANCEL_DATE = now()
+	              ,CANCEL_ID = #{cancelId}
+	          </if>	          
+	       </set>
+         WHERE SEQ IN
+         <foreach collection="array" item="item" index="index" separator="," open="(" close=")">
+		    ${array[index]}
+		</foreach>         
+    </update>
+    
 </mapper>

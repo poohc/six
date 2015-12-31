@@ -1,6 +1,7 @@
 package com.icon.six.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -181,7 +182,48 @@ public class AdminController {
 		
 		mav.addObject("list",pointInfo.get("list"));
 		mav.addObject("page",pointInfo.get("page"));
+		mav.addObject("listPage", "/admin/point.do");
+		mav.addObject("confirmAction", "/admin/pointProcess.do");
 		
+		return mav;
+	}
+	
+	@RequestMapping(value="pointProcess.do")
+	public ModelAndView pointProcess(@RequestParam(value="chkPoint") String[] seqList,
+									 @RequestParam(value="isConfirm") String isConfirm,
+									 @RequestParam(value="point") String[] pointList,
+									 @RequestParam(value="id") String[] idList,
+									 HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("main/commonPage");
+		int result = 0;
+		String msg = "포인트 처리가 완료 되었습니다.";
+		
+		try {
+			Map<String, Object> param = new HashMap<String, Object>();
+			param.put("updateId", SecurityContextHolder.getContext().getAuthentication().getName());
+			param.put("array", seqList);
+			param.put("pointList", pointList);
+			param.put("idList", idList);
+			param.put("isConfirm", isConfirm);
+			
+			if("Y".equals(isConfirm)){
+				param.put("confirmId", SecurityContextHolder.getContext().getAuthentication().getName());
+			} else if("N".equals(isConfirm)){
+				param.put("cancelId", SecurityContextHolder.getContext().getAuthentication().getName());
+			}
+			
+			result = adminService.updateSixPointConfirm(param);
+			
+		} catch (Exception e) {
+			// TODO: 에러 처리
+		}
+		
+		if(result == 0){
+			msg = "포인트 처리중 오류가 발생하였습니다.";
+		}
+		
+		mav.addObject("msg",msg);
+		mav.addObject("page","/admin/point.do");
 		return mav;
 	}
 	
