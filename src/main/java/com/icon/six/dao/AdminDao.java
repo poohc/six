@@ -58,4 +58,16 @@ public interface AdminDao {
 	 * @return
 	 */
 	public int updateSixPointConfirm(Map<String, Object> param);
+	/**
+	 * 상담 내역 건수 가져오기
+	 * @param param
+	 * @return
+	 */
+	public int selectSixCounselingCount(Map<String, Object> param);
+	/**
+	 * 상담 내역 리스트 가져오기
+	 * @param param
+	 * @return
+	 */
+	public List<Map<String, Object>> selectSixCounseling(Map<String, Object> param);
 }

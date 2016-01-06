@@ -206,4 +206,10 @@ public interface BoardDao {
 	 * @return
 	 */
 	public List<Map<String, Object>> selectSixShortBoard(); 
+	/**
+	 * SIX_COUNSELING 데이터 넣기
+	 * @param param
+	 * @return
+	 */
+	public int insertSixCounseling(Map<String, Object> param);
 }

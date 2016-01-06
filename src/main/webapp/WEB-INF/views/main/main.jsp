@@ -169,7 +169,27 @@
                 </div>
             </div>
             <ul class="name_card">
-                <li>
+            <c:choose>
+          		<c:when test="${fn:length(partnerList) > 0}">
+           		<c:forEach items="${partnerList}" var="partnerList">
+            		<li>
+                     <a href="javascript:goPartner('${partnerList.ID}','${partnerList.SEQ}')" class="name_block">
+                         <div class="name_top">
+                             <span class="name_title new">${partnerList.NAME}</span>
+                             <span class="name_title2">${partnerList.POST}</span>
+                         </div>
+                         <div class="name_bottom">
+                             <c:out value="${partnerList.IMAGE}" escapeXml="false" />
+                             <p class="name_text type1">${partnerList.INTRODUCE}</p>
+                             <p class="name_text">${partnerList.SLOGAN}</p>
+                         </div>
+                     </a>
+                     <a href="javascript:goPartner('${partnerList.ID}','${partnerList.SEQ}')" class="watch_movie">파트너 페이지 이동하기</a>
+                 </li>
+           		</c:forEach>                		
+          		</c:when>
+          		<c:otherwise>
+          		<li>
                     <a href="#" class="name_block">
                         <div class="name_top">
                             <span class="name_title new">홍길동</span>
@@ -312,7 +332,6 @@
                     </a>
                     <a href="#" class="watch_movie">파트너 페이지 이동</a>
                 </li>
-                
                 <li>
                     <a href="#" class="name_block">
                         <div class="name_top">
@@ -341,6 +360,8 @@
                     </a>
                     <a href="#" class="watch_movie">파트너 페이지 이동</a>
                 </li>
+          		</c:otherwise>
+             </c:choose>    
             </ul>
             <div class="free_area">
                 <p class="free_title">SIX 주식정보거래소의 정보제공자와 만나보세요. 무료정보도 많습니다.</p>

@@ -179,5 +179,10 @@ public class BoardDaoImpl extends SqlSessionDao implements BoardDao {
 	public List<Map<String, Object>> selectSixShortBoard() {
 		return selectList("board.selectSixShortBoard");
 	}
+
+	@Override
+	public int insertSixCounseling(Map<String, Object> param) {
+		return (int) insert("board.insertSixCounseling", param);
+	}
 	
 }

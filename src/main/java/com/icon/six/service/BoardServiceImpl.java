@@ -1268,4 +1268,9 @@ public class BoardServiceImpl implements BoardService{
 		return boardDao.selectSixShortBoard();
 	}
 
+	@Override
+	public int insertSixCounseling(Map<String, Object> param) {
+		return boardDao.insertSixCounseling(param);
+	}
+
 }

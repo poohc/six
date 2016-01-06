@@ -7,7 +7,7 @@
 <html lang="ko">
 <head>
 <jsp:include page="../common/common.jsp" />
-<jsp:include page="../common/boardCommon_Editor.jsp" />
+<jsp:include page="../common/counseling_Editor.jsp" />
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#intro5').addClass("on");	
@@ -44,11 +44,13 @@ $(document).ready(function(){
                 <div class="right_contents">
                     <p class="title_type1">무료상담신청</p>
                     <p class="text_type3"><span>SIX</span>의 주식전문가의 상담을 무료로 받아보세요. 아래 항목을 입력하세요.</p>
+                    <form method="post" id="frm" name="frm">
+                    <input type="hidden" id="insertAction" name="insertAction" value="${insertAction}">
                     <div class="advice_box">
                     	<c:choose>
                     	<c:when test="${fn:length(terms) > 0}">
                     		<c:forEach items="${terms}" var="terms">
-                    			<c:out value="terms.TERMS_HTML" escapeXml="false" />
+                    			<c:out value="${terms.TERMS_HTML}" escapeXml="false" />
                     		</c:forEach>
                     	</c:when>
                     	<c:otherwise>
@@ -57,9 +59,9 @@ $(document).ready(function(){
                     	</c:choose>                        
                     </div>
                     <div class="check_radio">
-                        <input type="radio" name="first_term" id="term_agree">
+                        <input type="radio" name="first_term" id="term_agree" value="Y">
                         <label for="term_agree">동의합니다.</label>
-                        <input type="radio" name="first_term" id="term_agree2">
+                        <input type="radio" name="first_term" id="term_agree2" value="N">
                         <label for="term_agree2">동의하지 않습니다.</label>
                     </div>
                     <p class="useterm_title">상담내역입력</p>
@@ -68,17 +70,17 @@ $(document).ready(function(){
                             <p class="advice_title">1</p>
                             <div class="advice_select">
                                 <p class="question_title">귀하의 <span>투자금</span>은 얼마입니까?</p>
-                                <input type="radio" name="qna1" class="ml_0" value="500만원 내외">
+                                <input type="radio" name="qna1" class="ml_0" value="5000000">
                                 <label for="mount">500만원 내외</label>
-                                <input type="radio" name="qna1" value="1,000만원 내외">
+                                <input type="radio" name="qna1" value="10000000">
                                 <label for="mount2">1,000만원 내외</label>
-                                <input type="radio" name="qna1" value="5,000만원 내외">
+                                <input type="radio" name="qna1" value="50000000">
                                 <label for="mount3">5,000만원 내외</label>
-                                <input type="radio" name="qna1" value="1억원 내외">
+                                <input type="radio" name="qna1" value="100000000">
                                 <label for="mount4">1억원 내외</label>
-                                <input type="radio" name="qna1" value="5억원 내외">
+                                <input type="radio" name="qna1" value="500000000">
                                 <label for="mount5">5억원 내외</label>
-                                <input type="radio" name="qna1" value="10억원 내외">
+                                <input type="radio" name="qna1" value="1000000000">
                                 <label for="mount6">10억원 내외</label>
                             </div>
                         </li>
@@ -132,14 +134,15 @@ $(document).ready(function(){
                                             <option value="019" <c:if test="${memberInfo.CELLPHONE1 eq '019'}">selected="selected"</c:if>>019</option>
                                         </select>
                                          -
-                                        <input type="text" class="input_type1 type4" value="${memberInfo.CELLPHONE2}"> - <input type="text" class="input_type1 type4" value="${memberInfo.CELLPHONE3}">
+                                        <input type="text" class="input_type1 type4" value="${memberInfo.CELLPHONE2}" name="cellPhone2"> - 
+                                        <input type="text" class="input_type1 type4" value="${memberInfo.CELLPHONE3}" name="cellPhone3">
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="bb_line1"><span class="essential">이메일</span></th>
                                    	<td class="bb_line1">
-                                   		<input type="text" class="input_type1 type2" value="${memberInfo.EMAIL1}">@
-                                   		<input type="text" class="input_type1 type3" value="${memberInfo.EMAIL2}">
+                                   		<input type="text" class="input_type1 type2" name="email1" value="${memberInfo.EMAIL1}">@
+                                   		<input type="text" class="input_type1 type3" name="email2" value="${memberInfo.EMAIL2}">
                                    		<button class="btn_type1">중복확인</button>
                                    	</td>
                                 </tr>
@@ -151,9 +154,10 @@ $(document).ready(function(){
                                 </tr>
                             </tbody>
                         </table>
+                        </form>
                     </div>
                     <p class="text_type3 type2">입력하신 정보로 이메일 또는 휴대폰으로 전화를 드리겠습니다.</p>
-                    <button class="red_btn">상담신청</button>
+                    <input type="button" value="상담신청" class="red_btn" id="saveBtn" name="saveBtn"> 
                 </div>
             </div>
             <!-- Left Side -->

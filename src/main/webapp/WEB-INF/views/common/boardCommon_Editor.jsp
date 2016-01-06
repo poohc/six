@@ -57,7 +57,7 @@ $(document).ready(function(){
         //폼 submit
         $('#frm').attr('action',$('#insertAction').val());
         $("#frm").submit();
-    })
+    });
 	     
     $("#updateBtn").click(function(){
     	editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);

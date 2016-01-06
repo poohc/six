@@ -435,7 +435,9 @@
 		       UPDATE_DATE
 		  FROM SIX_PARTNER
 		 WHERE IS_CONFIRM = 'Y'
+		   <if test="requestCd != null">
 		   AND REQUEST_CD = #{requestCd}
+		   </if>
     </select>
     
     <select id="selectPartnerBoardCount" parameterType="java.util.HashMap" resultType="Integer">
@@ -745,4 +747,32 @@
          LIMIT 0,5
     </select>
     
+    <insert id="insertSixCounseling" parameterType="java.util.HashMap">
+    	INSERT INTO SIX_COUNSELING
+    	            (
+    	            	TERMS_AGREE,
+    	            	QNA1,
+    	            	QNA2,
+    	            	QNA3,
+    	            	NAME,
+    	            	CELLPHONE,
+    	            	EMAIL,
+    	            	CONTENTS,
+    	            	CREATE_DATE,
+    	            	CREATE_ID
+    	            )
+    	            VALUES
+    	            (
+    	            	#{termsAgree},
+    	            	#{qna1},
+    	            	#{qna2},
+    	            	#{qna3},
+    	            	#{name},
+    	            	#{cellphone},
+    	            	#{email},
+    	            	#{contents},
+    	            	now(),
+    	            	#{createId}
+    	            )
+    </insert>
 </mapper>

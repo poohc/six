@@ -50,6 +50,7 @@ public class MainController {
 		mav.addObject("realStockInfo",boardService.selectRealStockList());
 		mav.addObject("boardList",boardService.selectMainBoardList(boardNameArray));
 		mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
+		mav.addObject("partnerList",boardService.selectPartnerList(null));
 		
 		return mav;
 	}
@@ -597,10 +598,50 @@ public class MainController {
 			memberInfo.put("EMAIL2", email.substring(email.indexOf("@")+1,email.length()));
 			
 			mav.addObject("memberInfo",memberInfo);
+			mav.addObject("insertAction","/main/freeAdviceProcess.do");
 		}
 		
 		mav.addObject("stockInfo",boardService.selectScheduleStock());
 		mav.addObject("realStockInfo",boardService.selectRealStockList()); mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
+		return mav;
+	}
+	
+	@RequestMapping(value = "freeAdviceProcess.do")
+	public ModelAndView freeAdviceProcess(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("main/commonPage");
+		
+		System.out.println("requestMap : " + requestMap);
+		
+		int result = 0;
+		
+		try {
+			String cellphone = String.valueOf(requestMap.get("cellPhone1")) + 
+							   String.valueOf(requestMap.get("cellPhone2")) + 
+							   String.valueOf(requestMap.get("cellPhone3"));
+			
+			String email = String.valueOf(requestMap.get("email1")) + "@" +
+					   	   String.valueOf(requestMap.get("email2"));
+			
+			requestMap.put("cellphone", cellphone);
+			requestMap.put("email", email);
+			requestMap.put("contents", requestMap.get("smarteditor"));
+			requestMap.put("termsAgree", requestMap.get("first_term"));
+			requestMap.put("createId",SecurityContextHolder.getContext().getAuthentication().getName());
+			
+			result = boardService.insertSixCounseling(requestMap);
+			
+			if(result == 0){
+				mav.addObject("msg","상담신청에 실패 했습니다. 다시 시도하여 주세요.");				
+			} else if(result == 1){
+				mav.addObject("msg","상담신청이 완료 되었습니다.");
+			}
+			
+		} catch (Exception e) {
+			// TODO: 에러처리
+		}
+		
+		mav.addObject("page","/main/freeAdvice.do");
+		
 		return mav;
 	}
 	

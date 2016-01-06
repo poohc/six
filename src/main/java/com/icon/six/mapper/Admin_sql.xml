@@ -208,5 +208,29 @@
 		    ${array[index]}
 		</foreach>         
     </update>
+   
+   <select id="selectSixCounselingCount" parameterType="java.util.HashMap" resultType="Integer">
+		SELECT COUNT(*)		       
+		  FROM SIX_COUNSELING		 
+    </select>
+   
+   <select id="selectSixCounseling" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+       SELECT SEQ,
+      		  TERMS_AGREE,
+           	  QNA1,
+           	  QNA2,
+           	  QNA3,
+           	  NAME,
+              CELLPHONE,
+              EMAIL,
+           	  CONTENTS,
+           	  CREATE_DATE,
+           	  CREATE_ID
+         FROM SIX_COUNSELING
+     ORDER BY SEQ DESC
+	     <if test="start != null">
+		 LIMIT #{start},#{end}    
+		 </if>      		   
+   </select>
     
 </mapper>
