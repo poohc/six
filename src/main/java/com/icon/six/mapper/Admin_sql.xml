@@ -222,6 +222,11 @@
            	  QNA3,
            	  NAME,
               CELLPHONE,
+              SUBSTRING(CELLPHONE,1,3) CELLPHONE_1,
+	     	  CASE LENGTH(CELLPHONE) WHEN 11 THEN SUBSTRING(CELLPHONE,4,4) 
+		                             WHEN 10 THEN SUBSTRING(CELLPHONE,4,3) END AS CELLPHONE_2,
+  	     	  CASE LENGTH(CELLPHONE) WHEN 11 THEN SUBSTRING(CELLPHONE,8,4) 
+		      	                     WHEN 10 THEN SUBSTRING(CELLPHONE,7,4) END AS CELLPHONE_3,
               EMAIL,
            	  CONTENTS,
            	  CREATE_DATE,
@@ -232,5 +237,26 @@
 		 LIMIT #{start},#{end}    
 		 </if>      		   
    </select>
-    
+   
+   <select id="selectSixCounselingInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+       SELECT SEQ,
+      		  TERMS_AGREE,
+           	  QNA1,
+           	  QNA2,
+           	  QNA3,
+           	  NAME,
+              CELLPHONE,
+              SUBSTRING(CELLPHONE,1,3) CELLPHONE_1,
+	     	  CASE LENGTH(CELLPHONE) WHEN 11 THEN SUBSTRING(CELLPHONE,4,4) 
+		                             WHEN 10 THEN SUBSTRING(CELLPHONE,4,3) END AS CELLPHONE_2,
+  	     	  CASE LENGTH(CELLPHONE) WHEN 11 THEN SUBSTRING(CELLPHONE,8,4) 
+		      	                     WHEN 10 THEN SUBSTRING(CELLPHONE,7,4) END AS CELLPHONE_3,
+              EMAIL,
+           	  CONTENTS,
+           	  CREATE_DATE,
+           	  CREATE_ID
+         FROM SIX_COUNSELING
+        WHERE SEQ = #{seq} 
+   </select>
+   
 </mapper>

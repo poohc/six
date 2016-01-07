@@ -225,5 +225,43 @@ public class AdminServiceImpl implements AdminService{
 		
 		return result2;
 	}
+
+	@Override
+	public Map<String, Object> selectSixCounseling(Map<String, Object> param) {
+		int totalCount = 0;
+		Map<String, Object> resultMap = null;
+		
+		try {
+			
+				if(param.get("currentPage")==null){
+					param.put("currentPage", "1");
+				}
+				
+				totalCount = adminDao.selectSixCounselingCount(param);
+				
+				param.put("totalCount", totalCount);
+				
+				Map<String, Object> pageInfo = PagingUtil.setPageView(param);
+				
+				param.put("start", pageInfo.get("start"));
+				param.put("end", pageInfo.get("end"));
+				
+				List<Map<String, Object>> boardInfoList = adminDao.selectSixCounseling(param);
+				resultMap = new HashMap<>();
+				resultMap.put("list", boardInfoList);
+				resultMap.put("page", pageInfo.get("page"));
+				
+		} catch (Exception e) {
+			//TODO 에러 처리
+			System.out.println("상담 신청 게시판 가져오기 오류");
+		}
+		
+		return resultMap;
+	}
+
+	@Override
+	public Map<String, Object> selectSixCounselingInfo(Map<String, Object> param) {
+		return adminDao.selectSixCounselingInfo(param);
+	}
 	
 }

@@ -227,4 +227,30 @@ public class AdminController {
 		return mav;
 	}
 	
+	@RequestMapping(value="counseling.do")
+	public ModelAndView counselingList(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("admin/admin_counseling");
+		
+		Map<String, Object> partnerInfo = adminService.selectSixCounseling(requestMap);
+		
+		mav.addObject("listPage","/admin/counseling.do");
+		mav.addObject("viewPage","/admin/counselingView.do");
+		mav.addObject("list",partnerInfo.get("list"));
+		mav.addObject("page",partnerInfo.get("page"));
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="counselingView.do")
+	public ModelAndView counselingView(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("admin/admin_counseling_view");
+		
+		Map<String, Object> counselingInfo = adminService.selectSixCounselingInfo(requestMap);
+		
+		mav.addObject("counselingInfo",counselingInfo);
+		mav.addObject("listPage","/admin/counseling.do");
+		
+		return mav;
+	}
+	
 }

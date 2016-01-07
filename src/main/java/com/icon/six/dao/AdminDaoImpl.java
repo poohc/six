@@ -63,4 +63,9 @@ public class AdminDaoImpl extends SqlSessionDao implements AdminDao{
 		return selectList("admin.selectSixCounseling", param);
 	}
 
+	@Override
+	public Map<String, Object> selectSixCounselingInfo(Map<String, Object> param) {
+		return (Map<String, Object>) selectOne("admin.selectSixCounselingInfo", param);
+	}
+
 }

@@ -46,4 +46,16 @@ public interface AdminService {
 	 * @return
 	 */
 	public int updateSixPointConfirm(Map<String, Object> param);
+	/**
+	 * 상담 신청 리스트 가져오기
+	 * @param param
+	 * @return
+	 */
+	public Map<String, Object> selectSixCounseling(Map<String, Object> param);
+	/**
+	 * 상담 내역 가져오기
+	 * @param param
+	 * @return
+	 */
+	public Map<String, Object> selectSixCounselingInfo(Map<String, Object> param);
 }

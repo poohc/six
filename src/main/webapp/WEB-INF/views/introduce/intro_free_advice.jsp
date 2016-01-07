@@ -143,7 +143,7 @@ $(document).ready(function(){
                                    	<td class="bb_line1">
                                    		<input type="text" class="input_type1 type2" name="email1" value="${memberInfo.EMAIL1}">@
                                    		<input type="text" class="input_type1 type3" name="email2" value="${memberInfo.EMAIL2}">
-                                   		<button class="btn_type1">중복확인</button>
+<!--                                    		<button class="btn_type1">중복확인</button> -->
                                    	</td>
                                 </tr>
                                 <tr>
