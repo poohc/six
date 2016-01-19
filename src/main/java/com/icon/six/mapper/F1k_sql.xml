@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="f1k">
+    
+    <select id="selectF1kBoardCount" parameterType="java.util.HashMap" resultType="Integer">
+		SELECT COUNT(*)		       
+		  FROM ${boardName}
+		 WHERE 1=1
+		   AND NO > 0 
+		 <if test="ref != null">
+		   AND REF = #{ref}
+		 </if>
+		 <if test="title != null">
+		   AND TITLE LIKE CONCAT('%', #{title} , '%')		   
+		 </if> 
+		 <if test="contents != null">
+		   AND CONTENTS LIKE CONCAT('%', #{contents} , '%')
+		 </if>
+    </select>    
+    
+    <select id="selectF1kBoardList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT SEQ,
+		       NO,
+		       TITLE,
+		       CONTENTS,
+		       CREATE_USER_ID,
+		       CREATE_DATE,
+		       UPDATE_USER_ID,
+		       UPDATE_DATE,
+		       HIT_COUNT,
+		       IS_NOTICE,
+		       FILE,
+		       THUMB_IMAGE,
+		       REF,
+		       INDENT,
+		       STEP
+		       <if test="stockName != null">
+		       ,STOCK_NAME
+		       </if>
+		  FROM ${boardName}
+		 WHERE 1=1
+		   AND NO > 0
+		   <if test="ref != null">
+		   AND REF = #{ref}
+		   </if>
+		   <if test="title != null">		       
+		   AND TITLE LIKE CONCAT('%', #{title} , '%')
+		   </if>
+		   <if test="contents != null">
+		   AND CONTENTS LIKE CONCAT('%', #{contents} , '%')
+		   </if>
+	  ORDER BY NO DESC
+		   <if test="start != null">
+		 LIMIT #{start},#{end}    
+		   </if>      		   
+    </select>
+    
+</mapper>

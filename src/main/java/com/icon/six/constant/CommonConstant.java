@@ -76,4 +76,9 @@ public class CommonConstant {
 	public static final String COMMON_POINT_CD_USE_PAYED = "POINT002";
 	/*공통코드 - 사용 포인트 코드 무료*/
 	public static final String COMMON_POINT_CD_USE_FREE = "POINT003";
+	
+	/**************** F1K 게시판 관련 ********************/
+	/*F1K 공지사항 게시판*/
+	public static final String F1K_NOTICE_BOARD = "F1K_NOTICE_BOARD";
+	
 }
