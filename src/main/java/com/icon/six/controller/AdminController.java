@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -20,10 +21,13 @@ import org.springframework.web.servlet.ModelAndView;
 import com.icon.six.constant.CommonConstant;
 import com.icon.six.service.AdminService;
 import com.icon.six.service.BoardService;
+import com.icon.six.util.StringUtil;
 
 @Controller
 @RequestMapping("admin")
 public class AdminController {
+	
+	private Logger logger = Logger.getLogger(this.getClass());
 	
 	@Resource
 	private BoardService boardService;
@@ -135,7 +139,7 @@ public class AdminController {
 			} else if("Y".equals(requestMap.get("isConfirm"))){
 				requestMap.put("isConfirm", "N");
 			} else {
-				response.sendRedirect("/main/error.do");
+				response.sendRedirect("/admin/error.do");
 			}
 			
 			requestMap.put("updateUserId", SecurityContextHolder.getContext().getAuthentication().getName());
@@ -159,13 +163,13 @@ public class AdminController {
 				
 				response.sendRedirect("/admin/partner.do");
 			} else {
-				response.sendRedirect("/main/error.do");
+				response.sendRedirect("/admin/error.do");
 			}
 			
 		} catch (IOException e) {
 			// TODO 에러 처리
 			try {
-				response.sendRedirect("/main/error.do");
+				response.sendRedirect("/admin/error.do");
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -235,8 +239,10 @@ public class AdminController {
 		
 		mav.addObject("listPage","/admin/counseling.do");
 		mav.addObject("viewPage","/admin/counselingView.do");
+		
 		mav.addObject("list",partnerInfo.get("list"));
 		mav.addObject("page",partnerInfo.get("page"));
+		mav.addObject("currentPage",requestMap.get("currentPage"));
 		
 		return mav;
 	}
@@ -253,4 +259,198 @@ public class AdminController {
 		return mav;
 	}
 	
+	@RequestMapping(value="f1kCounseling.do")
+	public ModelAndView f1kCounseling(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("admin/admin_f1k_counseling");
+		
+		Map<String, Object> f1kCounselingMap = adminService.selectF1kCounseling(requestMap);
+		
+		mav.addObject("listPage","/admin/f1kCounseling.do");
+		mav.addObject("viewPage","/admin/f1kCounselingView.do");
+		
+		mav.addObject("list",f1kCounselingMap.get("list"));
+		mav.addObject("page",f1kCounselingMap.get("page"));
+		mav.addObject("currentPage",requestMap.get("currentPage"));
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="f1kCounselingView.do")
+	public ModelAndView f1kCounselingView(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("admin/admin_f1k_counseling_view");
+		
+		Map<String, Object> counselingInfo = adminService.selectF1kCounselingInfo(requestMap);
+		
+		mav.addObject("counselingInfo",counselingInfo);
+		mav.addObject("listPage","/admin/counseling.do");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="f1kNoticeBoard.do")
+	public ModelAndView f1kNoticeBoard(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("admin/admin_f1k_notice_board");
+		
+		requestMap.put("boardName", CommonConstant.F1K_NOTICE_BOARD);
+		
+		Map<String, Object> f1kNoticeBoardMap = boardService.selectBoardList(requestMap);
+		
+		mav.addObject("listPage","/admin/f1kNoticeBoard.do");
+		mav.addObject("viewPage","/admin/f1kNoticeBoardView.do");
+		mav.addObject("writePage","/admin/f1kNoticeBoardWrite.do");
+		
+		mav.addObject("list",f1kNoticeBoardMap.get("list"));
+		mav.addObject("page",f1kNoticeBoardMap.get("page"));
+		mav.addObject("currentPage",requestMap.get("currentPage"));
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="f1kNoticeBoardView.do")
+	public ModelAndView f1kNoticeBoardView(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("admin/admin_f1k_notice_board_view");
+		
+		requestMap.put("boardName", CommonConstant.F1K_NOTICE_BOARD);
+		Map<String, Object> f1kNoticeBoardInfo = boardService.selectBoardViewInfo(requestMap);
+		
+		mav.addObject("boardInfo",f1kNoticeBoardInfo.get("boardInfo"));
+		mav.addObject("fileList",f1kNoticeBoardInfo.get("fileList"));
+		mav.addObject("listPage","/admin/f1kNoticeBoard.do");
+		mav.addObject("updatePage","/admin/f1kNoticeBoardUpdate.do");
+		mav.addObject("deleteAction","/admin/f1kNoticeBoardDeleteProcess.do");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="f1kNoticeBoardWrite.do")
+	public ModelAndView f1kNoticeBoardWrite(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("admin/admin_f1k_notice_board_write");
+		mav.addObject("listPage","/admin/f1kNoticeBoard.do");
+		mav.addObject("insertAction","/admin/f1kNoticeBoardWriteProcess.do");		
+		return mav;
+	}
+	
+	@RequestMapping(value="f1kNoticeBoardWriteProcess.do")
+	public void f1kNoticeBoardWriteProcess(@RequestParam Map<String, Object> requestMap, MultipartHttpServletRequest request, HttpServletResponse response){
+		
+		logger.debug("requestMap : " + requestMap);
+		int result = 0;
+		
+		try {
+			if("NotNull".equals(StringUtil.nullCheckMap((HashMap<String, Object>) requestMap))){
+				
+				requestMap.put("boardName", CommonConstant.F1K_NOTICE_BOARD);
+				requestMap.put("multipartRequest", request);
+				result = boardService.insertBoardProcess(requestMap);
+				
+				if(result == 1){
+					response.sendRedirect("/admin/f1kNoticeBoard.do");
+				} else {
+					// TODO 에러페이지
+					response.sendRedirect("/admin/error.do");
+				}
+			} else {
+				// TODO 에러페이지
+				response.sendRedirect("/admin/error.do");
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(value="f1kNoticeBoardUpdate.do")
+	public ModelAndView f1kNoticeBoardUpdate(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("admin/admin_f1k_notice_board_write");
+		logger.debug("requetsMap : " + requestMap);
+		
+		try {
+			requestMap.put("boardName", CommonConstant.F1K_NOTICE_BOARD);
+			Map<String, Object> resultMap = boardService.selectBoardUpdateInfo(requestMap);
+			
+			mav.addObject("boardInfo",resultMap.get("boardInfo"));
+			mav.addObject("fileList",resultMap.get("fileList"));
+			
+			if(resultMap.get("file")!=null){
+				mav.addObject("file",resultMap.get("file"));
+			}
+			
+			mav.addObject("isUpdate","true");
+			mav.addObject("updateAction","/admin/f1kNoticeBoardUpdateProcess.do");
+			
+		} catch (Exception e) {
+			// TODO: 에러처리
+		}		
+		return mav;
+	}
+	
+	@RequestMapping(value="f1kNoticeBoardUpdateProcess.do")
+	public void f1kNoticeBoardUpdateProcess(@RequestParam Map<String, Object> requestMap, MultipartHttpServletRequest request, HttpServletResponse response){
+		
+		logger.debug("requestMap : " + requestMap);
+		int result = 0;
+		
+		try {
+			if("NotNull".equals(StringUtil.nullCheckMap((HashMap<String, Object>) requestMap))){
+				
+				requestMap.put("boardName", CommonConstant.F1K_NOTICE_BOARD);
+				requestMap.put("multipartRequest", request);
+				result = boardService.updateBoardProcess(requestMap);
+				
+				if(result == 1){
+					response.sendRedirect("/admin/f1kNoticeBoard.do");
+				} else {
+					// TODO 에러페이지
+					response.sendRedirect("/admin/error.do");
+				}
+			} else {
+				// TODO 에러페이지
+				response.sendRedirect("/admin/error.do");
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(value="f1kNoticeBoardDeleteProcess.do")
+	public void f1kNoticeBoardDeleteProcess(@RequestParam Map<String, Object> requestMap, HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		int result = 0;
+		
+		try{
+			
+			if("NotNull".equals(StringUtil.nullCheckMap((HashMap<String, Object>) requestMap))){
+				
+				requestMap.put("boardName", CommonConstant.F1K_NOTICE_BOARD);
+				requestMap.put("path", request.getSession().getServletContext().getRealPath("/"));
+				
+				result = boardService.deleteBoardProcess(requestMap);
+				
+				if(result == 1){
+					response.sendRedirect("/admin/f1kNoticeBoard.do");
+				} else {
+					//TODO 에러 페이지
+					response.sendRedirect("/admin/error.do");
+				}
+				
+			} else {
+				// TODO 에러페이지 처리
+				response.sendRedirect("/admin/error.do");
+			}
+			
+		} catch (IOException e) {
+			// TODO 에러 페이지 처리
+			response.sendRedirect("/admin/error.do");
+		}	
+	}
+	
+	@RequestMapping(value = "error.do")
+	public ModelAndView errorPage(HttpServletRequest request, HttpServletResponse response){
+		ModelAndView mav = new ModelAndView("admin/error");
+		
+		return mav;
+	}
 }

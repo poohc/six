@@ -9,4 +9,10 @@ public interface F1kService {
 	 * @return
 	 */
 	public Map<String, Object> selectF1kBoardList(Map<String, Object> param);
+	/**
+	 * F1K 상담 게시판 INSERT
+	 * @param param
+	 * @return
+	 */
+	public int insertF1kCounseling(Map<String, Object> param);
 }

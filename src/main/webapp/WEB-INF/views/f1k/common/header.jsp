@@ -8,18 +8,18 @@
 	</div>
     <div class="headerArea">
         <div class="headerArea2">
-            <a href="index.html" class="logo"><img src="/resources/f1k/img/logo.png" alt=""></a>
+            <a href="/f1k/main.do" class="logo"><img src="/resources/f1k/img/logo.png" alt=""></a>
             <div id="menuwrap">
             <!-- pc 메뉴 -->
                 <div id="navigation_pc">
                     <ul id="navigation">
-                        <li class=""><a href="sub1.html" class="btnPullDown">퍼스트원의시각</a>
+                        <li class=""><a href="/f1k/f1kSub1.do" class="btnPullDown">퍼스트원의시각</a>
                         </li>
-                        <li class=""><a href="sub2.html" class="btnPullDown">퍼스트원의다짐</a>
+                        <li class=""><a href="/f1k/f1kSub2.do" class="btnPullDown">퍼스트원의다짐</a>
                         </li>
-                        <li class=""><a href="sub3.html" class="btnPullDown">투자결정과정</a>
+                        <li class=""><a href="/f1k/f1kSub3.do" class="btnPullDown">투자결정과정</a>
                         </li>
-                        <li class=""><a href="sub5_list.html" class="btnPullDown">공지사항</a>
+                        <li class=""><a href="/f1k/f1kNoticeList.do" class="btnPullDown">공지사항</a>
                         </li>
                     </ul>
                 </div>

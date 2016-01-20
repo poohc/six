@@ -93,6 +93,7 @@ $(document).ready(function(){
                             </tbody>
                         </table>
                     </div>
+                    </form>
                     <div class="table_bottom">
                         <a href="javascript:goList()" class="go_list">목록으로</a>
                         <security:authorize ifAnyGranted="ROLE_ADMIN">

@@ -263,5 +263,42 @@ public class AdminServiceImpl implements AdminService{
 	public Map<String, Object> selectSixCounselingInfo(Map<String, Object> param) {
 		return adminDao.selectSixCounselingInfo(param);
 	}
+
+	@Override
+	public Map<String, Object> selectF1kCounseling(Map<String, Object> param) {
+		int totalCount = 0;
+		Map<String, Object> resultMap = null;
+		
+		try {
+				if(param.get("currentPage")==null){
+					param.put("currentPage", "1");
+				}
+				
+				totalCount = adminDao.selectF1kCounselingCount(param);
+				
+				param.put("totalCount", totalCount);
+				
+				Map<String, Object> pageInfo = PagingUtil.setPageView(param);
+				
+				param.put("start", pageInfo.get("start"));
+				param.put("end", pageInfo.get("end"));
+				
+				List<Map<String, Object>> boardInfoList = adminDao.selectF1kCounseling(param);
+				resultMap = new HashMap<>();
+				resultMap.put("list", boardInfoList);
+				resultMap.put("page", pageInfo.get("page"));
+				
+		} catch (Exception e) {
+			//TODO 에러 처리
+			System.out.println("F1K 상담 신청 게시판 가져오기 오류");
+		}
+		
+		return resultMap;
+	}
+
+	@Override
+	public Map<String, Object> selectF1kCounselingInfo(Map<String, Object> param) {
+		return adminDao.selectF1kCounselingInfo(param);
+	}
 	
 }

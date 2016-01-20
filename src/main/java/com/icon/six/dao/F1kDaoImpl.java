@@ -20,4 +20,9 @@ public class F1kDaoImpl extends SqlSessionDao implements F1kDao{
 		return selectList(MAPPER_NAME + "selectF1kBoardList", param);
 	}
 
+	@Override
+	public int insertF1kCounseling(Map<String, Object> param) {
+		return (int) insert(MAPPER_NAME + "insertF1kCounseling", param);
+	}
+
 }

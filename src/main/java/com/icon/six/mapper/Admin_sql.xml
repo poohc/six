@@ -259,4 +259,130 @@
         WHERE SEQ = #{seq} 
    </select>
    
+   <select id="selectF1kCounselingCount" parameterType="java.util.HashMap" resultType="Integer">
+		SELECT COUNT(*)		       
+		  FROM F1K_COUNSELING		 
+    </select>
+   
+   <select id="selectF1kCounseling" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+       SELECT SEQ,
+       		  QUESTION_1,
+       		  QUESTION_1_ANSWER,
+       		  QUESTION_2,
+       		  QUESTION_2_ANSWER,
+       		  QUESTION_3,
+       		  QUESTION_3_ANSWER,
+       		  QUESTION_4,
+       		  QUESTION_4_ANSWER,
+       		  QUESTION_5,
+       		  QUESTION_5_ANSWER,
+       		  NAME,
+       		  CELLPHONE,
+       		  SUBSTRING(CELLPHONE,1,3) CELLPHONE_1,
+	     	  CASE LENGTH(CELLPHONE) WHEN 11 THEN SUBSTRING(CELLPHONE,4,4) 
+		                             WHEN 10 THEN SUBSTRING(CELLPHONE,4,3) END AS CELLPHONE_2,
+  	     	  CASE LENGTH(CELLPHONE) WHEN 11 THEN SUBSTRING(CELLPHONE,8,4) 
+		      	                     WHEN 10 THEN SUBSTRING(CELLPHONE,7,4) END AS CELLPHONE_3,
+       		  EMAIL,
+       		  INVEST_MONEY,
+      		  CREATE_DATE           	  
+         FROM F1K_COUNSELING
+     ORDER BY SEQ DESC
+	     <if test="start != null">
+		 LIMIT #{start},#{end}    
+		 </if>      		   
+   </select>
+   
+   <select id="selectF1kCounselingInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+       SELECT SEQ,
+       		  QUESTION_1,
+       		  QUESTION_1_ANSWER,
+       		  QUESTION_2,
+       		  QUESTION_2_ANSWER,
+       		  QUESTION_3,
+       		  QUESTION_3_ANSWER,
+       		  QUESTION_4,
+       		  QUESTION_4_ANSWER,
+       		  QUESTION_5,
+       		  QUESTION_5_ANSWER,
+       		  NAME,
+       		  CELLPHONE,
+       		  SUBSTRING(CELLPHONE,1,3) CELLPHONE_1,
+	     	  CASE LENGTH(CELLPHONE) WHEN 11 THEN SUBSTRING(CELLPHONE,4,4) 
+		                             WHEN 10 THEN SUBSTRING(CELLPHONE,4,3) END AS CELLPHONE_2,
+  	     	  CASE LENGTH(CELLPHONE) WHEN 11 THEN SUBSTRING(CELLPHONE,8,4) 
+		      	                     WHEN 10 THEN SUBSTRING(CELLPHONE,7,4) END AS CELLPHONE_3,
+       		  EMAIL,
+       		  FORMAT(INVEST_MONEY, 0) INVEST_MONEY,
+      		  CREATE_DATE 
+         FROM F1K_COUNSELING
+        WHERE SEQ = #{seq} 
+   </select>
+   
+   <insert id="insertF1kBoard" parameterType="java.util.HashMap">
+       INSERT INTO ${boardName}
+			    	(  	
+			    	   <if test="ref == null">
+			    	   NO,
+			    	   </if>
+			    	   <if test="title != null">
+		    		   TITLE,
+		    		   </if>
+				       CONTENTS,
+				       CREATE_USER_ID,
+				       CREATE_DATE,
+				       HIT_COUNT,
+				       <if test="ref != null">
+				           REF,				           
+				       </if>
+				       <if test="indent != null">
+				           INDENT,
+				       </if>
+				       <if test="step != null">
+				           STEP,
+				       </if>
+				       <if test="file != null">
+				           FILE,
+				       </if>
+				       <if test="thumbImage != null">
+				           THUMB_IMAGE,
+				       </if>
+				       IS_NOTICE
+				       <if test="stockName != null">
+				       ,STOCK_NAME
+				       </if>
+			    	)
+			 VALUES (
+			 		   <if test="ref == null">
+			    	   (SELECT IFNULL(MAX(NO),0) + 1 FROM ${boardName} A),
+			    	   </if>
+			 		   <if test="title != null">	
+				 	   #{title},
+				 	   </if>
+				 	   #{contents},
+				 	   #{createUserId},
+				 	   now(),
+				 	   0,
+				 	   <if test="ref != null">
+				           #{ref},
+				       </if>
+				       <if test="indent != null">
+				           #{indent},
+				       </if>
+				       <if test="step != null">
+				           #{step},
+				       </if>
+				       <if test="file != null">
+				           #{file},
+				       </if>
+				       <if test="thumbImage != null">
+				           #{thumbImage},
+				       </if>
+				       #{isNotice}
+				       <if test="stockName != null">
+				       ,#{stockName}
+				       </if>
+			 		)      
+   </insert>
+   
 </mapper>

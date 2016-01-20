@@ -58,4 +58,16 @@ public interface AdminService {
 	 * @return
 	 */
 	public Map<String, Object> selectSixCounselingInfo(Map<String, Object> param);
+	/**
+	 * F1K 상담 신청 리스트 가져오기
+	 * @param param
+	 * @return
+	 */
+	public Map<String, Object> selectF1kCounseling(Map<String, Object> param);
+	/**
+	 * F1K 상담 내역 가져오기
+	 * @param param
+	 * @return
+	 */
+	public Map<String, Object> selectF1kCounselingInfo(Map<String, Object> param);
 }

@@ -92,5 +92,10 @@ public class F1kServiceImpl implements F1kService{
 		
 		return resultMap;
 	}
+
+	@Override
+	public int insertF1kCounseling(Map<String, Object> param) {
+		return f1kDao.insertF1kCounseling(param);
+	}
 	
 }

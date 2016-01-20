@@ -32,7 +32,9 @@
 			<li class="icn_edit_article"><a href="/admin/terms.do">약관 관리</a></li>
 			<li class="icn_categories"><a href="/admin/partner.do">파트너 관리</a></li>
 			<li class="icn_point"><a href="/admin/point.do">포인트 관리</a></li>
-			<li class="icn_counseling"><a href="/admin/counseling.do">상담신청 관리</a></li>
+			<li class="icn_counseling"><a href="/admin/counseling.do">SIX_상담신청 관리</a></li>
+			<li class="icn_counseling"><a href="/admin/f1kCounseling.do">F1K_상담신청 관리</a></li>
+			<li class="icn_alert_info"><a href="/admin/f1kNoticeBoard.do">F1K_공지사항 관리</a></li>
 		</ul>
 		<h3>회원 관리</h3>
 		<ul class="toggle">

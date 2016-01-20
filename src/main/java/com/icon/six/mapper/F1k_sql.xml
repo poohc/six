@@ -55,4 +55,43 @@
 		   </if>      		   
     </select>
     
+    <insert id="insertF1kCounseling" parameterType="java.util.HashMap"> 
+        INSERT INTO F1K_COUNSELING
+               (
+               	QUESTION_1,
+	       		QUESTION_1_ANSWER,
+	       		QUESTION_2,
+	       		QUESTION_2_ANSWER,
+	       		QUESTION_3,
+	       		QUESTION_3_ANSWER,
+	       		QUESTION_4,
+	       		QUESTION_4_ANSWER,
+	       		QUESTION_5,
+	       		QUESTION_5_ANSWER,
+	       		NAME,
+	       		CELLPHONE,
+	       		EMAIL,
+	       		INVEST_MONEY,
+	      		CREATE_DATE 
+               )
+               VALUES
+               (
+				#{question1},
+				#{q_1},
+				#{question2},
+				#{q_2},
+				#{question3},
+				#{q_3},
+				#{question4},
+				#{q_4},
+				#{question5},
+				#{q_5},    
+				#{name},
+				#{cellphone},
+				#{email},
+				#{investMoney},
+				now()           
+               )
+    </insert>
+    
 </mapper>

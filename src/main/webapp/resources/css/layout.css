@@ -343,6 +343,10 @@ background: url(/resources/img/icn_point.png) no-repeat center left;
 #sidebar li.icn_counseling a {
 background: url(/resources/img/icn_counseling.png) no-repeat center left;
 }
+#sidebar li.icn_alert_info a {
+background: url(/resources/img/icn_alert_info.png) no-repeat center left;
+}
+
 #sidebar p {
 color: #666666;
 padding-left: 6%;
