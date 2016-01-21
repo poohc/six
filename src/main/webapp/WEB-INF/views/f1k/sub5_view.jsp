@@ -11,10 +11,16 @@
 <jsp:include page="./common/common.jsp" />
 <script type="text/javascript">
 function fileDownLoad(fileName){
-	$('#frm').attr('action','/file/fileDownLoad.do');
 	$('#fileName').val(fileName);
+	$('#frm').attr('action','/file/fileDownLoad.do');
 	$('#frm').submit();
 }
+
+function goList(){
+	$('#frm').attr('action',$('#listPage').val());
+	$('#frm').submit();
+}
+
 </script>
 </head>
 
@@ -26,6 +32,7 @@ function fileDownLoad(fileName){
 	<!-- contain -->
 	<form method="post" id="frm" name="frm">
 	<input type="hidden" id="fileName" name="fileName">
+	<input type="hidden" id="listPage" name="listPage" value="${listPage}">
 	</form>
 	<div id="wrap_container">
         <div class="naviArea">
@@ -87,7 +94,7 @@ function fileDownLoad(fileName){
             </div>
             <div class="btn_box">
                 <div class="right_boxs">
-                    <a href="sub5_list.html" class="btn_type1">목 록</a>
+                    <a href="javascript:goList()" class="btn_type1">목 록</a>
                 </div>
             </div>            
         </div>
