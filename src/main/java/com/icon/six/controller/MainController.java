@@ -51,6 +51,7 @@ public class MainController {
 		mav.addObject("boardList",boardService.selectMainBoardList(boardNameArray));
 		mav.addObject("userPoint",boardService.selectUserPointSum(SecurityContextHolder.getContext().getAuthentication().getName()));
 		mav.addObject("partnerList",boardService.selectPartnerList(null));
+		mav.addObject("partnerPage","/partner/partnerFreeInfo.do");
 		
 		return mav;
 	}

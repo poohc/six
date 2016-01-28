@@ -31,6 +31,13 @@
 		
 	});
 	
+	function goPartner(id,seq){
+		$('#id').val(id);
+		$('#seq').val(seq);
+		$('#loginForm').attr('action',$('#partnerPage').val());
+		$('#loginForm').submit();		
+	}
+	
 </script>
 </head>
 <body>
@@ -100,6 +107,8 @@
             <div class="visual_movie">
             	<form id="loginForm" method="post" action="j_spring_security_check.do">
             	<input type="hidden" id="seq" name="seq">
+            	<input type="hidden" id="id" name="id">
+            	<input type="hidden" id="partnerPage" name="partnerPage" value="${partnerPage}">
             	<security:authorize access="hasRole('ROLE_USER')" var="isUser" />
             	<security:authorize access="hasRole('ROLE_PARTNER')" var="isPartner" />
 				<security:authorize access="hasRole('ROLE_ADMIN')" var="isAdmin" />
