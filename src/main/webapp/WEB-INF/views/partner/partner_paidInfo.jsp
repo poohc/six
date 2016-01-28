@@ -48,6 +48,12 @@ function goWrite(){
 	$('#frm').submit();
 }
 
+function pageMove(page){
+	$('#currentPage').val(page);
+	$('#frm').attr('action',$('#listPage').val());
+	$('#frm').submit();
+}
+
 </script>
 </head>
 <body>
