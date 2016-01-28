@@ -181,7 +181,7 @@ function goView(seq){
 	                    	<c:when test="${loop.index eq 0}">
 		                    	<a href="javascript:goView('${list.SEQ}')" class="mainContLink">
 			                        <p class="mainContTitle2">${list.TITLE}</p>
-			                        <p class="mainContTitle3">${list.CONTENTS}</p>
+<%-- 			                        <p class="mainContTitle3">${list.CONTENTS}</p> --%>
 		                    	</a>
 		                    	<p class="mainContTitle4">${list.CREATE_DATE}</p>
 	                    	</c:when>

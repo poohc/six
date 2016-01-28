@@ -29,8 +29,13 @@ function goView(seq){
 	$('#frm').submit();
 }
 
-</script>
+function pageMove(page){
+	$('#currentPage').val(page);
+	$('#frm').attr('action',$('#listPage').val());
+	$('#frm').submit();
+}
 
+</script>
 
 </head>
 
