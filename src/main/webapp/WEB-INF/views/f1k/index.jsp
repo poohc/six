@@ -188,7 +188,7 @@ function goView(seq){
 	                    	<c:otherwise>
 		                    	<ul class="noticeList">
 			                        <li>
-			                        	<a href="#">${list.TITLE}</a>
+			                        	<a href="javascript:goView('${list.SEQ}')">${list.TITLE}</a>
 			                        	<span>${list.CREATE_DATE}</span>
 			                        </li>	                        
 		                    	</ul>
