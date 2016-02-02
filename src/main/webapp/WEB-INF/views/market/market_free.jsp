@@ -79,7 +79,6 @@ $(document).ready(function(){
                             <thead>
                                 <tr>
                                     <th>파트너</th>
-                                    <th>분류</th>
                                     <th>제목</th>
                                     <th>작성일</th>
                                     <th>가격</th>
@@ -92,24 +91,29 @@ $(document).ready(function(){
                             		<c:forEach items="${list}" var="list">
 		                                <tr class="new">
 		                                    <td>${list.PARTNER_NAME}</td>
-		                                    <td>${list.TYPE_NAME}</td>
 		                                    <td class="t_l">
 		                                    	<a href="javascript:goView('${list.SEQ}')">
-		                                    		<c:if test="${list.IS_NOTICE eq 'T'}">
-		                                    		<span class="notice_bul">공지</span>
-		                                    		</c:if>
 		                                    		${list.TITLE}
 		                                    	</a>
 		                                    </td>
 		                                    <td>${list.CREATE_DATE}</td>
-		                                    <td>${list.PRICE}</td>
+		                                    <td>
+		                                    	<c:choose>
+			                                    	<c:when test="${list.PRICE eq 0}">
+			                                    	무료
+			                                    	</c:when>
+			                                    	<c:otherwise>
+			                                    	${list.PRICE}
+			                                    	</c:otherwise>
+		                                    	</c:choose>
+		                                    </td>
 		                                    <td>${list.HIT_COUNT}</td>
 		                                </tr>
 	                                </c:forEach>
                             	</c:when>
                             	<c:otherwise>
                             		<tr>
-                            			<td colspan="6">
+                            			<td colspan="5">
                             				공지사항이 없습니다.
                             			</td>
                             		</tr>

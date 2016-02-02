@@ -44,6 +44,7 @@ public class MarketController {
 		logger.debug("requestMap : " + requestMap);
 		
 		try {
+				requestMap.put("category", CommonConstant.FREE_INFO);
 				requestMap.put("boardName", CommonConstant.MARKETFREE_BOARD);
 				Map<String, Object> boardInfo = boardService.selectMarketBoardList(requestMap);
 								
@@ -67,8 +68,9 @@ public class MarketController {
 		
 		ModelAndView mav = new ModelAndView("market/market_free_view");
 		
-		requestMap.put("boardName", CommonConstant.MARKETFREE_BOARD);	
-		Map<String, Object> resultMap = boardService.selectBoardViewInfo(requestMap);
+		requestMap.put("category", CommonConstant.FREE_INFO);
+		requestMap.put("boardName", CommonConstant.MARKETFREE_BOARD);
+		Map<String, Object> resultMap = boardService.selectPartnerBoardInfo(requestMap);
 		
 		if(resultMap.get("boardInfoMap") != null){
 			
@@ -307,6 +309,7 @@ public class MarketController {
 		logger.debug("requestMap : " + requestMap);
 		
 		try {
+				requestMap.put("category", CommonConstant.INVEST_STRATEGY);
 				requestMap.put("boardName", CommonConstant.MARKETISTRATEGY_BOARD);
 				Map<String, Object> boardInfo = boardService.selectMarketBoardList(requestMap);
 								
@@ -330,8 +333,9 @@ public class MarketController {
 		
 		ModelAndView mav = new ModelAndView("market/market_istrategy_view");
 		
+		requestMap.put("category", CommonConstant.INVEST_STRATEGY);
 		requestMap.put("boardName", CommonConstant.MARKETISTRATEGY_BOARD);	
-		Map<String, Object> resultMap = boardService.selectBoardViewInfo(requestMap);
+		Map<String, Object> resultMap = boardService.selectPartnerBoardInfo(requestMap);
 		
 		if(resultMap.get("boardInfoMap") != null){
 			
@@ -569,6 +573,7 @@ public class MarketController {
 		logger.debug("requestMap : " + requestMap);
 		
 		try {
+				requestMap.put("category", CommonConstant.MARKET_ANALYSIS);
 				requestMap.put("boardName", CommonConstant.MARKETANALYSIS_BOARD);
 				Map<String, Object> boardInfo = boardService.selectMarketBoardList(requestMap);
 								
@@ -592,8 +597,9 @@ public class MarketController {
 		
 		ModelAndView mav = new ModelAndView("market/market_analysis_view");
 		
+		requestMap.put("category", CommonConstant.MARKET_ANALYSIS);
 		requestMap.put("boardName", CommonConstant.MARKETANALYSIS_BOARD);	
-		Map<String, Object> resultMap = boardService.selectBoardViewInfo(requestMap);
+		Map<String, Object> resultMap = boardService.selectPartnerBoardInfo(requestMap);
 		
 		if(resultMap.get("boardInfoMap") != null){
 			
@@ -834,6 +840,7 @@ public class MarketController {
 		logger.debug("requestMap : " + requestMap);
 		
 		try {
+				requestMap.put("category", CommonConstant.PAID_INFO);
 				requestMap.put("boardName", CommonConstant.MARKETPAY_BOARD);
 				Map<String, Object> boardInfo = boardService.selectMarketBoardList(requestMap);
 								
@@ -857,8 +864,9 @@ public class MarketController {
 		
 		ModelAndView mav = new ModelAndView("market/market_pay_view");
 		
+		requestMap.put("category", CommonConstant.PAID_INFO);
 		requestMap.put("boardName", CommonConstant.MARKETPAY_BOARD);	
-		Map<String, Object> resultMap = boardService.selectBoardViewInfo(requestMap);
+		Map<String, Object> resultMap = boardService.selectPartnerBoardInfo(requestMap);
 		
 		if(resultMap.get("boardInfoMap") != null){
 			
@@ -1101,6 +1109,7 @@ public class MarketController {
 		logger.debug("requestMap : " + requestMap);
 		
 		try {
+				requestMap.put("category", CommonConstant.BARGAIN_TECHNIQUES);
 				requestMap.put("boardName", CommonConstant.MARKETBARGAIN_BOARD);
 				Map<String, Object> boardInfo = boardService.selectMarketBoardList(requestMap);
 								
@@ -1124,8 +1133,9 @@ public class MarketController {
 		
 		ModelAndView mav = new ModelAndView("market/market_lcenter_view");
 		
+		requestMap.put("category", CommonConstant.BARGAIN_TECHNIQUES);
 		requestMap.put("boardName", CommonConstant.MARKETBARGAIN_BOARD);	
-		Map<String, Object> resultMap = boardService.selectBoardViewInfo(requestMap);
+		Map<String, Object> resultMap = boardService.selectPartnerBoardInfo(requestMap);
 		
 		if(resultMap.get("boardInfoMap") != null){
 			
@@ -1368,6 +1378,7 @@ public class MarketController {
 		logger.debug("requestMap : " + requestMap);
 		
 		try {
+				requestMap.put("boardName", CommonConstant.ADVANCE_MARKET);
 				requestMap.put("boardName", CommonConstant.MARKETADV_BOARD);
 				Map<String, Object> boardInfo = boardService.selectMarketBoardList(requestMap);
 								
@@ -1391,8 +1402,9 @@ public class MarketController {
 		
 		ModelAndView mav = new ModelAndView("market/market_lcenter_view");
 		
+		requestMap.put("boardName", CommonConstant.ADVANCE_MARKET);
 		requestMap.put("boardName", CommonConstant.MARKETADV_BOARD);	
-		Map<String, Object> resultMap = boardService.selectBoardViewInfo(requestMap);
+		Map<String, Object> resultMap = boardService.selectPartnerBoardInfo(requestMap);
 		
 		if(resultMap.get("boardInfoMap") != null){
 			

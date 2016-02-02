@@ -16,6 +16,7 @@
 	    <intercept-url pattern="/main/freeAdvice.do" access="hasAnyRole('ROLE_USER','ROLE_PARTNER','ROLE_ADMIN')" />
 	    <intercept-url pattern="/main/introNoticeWrite.do" access="hasRole('ROLE_ADMIN')" />
 	    <intercept-url pattern="/partner/partnerJoin.do" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
+	    <intercept-url pattern="/**/*ReplyAdd.do" access="hasAnyRole('ROLE_USER','ROLE_PARTNER','ROLE_ADMIN')" />
 	    <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 	    <intercept-url pattern="/member/**" access="permitAll" />
 	      

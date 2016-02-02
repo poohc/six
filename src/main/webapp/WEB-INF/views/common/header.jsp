@@ -1,6 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<script type="text/javascript">
+function goRealStockView(seq){
+	$('#seq').val(seq);
+	if($('#frm').attr('id') == undefined){
+		document.forms[0].action = '/info/infoRealStockView.do';
+		document.forms[0].submit();	
+	} else {
+		$('#frm').attr('action','/info/infoRealStockView.do');
+		$('#frm').submit();
+	}
+	
+}
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<div class="skipMenu">
 		<a href="#navigation">주메뉴 바로가기</a>

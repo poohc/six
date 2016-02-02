@@ -61,6 +61,19 @@ public class CommonConstant {
 	/*SIX 무료상담신청 게시판*/
 	public static final String FREEADVICE_BOARD = "SIX_FREEADVICE_BOARD";
 	
+	/**************** 파트너 보드 관련 ********************/
+	/*SIX 무료종목 */
+	public static final String FREE_INFO = "FREE_INFO";
+	/*SIX 투자전략 */
+	public static final String INVEST_STRATEGY = "INVEST_STRATEGY";
+	/*SIX 시장분석 */
+	public static final String MARKET_ANALYSIS = "MARKET_ANALYSIS";
+	/*SIX 유료종목 */
+	public static final String PAID_INFO = "PAID_INFO";
+	/*SIX 매매기법 */
+	public static final String BARGAIN_TECHNIQUES = "BARGAIN_TECHNIQUES";
+	/*SIX 고급시황 */
+	public static final String ADVANCE_MARKET = "ADVANCE_MARKET";
 	
 	/**************** 공통 코드 관련 ********************/
 	

@@ -19,36 +19,39 @@
     </select>    
     
     <select id="selectBoardList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-		SELECT SEQ,
-		       NO,
-		       TITLE,
-		       CONTENTS,
-		       CREATE_USER_ID,
-		       CREATE_DATE,
-		       UPDATE_USER_ID,
-		       UPDATE_DATE,
-		       HIT_COUNT,
-		       IS_NOTICE,
-		       FILE,
-		       THUMB_IMAGE,
-		       REF,
-		       INDENT,
-		       STEP
-		       <if test="stockName != null">
-		       ,STOCK_NAME
-		       </if>
-		  FROM ${boardName}
-		 WHERE 1=1
-		   AND NO > 0
-		   <if test="ref != null">
-		   AND REF = #{ref}
-		   </if>
-		   <if test="title != null">		       
-		   AND TITLE LIKE CONCAT('%', #{title} , '%')
-		   </if>
-		   <if test="contents != null">
-		   AND CONTENTS LIKE CONCAT('%', #{contents} , '%')
-		   </if>
+		SELECT @ROWNUM := @ROWNUM + 1 AS NO,
+	           A.*
+	      FROM	
+				(SELECT SEQ,
+				       TITLE,
+				       CONTENTS,
+				       CREATE_USER_ID,
+				       CREATE_DATE,
+				       UPDATE_USER_ID,
+				       UPDATE_DATE,
+				       HIT_COUNT,
+				       IS_NOTICE,
+				       FILE,
+				       THUMB_IMAGE,
+				       REF,
+				       INDENT,
+				       STEP
+				       <if test="stockName != null">
+				       ,STOCK_NAME
+				       </if>
+				  FROM ${boardName}
+				 WHERE 1=1
+				   AND NO > 0
+				   <if test="ref != null">
+				   AND REF = #{ref}
+				   </if>
+				   <if test="title != null">		       
+				   AND TITLE LIKE CONCAT('%', #{title} , '%')
+				   </if>
+				   <if test="contents != null">
+				   AND CONTENTS LIKE CONCAT('%', #{contents} , '%')
+				   </if>) A,
+				   (SELECT @ROWNUM := 0) R
 	  ORDER BY NO DESC
 		   <if test="start != null">
 		 LIMIT #{start},#{end}    
@@ -56,44 +59,38 @@
     </select>    
     
     <select id="selectMarketBoardList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-		SELECT SEQ,
-		       NO,
-		       TITLE,
-		       CONTENTS,
-		       CREATE_USER_ID,
-		       CREATE_DATE,
-		       UPDATE_USER_ID,
-		       UPDATE_DATE,
-		       HIT_COUNT,
-		       IS_NOTICE,
-		       FILE,
-		       THUMB_IMAGE,
-		       REF,
-		       INDENT,
-		       STEP,
-		       (SELECT A.PARTNER_NAME
-		          FROM SIX_PARTNER A
-		         WHERE A.PARTNER_CD = PARTNER_CD) PARTNER_NAME,
-		       (SELECT A.TYPE_NAME
-		          FROM SIX_PARTNER A
-		         WHERE A.TYPE_CD = TYPE_CD) TYPE_NAME,
-		       CASE WHEN PRICE = 0 THEN '무료' 
-		            ELSE PRICE END AS PRICE
-		  FROM ${boardName}
-		 WHERE 1=1
-		   <if test="ref != null">
-		   AND REF = #{ref}
-		   </if>
-		   <if test="title != null">		       
-		   AND TITLE LIKE CONCAT('%', #{title} , '%')
-		   </if>
-		   <if test="contents != null">
-		   AND CONTENTS LIKE CONCAT('%', #{contents} , '%')
-		   </if>
+		SELECT @ROWNUM := @ROWNUM + 1 AS NO,
+	           A.*
+	      FROM	
+			   (SELECT PB.SEQ,
+		               PB.ID, 
+		               PB.TITLE,
+		               PB.CONTENTS,
+		               PB.FILE,
+		               PB.DOWNLOAD_COUNT,
+		               PB.HIT_COUNT,
+		               PB.CREATE_DATE,
+		               PB.CREATE_ID,
+		               PB.UPDATE_DATE,
+		               PB.UPDATE_ID,
+		               PB.CATEGORY,
+ 				       PB.PRICE,
+				       P.NAME PARTNER_NAME
+				  FROM SIX_PARTNER_BOARD PB,
+				       SIX_PARTNER P
+				 WHERE PB.CATEGORY = #{category}
+				   AND PB.ID = P.ID
+				   <if test="title != null">		       
+				   AND PB.TITLE LIKE CONCAT('%', #{title} , '%')
+				   </if>
+				   <if test="contents != null">
+				   AND PB.CONTENTS LIKE CONCAT('%', #{contents} , '%')
+				   </if>) A,
+				       (SELECT @ROWNUM := 0) R
 	  ORDER BY NO DESC
-		   <if test="start != null">
+		 <if test="start != null">
 		 LIMIT #{start},#{end}    
-		   </if>      		   
+		 </if>      		   
     </select>    
     
     <select id="getBoardInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
@@ -443,8 +440,17 @@
     <select id="selectPartnerBoardCount" parameterType="java.util.HashMap" resultType="Integer">
     	SELECT COUNT(*)
     	  FROM SIX_PARTNER_BOARD
-    	 WHERE ID = #{id}
+    	 WHERE 1=1
+    	   <if test="id != null">
+    	   AND ID = #{id}
+    	   </if>
     	   AND CATEGORY = #{category}
+    	   <if test="title != null">
+		   AND TITLE LIKE CONCAT('%', #{title} , '%')		   
+		   </if> 
+		   <if test="contents != null">
+		   AND CONTENTS LIKE CONCAT('%', #{contents} , '%')
+		   </if>
     </select>
     
     <select id="selectPartnerBoardList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
