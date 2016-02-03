@@ -75,8 +75,8 @@
                         <th scope="row">첨부파일</th>
                         <td colspan="6" class="add_file">
                             <ul>
-                                <li><a href="#" class="file_title">2015년_06월_영업보고서.hwp</a></li>
-                                <li><a href="#" class="file_title2">2015년_06월_영업보고서.hwp</a>
+                                <li><a class="file_title">2015년_06월_영업보고서.hwp</a></li>
+                                <li><a class="file_title2">2015년_06월_영업보고서.hwp</a>
                             </li></ul>
                         </td>
                     </tr>
@@ -85,11 +85,11 @@
             </div>
             <div class="btn_box">
                 <div class="left_boxs">
-                    <a href="#" class="btn_type2">수 정</a>
-                    <a href="#" class="btn_type3">삭제</a>
+                    <a class="btn_type2">수 정</a>
+                    <a class="btn_type3">삭제</a>
                 </div>
                 <div class="right_boxs">
-                    <a href="#" class="btn_type1">목 록</a>
+                    <a class="btn_type1">목 록</a>
                 </div>
             </div>
             <div class="board_view bt_1"><!-- board_view -->
@@ -100,12 +100,12 @@
                     </colgroup>
                     <thead>
                     <tr>
-                        <th scope="row" class="pre_text"><a href="#">이전글</a></th>
-                        <th class="pre_next"><a href="#">2015년 09월 영업보고서.hwp</a></th>
+                        <th scope="row" class="pre_text"><a>이전글</a></th>
+                        <th class="pre_next"><a>2015년 09월 영업보고서.hwp</a></th>
                     </tr>
                     <tr>
-                        <th class="next_text"><a href="#">다음글</a></th>
-                        <th class="pre_next2"><a href="#">2015년_06월_영업보고서.hwp</a></th>
+                        <th class="next_text"><a>다음글</a></th>
+                        <th class="pre_next2"><a>2015년_06월_영업보고서.hwp</a></th>
                     </tr>
                     </thead>
                 </table>

@@ -30,11 +30,11 @@ $(document).ready(function(){
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
                         <ul class="youtube_list">
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
                         </ul>
                     </div>
                 </div>
@@ -81,7 +81,7 @@ $(document).ready(function(){
                                 <tr>
                                 	<td colspan="5">
                                 	<c:forEach items="${fileList}" var="fileList">
-                                	<a href="#" onclick="fileDownLoad('${fileList.rFile}')">${fileList.file}</a>
+                                	<a onclick="fileDownLoad('${fileList.rFile}')">${fileList.file}</a>
                                 	</c:forEach>
                                 	</td>
                                 </tr>

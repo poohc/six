@@ -63,7 +63,8 @@
 		       CREATE_DATE,
 		       IS_CONFIRM,
 		       UPDATE_USER_ID,
-		       UPDATE_DATE
+		       UPDATE_DATE,
+		       PROFILE_IMAGE
 		  FROM SIX_PARTNER
 		 WHERE SEQ = #{seq}
 	</select>
@@ -80,6 +81,7 @@
 	      	  <if test="accountNo != null">ACCOUNT_NO=#{accountNo},</if>
 	      	  <if test="accountName != null">ACCOUNT_NAME=#{accountName},</if>
 	      	  <if test="isConfirm != null">IS_CONFIRM=#{isConfirm},</if>
+	      	  <if test="profileImage != null">PROFILE_IMAGE=#{profileImage},</if>
 	      	  UPDATE_USER_ID = #{updateUserId},
 		      UPDATE_DATE = now()
 	       </set>

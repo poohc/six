@@ -71,11 +71,11 @@ function pageMove(page){
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
                         <ul class="youtube_list">
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
                         </ul>
                     </div>
                 </div>
@@ -93,11 +93,11 @@ function pageMove(page){
             <div class="wrap_right">
                 <img src="/resources/img/partner1.jpg" alt="" class="top_mainimg">
                  <div class="personInfo">
-                    <img src="/resources/img/p_1.png" alt="">
-                    <p class="personTitle">${partnerInfo.NAME}</p>
-                    <p class="personTitle2">${partnerInfo.REQUEST_NAME}</p>
-                    <p class="personTitle3">${partnerInfo.SLOGAN}</p>
-                    <p class="personTitle6">${partnerInfo.POST}</p>
+                    <c:out value="${partnerInfo.PROFILE_IMAGE}" escapeXml="false" />
+<%--                     <p class="personTitle">${partnerInfo.NAME}</p> --%>
+<%--                     <p class="personTitle2">${partnerInfo.REQUEST_NAME}</p> --%>
+<%--                     <p class="personTitle3">${partnerInfo.SLOGAN}</p> --%>
+<%--                     <p class="personTitle6">${partnerInfo.POST}</p> --%>
                 </div>
                 <ul class="inform_list">
                     <li>총 정보등록건수<span>${partnerBoardStat.CNT}</span></li>

@@ -131,11 +131,11 @@ function createStringDate(date){
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
                         <ul class="youtube_list">
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
                         </ul>
                     </div>
                 </div>
@@ -144,8 +144,8 @@ function createStringDate(date){
                 <div class="right_contents">
                     <p class="title_type1">포인트 구입현황</p>
                     <ul class="navi_map">
-                        <li><a href="#">마이페이지 &gt;</a></li>
-                        <li><a href="#">포인트 구입현황</a></li>
+                        <li><a>마이페이지 &gt;</a></li>
+                        <li><a>포인트 구입현황</a></li>
                     </ul>
                     <div class="inform_wrap">
                         <ul class="inform_list">
@@ -216,7 +216,7 @@ function createStringDate(date){
 			                                    		포인트 충전
 			                                    	</c:when>
 			                                    	<c:otherwise>
-			                                    		<a href="#">${pointList.CONTENTS}</a>
+			                                    		<a>${pointList.CONTENTS}</a>
 			                                    	</c:otherwise>
 		                                    	</c:choose>
 		                                    </td>

@@ -83,7 +83,7 @@ function goList(){
                             <ul>
                             <c:forEach items="${fileList}" var="fileList">
                              	<li>
-                             		<a href="#" onclick="fileDownLoad('${fileList.rFile}')">${fileList.file}</a>
+                             		<a onclick="fileDownLoad('${fileList.rFile}')">${fileList.file}</a>
                              	</li>
                             </c:forEach>
                             </ul>

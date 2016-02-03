@@ -9,9 +9,9 @@
     <div class="left_banner2">
         <p class="rank_title">RANKING</p>
         <ul class="ranking_list">
-            <li><a href="#"><img src="/resources/img/rank_img.png" alt=""></a></li>
-            <li><a href="#"><img src="/resources/img/rank_img.png" alt=""></a></li>
-            <li><a href="#"><img src="/resources/img/rank_img.png" alt=""></a></li>
+            <li><a><img src="/resources/img/rank_img.png" alt=""></a></li>
+            <li><a><img src="/resources/img/rank_img.png" alt=""></a></li>
+            <li><a><img src="/resources/img/rank_img.png" alt=""></a></li>
         </ul>
     </div>
     <div class="dart">

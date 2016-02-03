@@ -16,11 +16,11 @@
                 <div class="about_six">
                     <p class="about_sixtitle">SIX 일급정보</p>
                     <ul class="about_sixlist">
-                        <li  class="on"><a href="#">무료종목추천<span></span></a></li>
-                        <li><a href="#">식스비기<span></span></a></li>
-                        <li><a href="#">실시간증시일정<span></span></a></li>
-                        <li><a href="#">증시브리핑<span></span></a></li>
-                        <li><a href="#">고수들의인터뷰<span></span></a></li>
+                        <li  class="on"><a>무료종목추천<span></span></a></li>
+                        <li><a>식스비기<span></span></a></li>
+                        <li><a>실시간증시일정<span></span></a></li>
+                        <li><a>증시브리핑<span></span></a></li>
+                        <li><a>고수들의인터뷰<span></span></a></li>
                     </ul>
                 </div>
                 <div class="left_ad">
@@ -30,11 +30,11 @@
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
                         <ul class="youtube_list">
-                            <li><a href="#"><img src="../../img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="../../img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="../../img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="../../img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="../../img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="../../img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="../../img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="../../img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="../../img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="../../img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
                         </ul>
                     </div>
                 </div>
@@ -76,70 +76,70 @@
                             <tbody>
                                 <tr class="">
                                     <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
+                                    <td class="t_l"><a class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
                                     <td>앨리스</td>
                                     <td>2015-09-20</td>
                                     <td>3125</td>
                                 </tr>
                                 <tr class="">
                                     <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
+                                    <td class="t_l"><a class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
                                     <td>앨리스</td>
                                     <td>2015-09-20</td>
                                     <td>3125</td>
                                 </tr>
                                 <tr class="">
                                     <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
+                                    <td class="t_l"><a class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
                                     <td>앨리스</td>
                                     <td>2015-09-20</td>
                                     <td>3125</td>
                                 </tr>
                                 <tr class="">
                                     <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
+                                    <td class="t_l"><a class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
                                     <td>앨리스</td>
                                     <td>2015-09-20</td>
                                     <td>3125</td>
                                 </tr>
                                 <tr class="">
                                     <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
+                                    <td class="t_l"><a class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
                                     <td>앨리스</td>
                                     <td>2015-09-20</td>
                                     <td>3125</td>
                                 </tr>
                                 <tr class="">
                                     <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
+                                    <td class="t_l"><a class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
                                     <td>앨리스</td>
                                     <td>2015-09-20</td>
                                     <td>3125</td>
                                 </tr>
                                 <tr class="">
                                     <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
+                                    <td class="t_l"><a class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
                                     <td>앨리스</td>
                                     <td>2015-09-20</td>
                                     <td>3125</td>
                                 </tr>
                                 <tr class="">
                                     <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
+                                    <td class="t_l"><a class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
                                     <td>앨리스</td>
                                     <td>2015-09-20</td>
                                     <td>3125</td>
                                 </tr>
                                 <tr class="">
                                     <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
+                                    <td class="t_l"><a class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
                                     <td>앨리스</td>
                                     <td>2015-09-20</td>
                                     <td>3125</td>
                                 </tr>
                                 <tr class="">
                                     <td>999</td>
-                                    <td class="t_l"><a href="#" class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
+                                    <td class="t_l"><a class="plus_img"><img src="../../img/academy_bul.jpg" alt=""><div class="acatitle_area"><p class="academy_title">SIX 주식 배움터</p><p class="academy_title2">집합투자증권을 취득하기 전에 투자대상, 환매방법, 보수 등에 관하여 (간이)투자설명서를 반드시 읽어 보시기 바랍니다.</p></div></a></td>
                                     <td>앨리스</td>
                                     <td>2015-09-20</td>
                                     <td>3125</td>
@@ -148,46 +148,46 @@
                         </table>
                     </div>
                     <div class="table_bottom">
-                        <a href="#" class="go_list">목록으로</a>
+                        <a class="go_list">목록으로</a>
                         <ul class="table_option">
-                            <li><a href="#">삭제</a></li>
-                            <li><a href="#">취소</a></li>
-                            <li><a href="#">수정</a></li>
-                            <li class="on"><a href="#">글쓰기</a></li>
+                            <li><a>삭제</a></li>
+                            <li><a>취소</a></li>
+                            <li><a>수정</a></li>
+                            <li class="on"><a>글쓰기</a></li>
                         </ul>
                     </div>
                     <div class="paging">
-                        <a href="#" class="prev2"><img src="../../img/prev2.png" alt="이전"></a>
-                        <a href="#" class="prev1"><img src="../../img/prev1.png" alt="이전"></a>
+                        <a class="prev2"><img src="../../img/prev2.png" alt="이전"></a>
+                        <a class="prev1"><img src="../../img/prev1.png" alt="이전"></a>
                         <ul class="paging_list">
-                            <li class="on"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">7</a></li>
-                            <li><a href="#">8</a></li>
-                            <li><a href="#">9</a></li>
-                            <li><a href="#">10</a></li>
+                            <li class="on"><a>1</a></li>
+                            <li><a>2</a></li>
+                            <li><a>3</a></li>
+                            <li><a>4</a></li>
+                            <li><a>5</a></li>
+                            <li><a>6</a></li>
+                            <li><a>7</a></li>
+                            <li><a>8</a></li>
+                            <li><a>9</a></li>
+                            <li><a>10</a></li>
                         </ul>
-                        <a href="#" class="next1"><img src="../../img/next1.png" alt="이전"></a>
-                        <a href="#" class="next2"><img src="../../img/next2.png" alt="이전"></a>
+                        <a class="next1"><img src="../../img/next1.png" alt="이전"></a>
+                        <a class="next2"><img src="../../img/next2.png" alt="이전"></a>
                     </div>
                 </div>
             </div>
             <div class="left_side">
                 <ul class="left_banner1">
-                    <li><a href="#">SIX 아카데미</a></li>
-                    <li><a href="#">SIX 일급정보</a></li>
-                    <li><a href="#">정보거래소</a></li>
+                    <li><a>SIX 아카데미</a></li>
+                    <li><a>SIX 일급정보</a></li>
+                    <li><a>정보거래소</a></li>
                 </ul>
                 <div class="left_banner2">
                     <p class="rank_title">RANKING</p>
                     <ul class="ranking_list">
-                        <li><a href="#"><img src="../../img/rank_img.png" alt=""></a></li>
-                        <li><a href="#"><img src="../../img/rank_img.png" alt=""></a></li>
-                        <li><a href="#"><img src="../../img/rank_img.png" alt=""></a></li>
+                        <li><a><img src="../../img/rank_img.png" alt=""></a></li>
+                        <li><a><img src="../../img/rank_img.png" alt=""></a></li>
+                        <li><a><img src="../../img/rank_img.png" alt=""></a></li>
                     </ul>
                 </div>
                 <div class="dart">
@@ -197,11 +197,11 @@
             </div>
             <div class="right_side">
                 <ul class="right_banner1">
-                    <li><a href="#">정보열람<br>회원가입</a></li>
-                    <li><a href="#">SIX 파트너<br>신청</a></li>
+                    <li><a>정보열람<br>회원가입</a></li>
+                    <li><a>SIX 파트너<br>신청</a></li>
                 </ul>
-                <a href="#" class="right_bn3"><img src="../../img/right_bn3.jpg" alt=""></a>
-                <a href="#" class="right_bn4"><img src="../../img/right_bn4.jpg" alt=""></a>
+                <a class="right_bn3"><img src="../../img/right_bn3.jpg" alt=""></a>
+                <a class="right_bn4"><img src="../../img/right_bn4.jpg" alt=""></a>
             </div>
         </div>
 
@@ -211,9 +211,9 @@
 	<footer>
         <div id="footer">
             <ul class="look_ahead4">
-                <li><a href="#"><p class="look_title">SIX 파트너 신청</p></a></li>
-                <li><a href="#"><p class="look_title">고객센터</p></a></li>
-                <li><a href="#"><p class="look_title">회원가입</p></a></li>
+                <li><a><p class="look_title">SIX 파트너 신청</p></a></li>
+                <li><a><p class="look_title">고객센터</p></a></li>
+                <li><a><p class="look_title">회원가입</p></a></li>
             </ul>
             <div class="footer_top">
                 <div class="footer_top2">
@@ -221,88 +221,88 @@
                         <li>
                             <p class="sitemap_title">SIX 소개</p>
                             <ul class="sitemap_list2">
-                                <li><a href="#">SIX란?</a></li>
-                                <li><a href="#">공지사항</a></li>
-                                <li><a href="#">결재방법</a></li>
-                                <li><a href="#">고객문의</a></li>
+                                <li><a>SIX란?</a></li>
+                                <li><a>공지사항</a></li>
+                                <li><a>결재방법</a></li>
+                                <li><a>고객문의</a></li>
                             </ul>
                         </li>
                         <li>
                             <p class="sitemap_title">SIX 아카데미</p>
                             <ul class="sitemap_list2">
-                                <li><a href="#">SIX 주식배움터</a></li>
-                                <li><a href="#">SIX 투자전략</a></li>
-                                <li><a href="#">SIX 탐방노트</a></li>
-                                <li><a href="#">필수구독자료</a></li>
+                                <li><a>SIX 주식배움터</a></li>
+                                <li><a>SIX 투자전략</a></li>
+                                <li><a>SIX 탐방노트</a></li>
+                                <li><a>필수구독자료</a></li>
                             </ul>
                         </li>
                         <li>
                             <p class="sitemap_title">SIX 일급정보</p>
                             <ul class="sitemap_list2">
-                                <li><a href="#">일급 무료종목 추천</a></li>
-                                <li><a href="#">식스비기</a></li>
-                                <li><a href="#">테마정보</a></li>
-                                <li><a href="#">실시간 증시일정</a></li>
-                                <li><a href="#">증시브리핑</a></li>
-                                <li><a href="#">고수들의 인터뷰</a></li>
+                                <li><a>일급 무료종목 추천</a></li>
+                                <li><a>식스비기</a></li>
+                                <li><a>테마정보</a></li>
+                                <li><a>실시간 증시일정</a></li>
+                                <li><a>증시브리핑</a></li>
+                                <li><a>고수들의 인터뷰</a></li>
                             </ul>
                         </li>
                         <li>
                             <p class="sitemap_title">SIX 파트너</p>
                             <ul class="sitemap_list2">
-                                <li><a href="#">SIX 파트너</a></li>
-                                <li><a href="#">SIX 파트너 순위</a></li>
-                                <li><a href="#">SIX 파트너 신청</a></li>
+                                <li><a>SIX 파트너</a></li>
+                                <li><a>SIX 파트너 순위</a></li>
+                                <li><a>SIX 파트너 신청</a></li>
                             </ul>
                         </li>
                         <li>
                             <p class="sitemap_title">정보거래소</p>
                             <ul class="sitemap_list2">
-                                <li><a href="#">무료정보</a></li>
-                                <li class="ti_5"><a href="#"> - 무료종목</a></li>
-                                <li class="ti_5"><a href="#"> - 투자전략</a></li>
-                                <li class="ti_5"><a href="#"> - 시장분석</a></li>
-                                <li><a href="#">고급정보</a></li>
-                                <li class="ti_5"><a href="#"> -유료종목</a></li>
-                                <li class="ti_5"><a href="#"> -매매기법</a></li>
-                                <li class="ti_5"><a href="#"> -고급사항</a></li>
+                                <li><a>무료정보</a></li>
+                                <li class="ti_5"><a> - 무료종목</a></li>
+                                <li class="ti_5"><a> - 투자전략</a></li>
+                                <li class="ti_5"><a> - 시장분석</a></li>
+                                <li><a>고급정보</a></li>
+                                <li class="ti_5"><a> -유료종목</a></li>
+                                <li class="ti_5"><a> -매매기법</a></li>
+                                <li class="ti_5"><a> -고급사항</a></li>
                             </ul>
                         </li>
                         <li>
                             <p class="sitemap_title">커뮤니티</p>
                             <ul class="sitemap_list2">
-                                <li><a href="#">자유게시판</a></li>
-                                <li><a href="#">종목 토론방</a></li>
-                                <li><a href="#">SIX 이용후기</a></li>
-                                <li><a href="#">특강 세미나 교육</a></li>
+                                <li><a>자유게시판</a></li>
+                                <li><a>종목 토론방</a></li>
+                                <li><a>SIX 이용후기</a></li>
+                                <li><a>특강 세미나 교육</a></li>
                             </ul>
                         </li>
                         <li>
                             <p class="sitemap_title">이벤트</p>
                             <ul class="sitemap_list2">
-                                <li><a href="#">진행중 이벤트</a></li>
-                                <li><a href="#">종료 이벤트</a></li>
+                                <li><a>진행중 이벤트</a></li>
+                                <li><a>종료 이벤트</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </div>
             <ul class="bn_list">
-                <li><a href="#"><img src="../../img/bn1.png" alt="한국거래소"></a></li>
-                <li><a href="#"><img src="../../img/bn2.png" alt="우리투자증권"></a></li>
-                <li><a href="#"><img src="../../img/bn1.png" alt="우리투자증권"></a></li>
-                <li><a href="#"><img src="../../img/bn2.png" alt="우리투자증권"></a></li>
-                <li><a href="#"><img src="../../img/bn1.png" alt="우리투자증권"></a></li>
-                <li><a href="#"><img src="../../img/bn2.png" alt="우리투자증권"></a></li>
+                <li><a><img src="../../img/bn1.png" alt="한국거래소"></a></li>
+                <li><a><img src="../../img/bn2.png" alt="우리투자증권"></a></li>
+                <li><a><img src="../../img/bn1.png" alt="우리투자증권"></a></li>
+                <li><a><img src="../../img/bn2.png" alt="우리투자증권"></a></li>
+                <li><a><img src="../../img/bn1.png" alt="우리투자증권"></a></li>
+                <li><a><img src="../../img/bn2.png" alt="우리투자증권"></a></li>
             </ul>
             <div class="footer_bottom">
                 <div class="footer_bottom2">
-                    <a href="#" class="foot_logo"><img src="../../img/foot_logo.png" alt="six"></a>
+                    <a class="foot_logo"><img src="../../img/foot_logo.png" alt="six"></a>
                     <div class="footer_text">
                         <ul class="foot_link">
-                            <li><a href="#">회사소개</a></li>
-                            <li><a href="#">문의하기</a></li>
-                            <li><a href="#">SIX주식정보거래소</a></li>
+                            <li><a>회사소개</a></li>
+                            <li><a>문의하기</a></li>
+                            <li><a>SIX주식정보거래소</a></li>
                         </ul>
                         <div class="foot_text">
                             <p class="foot_text1">000-000 서울특별시 구로구 독산동 현대 2222호    TEL  02.777.7777    FAX  02.777.7777     대표  박준상    아이엔티인베스트</p>

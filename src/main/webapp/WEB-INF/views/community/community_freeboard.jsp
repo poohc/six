@@ -30,11 +30,11 @@ $(document).ready(function(){
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
                         <ul class="youtube_list">
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
                         </ul>
                     </div>
                 </div>
@@ -44,8 +44,8 @@ $(document).ready(function(){
                 <div class="right_contents type2">
                     <p class="title_type1">자유게시판</p>
                     <ul class="navi_map">
-                        <li><a href="#">커뮤니티 &gt;</a></li>
-                        <li><a href="#">자유게시판</a></li>
+                        <li><a>커뮤니티 &gt;</a></li>
+                        <li><a>자유게시판</a></li>
                     </ul>
                     <div class="table_top">
                         <p class="table_type1title2">무료종목도 좋은 정보를 제공합니다.</p>

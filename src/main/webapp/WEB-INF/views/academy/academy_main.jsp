@@ -38,11 +38,11 @@
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
                         <ul class="youtube_list">
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
                         </ul>
                     </div>
                 </div>
@@ -191,7 +191,7 @@
                           	<c:otherwise>
                           		<div class="ahead_top">
 		                            <img src="/resources/img/ahead2.gif" alt="">
-		                            <a href="#" class="ahead_text">
+		                            <a class="ahead_text">
 		                                <p class="aheadtext_title">게시물이 없습니다.</p>
 		                                <p class="aheadtext_title2">&nbsp;</p>
 		                                <p class="aheadtext_title3">&nbsp;</p>
@@ -248,7 +248,7 @@
                           	<c:otherwise>
                           		<div class="ahead_top">
 		                            <img src="/resources/img/ahead2.gif" alt="">
-		                            <a href="#" class="ahead_text">
+		                            <a class="ahead_text">
 		                                <p class="aheadtext_title">게시물이 없습니다.</p>
 		                                <p class="aheadtext_title2">&nbsp;</p>
 		                                <p class="aheadtext_title3">&nbsp;</p>
@@ -305,7 +305,7 @@
                           	<c:otherwise>
                           		<div class="ahead_top">
 		                            <img src="/resources/img/ahead2.gif" alt="">
-		                            <a href="#" class="ahead_text">
+		                            <a class="ahead_text">
 		                                <p class="aheadtext_title">게시물이 없습니다.</p>
 		                                <p class="aheadtext_title2">&nbsp;</p>
 		                                <p class="aheadtext_title3">&nbsp;</p>
@@ -362,7 +362,7 @@
                           	<c:otherwise>
                           		<div class="ahead_top">
 		                            <img src="/resources/img/ahead2.gif" alt="">
-		                            <a href="#" class="ahead_text">
+		                            <a class="ahead_text">
 		                                <p class="aheadtext_title">게시물이 없습니다.</p>
 		                                <p class="aheadtext_title2">&nbsp;</p>
 		                                <p class="aheadtext_title3">&nbsp;</p>
@@ -378,7 +378,7 @@
                        	</c:choose>
                     </li>
                 </ul>
-                <a href="#" class="academy_banner"><img src="/resources/img/academy_banner.jpg" alt=""></a>
+                <a class="academy_banner"><img src="/resources/img/academy_banner.jpg" alt=""></a>
             </div>
             <!-- Left Side -->
             <jsp:include page="../common/left.jsp" />

@@ -137,13 +137,13 @@ $(document).ready(function(){
                 <a href="javascript:goList()" class="go_list">목록으로</a>
                 <security:authorize ifAnyGranted="ROLE_ADMIN">
                 <ul class="table_option">
-                    <li><a href="#" onclick="history.back()">취소</a></li>
+                    <li><a onclick="history.back()">취소</a></li>
                     <c:choose>
                     <c:when test="${isUpdate eq 'true'}">
-                    	<li><a href="#" id="updateBtn">수정</a></li>
+                    	<li><a id="updateBtn">수정</a></li>
                     </c:when>
                     <c:otherwise>
-                    	<li><a href="#" id="saveBtn">글쓰기</a></li>
+                    	<li><a id="saveBtn">글쓰기</a></li>
                     </c:otherwise>
                     </c:choose>
                 </ul>

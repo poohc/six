@@ -69,7 +69,7 @@
 	        <ul>
 	            <li><a href="/point/pointBuy.do">포인트신청</a></li>
 	            <li><a href="/point/pointUser.do">구매내역</a></li>
-	            <li><a href="#">회원정보</a></li>
+	            <li><a>회원정보</a></li>
 	        </ul>
 	    </div>
 	</c:when>

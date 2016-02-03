@@ -114,10 +114,10 @@ function goView(seq){
                        <div class="pic">
                            <ul>
                                <li>
-                                   <a href="#"><img src="/resources/f1k/img/visual1.jpg" alt="건강지킴이"></a>
+                                   <a><img src="/resources/f1k/img/visual1.jpg" alt="건강지킴이"></a>
                                </li>
                                <li>
-                                   <a href="#"><img src="/resources/f1k/img/visual2.jpg" alt="건강지킴이"></a>
+                                   <a><img src="/resources/f1k/img/visual2.jpg" alt="건강지킴이"></a>
                                </li>
                            </ul>
                        </div>
@@ -140,28 +140,28 @@ function goView(seq){
         <div class="mainIconsWrap">
             <ul class="mainIcons">
                 <li>
-                    <a href="#">
+                    <a>
                         <img src="/resources/f1k/img/icon1.png" alt="">
                         <p class="mainIconsTitle">시대의흐름</p>
                         <p class="mainIconsTitle2">시대는 변화합니다<br>끊임없이 변화하고 성장하는 시대의<br>흐름을 정확히 보는 것이 중요합니다.</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a>
                         <img src="/resources/f1k/img/icon2.png" alt="">
                         <p class="mainIconsTitle">기업의본질</p>
                         <p class="mainIconsTitle2">기업의 본질에 집중하며, <br>진정 기업을 판단하려면 보고 듣고 <br> 만져봐야 합니다.</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a>
                         <img src="/resources/f1k/img/icon3.png" alt="">
                         <p class="mainIconsTitle">냉철한분석</p>
                         <p class="mainIconsTitle2">지속적, 안정적으로 이끌어가는 <br>알고리즘 분석 시스템으로 <br>안정적인 성과를 이끌어가고 있습니다.</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a>
                         <img src="/resources/f1k/img/icon4.png" alt="">
                         <p class="mainIconsTitle">퍼스트원의다짐</p>
                         <p class="mainIconsTitle2">고객에게 믿을 수 있는 기업<br>완벽한 투자 결정이 나기전까지 끊임없이<br> 분석하고 또 분석하겠습니다</p>
@@ -330,7 +330,7 @@ function goView(seq){
             </form>
             <button type="button" onclick="goCounseling()" class="btnType2">상담신청하기</button>
 <!--             <div a href="javascript:goCounseling()" class="btnType2">상담신청하기</div> -->
-            <a href="#" class="btnType2 type2 btn-layerClose">닫기</a>
+            <a class="btnType2 type2 btn-layerClose">닫기</a>
         	</div>
         </div>        
 	</div>

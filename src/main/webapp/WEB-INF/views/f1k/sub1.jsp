@@ -19,8 +19,8 @@
 	<div id="wrap_container">
         <div class="naviArea">
             <ul class="navi">
-                <li class="home"><a href="#"></a></li>
-                <li><a href="#">퍼스트원의시각</a></li>
+                <li class="home"><a></a></li>
+                <li><a>퍼스트원의시각</a></li>
             </ul>
         </div>
         <div class="contents">

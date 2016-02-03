@@ -11,19 +11,19 @@
         <div class="top_banner">
             <div class="top_banner2">
                 <p class="popup_title">수익률 관리가 필요한 <span>연금저축</span> <br><em>이제 금융기관 <span>단 한번 방문으로 간편하게 이전</span> 하세요.</em></p>
-                <a href="#" class="banner_close" id="close_top_notice" onclick="javascript:document.getElementById('top_notice').style.display = 'none'; return false;"><span>닫기</span><img src="/resources/img/close.png" alt="닫기"></a>
+                <a class="banner_close" id="close_top_notice" onclick="javascript:document.getElementById('top_notice').style.display = 'none'; return false;"><span>닫기</span><img src="/resources/img/close.png" alt="닫기"></a>
                 <p class="popup_title2">NH투자증권 준법감시인 심사필 제 2015-1303 (2015.05.11~2015.11.10)</p>
             </div>
         </div>
         <div class="top_header">
             <div class="top_header2">
                 <ul class="top_header3">
-                    <li><a href="#">로그인</a></li>
-                    <li><a href="#">회원가입</a></li>
+                    <li><a>로그인</a></li>
+                    <li><a>회원가입</a></li>
                 </ul>
             </div>
         </div>
-        <div class="middle_header"><a href="#"><img src="/resources/img/logo.png" alt="six 주식정보거래소"></a></div>
+        <div class="middle_header"><a><img src="/resources/img/logo.png" alt="six 주식정보거래소"></a></div>
 		<div id="menuwrap">
 			<div id="navigation_pc">
 				<ul id="navigation">

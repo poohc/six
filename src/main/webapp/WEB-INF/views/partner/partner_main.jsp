@@ -34,24 +34,24 @@ function goPartner(id,seq){
                     <div class="pic">
                         <ul>
                             <li>
-                                <a href="#"><img src="/resources/img/p_slide1.png" alt="건강지킴이"></a>
-                                <a href="#"><img src="/resources/img/partner1_2.jpg" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/p_slide1.png" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/partner1_2.jpg" alt="건강지킴이"></a>
                             </li>
                             <li>
-                                <a href="#"><img src="/resources/img/partner1_1.jpg" alt="건강지킴이"></a>
-                                <a href="#"><img src="/resources/img/p_slide2.png" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/partner1_1.jpg" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/p_slide2.png" alt="건강지킴이"></a>
                             </li>
                             <li>
-                                <a href="#"><img src="/resources/img/p_slide1.png" alt="건강지킴이"></a>
-                                <a href="#"><img src="/resources/img/partner1_2.jpg" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/p_slide1.png" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/partner1_2.jpg" alt="건강지킴이"></a>
                             </li>
                             <li>
-                                <a href="#"><img src="/resources/img/partner1_1.jpg" alt="건강지킴이"></a>
-                                <a href="#"><img src="/resources/img/p_slide2.png" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/partner1_1.jpg" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/p_slide2.png" alt="건강지킴이"></a>
                             </li>
                             <li>
-                                <a href="#"><img src="/resources/img/p_slide1.png" alt="건강지킴이"></a>
-                                <a href="#"><img src="/resources/img/p_slide2.png" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/p_slide1.png" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/p_slide2.png" alt="건강지킴이"></a>
                             </li>
                         </ul>
                     </div>
@@ -71,11 +71,11 @@ function goPartner(id,seq){
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
                         <ul class="youtube_list">
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
                         </ul>
                     </div>
                 </div>
@@ -120,7 +120,7 @@ function goPartner(id,seq){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+	                        <a class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
 	                    <li>
 	                        <a href="/partner/partnerView.do" class="name_block">
@@ -134,7 +134,7 @@ function goPartner(id,seq){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+	                        <a class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
 	                    <li>
 	                        <a href="/partner/partnerView.do" class="name_block">
@@ -148,7 +148,7 @@ function goPartner(id,seq){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+	                        <a class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
 	                    <li>
 	                        <a href="/partner/partnerView.do" class="name_block">
@@ -162,7 +162,7 @@ function goPartner(id,seq){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+	                        <a class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
 	                    <li>
 	                        <a href="/partner/partnerView.do" class="name_block">
@@ -176,7 +176,7 @@ function goPartner(id,seq){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+	                        <a class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
 	                    <li>
 	                        <a href="/partner/partnerView.do" class="name_block">
@@ -190,7 +190,7 @@ function goPartner(id,seq){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+	                        <a class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
 	                    <li>
 	                        <a href="/partner/partnerView.do" class="name_block">
@@ -204,7 +204,7 @@ function goPartner(id,seq){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+	                        <a class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
 	                    <li>
 	                        <a href="/partner/partnerView.do" class="name_block">
@@ -218,7 +218,7 @@ function goPartner(id,seq){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+	                        <a class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
 	                    <li>
 	                        <a href="/partner/partnerView.do" class="name_block">
@@ -232,7 +232,7 @@ function goPartner(id,seq){
 	                                <p class="name_text">우리투자증권 투자상담사</p>
 	                            </div>
 	                        </a>
-	                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+	                        <a class="watch_movie">파트너 페이지 이동하기</a>
 	                    </li>
                 		</c:otherwise>
                 	</c:choose>
@@ -271,7 +271,7 @@ function goPartner(id,seq){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+                        <a class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     <li>
                         <a href="/partner/partnerView.do" class="name_block">
@@ -285,7 +285,7 @@ function goPartner(id,seq){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+                        <a class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     <li>
                         <a href="/partner/partnerView.do" class="name_block">
@@ -299,7 +299,7 @@ function goPartner(id,seq){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+                        <a class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     <li>
                         <a href="/partner/partnerView.do" class="name_block">
@@ -313,7 +313,7 @@ function goPartner(id,seq){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+                        <a class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     <li>
                         <a href="/partner/partnerView.do" class="name_block">
@@ -327,7 +327,7 @@ function goPartner(id,seq){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+                        <a class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     <li>
                         <a href="/partner/partnerView.do" class="name_block">
@@ -341,7 +341,7 @@ function goPartner(id,seq){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+                        <a class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     <li>
                         <a href="/partner/partnerView.do" class="name_block">
@@ -355,7 +355,7 @@ function goPartner(id,seq){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+                        <a class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     <li>
                         <a href="/partner/partnerView.do" class="name_block">
@@ -369,7 +369,7 @@ function goPartner(id,seq){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+                        <a class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     <li>
                         <a href="/partner/partnerView.do" class="name_block">
@@ -383,7 +383,7 @@ function goPartner(id,seq){
                                 <p class="name_text">우리투자증권 투자상담사</p>
                             </div>
                         </a>
-                        <a href="#" class="watch_movie">파트너 페이지 이동하기</a>
+                        <a class="watch_movie">파트너 페이지 이동하기</a>
                     </li>
                     </c:otherwise>
                 </c:choose>

@@ -90,11 +90,11 @@ $(document).ready(function(){
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
                         <ul class="youtube_list">
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
                         </ul>
                     </div>
                 </div>
@@ -108,16 +108,16 @@ $(document).ready(function(){
             </div>
             <div class="left_side">
                 <ul class="left_banner1">
-                    <li><a href="#">SIX 아카데미</a></li>
-                    <li><a href="#">SIX 일급정보</a></li>
-                    <li><a href="#">정보거래소</a></li>
+                    <li><a>SIX 아카데미</a></li>
+                    <li><a>SIX 일급정보</a></li>
+                    <li><a>정보거래소</a></li>
                 </ul>
                 <div class="left_banner2">
                     <p class="rank_title">RANKING</p>
                     <ul class="ranking_list">
-                        <li><a href="#"><img src="/resources/img/rank_img.png" alt=""></a></li>
-                        <li><a href="#"><img src="/resources/img/rank_img.png" alt=""></a></li>
-                        <li><a href="#"><img src="/resources/img/rank_img.png" alt=""></a></li>
+                        <li><a><img src="/resources/img/rank_img.png" alt=""></a></li>
+                        <li><a><img src="/resources/img/rank_img.png" alt=""></a></li>
+                        <li><a><img src="/resources/img/rank_img.png" alt=""></a></li>
                     </ul>
                 </div>
                 <div class="dart">
@@ -127,11 +127,11 @@ $(document).ready(function(){
             </div>
             <div class="right_side">
                 <ul class="right_banner1">
-                    <li><a href="#">정보열람<br>회원가입</a></li>
-                    <li><a href="#">SIX 파트너<br>신청</a></li>
+                    <li><a>정보열람<br>회원가입</a></li>
+                    <li><a>SIX 파트너<br>신청</a></li>
                 </ul>
-                <a href="#" class="right_bn3"><img src="/resources/img/right_bn3.jpg" alt=""></a>
-                <a href="#" class="right_bn4"><img src="/resources/img/right_bn4.jpg" alt=""></a>
+                <a class="right_bn3"><img src="/resources/img/right_bn3.jpg" alt=""></a>
+                <a class="right_bn4"><img src="/resources/img/right_bn4.jpg" alt=""></a>
             </div>
         </div>
 		<!-- Left Side -->

@@ -113,24 +113,24 @@ function chkContainValue(value, array){
                     <div class="pic">
                         <ul>
                             <li>
-                                <a href="#"><img src="/resources/img/partner1_1.jpg" alt="건강지킴이"></a>
-                                <a href="#"><img src="/resources/img/partner1_2.jpg" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/partner1_1.jpg" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/partner1_2.jpg" alt="건강지킴이"></a>
                             </li>
                             <li>
-                                <a href="#"><img src="/resources/img/partner1_1.jpg" alt="건강지킴이"></a>
-                                <a href="#"><img src="/resources/img/partner1_2.jpg" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/partner1_1.jpg" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/partner1_2.jpg" alt="건강지킴이"></a>
                             </li>
                             <li>
-                                <a href="#"><img src="/resources/img/partner1_1.jpg" alt="건강지킴이"></a>
-                                <a href="#"><img src="/resources/img/partner1_2.jpg" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/partner1_1.jpg" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/partner1_2.jpg" alt="건강지킴이"></a>
                             </li>
                             <li>
-                                <a href="#"><img src="/resources/img/partner1_1.jpg" alt="건강지킴이"></a>
-                                <a href="#"><img src="/resources/img/partner1_2.jpg" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/partner1_1.jpg" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/partner1_2.jpg" alt="건강지킴이"></a>
                             </li>
                             <li>
-                                <a href="#"><img src="/resources/img/partner1_1.jpg" alt="건강지킴이"></a>
-                                <a href="#"><img src="/resources/img/partner1_2.jpg" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/partner1_1.jpg" alt="건강지킴이"></a>
+                                <a><img src="/resources/img/partner1_2.jpg" alt="건강지킴이"></a>
                             </li>
                         </ul>
                     </div>
@@ -149,11 +149,11 @@ function chkContainValue(value, array){
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
                         <ul class="youtube_list">
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
                         </ul>
                     </div>
                 </div>
@@ -161,7 +161,7 @@ function chkContainValue(value, array){
             <div class="wrap_right">
                 <div class="right_contents">
                     <div class="layerPop3">
-                        <a href="#" class="close"><img src="/resources/img/layer_close2.png" alt=""></a>
+                        <a class="close"><img src="/resources/img/layer_close2.png" alt=""></a>
                         <img src="/resources/img/six_pop3.jpg" alt="six정보결제" class="six_pop">
                         <form id="frm" name="frm" method="post">
                         <input type="hidden" id="point" name="point">
@@ -242,7 +242,7 @@ function chkContainValue(value, array){
                         </div>
                         <div class="limited_info">
                             <p class="limited_tit">카드사 결제한도 안내</p>
-                            <p class="limited_tit2">포인트를 충전하는 사이트는 카드사별 정책으로 인해 결제한도 제한이 있습니다. <br>결제 전에 카드사 별 결제한도 조건을 확인하셔서 서비스 이용에 불편이 없으시길 바랍니다. <a href="#">결제한도 확인하기</a></p>
+                            <p class="limited_tit2">포인트를 충전하는 사이트는 카드사별 정책으로 인해 결제한도 제한이 있습니다. <br>결제 전에 카드사 별 결제한도 조건을 확인하셔서 서비스 이용에 불편이 없으시길 바랍니다. <a>결제한도 확인하기</a></p>
                         </div>
                         </form>
                     </div>

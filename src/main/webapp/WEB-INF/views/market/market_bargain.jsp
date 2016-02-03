@@ -27,11 +27,11 @@ $(document).ready(function(){
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
                         <ul class="youtube_list">
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
                         </ul>
                     </div>
                 </div>
@@ -41,8 +41,8 @@ $(document).ready(function(){
                 <div class="right_contents type2">
                     <p class="title_type1">매매기법</p>
                     <ul class="navi_map">
-                        <li><a href="#">정보거래소 &gt;</a></li>
-                        <li><a href="#">매매기법</a></li>
+                        <li><a>정보거래소 &gt;</a></li>
+                        <li><a>매매기법</a></li>
                     </ul>
                     <div class="table_top">
                         <p class="table_type1title2">무료종목도 좋은 정보를 제공합니다.</p>
@@ -80,7 +80,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">9월 예비인가 신청 앞두고 4파전</a></td>
+                                    <td class="text_left2"><a>9월 예비인가 신청 앞두고 4파전</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -88,7 +88,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">[투자격언을 통해 배우는 주식투자]</a></td>
+                                    <td class="text_left2"><a>[투자격언을 통해 배우는 주식투자]</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -96,7 +96,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">[투자격언을 통해 배우는 주식투자].</a></td>
+                                    <td class="text_left2"><a>[투자격언을 통해 배우는 주식투자].</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -104,7 +104,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">9월 예비인가 신청 앞두고 4파전9월 예비인가 신청 앞두고 4파전</a></td>
+                                    <td class="text_left2"><a>9월 예비인가 신청 앞두고 4파전9월 예비인가 신청 앞두고 4파전</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -112,7 +112,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">[투자격언을 통해 배우는 주식투자] 대중은 대개</a></td>
+                                    <td class="text_left2"><a>[투자격언을 통해 배우는 주식투자] 대중은 대개</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -120,7 +120,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">지피지기 백전불태 (知彼知己百戰不殆)</a></td>
+                                    <td class="text_left2"><a>지피지기 백전불태 (知彼知己百戰不殆)</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -128,7 +128,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">9월 예비인가 신청 앞두고 4파전</a></td>
+                                    <td class="text_left2"><a>9월 예비인가 신청 앞두고 4파전</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -136,7 +136,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">9월 예비인가 신청 앞두고 4파전 지피지기 백전불태 (知彼知己百戰不殆)지피지기 백전불태 (知彼知己百戰不殆)</a></td>
+                                    <td class="text_left2"><a>9월 예비인가 신청 앞두고 4파전 지피지기 백전불태 (知彼知己百戰不殆)지피지기 백전불태 (知彼知己百戰不殆)</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -144,7 +144,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">9월 예비인가 신청 앞두고 4파전</a></td>
+                                    <td class="text_left2"><a>9월 예비인가 신청 앞두고 4파전</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -152,7 +152,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">9월 예비인가 신청 앞두고 4파전</a></td>
+                                    <td class="text_left2"><a>9월 예비인가 신청 앞두고 4파전</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -160,7 +160,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">9월 예비인가 신청 앞두고 4파전</a></td>
+                                    <td class="text_left2"><a>9월 예비인가 신청 앞두고 4파전</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -168,7 +168,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">9월 예비인가 신청 앞두고 4파전</a></td>
+                                    <td class="text_left2"><a>9월 예비인가 신청 앞두고 4파전</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -176,7 +176,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">9월 예비인가 신청 앞두고 4파전</a></td>
+                                    <td class="text_left2"><a>9월 예비인가 신청 앞두고 4파전</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -184,7 +184,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">9월 예비인가 신청 앞두고 4파전</a></td>
+                                    <td class="text_left2"><a>9월 예비인가 신청 앞두고 4파전</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -192,7 +192,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">9월 예비인가 신청 앞두고 4파전</a></td>
+                                    <td class="text_left2"><a>9월 예비인가 신청 앞두고 4파전</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -200,7 +200,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">9월 예비인가 신청 앞두고 4파전</a></td>
+                                    <td class="text_left2"><a>9월 예비인가 신청 앞두고 4파전</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -208,7 +208,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">9월 예비인가 신청 앞두고 4파전</a></td>
+                                    <td class="text_left2"><a>9월 예비인가 신청 앞두고 4파전</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -216,7 +216,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">9월 예비인가 신청 앞두고 4파전</a></td>
+                                    <td class="text_left2"><a>9월 예비인가 신청 앞두고 4파전</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -224,7 +224,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">9월 예비인가 신청 앞두고 4파전</a></td>
+                                    <td class="text_left2"><a>9월 예비인가 신청 앞두고 4파전</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -232,7 +232,7 @@ $(document).ready(function(){
                                 <tr>
                                     <td>앨리스</td>
                                     <td>롯데칠성/시장정보</td>
-                                    <td class="text_left2"><a href="#">9월 예비인가 신청 앞두고 4파전</a></td>
+                                    <td class="text_left2"><a>9월 예비인가 신청 앞두고 4파전</a></td>
                                     <td>2015-09-20</td>
                                     <td>무료</td>
                                     <td>3125</td>
@@ -242,31 +242,31 @@ $(document).ready(function(){
                         </table>
                     </div>
                     <div class="table_bottom">
-                        <a href="#" class="go_list">목록으로</a>
+                        <a class="go_list">목록으로</a>
                         <ul class="table_option">
-                            <li><a href="#">삭제</a></li>
-                            <li><a href="#">취소</a></li>
-                            <li><a href="#">수정</a></li>
-                            <li class="on"><a href="#">글쓰기</a></li>
+                            <li><a>삭제</a></li>
+                            <li><a>취소</a></li>
+                            <li><a>수정</a></li>
+                            <li class="on"><a>글쓰기</a></li>
                         </ul>
                     </div>
                     <div class="paging">
-                        <a href="#" class="prev2"><img src="/resources/img/prev2.png" alt="이전"></a>
-                        <a href="#" class="prev1"><img src="/resources/img/prev1.png" alt="이전"></a>
+                        <a class="prev2"><img src="/resources/img/prev2.png" alt="이전"></a>
+                        <a class="prev1"><img src="/resources/img/prev1.png" alt="이전"></a>
                         <ul class="paging_list">
-                            <li class="on"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">7</a></li>
-                            <li><a href="#">8</a></li>
-                            <li><a href="#">9</a></li>
-                            <li><a href="#">10</a></li>
+                            <li class="on"><a>1</a></li>
+                            <li><a>2</a></li>
+                            <li><a>3</a></li>
+                            <li><a>4</a></li>
+                            <li><a>5</a></li>
+                            <li><a>6</a></li>
+                            <li><a>7</a></li>
+                            <li><a>8</a></li>
+                            <li><a>9</a></li>
+                            <li><a>10</a></li>
                         </ul>
-                        <a href="#" class="next1"><img src="/resources/img/next1.png" alt="이전"></a>
-                        <a href="#" class="next2"><img src="/resources/img/next2.png" alt="이전"></a>
+                        <a class="next1"><img src="/resources/img/next1.png" alt="이전"></a>
+                        <a class="next2"><img src="/resources/img/next2.png" alt="이전"></a>
                     </div>
                 </div>
             </div>

@@ -47,8 +47,8 @@
                     <input type="password" class="input_type2" placeholder="비밀번호" id="j_password" name="j_password">
                     <button class="btn_type2" type="button" id="loginBtn">로그인</button>
                     <div class="id_pw">
-                        <a href="#">아이디 /</a>
-                        <a href="#"> 비밀번호 찾기</a>
+                        <a>아이디 /</a>
+                        <a> 비밀번호 찾기</a>
                     </div>
                 </div>
             </div>

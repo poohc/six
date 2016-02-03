@@ -85,13 +85,13 @@
                             <div class="pic">
                                 <ul>
                                     <li>
-                                        <a href="#"><img src="/resources/img/rolling1.jpg" alt="건강지킴이"></a>
+                                        <a><img src="/resources/img/rolling1.jpg" alt="건강지킴이"></a>
                                     </li>
                                     <li>
-                                        <a href="#"><img src="/resources/img/rolling1_1.jpg" alt="건강지킴이"></a>
+                                        <a><img src="/resources/img/rolling1_1.jpg" alt="건강지킴이"></a>
                                     </li>
                                     <li>
-                                        <a href="#"><img src="/resources/img/rolling1_2.jpg" alt="건강지킴이"></a>
+                                        <a><img src="/resources/img/rolling1_2.jpg" alt="건강지킴이"></a>
                                     </li>
                                 </ul>
                             </div>
@@ -134,7 +134,7 @@
 	                    <ul>
 	                        <li><a href="/point/pointBuy.do">포인트신청</a></li>
 	                        <li><a href="/point/pointUser.do">구매내역</a></li>
-	                        <li><a href="#">회원정보</a></li>
+	                        <li><a>회원정보</a></li>
 	                    </ul>
 	                </div>
             		</c:when>            		
@@ -156,13 +156,13 @@
                                 <div class="pic">
                                     <ul>
                                         <li>
-                                            <a href="#"><img src="/resources/img/rolling2.jpg" alt="건강지킴이"></a>
+                                            <a><img src="/resources/img/rolling2.jpg" alt="건강지킴이"></a>
                                         </li>
                                         <li>
-                                            <a href="#"><img src="/resources/img/rolling2.jpg" alt="건강지킴이"></a>
+                                            <a><img src="/resources/img/rolling2.jpg" alt="건강지킴이"></a>
                                         </li>
                                         <li>
-                                            <a href="#"><img src="/resources/img/rolling2.jpg" alt="건강지킴이"></a>
+                                            <a><img src="/resources/img/rolling2.jpg" alt="건강지킴이"></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -174,7 +174,7 @@
                             </div>
                     </div>
                     </div>
-                    <div class="movie"><a href="#"><img src="/resources/img/movie.jpg" alt=""></a></div>
+                    <div class="movie"><a><img src="/resources/img/movie.jpg" alt=""></a></div>
                 </div>
             </div>
             <ul class="name_card">
@@ -199,7 +199,7 @@
           		</c:when>
           		<c:otherwise>
           		<li>
-                    <a href="#" class="name_block">
+                    <a class="name_block">
                         <div class="name_top">
                             <span class="name_title new">홍길동</span>
                             <span class="name_title2">SIX하나대투</span>
@@ -210,11 +210,11 @@
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
+                    <a class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 
                 <li>
-                    <a href="#" class="name_block">
+                    <a class="name_block">
                         <div class="name_top">
                             <span class="name_title new">홍길동</span>
                             <span class="name_title2">SIX하나대투</span>
@@ -225,11 +225,11 @@
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                   <a href="#" class="watch_movie">파트너 페이지 이동</a>
+                   <a class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 
                 <li>
-                    <a href="#" class="name_block">
+                    <a class="name_block">
                         <div class="name_top">
                             <span class="name_title new">홍길동</span>
                             <span class="name_title2">SIX하나대투</span>
@@ -240,10 +240,10 @@
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
+                    <a class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 <li>
-                    <a href="#" class="name_block">
+                    <a class="name_block">
                         <div class="name_top">
                             <span class="name_title new">홍길동</span>
                             <span class="name_title2">SIX하나대투</span>
@@ -254,10 +254,10 @@
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
+                    <a class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 <li>
-                    <a href="#" class="name_block">
+                    <a class="name_block">
                         <div class="name_top">
                             <span class="name_title new">홍길동</span>
                             <span class="name_title2">SIX하나대투</span>
@@ -268,10 +268,10 @@
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
+                    <a class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 <li>
-                    <a href="#" class="name_block">
+                    <a class="name_block">
                         <div class="name_top">
                             <span class="name_title new">홍길동</span>
                             <span class="name_title2">SIX하나대투</span>
@@ -282,11 +282,11 @@
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
+                    <a class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 
                 <li>
-                    <a href="#" class="name_block">
+                    <a class="name_block">
                         <div class="name_top">
                             <span class="name_title new">홍길동</span>
                             <span class="name_title2">SIX하나대투</span>
@@ -297,10 +297,10 @@
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
+                    <a class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 <li>
-                    <a href="#" class="name_block">
+                    <a class="name_block">
                         <div class="name_top">
                             <span class="name_title new">홍길동</span>
                             <span class="name_title2">SIX하나대투</span>
@@ -311,10 +311,10 @@
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
+                    <a class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 <li>
-                    <a href="#" class="name_block">
+                    <a class="name_block">
                         <div class="name_top">
                             <span class="name_title new">홍길동</span>
                             <span class="name_title2">SIX하나대투</span>
@@ -325,10 +325,10 @@
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
+                    <a class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 <li>
-                    <a href="#" class="name_block">
+                    <a class="name_block">
                         <div class="name_top">
                             <span class="name_title new">홍길동</span>
                             <span class="name_title2">SIX하나대투</span>
@@ -339,10 +339,10 @@
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
+                    <a class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 <li>
-                    <a href="#" class="name_block">
+                    <a class="name_block">
                         <div class="name_top">
                             <span class="name_title new">홍길동</span>
                             <span class="name_title2">SIX하나대투</span>
@@ -353,10 +353,10 @@
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
+                    <a class="watch_movie">파트너 페이지 이동</a>
                 </li>
                 <li>
-                    <a href="#" class="name_block">
+                    <a class="name_block">
                         <div class="name_top">
                             <span class="name_title new">홍길동</span>
                             <span class="name_title2">SIX하나대투</span>
@@ -367,14 +367,14 @@
                             <p class="name_text">우리투자증권 투자상담사</p>
                         </div>
                     </a>
-                    <a href="#" class="watch_movie">파트너 페이지 이동</a>
+                    <a class="watch_movie">파트너 페이지 이동</a>
                 </li>
           		</c:otherwise>
              </c:choose>    
             </ul>
             <div class="free_area">
                 <p class="free_title">SIX 주식정보거래소의 정보제공자와 만나보세요. 무료정보도 많습니다.</p>
-                <a href="#" class="free_more">더보기 +</a>
+                <a class="free_more">더보기 +</a>
             </div>
             <div class="latest_popular">
                 <p class="latest_title">코스피 상장사 498곳 3분기 실적 분석해보니</p>
@@ -544,7 +544,7 @@
             </ul>
             <ul class="another_link">
                 <li>
-                    <a href="#">
+                    <a>
                         <div class="linktitle_area">
                             <p class="link_title">링크제목입니다</p>
                             <p class="link_title2">게시물의 내용입니다. 게시물의 내용입니다. </p>
@@ -552,7 +552,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a>
                         <div class="linktitle_area">
                             <p class="link_title">링크제목입니다</p>
                             <p class="link_title2">게시물의 내용입니다. 게시물의 내용입니다. </p>
@@ -560,7 +560,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a>
                         <div class="linktitle_area">
                             <p class="link_title">링크제목입니다</p>
                             <p class="link_title2">게시물의 내용입니다. 게시물의 내용입니다. </p>
@@ -616,7 +616,7 @@
                           	<c:otherwise>
                           		<div class="ahead_top">
 		                            <img src="/resources/img/ahead2.gif" alt="">
-		                            <a href="#" class="ahead_text">
+		                            <a class="ahead_text">
 		                                <p class="aheadtext_title">게시물이 없습니다.</p>
 		                                <p class="aheadtext_title2">&nbsp;</p>
 		                                <p class="aheadtext_title3">&nbsp;</p>
@@ -673,7 +673,7 @@
                           	<c:otherwise>
                           		<div class="ahead_top">
 		                            <img src="/resources/img/ahead2.gif" alt="">
-		                            <a href="#" class="ahead_text">
+		                            <a class="ahead_text">
 		                                <p class="aheadtext_title">게시물이 없습니다.</p>
 		                                <p class="aheadtext_title2">&nbsp;</p>
 		                                <p class="aheadtext_title3">&nbsp;</p>
@@ -730,7 +730,7 @@
                           	<c:otherwise>
                           		<div class="ahead_top">
 		                            <img src="/resources/img/ahead2.gif" alt="">
-		                            <a href="#" class="ahead_text">
+		                            <a class="ahead_text">
 		                                <p class="aheadtext_title">게시물이 없습니다.</p>
 		                                <p class="aheadtext_title2">&nbsp;</p>
 		                                <p class="aheadtext_title3">&nbsp;</p>

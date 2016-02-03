@@ -4,7 +4,7 @@
         <div id="footer">
         	<ul class="look_ahead4">
                 <li><a href="/partner/partnerJoin.do"><p class="look_title">SIX 파트너 신청</p></a></li>
-                <li><a href="#" onclick="javascript:alert('준비중입니다.')"><p class="look_title">고객센터</p></a></li>
+                <li><a onclick="javascript:alert('준비중입니다.')"><p class="look_title">고객센터</p></a></li>
                 <li><a href="/member/memberJoin.do"><p class="look_title">회원가입</p></a></li>
             </ul>
             <div class="footer_top">
@@ -78,20 +78,20 @@
                 </div>
             </div>
             <ul class="bn_list">
-                <li><a href="#"><img src="/resources/img/bn1.png" alt="한국거래소"></a></li>
-                <li><a href="#"><img src="/resources/img/bn2.png" alt="우리투자증권"></a></li>
-                <li><a href="#"><img src="/resources/img/bn1.png" alt="우리투자증권"></a></li>
-                <li><a href="#"><img src="/resources/img/bn2.png" alt="우리투자증권"></a></li>
-                <li><a href="#"><img src="/resources/img/bn1.png" alt="우리투자증권"></a></li>
-                <li><a href="#"><img src="/resources/img/bn2.png" alt="우리투자증권"></a></li>
+                <li><a><img src="/resources/img/bn1.png" alt="한국거래소"></a></li>
+                <li><a><img src="/resources/img/bn2.png" alt="우리투자증권"></a></li>
+                <li><a><img src="/resources/img/bn1.png" alt="우리투자증권"></a></li>
+                <li><a><img src="/resources/img/bn2.png" alt="우리투자증권"></a></li>
+                <li><a><img src="/resources/img/bn1.png" alt="우리투자증권"></a></li>
+                <li><a><img src="/resources/img/bn2.png" alt="우리투자증권"></a></li>
             </ul>
             <div class="footer_bottom">
 			    <div class="footer_bottom2">
-			        <a href="#" class="foot_logo"><img src="/resources/img/foot_logo.png" alt="six"></a>
+			        <a class="foot_logo"><img src="/resources/img/foot_logo.png" alt="six"></a>
 			        <div class="footer_text">
 			            <ul class="foot_link">
 			                <li><a href="/company/aboutCompany.do">회사소개</a></li>
-			                <li><a href="#">문의하기</a></li>
+			                <li><a>문의하기</a></li>
 			                <li><a href="/main/main.do">SIX주식정보거래소</a></li>
 			            </ul>
 			            <div class="foot_text">

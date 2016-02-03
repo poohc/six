@@ -121,11 +121,11 @@ function setForm(editor) {
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
                         <ul class="youtube_list">
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
                         </ul>
                     </div>
                 </div>
@@ -135,8 +135,8 @@ function setForm(editor) {
                 <div class="right_contents type2">
                     <p class="title_type1">공지사항</p>
                     <ul class="navi_map">
-                        <li><a href="#">SIX 소개 &gt;</a></li>
-                        <li><a href="#">공지사항</a></li>
+                        <li><a>SIX 소개 &gt;</a></li>
+                        <li><a>공지사항</a></li>
                     </ul>
                     <div class="table_top">
                     </div>
@@ -170,13 +170,13 @@ function setForm(editor) {
                         <a href="/main/introNotice.do" class="go_list">목록으로</a>
                         <security:authorize ifAnyGranted="ROLE_ADMIN">
                         <ul class="table_option">
-                            <li><a href="#" onclick="history.back()">취소</a></li>
+                            <li><a onclick="history.back()">취소</a></li>
                             <c:choose>
                             <c:when test="${isUpdate eq 'true'}">
-                            	<li><a href="#" id="update_button">수정</a></li>
+                            	<li><a id="update_button">수정</a></li>
                             </c:when>
                             <c:otherwise>
-                            	<li><a href="#" id="save_button">글쓰기</a></li>
+                            	<li><a id="save_button">글쓰기</a></li>
                             </c:otherwise>
                             </c:choose>
                         </ul>

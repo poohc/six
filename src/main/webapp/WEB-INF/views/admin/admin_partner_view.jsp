@@ -129,6 +129,13 @@ $(document).ready(function(){
 									<input type="text" id="accountName" name="accountName" value="${partnerInfo.ACCOUNT_NO}">
 								</td>
 							</tr>
+							<tr>
+								<th class="bb_line1">프로필_사진</td>
+								<td class="bb_line1">
+									<input type="file" id="file_profile" name="file_profile" style="width: 100%"><br/>
+									<c:out value="${partnerInfo.PROFILE_IMAGE}" escapeXml="false" />
+								</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>

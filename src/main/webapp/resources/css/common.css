@@ -738,7 +738,7 @@ table, th, td { border: 0px; border-spacing: 0; border-style: none; }
 .name_card.type2 li .name_block:hover{border: 1px solid #df412d;border-top: 4px solid #df412d;}
 .morning_briefing img{width: 301px;height: 114px;}
 .morning_briefing:after{display: none;}
-.personInfo{position: relative;height: 150px;background: url('/resources/img/personBg.jpg') no-repeat;}
+.personInfo{position: relative;height: 150px;}
 .personInfo img{position: absolute;top:0;left:25px;}
 .personInfo .personTitle{position: absolute;top:30px;left:185px;font-size: 26px;color: #fff;font-family: 'Nanum Barun Ghthic';}
 .personInfo .personTitle2{position: absolute;top:35px;left:270px;font-size: 16px;color: #0f5dde;font-family: 'Nanum Barun Ghthic';}

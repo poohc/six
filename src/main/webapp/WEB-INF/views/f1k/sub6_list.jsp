@@ -151,20 +151,20 @@
             </div>
             <div class="pagingWrap">
                 <div class="paging"><!-- paging -->
-                    <a href="#" class="first">처음페이지</a>
-                    <a href="#" class="prev">이전페이지</a>
-                    <a href="#" class="on">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">6</a>
-                    <a href="#">7</a>
-                    <a href="#">8</a>
-                    <a href="#">9</a>
-                    <a href="#">10</a>
-                    <a href="#" class="next">다음페이지</a>
-                    <a href="#" class="last">마지막페이지</a>
+                    <a class="first">처음페이지</a>
+                    <a class="prev">이전페이지</a>
+                    <a class="on">1</a>
+                    <a>2</a>
+                    <a>3</a>
+                    <a>4</a>
+                    <a>5</a>
+                    <a>6</a>
+                    <a>7</a>
+                    <a>8</a>
+                    <a>9</a>
+                    <a>10</a>
+                    <a class="next">다음페이지</a>
+                    <a class="last">마지막페이지</a>
                 </div>
                 <button class="pagingRight">글쓰기</button>
             </div>

@@ -30,11 +30,11 @@ $(document).ready(function(){
                     <a class="youtube_title">채널<span>+ 더보기</span></a>
                     <div class="youtube_box">
                         <ul class="youtube_list">
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
-                            <li><a href="#"><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
+                            <li><a><img src="/resources/img/youtube2.png" alt=""><p>박준상 TSI 투자 자문역</p></a></li>
                         </ul>
                     </div>
                 </div>
@@ -44,8 +44,8 @@ $(document).ready(function(){
                 <div class="right_contents type2">
                     <p class="title_type1">SIX이용후기</p>
                     <ul class="navi_map">
-                        <li><a href="#">커뮤니티 &gt;</a></li>
-                        <li><a href="#">SIX이용후기</a></li>
+                        <li><a>커뮤니티 &gt;</a></li>
+                        <li><a>SIX이용후기</a></li>
                     </ul>
                     <div class="table_top">
                         <p class="table_type1title2"><span>무료종목도 좋은 정보를 제공합니다.</span></p>
@@ -101,13 +101,13 @@ $(document).ready(function(){
                         <a href="javascript:goList()" class="go_list">목록으로</a>
                         <security:authorize ifAnyGranted="ROLE_ADMIN">
                         <ul class="table_option">
-                            <li><a href="#" onclick="history.back()">취소</a></li>
+                            <li><a onclick="history.back()">취소</a></li>
                             <c:choose>
                             <c:when test="${isUpdate eq 'true'}">
-                            	<li><a href="#" id="updateBtn">수정</a></li>
+                            	<li><a id="updateBtn">수정</a></li>
                             </c:when>
                             <c:otherwise>
-                            	<li><a href="#" id="saveBtn">글쓰기</a></li>
+                            	<li><a id="saveBtn">글쓰기</a></li>
                             </c:otherwise>
                             </c:choose>
                         </ul>

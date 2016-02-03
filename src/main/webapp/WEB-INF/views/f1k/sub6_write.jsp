@@ -83,10 +83,10 @@
             </div>
             <div class="btn_box">
                 <div class="left_boxs">
-                    <a href="#" class="btn_type3">취 소</a>
+                    <a class="btn_type3">취 소</a>
                 </div>
                 <div class="right_boxs">
-                    <a href="#" class="btn_type1">등 록</a>
+                    <a class="btn_type1">등 록</a>
                 </div>
             </div>
         </div>

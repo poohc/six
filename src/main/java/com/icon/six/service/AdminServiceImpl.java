@@ -93,11 +93,17 @@ public class AdminServiceImpl implements AdminService{
 				//파일 업로드 처리(다중 파일 업로드)
 				String filePath = request.getSession().getServletContext().getRealPath("/") + fileUploadPath.replace("/", File.separator);
 				String dbFileName = ""; 
+				String profile_dbFileName = "";
 				
 				int fileCount = 0;
+				int profile_fileCount = 0;
 				String fileNm = "";
+				String profile_fileNm = "";
 				
 				List<MultipartFile> multiPartFileList = request.getFiles("file");
+				
+				//파트너 프로필 이미지 추가
+				List<MultipartFile> multiPartFileList_profile = request.getFiles("file_profile");
 				
 				for(MultipartFile multiPartFile : multiPartFileList){
 					
@@ -124,9 +130,39 @@ public class AdminServiceImpl implements AdminService{
 					fileCount++;					
 				}
 				
+				for(MultipartFile multiPartFile : multiPartFileList_profile){
+					
+					if(!multiPartFile.isEmpty()){
+						if(profile_fileCount == 0){
+							 File file = new File(filePath);
+						        if(!file.exists()) {
+						           file.mkdirs();
+						     } 
+						}
+						
+						SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
+				        String today= formatter.format(new java.util.Date());
+				        profile_fileNm = today+ "__" +multiPartFile.getOriginalFilename();
+				        
+			        	if(profile_fileCount == 0){
+			        		profile_dbFileName += profile_fileNm;
+				        } else {
+				        	profile_dbFileName += "," + profile_fileNm;
+				        }
+						multiPartFile.transferTo(new File(filePath + profile_fileNm));
+				        
+					}						
+					profile_fileCount++;					
+				}
+				
 				if(!"".equals(dbFileName)){
 					String img = "<img src=\""+fileUploadPath + fileNm+"\">";
 					param.put("image", img);
+				}
+				
+				if(!"".equals(dbFileName)){
+					String img = "<img src=\""+fileUploadPath + profile_fileNm+"\">";
+					param.put("profileImage", img);
 				}
 				
 			}
@@ -134,7 +170,7 @@ public class AdminServiceImpl implements AdminService{
 			result = adminDao.updatePartner(param);
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			// TODO: 에러 처리
 		}
 		
 		return result;	
