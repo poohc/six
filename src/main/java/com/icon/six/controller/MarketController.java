@@ -1131,7 +1131,7 @@ public class MarketController {
 	@RequestMapping(value = "marketBargainView.do")
 	public ModelAndView marketBargainView(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
 		
-		ModelAndView mav = new ModelAndView("market/market_lcenter_view");
+		ModelAndView mav = new ModelAndView("market/market_bargain_view");
 		
 		requestMap.put("category", CommonConstant.BARGAIN_TECHNIQUES);
 		requestMap.put("boardName", CommonConstant.MARKETBARGAIN_BOARD);	
@@ -1400,7 +1400,7 @@ public class MarketController {
 	@RequestMapping(value = "marketAdvView.do")
 	public ModelAndView marketAdvView(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
 		
-		ModelAndView mav = new ModelAndView("market/market_lcenter_view");
+		ModelAndView mav = new ModelAndView("market/market_adv_view");
 		
 		requestMap.put("boardName", CommonConstant.ADVANCE_MARKET);
 		requestMap.put("boardName", CommonConstant.MARKETADV_BOARD);	
