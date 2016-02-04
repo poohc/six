@@ -1402,7 +1402,7 @@ public class MarketController {
 		
 		ModelAndView mav = new ModelAndView("market/market_adv_view");
 		
-		requestMap.put("boardName", CommonConstant.ADVANCE_MARKET);
+		requestMap.put("category", CommonConstant.ADVANCE_MARKET);
 		requestMap.put("boardName", CommonConstant.MARKETADV_BOARD);	
 		Map<String, Object> resultMap = boardService.selectPartnerBoardInfo(requestMap);
 		
