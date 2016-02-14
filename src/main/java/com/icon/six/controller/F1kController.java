@@ -31,7 +31,7 @@ public class F1kController {
 	public ModelAndView main(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){
 		
 		ModelAndView mav = new ModelAndView("f1k/index");
-		logger.debug("requestMap : " + requestMap);
+		logger.info(">>>>>>>>>>>>>>> requestMap : " + requestMap);
 		
 		try {
 			requestMap.put("boardName", CommonConstant.F1K_NOTICE_BOARD);
@@ -40,6 +40,13 @@ public class F1kController {
 			mav.addObject("list",boardInfo.get("list"));			
 			mav.addObject("counselingPage","/f1k/counselingProcess.do");
 			mav.addObject("viewPage","/f1k/f1kNoticeView.do");
+			
+			System.out.println("<<<<<<<<<<<<<<" + String.valueOf(requestMap.get("etc")) + ">>>>>>>>>>>>>>>>");
+			
+			if(!"null".equals(String.valueOf(requestMap.get("etc")))){
+				System.out.println("일루 왔나?? ? ?!@#");
+				mav.addObject("etc",String.valueOf(requestMap.get("etc")));
+			}
 			
 		} catch (Exception e) {
 			// TODO: 에러처리
@@ -139,6 +146,7 @@ public class F1kController {
 		
 		mav.addObject("msg",msg);
 		mav.addObject("page","/f1k/main.do");
+		mav.addObject("etc","popup");
 		
 		return mav;
 	}	

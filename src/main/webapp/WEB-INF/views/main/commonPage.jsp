@@ -29,6 +29,7 @@
 	<input type="hidden" id="id" name="id" value="${id}">
 	<input type="hidden" id="category" name="category" value="${category}">
 	<input type="hidden" id="partnerSeq" name="partnerSeq" value="${partnerSeq}">
+	<input type="hidden" id="etc" name="etc" value="${etc}">
 </form>
 </body>
 </html>

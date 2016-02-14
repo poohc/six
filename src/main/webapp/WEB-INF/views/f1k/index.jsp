@@ -25,6 +25,10 @@ $(document).ready(function(){
 		}
 	});	
 	
+	if('<c:out value="${etc}" />' != ''){
+		popimage('/resources/f1k/img/popup.jpg',500,330);
+	}
+	
 });
 
 function goCounseling(){
@@ -89,6 +93,14 @@ function goView(seq){
 	$('#frm').attr('action',$('#viewPage').val());
 	$('#frm').submit();
 }
+
+function popimage(imagesrc,winwidth,winheight){
+	 var look='width='+winwidth+',height='+winheight+','
+	  popwin=window.open("","",look)
+	  popwin.document.open()
+	  popwin.document.write('<title>Image Window</title><body topmargin=0 leftmargin=0><img style=cursor:hand; onclick="self.close()" src="'+imagesrc+'"></body>')
+	  popwin.document.close()
+	}
 
 </script>
 </head>
@@ -222,7 +234,7 @@ function goView(seq){
        	    	<div class="dimBg">
        	    	</div>
         		<div class="consultPopup pop-layer" id="layer2">
-            <textarea name="" id="" cols="30" rows="10" class="consultTextarea">약관</textarea>
+            <textarea name="" id="" cols="30" rows="10" class="consultTextarea"></textarea>
             <ul class="popupCheckList">
                 <li>
                     <p class="popupTitle1" id="q1">1. 주식 투자를 하길 잘했다고 생각하십니까?</p>
@@ -339,9 +351,10 @@ function goView(seq){
         <div class="footerArea">
             <img src="/resources/f1k/img/logo.png" alt="">
             <div class="footCont">
-                000-000 서울특별시 가나구 다라동 에이비씨 12호    TEL  02.777.7777    FAX  02.777.7777    대표  홍길동   퍼스트원인베스트먼트매니지먼트<br>
-                개인정보책임자  홍길동     사업자등록번호  333-33-33333     통신판매업신고  333-33-33333<br>
-                Copyright 2015© First One Investment Management. All right reserved.
+                (153-813)&nbsp;&nbsp; 서울특별시 금천구 두산로 70 현대지식산업센터 B동 2201호 Tel&nbsp;:&nbsp;(02)6112-6853&nbsp;&nbsp; Fax&nbsp;:&nbsp;(02)6112-6859<br>
+		퍼스트원 투자자문(주) &nbsp;&nbsp;사업자등록번호&nbsp; :&nbsp;364-81-0048 &nbsp;&nbsp;금융감독원등록번호&nbsp; : &nbsp;투자자문업 &nbsp;15-10-15<br>
+		Copyright © First One Investment Management. All right reserved. 
+
             </div>
         </div>
     </div>
