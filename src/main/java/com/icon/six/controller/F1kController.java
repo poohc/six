@@ -134,9 +134,9 @@ public class F1kController {
 		try {
 			result = f1kService.insertF1kCounseling(requestMap);
 			if(result == 1){
-				msg = "상담이 신청되었습니다.";
+//				msg = "상담이 신청되었습니다.";
 			} else {
-				msg = "상담 신청에 문제가 발생했습니다. 관리자에게 문의해 주세요.";
+//				msg = "상담 신청에 문제가 발생했습니다. 관리자에게 문의해 주세요.";
 			}
 			
 		} catch (Exception e) {

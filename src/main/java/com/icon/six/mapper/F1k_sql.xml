@@ -97,4 +97,10 @@
                )
     </insert>
     
+    <delete id="deleteF1kCounseling" parameterType="java.util.HashMap">
+    	DELETE 
+    	  FROM F1K_COUNSELING
+         WHERE SEQ = #{seq}
+    </delete>
+    
 </mapper>

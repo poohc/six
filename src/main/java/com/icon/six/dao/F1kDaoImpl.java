@@ -25,4 +25,9 @@ public class F1kDaoImpl extends SqlSessionDao implements F1kDao{
 		return (int) insert(MAPPER_NAME + "insertF1kCounseling", param);
 	}
 
+	@Override
+	public int deleteF1kCounseling(Map<String, Object> param) {
+		return (int) delete(MAPPER_NAME + "deleteF1kCounseling", param);
+	}
+
 }

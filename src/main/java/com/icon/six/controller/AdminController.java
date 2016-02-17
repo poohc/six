@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.icon.six.constant.CommonConstant;
 import com.icon.six.service.AdminService;
 import com.icon.six.service.BoardService;
+import com.icon.six.service.F1kService;
 import com.icon.six.util.StringUtil;
 
 @Controller
@@ -34,6 +35,9 @@ public class AdminController {
 	
 	@Resource
 	private AdminService adminService;
+	
+	@Resource
+	private F1kService f1kService;
 	
 	@RequestMapping(value="adminMain.do")
 	public ModelAndView adminMain(HttpServletRequest request, HttpServletResponse response){
@@ -282,10 +286,40 @@ public class AdminController {
 		Map<String, Object> counselingInfo = adminService.selectF1kCounselingInfo(requestMap);
 		
 		mav.addObject("counselingInfo",counselingInfo);
-		mav.addObject("listPage","/admin/counseling.do");
+		mav.addObject("listPage","/admin/f1kCounseling.do");
+		mav.addObject("deletePage","/admin/f1kCounselingDelete.do");
 		
 		return mav;
 	}
+	
+	@RequestMapping(value="f1kCounselingDelete.do")
+	public void f1kCounselingDelete(@RequestParam Map<String, Object> requestMap, HttpServletResponse response) throws IOException{
+		int result = 0;
+		
+		try{
+			
+			if("NotNull".equals(StringUtil.nullCheckMap((HashMap<String, Object>) requestMap))){
+				
+				result = f1kService.deleteF1kCounseling(requestMap);
+				
+				if(result == 1){
+					response.sendRedirect("/admin/f1kCounseling.do");
+				} else {
+					//TODO 에러 페이지
+					response.sendRedirect("/admin/error.do");
+				}
+				
+			} else {
+				// TODO 에러페이지 처리
+				response.sendRedirect("/admin/error.do");
+			}
+			
+		} catch (IOException e) {
+			// TODO 에러 페이지 처리
+			response.sendRedirect("/admin/error.do");
+		}
+	}
+	
 	
 	@RequestMapping(value="f1kNoticeBoard.do")
 	public ModelAndView f1kNoticeBoard(@RequestParam Map<String, Object> requestMap, HttpServletResponse response){

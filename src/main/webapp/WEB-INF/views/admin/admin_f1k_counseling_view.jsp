@@ -13,6 +13,13 @@ $(document).ready(function(){
     	$('#frm').attr('action',$('#listPage').val());
     	$('#frm').submit();
     });
+    
+    $("#deleteBtn").click(function(){
+    	if(confirm("정말 삭제하시겠습니까?")){
+    		$('#frm').attr('action',$('#deletePage').val());
+        	$('#frm').submit();	
+    	}
+    });
 });
 
 </script>
@@ -24,8 +31,9 @@ $(document).ready(function(){
 		<article class="module width_full">
 			<header><h3>상담신청 내역</h3></header>
 			<form id="frm" name="frm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-				<input type="hidden" id="seq" name="seq" value="${partnerInfo.SEQ}">
+				<input type="hidden" id="seq" name="seq" value="${counselingInfo.SEQ}">
 				<input type="hidden" id="listPage" name="listPage" value="${listPage}">
+				<input type="hidden" id="deletePage" name="deletePage" value="${deletePage}">
 			</form>				
 				<div class="module_content">
 					<ul class="advice_list">
@@ -92,6 +100,7 @@ $(document).ready(function(){
 				<footer>
 					<div class="submit_link">
 						<button type="button" id="listBtn">리스트</button>
+						<button type="button" id="deleteBtn">삭제</button>
 					</div>
 				</footer>
 		</article><!-- end of post new article -->					

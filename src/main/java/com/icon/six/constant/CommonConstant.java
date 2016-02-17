@@ -93,5 +93,7 @@ public class CommonConstant {
 	/**************** F1K 게시판 관련 ********************/
 	/*F1K 공지사항 게시판*/
 	public static final String F1K_NOTICE_BOARD = "F1K_NOTICE_BOARD";
+	/*F1K 상담신청 게시판*/
+	public static final String F1K_COUNSELING = "F1K_COUNSELING";
 	
 }

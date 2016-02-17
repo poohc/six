@@ -97,5 +97,10 @@ public class F1kServiceImpl implements F1kService{
 	public int insertF1kCounseling(Map<String, Object> param) {
 		return f1kDao.insertF1kCounseling(param);
 	}
+
+	@Override
+	public int deleteF1kCounseling(Map<String, Object> param) {
+		return f1kDao.deleteF1kCounseling(param);
+	}
 	
 }

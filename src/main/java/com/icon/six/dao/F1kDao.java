@@ -22,4 +22,10 @@ public interface F1kDao {
 	 * @return
 	 */
 	public int insertF1kCounseling(Map<String, Object> param);
+	/**
+	 * F1K 상담 게시판 DELETE
+	 * @param param
+	 * @return
+	 */
+	public int deleteF1kCounseling(Map<String, Object> param);
 }
