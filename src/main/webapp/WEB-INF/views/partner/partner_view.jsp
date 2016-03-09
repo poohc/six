@@ -121,13 +121,14 @@ function fileDownLoad(fileName){
             <div class="wrap_right">
                 <img src="/resources/img/partner1.jpg" alt="" class="top_mainimg">
                 <div class="personInfo">
-                    <img src="/resources/img/p_1.png" alt="">
-                    <p class="personTitle">최성관</p>
-                    <p class="personTitle2">SIX파트너</p>
-                    <p class="personTitle3">주식정보의 큰손</p>
-                    <p class="personTitle4">OO대학교 경제학과</p>
-                    <p class="personTitle5">OO투자증권 FP</p>
-                    <p class="personTitle6">SIX투자증권</p>
+                	<c:out value="${partnerInfo.PROFILE_IMAGE}" escapeXml="false" />
+<!--                     <img src="/resources/img/p_1.png" alt=""> -->
+<!--                     <p class="personTitle">최성관</p> -->
+<!--                     <p class="personTitle2">SIX파트너</p> -->
+<!--                     <p class="personTitle3">주식정보의 큰손</p> -->
+<!--                     <p class="personTitle4">OO대학교 경제학과</p> -->
+<!--                     <p class="personTitle5">OO투자증권 FP</p> -->
+<!--                     <p class="personTitle6">SIX투자증권</p> -->
                 </div>
                 <ul class="inform_list">
                     <li>총 정보등록건수<span>${partnerBoardStat.CNT}</span></li>

@@ -157,6 +157,7 @@ public class PartnerController {
 			
 			Map<String, Object> resultMap = boardService.selectPartnerBoardInfo(requestMap);
 			Map<String, Object> partnerBoardStat = boardService.selectSixPartnerBoardStat(String.valueOf(requestMap.get("id")));
+			Map<String, Object> partnerInfo = adminService.selectPartnerInfo(String.valueOf(requestMap.get("partnerSeq")));
 			
 			mav.addObject("partnerBoardInfo",resultMap.get("boardInfo"));
 			mav.addObject("fileList",resultMap.get("fileList"));
@@ -166,6 +167,7 @@ public class PartnerController {
 			mav.addObject("seq",requestMap.get("seq"));
 			mav.addObject("partnerSeq",requestMap.get("partnerSeq"));
 			mav.addObject("listPage","/partner/partnerFreeInfo.do");
+			mav.addObject("partnerInfo",partnerInfo);
 			mav.addObject("updateAction","/partner/partnerFreeInfoUpdate.do");
 			mav.addObject("deleteAction","/partner/partnerFreeInfoDelete.do");
 			mav.addObject("partnerBoardStat",partnerBoardStat);
