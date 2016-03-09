@@ -155,12 +155,12 @@ public class AdminServiceImpl implements AdminService{
 					profile_fileCount++;					
 				}
 				
-				if(!"".equals(dbFileName)){
+				if(dbFileName.length() > 0){
 					String img = "<img src=\""+fileUploadPath + fileNm+"\">";
 					param.put("image", img);
 				}
 				
-				if(!"".equals(dbFileName)){
+				if(profile_dbFileName.length() > 0){
 					String img = "<img src=\""+fileUploadPath + profile_fileNm+"\">";
 					param.put("profileImage", img);
 				}
